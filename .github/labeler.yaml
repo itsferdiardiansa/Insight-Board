@@ -1,7 +1,7 @@
 app:
   - 'app/**'
 
-components:
+ui:
   - 'components/**'
 
 feat:
@@ -57,3 +57,6 @@ ci:
 deps:
   - 'package.json'
   - 'pnpm-lock.yaml'
+
+debug:
+  - '**/*'
