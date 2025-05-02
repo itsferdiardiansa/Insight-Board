@@ -4,10 +4,12 @@
 [![React](https://img.shields.io/badge/React-20232a?logo=react&logoColor=61dafb)](https://reactjs.org/)
 [![TanStack Query](https://img.shields.io/badge/TanStack%20Query-FF4154?logo=react-query&logoColor=white)](https://tanstack.com/query)
 [![Jest](https://img.shields.io/badge/tested%20with-jest-99424f.svg?logo=jest)](https://jestjs.io/)
-[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/itsferdiardiansa/Insight-Board/ci.yml?label=CI&logo=githubactions&style=flat)](https://github.com/itsferdiardiansa/Insight-Board/actions)
+[![GitHub Actions](https://github.com/itsferdiardiansa/Insight-Board/actions/workflows/test.yaml/badge.svg)](https://github.com/itsferdiardiansa/Insight-Board/actions/workflows/test.yaml)
 
 A modern, scalable SaaS application built with **Next.js (TypeScript)**. It provides AI-powered dashboards by integrating data from services like Stripe, Shopify, and Google Analytics.
 Designed with **TDD**, component-based architecture, and full test coverage using **Jest** and **React Testing Library**.
+
+![landing-page](https://github.com/user-attachments/assets/dbceff98-8285-438c-90d7-96f2d537ca10)
 
 ---
 
@@ -38,8 +40,8 @@ Designed with **TDD**, component-based architecture, and full test coverage usin
 #### 1. Clone & Install
 
 ```bash
-git clone https://github.com/your-username/saas-dashboard.git
-cd saas-dashboard
+git clone https://github.com/itsferdiardiansa/Insight-Board.git
+cd insight-board
 pnpm install
 ```
 
@@ -81,9 +83,9 @@ pnpm run test:coverage
 
 #### Example test file:
 ```ts
-// __tests__/components/Button.test.tsx
+// button/__tests__/index.tsx
 import { render, screen } from '@testing-library/react';
-import Button from '@/components/ui/Button';
+import Button from '..';
 
 test('renders button with text', () => {
   render(<Button label="Click me" />);
