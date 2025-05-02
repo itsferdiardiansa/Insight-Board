@@ -21,7 +21,7 @@ runs:
   using: composite
   steps:
     - name: Install pnpm
-      uses: pnpm/action-setup@v3.0.0
+      uses: pnpm/action-setup@v4.1.0
       with:
         version: ${{ inputs.pnpm-version }}
         dest: ~/.pnpm-store
