@@ -1,0 +1,21 @@
+name: pr labeler
+on:
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: auto-label-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions: write-all
+
+jobs:
+  labeler:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/labeler@v5

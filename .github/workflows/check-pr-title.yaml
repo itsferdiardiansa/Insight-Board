@@ -1,8 +1,10 @@
-name: Check PR Title
+name: check pr title
 
 on:
   pull_request:
     types: [opened, edited, synchronize, reopened]
+
+permissions: read-all
 
 jobs:
   check-pr-title:
@@ -14,14 +16,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           types: |
-              feat
-              fix
-              ci
-              chore
-              docs
-              refactor
-              perf
-              test
-              release
+            feat
+            fix
+            ci
+            chore
+            docs
+            refactor
+            perf
+            test
+            release
           subjectPattern: ^[a-z].+$
           subjectPatternError: 'The subject must start with a lowercase letter.'
