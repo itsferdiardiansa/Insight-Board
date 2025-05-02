@@ -1,0 +1,59 @@
+app:
+  - 'app/**'
+
+components:
+  - 'components/**'
+
+feat:
+  - 'features/**'
+
+utils:
+  - 'utils/**'
+  - 'lib/**'
+  - 'helpers/**'
+
+hooks:
+  - 'hooks/**'
+  - '**/use*.ts'
+  - '**/use*.tsx'
+
+seo:
+  - 'app/**/metadata.ts'
+  - 'app/robots.txt'
+  - 'app/sitemap.xml'
+
+design:
+  - '**/*.css'
+  - '**/*.scss'
+  - '**/*.sass'
+  - 'styles/**'
+  - 'theme/**'
+  - 'tailwind.config.*'
+
+tests:
+  - '__tests__/**'
+
+config:
+  - '.eslintrc*'
+  - '.prettierrc*'
+  - '*.config.*'
+  - 'tsconfig.*'
+  - '.lintstagedrc.js'
+  - 'jest.setup.js'
+  - 'tsconfig.json'
+
+build:
+  - 'public/**'
+  - 'scripts/**'
+
+docs:
+  - 'docs/**'
+  - '**/*.md'
+
+ci:
+  - '.github/workflows/**'
+  - '.github/actions/**'
+
+deps:
+  - 'package.json'
+  - 'pnpm-lock.yaml'
