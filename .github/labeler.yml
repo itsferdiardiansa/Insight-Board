@@ -1,0 +1,72 @@
+feat:
+  - changed-files:
+    - any-glob-to-any-file: 
+      - 'app/**'
+
+shared-ui:
+  - changed-files:
+    - any-glob-to-any-file: 
+      - 'components/**'
+
+utils:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'utils/**'
+      - 'lib/**'
+      - 'helpers/**'
+
+seo:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'app/**/metadata.ts'
+      - 'app/robots.txt'
+      - 'app/sitemap.xml'
+
+style:
+  - changed-files:
+    - any-glob-to-any-file:
+      - '**/*.css'
+      - '**/*.scss'
+      - '**/*.sass'
+      - 'styles/**'
+      - 'theme/**'
+      - 'tailwind.config.*'
+
+tests:
+  - changed-files:
+    - any-glob-to-any-file:
+      - '__tests__/**'
+
+config:
+  - changed-files:
+    - any-glob-to-any-file:
+      - '.eslintrc*'
+      - '.prettierrc*'
+      - '*.config.*'
+      - 'tsconfig.*'
+      - '.lintstagedrc.js'
+      - 'jest.setup.js'
+      - 'tsconfig.json'
+
+build:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'scripts/**'
+
+docs:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'docs/**'
+      - '**/*.md'
+
+ci:
+  - changed-files:
+    - any-glob-to-any-file:
+      - '.github/workflows/**'
+      - '.github/actions/**'
+
+deps:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'package.json'
+      - 'pnpm-lock.yaml'
