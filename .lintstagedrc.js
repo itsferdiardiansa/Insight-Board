@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const path = require('path')
  
 const buildEslintCommand = (filenames) =>
@@ -6,5 +7,5 @@ const buildEslintCommand = (filenames) =>
     .join(' --file ')}`
  
 module.exports = {
-  '*.{js,jsx,ts,tsx}': [buildEslintCommand],
+  '*.{mjs,js,ts,tsx}': [buildEslintCommand],
 }
