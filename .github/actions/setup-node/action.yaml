@@ -1,0 +1,64 @@
+name: Setup and cache
+description: Setup for node, pnpm and nx
+inputs:
+  node-version:
+    required: false
+    description: Node version for setup-node
+    default: 22.x
+  pnpm-version:
+    required: false
+    description: PNPM version
+    default: 10.x
+  install-deps:
+    required: false
+    description: Does this action need to install deps?
+    default: true
+  extra-flags:
+    required: false
+    description: Extra arguments for PNPM Install
+    default: ""
+runs:
+  using: composite
+  steps:
+    - name: Install pnpm
+      uses: pnpm/action-setup@v3.0.0
+      with:
+        version: ${{ inputs.pnpm-version }}
+        dest: ~/.pnpm-store
+
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+
+    - name: Set pnpm store path
+      id: store-path
+      shell: bash
+      run: |
+        STORE_PATH=$(pnpm store path)
+        echo "store-path=$STORE_PATH" >> $GITHUB_OUTPUT
+
+    - name: Generate pnpm cache key
+      id: cache-key
+      shell: bash
+      run: |
+        ARCH=$(echo "${{ runner.arch }}" | tr '[:upper:]' '[:lower:]')
+        PREFIX="node-cache-${{ runner.os }}-$ARCH-pnpm"
+        LOCK_HASH=$(sha256sum pnpm-lock.yaml | cut -d ' ' -f1)
+        echo "prefix=$PREFIX" >> $GITHUB_OUTPUT
+        echo "key=$PREFIX-$LOCK_HASH" >> $GITHUB_OUTPUT
+
+    - name: Cache pnpm store
+      uses: actions/cache@v4
+      id: cache
+      with:
+        path: ${{ steps.store-path.outputs.store-path }}
+        key: ${{ steps.cache-key.outputs.key }}
+        restore-keys: |
+          ${{ steps.cache-key.outputs.prefix }}-
+
+    - name: pnpm install
+      id: install
+      if: ${{ inputs.install-deps == 'true' }}
+      shell: bash
+      run: pnpm install ${{ inputs.extra-flags }}
