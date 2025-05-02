@@ -7,6 +7,6 @@ const buildEslintCommand = (filenames) =>
     .join(' --file ')}`
  
 module.exports = {
-  'src/**/*.{ts,tsx}': () => 'pnpm run type-check',
-  '*.{mjs,js,ts,tsx}': () => 'pnpm run lint',
+  'src/**/*.{ts,tsx}': () => ['pnpm type-check', 'pnpm test'],
+  '*.{mjs,js,ts,tsx}': () => 'pnpm lint',
 }
