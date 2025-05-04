@@ -2,5 +2,54 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
-  ]
+  ],
+  "enabled": true,
+  "timezone": "Asia/Jakarta",
+  "description": "Schedule updates on every first day of the month at 10AM",
+  "schedule": ["* 9 1 * *"],
+
+  "dependencyDashboard": true,
+  "dependencyDashboardApproval": true,
+  "rangeStrategy": "bump",
+  
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "matchDepTypes": ["dependencies", "devDependencies"],
+      "enabled": true,
+      "updateTypes": ["minor", "patch"],
+      "groupName": "All Dependencies",
+      "automerge": false,
+      "stabilityDays": 3
+    },
+    {
+      "matchPackagePatterns": ["eslint", "prettier", "@typescript-eslint/*"],
+      "groupName": "Linting & Formatting",
+      "updateTypes": ["minor", "patch"],
+      "stabilityDays": 2
+    },
+    {
+      "matchPackagePatterns": ["typescript", "ts-node", "tsconfig-paths"],
+      "groupName": "TypeScript Dependencies",
+      "updateTypes": ["minor", "patch"],
+      "stabilityDays": 3
+    },
+    {
+      "matchPackageNames": ["express", "axios", "redis"],
+      "groupName": "Core Libraries",
+      "updateTypes": ["minor", "patch"],
+      "stabilityDays": 5
+    }
+  ],
+
+  "branchPrefix": "renovate/",
+  "commitMessagePrefix": "chore(deps): ",
+  "prHourlyLimit": 3,
+  "prConcurrentLimit": 5,
+  "prCreation": "not-pending",
+  
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["* 5 1 * *"]
+  }
 }
