@@ -3,7 +3,6 @@
 import * as React from 'react'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import { FeaturedTestimonial } from './FeaturedTestimonial'
 import { IndustryLeaders } from './IndustryLeaders'
@@ -12,8 +11,6 @@ import ChristinaWocin from '@/assets/leaders/christina-wocin.jpg'
 import SarahCorneli from '@/assets/leaders/sarah-corneli.jpg'
 import ChristianBuehner from '@/assets/leaders/christian-buehner.jpg'
 import VickyHladynets from '@/assets/leaders/vicky-hladynets.jpg'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const testimonials = [
   {

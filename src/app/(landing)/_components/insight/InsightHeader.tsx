@@ -3,10 +3,7 @@
 import * as React from 'react'
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Badge } from '@/components/ui/badge'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export const InsightHeader: React.FC = () => {
   const badgeRef = useRef<HTMLDivElement | null>(null)

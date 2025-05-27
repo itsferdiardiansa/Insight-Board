@@ -6,9 +6,6 @@ import Image from 'next/image'
 import type { StaticImageData } from 'next/image'
 import { FaQuoteLeft } from 'react-icons/fa'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
 
 interface FeaturedTestimonialProps {
   imageSrc: string | StaticImageData

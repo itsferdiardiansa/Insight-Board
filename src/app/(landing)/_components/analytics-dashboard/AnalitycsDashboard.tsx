@@ -4,13 +4,10 @@ import * as React from 'react'
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import { AnalyticsDashboardHeader } from './AnalyticsDashboardHeader'
 import { MetricsSection } from './MetricsSection'
 import AnalyzerImage from '@/assets/regrouping.jpg'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const AnalyticsDashboard: React.FC = () => {
   const imageRef = useRef<HTMLDivElement>(null)

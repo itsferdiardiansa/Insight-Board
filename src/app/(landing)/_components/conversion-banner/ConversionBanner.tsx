@@ -4,11 +4,8 @@ import * as React from 'react'
 import Link from 'next/link'
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Statistics } from './Statistics'
 import { Button } from '@/components/ui/button'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const ConversionBanner: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement | null>(null)

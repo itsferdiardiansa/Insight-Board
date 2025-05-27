@@ -2,7 +2,6 @@
 
 import React, { useRef, useEffect } from 'react'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import ShopifyLogo from '@/assets/integration-tools/shopify.svg'
 import StripeLogo from '@/assets/integration-tools/stripe.svg'
@@ -12,8 +11,6 @@ import IntercomLogo from '@/assets/integration-tools/intercom.svg'
 import SlackLogo from '@/assets/integration-tools/slack.svg'
 import ZapierLogo from '@/assets/integration-tools/zapier.svg'
 import NotionLogo from '@/assets/integration-tools/notion.svg'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const integrations = [
   { name: 'Shopify', logo: <ShopifyLogo /> },

@@ -3,11 +3,8 @@
 import * as React from 'react'
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FeatureCard } from './FeatureCard'
 import { FaRocket, FaUsers, FaCogs, FaHandshake } from 'react-icons/fa'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export const Features: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null)

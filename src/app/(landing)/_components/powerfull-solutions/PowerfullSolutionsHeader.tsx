@@ -3,9 +3,6 @@
 import * as React from 'react'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export const PowerfullSolutionsHeader: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement | null>(null)

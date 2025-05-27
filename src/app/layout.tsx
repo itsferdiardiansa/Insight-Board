@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { JetBrains_Mono, Source_Sans_3 } from 'next/font/google'
 import '@/styles/globals.css'
 
+import { AnimationProvider } from '@/components/providers/animation-provider'
+
 const sourceSans = Source_Sans_3({
   variable: '--font-source-sans',
   subsets: ['latin'],
@@ -30,7 +32,7 @@ export default function RootLayout({
       className={`${sourceSans.variable} ${jetBrainsMono.variable}`}
     >
       <body className="antialiased font-sans text-neutral-800 bg-slate-50">
-        {children}
+        <AnimationProvider>{children}</AnimationProvider>
       </body>
     </html>
   )

@@ -2,13 +2,10 @@
 import React, { useRef } from 'react'
 import Image from 'next/image'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { CollaborationHeader } from './CollaborationHeader'
 import { CollaborationFeatureItem } from './CollaborationFeatureItem'
 import CollaborationImage from '@/assets/collaboration.jpg'
 import { cn } from '@/utils/tailwind'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const features = [
   {

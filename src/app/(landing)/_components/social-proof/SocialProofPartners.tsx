@@ -3,7 +3,6 @@
 import * as React from 'react'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import CitibanamexLogo from '@/assets/partners/citibanamex.svg'
 import AmazonLogo from '@/assets/partners/amazon.svg'
@@ -11,8 +10,6 @@ import SpotifyLogo from '@/assets/partners/spotify.svg'
 import TNTSportsLogo from '@/assets/partners/tnt-sports.svg'
 import VodafoneLogo from '@/assets/partners/vodafone.svg'
 import ToyotaLogo from '@/assets/partners/toyota.svg'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export const SocialProofPartners: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null)

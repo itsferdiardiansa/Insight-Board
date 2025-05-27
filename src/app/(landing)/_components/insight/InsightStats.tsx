@@ -4,9 +4,6 @@ import * as React from 'react'
 import { useRef, useEffect } from 'react'
 import { StatisticCard } from './StatisticCard'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export const InsightStats: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null)

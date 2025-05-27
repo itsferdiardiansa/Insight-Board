@@ -4,14 +4,11 @@ import * as React from 'react'
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import MetricsImage from '@/assets/Reports.png'
 import SaveProductsImage from '@/assets/save-products.png'
 import StockProductsImage from '@/assets/stock-products.png'
 import SalesProductsImage from '@/assets/sales-products.png'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export const InsightImage: React.FC = () => {
   const bgLeftRef = useRef<HTMLDivElement>(null)

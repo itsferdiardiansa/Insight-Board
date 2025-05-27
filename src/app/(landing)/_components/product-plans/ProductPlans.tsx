@@ -2,11 +2,8 @@
 
 import * as React from 'react'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ProductPlanCard from './PlanCard'
 import { BillingSelector } from './BillingSelector'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const productPlans = [
   {

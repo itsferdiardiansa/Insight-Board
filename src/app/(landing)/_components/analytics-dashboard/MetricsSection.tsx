@@ -3,10 +3,7 @@
 import * as React from 'react'
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { StatisticItem } from './StatisticItem'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export const MetricsSection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null)

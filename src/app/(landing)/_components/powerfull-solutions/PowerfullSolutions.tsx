@@ -3,13 +3,10 @@
 import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import { PowerfullSolutionsHeader } from './PowerfullSolutionsHeader'
 import { Features } from './Features'
 import AnalyzerImage from '@/assets/dedicated.jpg'
-
-gsap.registerPlugin(ScrollTrigger)
 
 function PowerfullSolutions() {
   const imageRef = useRef<HTMLImageElement | null>(null)

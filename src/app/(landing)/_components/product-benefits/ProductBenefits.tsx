@@ -3,7 +3,6 @@
 import * as React from 'react'
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import { ProductBenefitCard } from './ProductBenefitCard'
 import { ProductBenefitHeader } from './ProductBenefitHeader'
@@ -14,8 +13,6 @@ import {
   MdIntegrationInstructions,
   MdSecurity,
 } from 'react-icons/md'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const features = [
   {
