@@ -1,0 +1,13 @@
+@layer utilities {
+  .heading-display {
+    @apply text-4xl lg:text-6xl font-bold leading-none text-neutral-800;
+  }
+
+  .heading-sub {
+    @apply text-base lg:text-xl leading-6 text-neutral-500;
+  }
+
+  .text-muted {
+    @apply text-base text-neutral-500;
+  }
+}

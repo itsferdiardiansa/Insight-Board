@@ -1,11 +1,49 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from "next"
+import type { RuleSetRule } from 'webpack'
 
 const nextConfig: NextConfig = {
   eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
-};
+  images: {
+    remotePatterns: []
+  },
+  webpack(config) {
+    const fileLoaderRule = config.module.rules.find((rule: RuleSetRule) =>
+      rule?.test instanceof RegExp && rule.test.test('.svg')
+    )
 
-export default nextConfig;
+    config.module.rules.push(
+      {
+        ...fileLoaderRule,
+        test: /\.svg$/i,
+        resourceQuery: /url/,
+      },
+
+      {
+        test: /\.svg$/i,
+        issuer: fileLoaderRule.issuer,
+        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] },
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              svgoConfig: {
+                plugins: [
+                  { name: 'removeViewBox', active: false },
+                  // { removeViewBox: false } // Keep viewBox
+                ]
+              }
+            }
+          }
+        ],
+      }
+    )
+
+    fileLoaderRule.exclude = /\.svg$/i
+
+    return config
+  },
+}
+
+export default nextConfig

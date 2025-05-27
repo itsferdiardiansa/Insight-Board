@@ -1,0 +1,9 @@
+@layer utilities {
+  .layout-wrapper {
+    @apply container lg:max-w-6xl lg:mx-auto max-lg:px-6;
+  }
+
+  .content-block {
+    @apply py-12 lg:py-16;
+  }
+}
