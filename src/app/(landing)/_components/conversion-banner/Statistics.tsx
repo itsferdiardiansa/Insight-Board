@@ -11,26 +11,28 @@ export const Statistics: React.FC = () => {
     <div className="flex flex-col gap-4">
       <div className="flex gap-2">
         <div className="flex">
-          <div className="w-8 h-8 rounded-full overflow-hidden blur-xs">
-            <Image
-              className="object-contain"
-              src={UserNova21}
-              alt="userNova21"
-            />
-          </div>
-          <div className="w-8 h-8 -ml-2 rounded-full overflow-hidden blur-xs">
-            <Image
-              className="object-contain"
-              src={UserPixelFox}
-              alt="userPixelFox"
-            />
-          </div>
-          <div className="w-8 h-8 -ml-2 rounded-full overflow-hidden blur-xs">
-            <Image
-              className="object-contain"
-              src={UserShadow87}
-              alt="userShadow87"
-            />
+          <div className="relative flex">
+            <div className="w-8 h-8 rounded-full overflow-hidden blur-xs shadow-lg">
+              <Image
+                className="object-contain"
+                src={UserNova21}
+                alt="userNova21"
+              />
+            </div>
+            <div className="w-8 h-8 -ml-2 rounded-full overflow-hidden blur-xs shadow-lg">
+              <Image
+                className="object-contain"
+                src={UserPixelFox}
+                alt="userPixelFox"
+              />
+            </div>
+            <div className="w-8 h-8 -ml-2 rounded-full overflow-hidden blur-xs shadow-lg">
+              <Image
+                className="object-contain"
+                src={UserShadow87}
+                alt="userShadow87"
+              />
+            </div>
           </div>
 
           <div className="w-8 h-8 flex items-center justify-center -ml-2 font-bold text-white bg-lime-500 rounded-full z-10">

@@ -1,7 +1,12 @@
 'use client'
+
 import * as React from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ProductPlanCard from './PlanCard'
 import { BillingSelector } from './BillingSelector'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const productPlans = [
   {
@@ -65,25 +70,113 @@ const productPlans = [
 ]
 
 const ProductPlans: React.FC = () => {
+  const titleRef = React.useRef<HTMLHeadingElement | null>(null)
+  const descRef = React.useRef<HTMLHeadingElement | null>(null)
+  const billingRef = React.useRef<HTMLDivElement | null>(null)
+  const cardsRef = React.useRef<HTMLDivElement | null>(null)
+
+  React.useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (titleRef.current) {
+        gsap.fromTo(
+          titleRef.current,
+          { opacity: 0, y: -40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: titleRef.current,
+              start: 'top 85%',
+            },
+          }
+        )
+      }
+
+      if (descRef.current) {
+        gsap.fromTo(
+          descRef.current,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: 0.1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: descRef.current,
+              start: 'top 85%',
+            },
+          }
+        )
+      }
+
+      if (billingRef.current) {
+        gsap.fromTo(
+          billingRef.current,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: 0.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: billingRef.current,
+              start: 'top 90%',
+            },
+          }
+        )
+      }
+
+      if (cardsRef.current) {
+        const cards = cardsRef.current.querySelectorAll('article')
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: cardsRef.current,
+              start: 'top 85%',
+            },
+          }
+        )
+      }
+    })
+
+    return () => ctx.revert()
+  }, [])
+
   return (
     <div className="layout-wrapper">
       <div className="content-block flex flex-col gap-12 lg:gap-24">
         <div className="flex flex-col items-center gap-4">
-          <h1 className="heading-display">Unlock your business potential</h1>
-          <h2 className="heading-sub">
+          <h1 ref={titleRef} className="heading-display">
+            Unlock your business potential
+          </h1>
+          <h2 ref={descRef} className="heading-sub">
             Join thousands of companies scaling their business with our powerful
             solutions
           </h2>
         </div>
 
         <div className="flex flex-col gap-12">
-          <div className="flex justify-center">
+          <div ref={billingRef} className="flex justify-center">
             <BillingSelector />
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-12 items-stretch">
+          <div
+            ref={cardsRef}
+            className="flex flex-col lg:flex-row gap-12 items-stretch"
+          >
             {productPlans.map((item, index) => (
-              <ProductPlanCard {...item} key={index} />
+              <ProductPlanCard key={index} {...item} />
             ))}
           </div>
         </div>

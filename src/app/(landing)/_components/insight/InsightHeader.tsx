@@ -10,11 +10,11 @@ gsap.registerPlugin(ScrollTrigger)
 
 export const InsightHeader: React.FC = () => {
   const badgeRef = useRef<HTMLDivElement | null>(null)
-  const headerRef = useRef<HTMLDivElement | null>(null)
+  const titleRef = useRef<HTMLHeadingElement | null>(null)
+  const descRef = useRef<HTMLHeadingElement | null>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate the badge
       if (badgeRef.current) {
         gsap.fromTo(
           badgeRef.current,
@@ -34,13 +34,9 @@ export const InsightHeader: React.FC = () => {
         )
       }
 
-      // Animate the heading
-      const h1 = headerRef.current?.querySelector('h1')
-      const p = headerRef.current?.querySelector('p')
-
-      if (h1) {
+      if (titleRef.current) {
         gsap.fromTo(
-          h1,
+          titleRef.current,
           { opacity: 0, y: -40 },
           {
             opacity: 1,
@@ -48,7 +44,7 @@ export const InsightHeader: React.FC = () => {
             duration: 0.8,
             ease: 'power3.out',
             scrollTrigger: {
-              trigger: h1,
+              trigger: titleRef.current,
               start: 'top 85%',
               toggleActions: 'play none none none',
               once: true,
@@ -57,9 +53,9 @@ export const InsightHeader: React.FC = () => {
         )
       }
 
-      if (p) {
+      if (descRef.current) {
         gsap.fromTo(
-          p,
+          descRef.current,
           { opacity: 0, y: 40 },
           {
             opacity: 1,
@@ -68,7 +64,7 @@ export const InsightHeader: React.FC = () => {
             delay: 0.2,
             ease: 'power3.out',
             scrollTrigger: {
-              trigger: p,
+              trigger: descRef.current,
               start: 'top 85%',
               toggleActions: 'play none none none',
               once: true,
@@ -76,7 +72,7 @@ export const InsightHeader: React.FC = () => {
           }
         )
       }
-    }, badgeRef)
+    })
 
     return () => ctx.revert()
   }, [])
@@ -87,11 +83,11 @@ export const InsightHeader: React.FC = () => {
         <Badge variant={'primary'}>Data Insights</Badge>
       </div>
 
-      <header ref={headerRef} className="mt-4 flex flex-col gap-4">
-        <h1 className="heading-display">
+      <header className="mt-4 flex flex-col gap-4">
+        <h1 ref={titleRef} className="heading-display">
           Transform raw data into actionable strategies
         </h1>
-        <h2 className="heading-sub">
+        <h2 ref={descRef} className="heading-sub">
           Our advanced analytics platform helps you understand your business
           metrics at a glance with intuitive visualizations.
         </h2>

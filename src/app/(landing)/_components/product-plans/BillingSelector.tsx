@@ -22,7 +22,6 @@ export const BillingSelector: React.FC<BillingSelectorProps> = ({
 
   return (
     <div className="flex gap-3.5 items-center text-base">
-      {/* Monthly Label */}
       <p
         className={cn(
           'self-stretch my-auto',
@@ -32,7 +31,6 @@ export const BillingSelector: React.FC<BillingSelectorProps> = ({
         Monthly
       </p>
 
-      {/* Switch */}
       <button
         onClick={handleToggle}
         role="switch"
@@ -50,7 +48,6 @@ export const BillingSelector: React.FC<BillingSelectorProps> = ({
         />
       </button>
 
-      {/* Annual Label */}
       <p
         className={cn(
           'self-stretch py-0.5 my-auto leading-6',

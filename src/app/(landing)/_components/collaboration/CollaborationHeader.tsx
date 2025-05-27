@@ -15,63 +15,62 @@ export const CollaborationHeader: React.FC<CollaborationHeaderProps> = ({
   title,
   description,
 }) => {
-  const containerRef = useRef<HTMLDivElement | null>(null)
   const titleRef = useRef<HTMLHeadingElement | null>(null)
-  const descRef = useRef<HTMLParagraphElement | null>(null)
+  const descRef = useRef<HTMLHeadingElement | null>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        titleRef.current,
-        { opacity: 0, y: -40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 85%',
-            once: true,
-          },
-        }
-      )
+      if (titleRef.current) {
+        gsap.fromTo(
+          titleRef.current,
+          { opacity: 0, y: -40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: titleRef.current,
+              start: 'top 85%',
+              once: true,
+            },
+          }
+        )
+      }
 
-      gsap.fromTo(
-        descRef.current,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          delay: 0.2,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 85%',
-            once: true,
-          },
-        }
-      )
-    }, containerRef)
+      if (descRef.current) {
+        gsap.fromTo(
+          descRef.current,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: 0.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: descRef.current,
+              start: 'top 85%',
+              once: true,
+            },
+          }
+        )
+      }
+    })
 
     return () => ctx.revert()
   }, [])
 
   return (
-    <header ref={containerRef} className="max-w-full">
-      <h2
-        ref={titleRef}
-        className="text-5xl font-bold leading-[53px] text-neutral-800 max-md:max-w-full max-md:text-4xl max-md:leading-[49px]"
-      >
-        {title}
-      </h2>
-      <p
-        ref={descRef}
-        className="mt-4 text-lg leading-6 text-neutral-500 max-md:max-w-full"
-      >
-        {description}
-      </p>
+    <header className="max-w-full">
+      <div className="mt-4 flex flex-col gap-4">
+        <h1 ref={titleRef} className="heading-display">
+          {title}
+        </h1>
+        <h2 ref={descRef} className="heading-sub">
+          {description}
+        </h2>
+      </div>
     </header>
   )
 }

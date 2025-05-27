@@ -17,58 +17,54 @@ export const ProductBenefitHeader: React.FC<ProductBenefitHeaderProps> = ({
   title,
   subtitle,
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
-  const subtitleRef = useRef<HTMLParagraphElement>(null)
+  const descRef = useRef<HTMLHeadingElement>(null)
 
   useEffect(() => {
-    if (!containerRef.current) return
-
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        titleRef.current,
-        { opacity: 0, y: -40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 85%',
-            once: true,
-            // toggleActions: 'play none none reverse',
-          },
-        }
-      )
+      if (titleRef.current) {
+        gsap.fromTo(
+          titleRef.current,
+          { opacity: 0, y: -40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: titleRef.current,
+              start: 'top 85%',
+              once: true,
+            },
+          }
+        )
+      }
 
-      gsap.fromTo(
-        subtitleRef.current,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          delay: 0.1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 85%',
-            once: true,
-            // toggleActions: 'play none none reverse',
-          },
-        }
-      )
-    }, containerRef)
+      if (descRef.current) {
+        gsap.fromTo(
+          descRef.current,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: 0.1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: descRef.current,
+              start: 'top 85%',
+              once: true,
+            },
+          }
+        )
+      }
+    })
 
     return () => ctx.revert()
   }, [])
 
   return (
-    <div
-      ref={containerRef}
-      className="flex flex-col justify-center items-center gap-4 text-center"
-    >
+    <div className="flex flex-col justify-center items-center gap-4 text-center">
       <div className="self-start mx-auto">
         <Badge variant={'warning'}>Features</Badge>
       </div>
@@ -77,9 +73,9 @@ export const ProductBenefitHeader: React.FC<ProductBenefitHeaderProps> = ({
         <h1 ref={titleRef} className="heading-display">
           {title}
         </h1>
-        <p ref={subtitleRef} className="heading-sub">
+        <h2 ref={descRef} className="heading-sub">
           {subtitle}
-        </p>
+        </h2>
       </div>
     </div>
   )
