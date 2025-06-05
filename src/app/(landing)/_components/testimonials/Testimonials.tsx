@@ -79,7 +79,7 @@ const Testimonials: React.FC = () => {
   }, [])
 
   return (
-    <section className="bg-green-50">
+    <div className="bg-green-50">
       <div className="layout-wrapper">
         <div className="content-block">
           <div className="flex justify-center mb-10">
@@ -102,7 +102,7 @@ const Testimonials: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 
