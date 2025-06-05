@@ -1,24 +1,15 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
+import { useBilling } from '@/context/billing/BillingContext'
 import { cn } from '@/utils/tailwind'
 
 interface BillingSelectorProps {
   onToggle?: (isAnnual: boolean) => void
 }
 
-export const BillingSelector: React.FC<BillingSelectorProps> = ({
-  onToggle,
-}) => {
-  const [isAnnual, setIsAnnual] = useState(false)
-
-  const handleToggle = () => {
-    setIsAnnual(prev => {
-      const updated = !prev
-      onToggle?.(updated)
-      return updated
-    })
-  }
+export const BillingSelector: React.FC<BillingSelectorProps> = () => {
+  const { isAnnual, toggleBilling } = useBilling()
 
   return (
     <div className="flex gap-3.5 items-center text-base">
@@ -32,12 +23,12 @@ export const BillingSelector: React.FC<BillingSelectorProps> = ({
       </p>
 
       <button
-        onClick={handleToggle}
+        onClick={toggleBilling}
         role="switch"
         aria-checked={isAnnual}
         className={cn(
-          'relative w-12 h-6 rounded-full transition-colors duration-300',
-          isAnnual ? 'bg-violet-600' : 'bg-gray-300'
+          'relative w-12 h-6 rounded-full transition-colors duration-300 cursor-pointer',
+          isAnnual ? 'bg-violet-800' : 'bg-gray-300'
         )}
       >
         <span
@@ -54,8 +45,8 @@ export const BillingSelector: React.FC<BillingSelectorProps> = ({
           isAnnual ? 'text-neutral-800 font-semibold' : 'text-neutral-500'
         )}
       >
-        Bill Annually{' '}
-        <span className="font-semibold italic text-violet-700">Save 15%</span>
+        Billed Annually{' '}
+        <span className="font-semibold italic text-violet-800">Save 15%</span>
       </p>
     </div>
   )

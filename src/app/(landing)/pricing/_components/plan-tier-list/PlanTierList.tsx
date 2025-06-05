@@ -1,10 +1,11 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { Plans } from '@/features/plan/components/Plans'
+import { PlanTierComparison } from './PlanTierComparison'
 
-const ProductPlans: React.FC = () => {
+const PlanTierList: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement | null>(null)
   const descRef = useRef<HTMLHeadingElement | null>(null)
 
@@ -13,11 +14,12 @@ const ProductPlans: React.FC = () => {
       if (titleRef.current) {
         gsap.fromTo(
           titleRef.current,
-          { opacity: 0, y: -40 },
+          { opacity: 0, y: -30 },
           {
             opacity: 1,
             y: 0,
             duration: 0.8,
+            delay: 0.2,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: titleRef.current,
@@ -30,12 +32,12 @@ const ProductPlans: React.FC = () => {
       if (descRef.current) {
         gsap.fromTo(
           descRef.current,
-          { opacity: 0, y: 40 },
+          { opacity: 0, y: 30 },
           {
             opacity: 1,
             y: 0,
             duration: 0.8,
-            delay: 0.1,
+            delay: 0.4,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: descRef.current,
@@ -50,24 +52,27 @@ const ProductPlans: React.FC = () => {
   }, [])
 
   return (
-    <div className="layout-wrapper">
-      <div className="content-block flex flex-col gap-12 lg:gap-24">
-        <div className="flex flex-col items-center gap-4">
-          <h1 ref={titleRef} className="heading-display">
-            Unlock your business potential
-          </h1>
-          <h2 ref={descRef} className="heading-sub">
-            Join thousands of companies scaling their business with our powerful
-            solutions
-          </h2>
-        </div>
+    <div className="content-block flex flex-col gap-12 lg:gap-24">
+      <div className="flex flex-col items-center gap-4">
+        <h1 ref={titleRef} className="heading-display">
+          Choose the perfect plan for your business
+        </h1>
 
-        <div className="flex flex-col gap-12">
-          <Plans />
-        </div>
+        <h2 ref={descRef} className="heading-sub">
+          Get started with our flexible pricing options designed to meet your
+          business needs and scale with your growth
+        </h2>
+      </div>
+
+      <div className="flex flex-col gap-12">
+        <Plans />
+      </div>
+
+      <div className="flex flex-col gap-18">
+        <PlanTierComparison />
       </div>
     </div>
   )
 }
 
-export default ProductPlans
+export default PlanTierList
