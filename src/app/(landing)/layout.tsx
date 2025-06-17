@@ -7,7 +7,7 @@ const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
     <div>
       <AppHeader />
 
-      <main>{children}</main>
+      <main className="pt-[78px]">{children}</main>
 
       <AppFooter />
     </div>
