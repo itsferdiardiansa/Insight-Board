@@ -49,7 +49,7 @@ export const IndustryLeaders: React.FC<IndustryLeadersProps> = ({
         <h1 className="text-2xl font-bold text-neutral-800">
           Trusted by Industry Leaders
         </h1>
-        <div className="flex gap-2">
+        <div className="flex gap-2 lg:hidden">
           <button
             onClick={() => slider.current?.prev()}
             className="p-2 rounded-full bg-green-100 hover:bg-green-200 transition cursor-pointer"
@@ -88,8 +88,8 @@ export const IndustryLeaders: React.FC<IndustryLeadersProps> = ({
         ))}
       </div>
 
-      <div className="flex justify-center gap-2 mt-6">
-        {Array.from({ length: testimonials.length - 2 }).map((_, idx) => (
+      <div className="lg:hidden flex justify-center gap-2 mt-6">
+        {Array.from({ length: 3 }).map((_, idx) => (
           <button
             key={idx}
             onClick={() => slider.current?.moveToIdx(idx)}

@@ -38,7 +38,7 @@ export const InsightStats: React.FC = () => {
       ref={containerRef}
       className="mt-14 w-full max-md:mt-10 max-md:max-w-full"
     >
-      <div className="stat-card">
+      <div className="stat-card opacity-0">
         <StatisticCard
           title="Revenue Trends"
           subtitle="Monthly growth analysis"
@@ -46,7 +46,7 @@ export const InsightStats: React.FC = () => {
         />
       </div>
 
-      <div className="stat-card mt-3">
+      <div className="stat-card mt-3 opacity-0">
         <StatisticCard
           title="User Engagement"
           subtitle="Active daily users"
@@ -54,7 +54,7 @@ export const InsightStats: React.FC = () => {
         />
       </div>
 
-      <div className="stat-card mt-3">
+      <div className="stat-card mt-3 opacity-0">
         <StatisticCard
           title="Customer Retention"
           subtitle="Monthly retention rate"

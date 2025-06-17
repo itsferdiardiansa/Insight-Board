@@ -101,7 +101,7 @@ const ConversionBanner: React.FC = () => {
             <div className="flex flex-col">
               <h1
                 ref={titleRef}
-                className="text-4xl lg:text-5xl font-bold text-neutral-50"
+                className="text-4xl lg:text-5xl font-bold text-neutral-50 opacity-0"
               >
                 Ready to get started? Unlock the tools to accelerate your
                 growth.
@@ -109,7 +109,7 @@ const ConversionBanner: React.FC = () => {
 
               <p
                 ref={descRef}
-                className="mt-4 lg:mt-8 text-base lg:text-lg leading-7 text-neutral-50"
+                className="mt-4 lg:mt-8 text-base lg:text-lg leading-7 text-neutral-50 opacity-0"
               >
                 Transform your business with powerful analytics and real-time
                 insights. Join over 13,000 successful teams already using
@@ -117,14 +117,14 @@ const ConversionBanner: React.FC = () => {
               </p>
             </div>
 
-            <div ref={statsRef} className="mt-8">
+            <div ref={statsRef} className="mt-8 opacity-0">
               <Statistics />
             </div>
           </div>
 
           <div
             ref={buttonsRef}
-            className="flex-1 flex items-center justify-start lg:justify-center gap-4"
+            className="flex-1 flex items-center justify-start lg:justify-center gap-4 opacity-0"
           >
             <Button variant={'secondary'} size={'lg'} pill asChild>
               <Link href={'/signin'}>Get Started Now</Link>

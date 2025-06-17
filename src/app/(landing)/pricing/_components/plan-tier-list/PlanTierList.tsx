@@ -53,7 +53,7 @@ const PlanTierList: React.FC = () => {
 
   return (
     <div className="content-block flex flex-col gap-12 lg:gap-24">
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-4 text-center">
         <h1 ref={titleRef} className="heading-display">
           Choose the perfect plan for your business
         </h1>

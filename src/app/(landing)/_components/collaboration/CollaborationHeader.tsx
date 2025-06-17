@@ -43,7 +43,6 @@ export const CollaborationHeader: React.FC<CollaborationHeaderProps> = ({
             opacity: 1,
             y: 0,
             duration: 0.8,
-            delay: 0.2,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: descRef.current,
@@ -60,11 +59,11 @@ export const CollaborationHeader: React.FC<CollaborationHeaderProps> = ({
 
   return (
     <header className="max-w-full">
-      <div className="mt-4 flex flex-col gap-4">
-        <h1 ref={titleRef} className="heading-display">
+      <div className="mt-4 flex flex-col gap-4 text-center md:text-left">
+        <h1 ref={titleRef} className="heading-display opacity-0">
           {title}
         </h1>
-        <h2 ref={descRef} className="heading-sub">
+        <h2 ref={descRef} className="heading-sub opacity-0">
           {description}
         </h2>
       </div>

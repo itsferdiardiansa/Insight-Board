@@ -17,7 +17,7 @@ export const ProductBenefitCard = forwardRef<
   return (
     <article
       ref={ref}
-      className="w-full lg:w-1/4 flex flex-col items-center justify-between gap-4 lg:gap-6"
+      className="flex flex-col items-center justify-between gap-4 lg:gap-6 opacity-0"
     >
       <div className="flex flex-col gap-4 lg:gap-6">
         <div className={cn('p-2 lg:p-3 mx-auto rounded-lg', iconBgColor)}>

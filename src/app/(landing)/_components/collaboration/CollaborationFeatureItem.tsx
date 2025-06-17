@@ -13,7 +13,7 @@ export const CollaborationFeatureItem = forwardRef<
   return (
     <article
       ref={ref}
-      className="flex flex-wrap gap-4 items-center w-full max-md:max-w-full"
+      className="flex flex-wrap gap-4 items-center w-full max-md:max-w-full opacity-0"
     >
       <div className="p-2 rounded-full bg-green-700 text-white">
         <FaCheck />

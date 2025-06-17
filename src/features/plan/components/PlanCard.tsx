@@ -57,7 +57,7 @@ export const PlanCard: React.FC<PlanCardProps> = ({
     : []
 
   return (
-    <article className="w-full flex-1 lg:max-w-[322px]">
+    <article className="w-full xl:min-w-[322px]">
       <div
         className={cn(
           'h-full relative flex flex-col p-6 justify-between rounded-2xl border border-solid border-gray-200 hover:bg-violet-50 hover:border-violet-800 cursor-pointer',

@@ -45,7 +45,7 @@ const Banner: React.FC = () => {
 
   return (
     <div className="layout-wrapper flex flex-col justify-end items-center">
-      <div className="content-block w-full flex flex-col items-center gap-12 lg:gap-18 text-center">
+      <div className="content-block w-full flex flex-col items-center gap-12 pb-0! text-center">
         <div className="flex flex-col items-center gap-8">
           <BannerContent />
 
@@ -54,11 +54,9 @@ const Banner: React.FC = () => {
           </div>
         </div>
 
-        <div ref={imageRef} className="opacity-0 w-full">
-          <div className="relative">
-            <div className="floating-image">
-              <BannerImage />
-            </div>
+        <div ref={imageRef} className="w-full opacity-0">
+          <div className="floating-image">
+            <BannerImage />
           </div>
         </div>
       </div>

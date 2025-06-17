@@ -83,7 +83,10 @@ const Testimonials: React.FC = () => {
       <div className="layout-wrapper">
         <div className="content-block">
           <div className="flex justify-center mb-10">
-            <h1 ref={headingRef} className="heading-display text-center">
+            <h1
+              ref={headingRef}
+              className="heading-display text-center opacity-0"
+            >
               What Our Customers Say
             </h1>
           </div>
@@ -97,7 +100,7 @@ const Testimonials: React.FC = () => {
             />
           </div>
 
-          <div ref={listRef}>
+          <div ref={listRef} className="opacity-0">
             <IndustryLeaders testimonials={testimonials} />
           </div>
         </div>

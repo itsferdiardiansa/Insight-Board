@@ -1,6 +1,6 @@
 @layer utilities {
   .heading-display {
-    @apply text-4xl lg:text-6xl font-bold leading-none text-neutral-800;
+    @apply text-4xl md:text-5xl xl:text-6xl font-bold leading-none text-neutral-800 mb-2;
   }
 
   .heading-sub {

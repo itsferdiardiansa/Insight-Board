@@ -35,7 +35,7 @@ export function AuthForm({ type }: { type: 'signin' | 'signup' }) {
 
       <div className="flex items-center my-4 gap-2 text-neutral-400 text-sm">
         <hr className="flex-1 border-gray-200" />
-        <span>or {type.toLowerCase()} with email</span>
+        <span>or {type.toLowerCase()} with</span>
         <hr className="flex-1 border-gray-200" />
       </div>
     </>

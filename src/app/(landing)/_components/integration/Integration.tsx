@@ -109,20 +109,23 @@ const Integration: React.FC = () => {
 
   return (
     <div className="content-block flex flex-col justify-center">
-      <div className="flex flex-col items-center gap-4">
-        <h1 ref={titleRef} className="heading-display">
+      <div className="flex flex-col items-center gap-4 text-center">
+        <h1 ref={titleRef} className="heading-display opacity-0">
           Seamless integrations with other great tools
         </h1>
-        <h2 ref={descRef} className="heading-sub">
+        <h2 ref={descRef} className="heading-sub opacity-0">
           Connect your workflow with platforms your team already loves.
         </h2>
       </div>
 
-      <div ref={containerRef} className="relative mt-18 overflow-hidden">
+      <div
+        ref={containerRef}
+        className="relative mt-18 overflow-hidden opacity-0"
+      >
         <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-24 bg-gradient-to-r from-white to-transparent" />
         <div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-24 bg-gradient-to-l from-white to-transparent" />
 
-        <div className="flex gap-12" ref={trackRef}>
+        <div ref={trackRef} className="flex gap-12">
           {[...integrations, ...integrations].map((item, i) => (
             <div
               key={`${item.name}-${i}`}

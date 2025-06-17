@@ -104,7 +104,10 @@ export const FeaturedTestimonial: React.FC<FeaturedTestimonialProps> = ({
       className="mt-28 w-full max-md:mt-10 max-md:max-w-full"
     >
       <div className="flex gap-5 max-md:flex-col">
-        <article ref={textRef} className="w-[63%] max-md:ml-0 max-md:w-full">
+        <article
+          ref={textRef}
+          className="w-[63%] max-md:ml-0 max-md:w-full opacity-0"
+        >
           <div className="flex flex-col w-full max-md:mt-10 max-md:max-w-full">
             <header className="flex gap-3 items-center self-start">
               <div className="h-[45px] w-[46px] flex justify-center items-center bg-green-700 rounded-xl">
@@ -113,11 +116,11 @@ export const FeaturedTestimonial: React.FC<FeaturedTestimonialProps> = ({
               <div className="flex flex-col">
                 <h3
                   ref={nameRef}
-                  className="text-xl font-bold text-neutral-900"
+                  className="text-xl font-bold text-neutral-900 opacity-0"
                 >
                   {name}
                 </h3>
-                <p ref={roleRef} className="text-base text-slate-500">
+                <p ref={roleRef} className="text-base text-slate-500 opacity-0">
                   {role}
                 </p>
               </div>
@@ -128,11 +131,14 @@ export const FeaturedTestimonial: React.FC<FeaturedTestimonialProps> = ({
           </div>
         </article>
 
-        <div ref={imageRef} className="ml-5 w-[37%] max-md:ml-0 max-md:w-full">
+        <div
+          ref={imageRef}
+          className="ml-5 w-[37%] max-md:ml-0 max-md:w-full opacity-0"
+        >
           <Image
+            className="object-cover w-full mt-1 rounded-2xl aspect-[1.43] shadow-[0px_8px_16px_rgba(0,0,0,0.08)] max-md:mt-10 max-md:max-w-full"
             src={imageSrc}
             alt="Testimonial illustration"
-            className="object-contain w-full mt-1 rounded-2xl aspect-[1.43] shadow-[0px_8px_16px_rgba(0,0,0,0.08)] max-md:mt-10 max-md:max-w-full"
           />
         </div>
       </div>

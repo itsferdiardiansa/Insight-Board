@@ -1,6 +1,5 @@
 'use client'
 
-import * as React from 'react'
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import gsap from 'gsap'
@@ -18,7 +17,7 @@ const AnalyticsDashboard: React.FC = () => {
 
       gsap.fromTo(
         imageRef.current,
-        { opacity: 0, x: 100 },
+        { x: 100 },
         {
           opacity: 1,
           x: 0,
@@ -37,19 +36,21 @@ const AnalyticsDashboard: React.FC = () => {
   }, [])
 
   return (
-    <div className="content-block flex flex-col lg:flex-row flex-wrap gap-12 lg:gap-32 items-center">
-      <div className="flex-1 self-stretch my-auto">
+    <div className="content-block flex flex-col md:flex-row gap-12 xl:gap-32">
+      <div className="flex-1 self-stretch">
         <AnalyticsDashboardHeader />
         <MetricsSection />
       </div>
 
       <div
         ref={imageRef}
-        className="relative w-full min-h-[410px] lg:min-h-[610px] flex-1 shrink self-stretch rounded-2xl overflow-hidden"
+        className="relative w-full min-h-[410px] lg:min-h-[610px] flex-1 rounded-2xl overflow-hidden opacity-0"
       >
         <Image
-          className="w-full absolute top-0 bottom-0 left-0 my-auto object-contain"
+          className="absolute top-0 left-0 w-full h-full object-cover"
           src={AnalyzerImage}
+          width={300}
+          height={500}
           alt="Analytics Dashboard Visualization"
         />
       </div>
