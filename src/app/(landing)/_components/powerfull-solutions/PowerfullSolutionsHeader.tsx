@@ -52,12 +52,12 @@ export const PowerfullSolutionsHeader: React.FC = () => {
   }, [])
 
   return (
-    <header className="flex flex-col text-center lg:text-left gap-4">
-      <h1 ref={titleRef} className="heading-display">
+    <header className="flex flex-col lg:text-left gap-4 text-center md:text-left">
+      <h1 ref={titleRef} className="heading-display opacity-0">
         Transform your workflow with powerful solutions
       </h1>
 
-      <h2 ref={descRef} className="heading-sub">
+      <h2 ref={descRef} className="heading-sub opacity-0">
         Self service data analytics software that makes you visually appealing
         data visualizations and insightful dashboards
       </h2>

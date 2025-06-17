@@ -47,19 +47,19 @@ export const SocialProofPartners: React.FC = () => {
       ref={sectionRef}
     >
       <h3
-        className="text-xl font-semibold text-center text-neutral-500"
+        className="text-xl font-semibold text-center text-neutral-500 opacity-0"
         data-animate
       >
         Trusted by industry leaders
       </h3>
 
       <div className="flex-1 flex max-lg:flex-wrap gap-12 justify-center items-center">
-        <AmazonLogo className="w-1/4" data-animate />
-        <CitibanamexLogo className="w-1/4" data-animate />
-        <SpotifyLogo className="w-1/4" data-animate />
-        <TNTSportsLogo className="w-1/4" data-animate />
-        <VodafoneLogo className="w-1/4" data-animate />
-        <ToyotaLogo className="w-1/4" data-animate />
+        <AmazonLogo className="w-1/4 opacity-0" data-animate />
+        <CitibanamexLogo className="w-1/4 opacity-0" data-animate />
+        <SpotifyLogo className="w-1/4 opacity-0" data-animate />
+        <TNTSportsLogo className="w-1/4 opacity-0" data-animate />
+        <VodafoneLogo className="w-1/4 opacity-0" data-animate />
+        <ToyotaLogo className="w-1/4 opacity-0" data-animate />
       </div>
     </div>
   )

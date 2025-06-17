@@ -38,13 +38,13 @@ export const MetricsSection: React.FC = () => {
       ref={sectionRef}
       className="flex overflow-hidden flex-col items-start py-2.5 mt-6 w-full max-md:max-w-full"
     >
-      <div data-animate>
+      <div className="opacity-0" data-animate>
         <StatisticItem value="85%" label="Customer Satisfaction" />
       </div>
-      <div className="mt-5" data-animate>
+      <div className="mt-5 opacity-0" data-animate>
         <StatisticItem value="2.4M" label="Active monthly users" />
       </div>
-      <div className="mt-5" data-animate>
+      <div className="mt-5 opacity-0" data-animate>
         <StatisticItem value="5.8X" label="Market growth rate" />
       </div>
     </div>

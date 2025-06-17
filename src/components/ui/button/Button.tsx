@@ -19,15 +19,15 @@ const buttonVariants = cva(
 
         // Outline variants
         outlinePrimary:
-          'border-violet-800 text-violet-800 bg-transparent hover:bg-violet-50',
+          'border border-violet-800 text-violet-800 bg-transparent hover:bg-violet-50',
         outlineSecondary:
-          'border-violet-100 text-neutral-800 bg-transparent hover:bg-violet-50',
+          'border border-violet-100 text-neutral-800 bg-transparent hover:bg-violet-50',
         outlineDestructive:
-          'border-red-600 text-red-600 bg-transparent hover:bg-red-50',
+          'border border-red-600 text-red-600 bg-transparent hover:bg-red-50',
 
         // Others
         outline:
-          'border-neutral-300 bg-transparent text-neutral-800 hover:bg-neutral-100',
+          'border border-neutral-300 bg-transparent text-neutral-800 hover:bg-neutral-100',
         ghost:
           'border-transparent bg-transparent text-neutral-800 hover:bg-neutral-100 hover:border-neutral-100',
       },
@@ -46,9 +46,9 @@ const buttonVariants = cva(
       },
     },
     compoundVariants: [
-      { size: 'sm', pill: false, className: 'px-3 py-1.5' },
-      { size: 'md', pill: false, className: 'px-4 py-2' },
-      { size: 'lg', pill: false, className: 'px-5 py-3' },
+      { size: 'sm', pill: false, className: 'px-3 py-2' },
+      { size: 'md', pill: false, className: 'px-4 py-3' },
+      { size: 'lg', pill: false, className: 'px-5 py-4' },
 
       { size: 'sm', pill: true, className: 'py-1 px-2.5' },
       { size: 'md', pill: true, className: 'py-2 px-3.5' },

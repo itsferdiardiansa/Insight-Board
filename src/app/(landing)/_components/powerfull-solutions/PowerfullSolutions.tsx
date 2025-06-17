@@ -54,7 +54,7 @@ function PowerfullSolutions() {
   }, [])
 
   return (
-    <div className="content-block flex flex-col lg:flex-row gap-12 lg:gap-32">
+    <div className="content-block flex flex-col md:flex-row gap-12 xl:gap-32">
       <div className="flex-1 flex flex-col justify-center">
         <PowerfullSolutionsHeader />
         <hr
@@ -64,11 +64,15 @@ function PowerfullSolutions() {
         <Features />
       </div>
 
-      <div className="min-h-[410px] lg:min-h-[610px] flex-1 rounded-2xl overflow-hidden">
+      <div
+        ref={imageRef}
+        className="relative min-h-[410px] lg:min-h-[610px] flex-1 rounded-2xl overflow-hidden opacity-0"
+      >
         <Image
-          ref={imageRef}
-          className="object-contain w-full"
+          className="absolute top-0 left-0 w-full h-full object-cover"
           src={AnalyzerImage}
+          width={500}
+          height={600}
           alt="Analytics Dashboard Visualization"
         />
       </div>

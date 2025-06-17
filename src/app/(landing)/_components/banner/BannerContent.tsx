@@ -9,16 +9,16 @@ const baseText = 'Transform Your Revenue '
 export const BannerContent: React.FC = () => {
   const textRef = useRef<HTMLSpanElement>(null)
   const cursorRef = useRef<HTMLSpanElement>(null)
-  const [currentText, setCurrentText] = useState(baseText)
+  const [additionalText, setAdditionalText] = useState('')
 
   useEffect(() => {
     const timeline = gsap.timeline({ repeat: -1, repeatDelay: 1 })
     phrases.forEach(phrase => {
-      const fullText = baseText + phrase
+      const fullText = phrase
 
-      for (let i = baseText.length + 1; i <= fullText.length; i++) {
+      for (let i = 0; i <= fullText.length; i++) {
         timeline.call(
-          () => setCurrentText(fullText.slice(0, i)),
+          () => setAdditionalText(fullText.slice(0, i)),
           undefined,
           '+=0.05'
         )
@@ -26,9 +26,9 @@ export const BannerContent: React.FC = () => {
 
       timeline.to({}, { duration: 1.5 })
 
-      for (let i = fullText.length - 1; i >= baseText.length; i--) {
+      for (let i = fullText.length - 1; i >= 0; i--) {
         timeline.call(
-          () => setCurrentText(fullText.slice(0, i)),
+          () => setAdditionalText(fullText.slice(0, i)),
           undefined,
           '+=0.035'
         )
@@ -40,8 +40,10 @@ export const BannerContent: React.FC = () => {
 
   return (
     <div>
-      <h1 className="h-16 text-4xl lg:text-6xl font-extrabold text-neutral-800 inline-block">
-        <span ref={textRef}>{currentText}</span>
+      <h1 className="text-4xl lg:text-5xl font-extrabold text-neutral-800 inline-block">
+        <span ref={textRef}>{baseText}</span>
+        <br className="lg:hidden" />
+        <span>{additionalText}</span>
         <span ref={cursorRef} className="animate-blink text-neutral-800">
           |
         </span>

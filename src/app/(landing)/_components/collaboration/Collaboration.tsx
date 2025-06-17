@@ -40,7 +40,7 @@ const CollaboratedWithYourTeam: React.FC = () => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         imageRef.current,
-        { opacity: 0, x: -40 },
+        { x: -40 },
         {
           opacity: 1,
           x: 0,
@@ -56,7 +56,7 @@ const CollaboratedWithYourTeam: React.FC = () => {
 
       gsap.fromTo(
         featureRefs.current,
-        { opacity: 0, y: 30 },
+        { y: 30 },
         {
           opacity: 1,
           y: 0,
@@ -64,7 +64,7 @@ const CollaboratedWithYourTeam: React.FC = () => {
           ease: 'power3.out',
           stagger: 0.2,
           scrollTrigger: {
-            trigger: contentRef.current,
+            trigger: featureRefs.current,
             start: 'top 85%',
             once: true,
           },
@@ -76,14 +76,16 @@ const CollaboratedWithYourTeam: React.FC = () => {
   }, [])
 
   return (
-    <div className="content-block flex flex-col lg:flex-row flex-wrap gap-12 lg:gap-32 items-center">
+    <div className="content-block flex flex-col-reverse md:flex-row gap-12 xl:gap-32">
       <div
         ref={imageRef}
-        className="min-h-[410px] lg:min-h-[610px] flex-1 rounded-2xl overflow-hidden"
+        className="relative min-h-[410px] lg:min-h-[610px] flex-1 rounded-2xl overflow-hidden opacity-0"
       >
         <Image
-          className="w-full object-contain"
+          className="absolute top-0 left-0 w-full h-full object-cover"
           src={CollaborationImage}
+          width={300}
+          height={500}
           alt="Team collaboration illustration"
         />
       </div>

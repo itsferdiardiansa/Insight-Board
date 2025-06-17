@@ -1,0 +1,54 @@
+<svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" id="dashboardSVG" class="relative z-10">
+  <defs>
+    <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:white; stop-opacity:0.7"></stop>
+      <stop offset="100%" style="stop-color:white; stop-opacity:0.1"></stop>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff; stop-opacity:0.8"></stop>
+      <stop offset="100%" style="stop-color:#ffffff; stop-opacity:0.2"></stop>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"></feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="coloredBlur"></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Dashboard Background -->
+  <rect x="50" y="30" width="400" height="240" rx="10" fill="rgba(255,255,255,0.1)"></rect>
+  <!-- Header -->
+  <rect x="50" y="30" width="400" height="40" rx="10" fill="rgba(255,255,255,0.15)"></rect>
+  <circle cx="80" cy="50" r="10" fill="white" opacity="0.8"></circle>
+  <rect x="100" y="45" width="60" height="10" rx="2" fill="white" opacity="0.6"></rect>
+  <rect x="170" y="45" width="40" height="10" rx="2" fill="white" opacity="0.6"></rect>
+  <rect x="380" y="45" width="50" height="10" rx="2" fill="white" opacity="0.6"></rect>
+  <!-- Chart Area -->
+  <rect x="70" y="90" width="200" height="120" rx="5" fill="rgba(255,255,255,0.1)"></rect>
+  <!-- Line Chart -->
+  <polyline points="80,170 100,140 120,160 140,120 160,130 180,100 200,110 220,90 240,105 260,95" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"></polyline>
+  <path d="M80,170 100,140 120,160 140,120 160,130 180,100 200,110 220,90 240,105 260,95 260,170 80,170" fill="url(#chartGrad)" opacity="0.5"></path>
+  <!-- Data Points -->
+  <circle cx="100" cy="140" r="4" fill="white"></circle>
+  <circle cx="140" cy="120" r="4" fill="white"></circle>
+  <circle cx="180" cy="100" r="4" fill="white"></circle>
+  <circle cx="220" cy="90" r="4" fill="white"></circle>
+  <!-- Pie Chart -->
+  <circle cx="350" cy="140" r="50" fill="rgba(255,255,255,0.1)"></circle>
+  <path d="M350,140 L350,90 A50,50 0 0,1 393,165 z" fill="white" opacity="0.8"></path>
+  <path d="M350,140 L393,165 A50,50 0 0,1 307,165 z" fill="white" opacity="0.5"></path>
+  <path d="M350,140 L307,165 A50,50 0 0,1 350,90 z" fill="white" opacity="0.3"></path>
+  <!-- Stats Boxes -->
+  <rect x="70" y="230" width="80" height="30" rx="4" fill="rgba(255,255,255,0.15)"></rect>
+  <rect x="160" y="230" width="80" height="30" rx="4" fill="rgba(255,255,255,0.15)"></rect>
+  <rect x="250" y="230" width="80" height="30" rx="4" fill="rgba(255,255,255,0.15)"></rect>
+  <rect x="340" y="230" width="80" height="30" rx="4" fill="rgba(255,255,255,0.15)"></rect>
+  <!-- Stats Text -->
+  <rect x="85" y="240" width="50" height="10" rx="2" fill="white" opacity="0.9"></rect>
+  <rect x="175" y="240" width="50" height="10" rx="2" fill="white" opacity="0.9"></rect>
+  <rect x="265" y="240" width="50" height="10" rx="2" fill="white" opacity="0.9"></rect>
+  <rect x="355" y="240" width="50" height="10" rx="2" fill="white" opacity="0.9"></rect>
+  <!-- Notification Dot -->
+  <circle cx="440" cy="50" r="5" fill="#FF6B6B"></circle>
+</svg>

@@ -72,14 +72,14 @@ export const AnalyticsDashboardHeader: React.FC = () => {
 
   return (
     <header className="flex flex-col pb-6 w-full border-b border-solid border-b-neutral-100 max-md:max-w-full">
-      <div ref={badgeRef} className="self-start">
+      <div ref={badgeRef} className="self-start max-md:mx-auto opacity-0">
         <Badge variant="success">Analytics Dashboard</Badge>
       </div>
-      <div className="mt-4 flex flex-col gap-4">
-        <h1 ref={titleRef} className="heading-display">
+      <div className="mt-4 flex flex-col gap-4 text-center md:text-left">
+        <h1 ref={titleRef} className="heading-display opacity-0">
           Custom reports that guide your decision making
         </h1>
-        <h2 ref={descRef} className="heading-sub">
+        <h2 ref={descRef} className="heading-sub opacity-0">
           Transform complex data into clear, actionable insights with our
           powerful reporting tools
         </h2>

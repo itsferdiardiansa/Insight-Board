@@ -70,7 +70,7 @@ const PricingFAQ: React.FC = () => {
   }, [])
 
   return (
-    <div className="relative">
+    <div className="content-block">
       <div className="flex flex-col items-center text-center gap-4 mb-12">
         <h1 ref={titleRef} className="heading-display">
           Frequently Asked Questions

@@ -14,11 +14,29 @@ export const ProductBenefitHeader: React.FC<ProductBenefitHeaderProps> = ({
   title,
   subtitle,
 }) => {
+  const badgeRef = useRef<HTMLDivElement | null>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
   const descRef = useRef<HTMLHeadingElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      if (badgeRef.current) {
+        gsap.fromTo(
+          badgeRef.current,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: badgeRef.current,
+              start: 'top 85%',
+            },
+          }
+        )
+      }
+
       if (titleRef.current) {
         gsap.fromTo(
           titleRef.current,
@@ -62,15 +80,15 @@ export const ProductBenefitHeader: React.FC<ProductBenefitHeaderProps> = ({
 
   return (
     <div className="flex flex-col justify-center items-center gap-4 text-center">
-      <div className="self-start mx-auto">
+      <div ref={badgeRef} className="self-start mx-auto opacity-0">
         <Badge variant={'warning'}>Features</Badge>
       </div>
 
       <div className="flex flex-col items-center gap-4">
-        <h1 ref={titleRef} className="heading-display">
+        <h1 ref={titleRef} className="heading-display opacity-0">
           {title}
         </h1>
-        <h2 ref={descRef} className="heading-sub">
+        <h2 ref={descRef} className="heading-sub opacity-0">
           {subtitle}
         </h2>
       </div>

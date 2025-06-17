@@ -55,7 +55,7 @@ describe('components/Button', () => {
     expect(button).toHaveTextContent('Test')
   })
 
-  test.each([['sm'], ['md'], ['lg']])('applies size %s', size => {
+  it.each([['sm'], ['md'], ['lg']])('applies size %s', size => {
     render(<Button size={size as ButtonProps['size']}>Sized</Button>)
     const button = screen.getByTestId('btn')
     expect(button).toBeInTheDocument()

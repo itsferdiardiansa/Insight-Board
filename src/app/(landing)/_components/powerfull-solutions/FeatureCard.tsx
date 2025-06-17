@@ -25,7 +25,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
         {icon}
       </div>
 
-      <div className="flex flex-col items-center lg:items-start">
+      <div className="flex flex-col items-center lg:items-start max-lg:text-center">
         <h3 className="text-xl font-semibold text-neutral-800">{title}</h3>
         <p className="text-base text-neutral-500">{description}</p>
       </div>
