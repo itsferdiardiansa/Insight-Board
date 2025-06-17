@@ -11,11 +11,9 @@ export default function PricingPage() {
 
       <div className="bg-white">
         <div className="layout-wrapper">
-          {/* <div className="content-block"> */}
           <PricingFAQ />
 
           <PricingCallout />
-          {/* </div> */}
         </div>
       </div>
     </div>

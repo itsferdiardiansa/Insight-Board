@@ -37,7 +37,6 @@ export const ProductBenefitCard = forwardRef<
       <Button size={'md'} variant={'secondary'} asChild pill>
         <Link href="#" className="flex gap-2 items-center text-purple-800">
           <span className="text-base">Learn more</span>
-          <span className="text-xl">→</span>
         </Link>
       </Button>
     </article>

@@ -83,7 +83,12 @@ export const AppHeader = () => {
         </div>
 
         <div className="lg:hidden">
-          <Button variant="ghost" pill onClick={() => setOpen(true)}>
+          <Button
+            className="pr-0!"
+            variant="ghost"
+            pill
+            onClick={() => setOpen(true)}
+          >
             <FiMenu className="font-bold text-2xl" />
           </Button>
         </div>
@@ -97,7 +102,7 @@ export const AppHeader = () => {
           onClose={() => setOpen(false)}
         >
           <Drawer.Content>
-            <NavigationMenu showIcon />
+            <NavigationMenu onCloseDrawer={() => setOpen(false)} showIcon />
             <div className="w-full h-1 bg-gray-100 my-4" />
             <AuthButtons />
           </Drawer.Content>

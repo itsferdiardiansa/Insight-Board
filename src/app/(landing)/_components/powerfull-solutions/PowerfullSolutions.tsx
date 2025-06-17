@@ -54,27 +54,29 @@ function PowerfullSolutions() {
   }, [])
 
   return (
-    <div className="content-block flex flex-col md:flex-row gap-12 xl:gap-32">
-      <div className="flex-1 flex flex-col justify-center">
-        <PowerfullSolutionsHeader />
-        <hr
-          ref={hrRef}
-          className="lg:w-8/12 my-8 h-1 bg-gray-50 border-0 scale-x-0 opacity-0"
-        />
-        <Features />
-      </div>
+    <div className="content-block">
+      <div className="flex flex-col md:flex-row gap-12 xl:gap-32">
+        <div className="flex-1 flex flex-col justify-center">
+          <PowerfullSolutionsHeader />
+          <hr
+            ref={hrRef}
+            className="lg:w-8/12 my-8 h-1 bg-gray-50 border-0 scale-x-0 opacity-0"
+          />
+          <Features />
+        </div>
 
-      <div
-        ref={imageRef}
-        className="relative min-h-[410px] lg:min-h-[610px] flex-1 rounded-2xl overflow-hidden opacity-0"
-      >
-        <Image
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          src={AnalyzerImage}
-          width={500}
-          height={600}
-          alt="Analytics Dashboard Visualization"
-        />
+        <div
+          ref={imageRef}
+          className="relative min-h-[410px] lg:min-h-[610px] flex-1 rounded-2xl overflow-hidden opacity-0"
+        >
+          <Image
+            className="absolute top-0 left-0 w-full h-full object-cover"
+            src={AnalyzerImage}
+            width={500}
+            height={600}
+            alt="Analytics Dashboard Visualization"
+          />
+        </div>
       </div>
     </div>
   )

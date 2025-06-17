@@ -67,25 +67,27 @@ const Features: React.FC = () => {
   }, [])
 
   return (
-    <div className="content-block flex flex-col justify-center">
-      <ProductBenefitHeader
-        title="Explore our amazing features"
-        subtitle="Discover tools designed to streamline your workflow and boost productivity"
-      />
+    <div className="content-block">
+      <div className="flex flex-col justify-center">
+        <ProductBenefitHeader
+          title="Explore our amazing features"
+          subtitle="Discover tools designed to streamline your workflow and boost productivity"
+        />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 justify-center items-stretch self-center mt-20 xl:mt-32 max-md:mt-10 max-md:max-w-full">
-        {features.map((feature, index) => (
-          <ProductBenefitCard
-            key={index}
-            ref={el => {
-              itemRefs.current[index] = el
-            }}
-            icon={feature.icon}
-            iconBgColor={feature.iconBgColor}
-            title={feature.title}
-            description={feature.description}
-          />
-        ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 justify-center items-stretch self-center mt-20 xl:mt-32 max-md:mt-10 max-md:max-w-full">
+          {features.map((feature, index) => (
+            <ProductBenefitCard
+              key={index}
+              ref={el => {
+                itemRefs.current[index] = el
+              }}
+              icon={feature.icon}
+              iconBgColor={feature.iconBgColor}
+              title={feature.title}
+              description={feature.description}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )

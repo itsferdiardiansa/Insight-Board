@@ -115,7 +115,7 @@ export const PlanCard: React.FC<PlanCardProps> = ({
         </div>
 
         <div className="mt-12 flex flex-col z-0 bottom-[33px]">
-          <Button size="lg" pill={false} asChild>
+          <Button size="md" pill={false} asChild>
             <Link href={'/subscriptions'}>Get Started</Link>
           </Button>
         </div>

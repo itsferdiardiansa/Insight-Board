@@ -10,6 +10,7 @@ import {
 
 type NavigationMenuProps = {
   showIcon?: boolean
+  onCloseDrawer?: () => void
 }
 
 type MenuItem = {
@@ -20,6 +21,7 @@ type MenuItem = {
 
 export const NavigationMenu: React.FC<NavigationMenuProps> = ({
   showIcon = false,
+  onCloseDrawer = () => {},
 }) => {
   const menuItems = useMemo<MenuItem[]>(
     () => [
@@ -60,6 +62,7 @@ export const NavigationMenu: React.FC<NavigationMenuProps> = ({
             key={index}
             className="py-2 md:px-6 flex items-center gap-2 hover:bg-violet-100/50 rounded-lg transition-colors duration-300 cursor-pointer"
             href={item.link}
+            onClick={() => onCloseDrawer()}
           >
             {showIcon && (
               <span className="w-5 h-5 flex items-center justify-center">

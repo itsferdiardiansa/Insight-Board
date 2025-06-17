@@ -76,40 +76,42 @@ const CollaboratedWithYourTeam: React.FC = () => {
   }, [])
 
   return (
-    <div className="content-block flex flex-col-reverse md:flex-row gap-12 xl:gap-32">
-      <div
-        ref={imageRef}
-        className="relative min-h-[410px] lg:min-h-[610px] flex-1 rounded-2xl overflow-hidden opacity-0"
-      >
-        <Image
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          src={CollaborationImage}
-          width={300}
-          height={500}
-          alt="Team collaboration illustration"
-        />
-      </div>
+    <div className="content-block">
+      <div className="flex flex-col-reverse md:flex-row gap-12 xl:gap-32">
+        <div
+          ref={imageRef}
+          className="relative min-h-[410px] lg:min-h-[610px] flex-1 rounded-2xl overflow-hidden opacity-0"
+        >
+          <Image
+            className="absolute top-0 left-0 w-full h-full object-cover"
+            src={CollaborationImage}
+            width={300}
+            height={500}
+            alt="Team collaboration illustration"
+          />
+        </div>
 
-      <div
-        ref={contentRef}
-        className="flex-1 flex flex-col grow shrink gap-6 lg:gap-12 items-start justify-center self-stretch"
-      >
-        <CollaborationHeader
-          title="Collaborate with your team anywhere, anytime"
-          description="Break down geographical barriers and keep your team connected with powerful collaboration tools"
-        />
-        <div className="">
-          {features.map((feature, index) => (
-            <div key={feature.title} className={cn({ 'mt-5': index > 0 })}>
-              <CollaborationFeatureItem
-                title={feature.title}
-                description={feature.description}
-                ref={el => {
-                  featureRefs.current[index] = el
-                }}
-              />
-            </div>
-          ))}
+        <div
+          ref={contentRef}
+          className="flex-1 flex flex-col grow shrink gap-6 lg:gap-12 items-start justify-center self-stretch"
+        >
+          <CollaborationHeader
+            title="Collaborate with your team anywhere, anytime"
+            description="Break down geographical barriers and keep your team connected with powerful collaboration tools"
+          />
+          <div className="">
+            {features.map((feature, index) => (
+              <div key={feature.title} className={cn({ 'mt-5': index > 0 })}>
+                <CollaborationFeatureItem
+                  title={feature.title}
+                  description={feature.description}
+                  ref={el => {
+                    featureRefs.current[index] = el
+                  }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

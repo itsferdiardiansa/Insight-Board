@@ -6,16 +6,18 @@ import { InsightImage } from './InsightImage'
 
 const Insight: React.FC = () => {
   return (
-    <div className="content-block flex flex-wrap gap-12 lg:gap-32 items-center">
-      <div className="flex-1 grow shrink self-stretch my-auto">
-        <div className="flex flex-col w-full max-w-[438px] max-md:max-w-full">
-          <InsightHeader />
+    <div className="content-block">
+      <div className="flex flex-wrap gap-12 lg:gap-32 items-center">
+        <div className="flex-1 self-stretch my-auto">
+          <div className="flex flex-col w-full max-w-[438px] max-md:max-w-full">
+            <InsightHeader />
+          </div>
+          <InsightStats />
         </div>
-        <InsightStats />
-      </div>
 
-      <div className="flex-1 max-lg:hidden">
-        <InsightImage />
+        <div className="flex-1 max-lg:hidden">
+          <InsightImage />
+        </div>
       </div>
     </div>
   )

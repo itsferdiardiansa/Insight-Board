@@ -36,23 +36,25 @@ const AnalyticsDashboard: React.FC = () => {
   }, [])
 
   return (
-    <div className="content-block flex flex-col md:flex-row gap-12 xl:gap-32">
-      <div className="flex-1 self-stretch">
-        <AnalyticsDashboardHeader />
-        <MetricsSection />
-      </div>
+    <div className="content-block">
+      <div className="flex flex-col md:flex-row gap-12 xl:gap-32">
+        <div className="flex-1 self-stretch">
+          <AnalyticsDashboardHeader />
+          <MetricsSection />
+        </div>
 
-      <div
-        ref={imageRef}
-        className="relative w-full min-h-[410px] lg:min-h-[610px] flex-1 rounded-2xl overflow-hidden opacity-0"
-      >
-        <Image
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          src={AnalyzerImage}
-          width={300}
-          height={500}
-          alt="Analytics Dashboard Visualization"
-        />
+        <div
+          ref={imageRef}
+          className="relative w-full min-h-[410px] lg:min-h-[610px] flex-1 rounded-2xl overflow-hidden opacity-0"
+        >
+          <Image
+            className="absolute top-0 left-0 w-full h-full object-cover"
+            src={AnalyzerImage}
+            width={300}
+            height={500}
+            alt="Analytics Dashboard Visualization"
+          />
+        </div>
       </div>
     </div>
   )
