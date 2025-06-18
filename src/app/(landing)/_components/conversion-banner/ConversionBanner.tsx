@@ -91,13 +91,23 @@ const ConversionBanner: React.FC = () => {
   }, [])
 
   return (
-    <div className="relative bg-gradient-to-br from-violet-800 via-violet-600 to-purple-500 overflow-hidden">
+    <div className="relative w-full bg-gradient-to-br from-violet-800 via-violet-600 to-purple-500">
+      <div className="absolute -top-8 left-0 w-full h-16 pointer-events-none z-50">
+        <div className="h-full w-full bg-gradient-to-b from-white to-violet-500 blur-md scale-x-110" />
+      </div>
+
+      <div className="absolute -bottom-8 inset-x-0 h-16 pointer-events-none z-50">
+        <div className="h-full w-full bg-gradient-to-t from-white to-violet-500 blur-md scale-x-110" />
+      </div>
+
       <div className="layout-wrapper">
-        <div className="absolute bottom-[-100px] left-[-100px] w-72 h-72 bg-white/10 rounded-full" />
-        <div className="absolute top-[-80px] right-[-180px] w-96 h-96 bg-white/10 rounded-full" />
+        <div className="">
+          <div className="absolute bottom-[-100px] left-[-100px] w-72 h-72 bg-white/10 rounded-full" />
+          <div className="absolute top-[-80px] right-[-180px] w-96 h-96 bg-white/10 rounded-full" />
+        </div>
 
         <div className="content-block">
-          <div className=" relative flex flex-col lg:flex-row gap-8">
+          <div className="relative flex flex-col lg:flex-row gap-8">
             <div className="flex-1">
               <div className="flex flex-col">
                 <h1

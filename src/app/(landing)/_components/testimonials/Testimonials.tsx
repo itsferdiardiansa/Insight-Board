@@ -79,7 +79,14 @@ const Testimonials: React.FC = () => {
   }, [])
 
   return (
-    <div className="bg-green-50">
+    <div className="relative bg-green-100">
+      <div className="absolute -top-8 left-0 w-full h-16 pointer-events-none z-50">
+        <div className="h-full w-full bg-gradient-to-b from-white to-green-100 blur-md scale-x-110" />
+      </div>
+
+      <div className="absolute -bottom-8 inset-x-0 h-16 pointer-events-none z-50">
+        <div className="h-full w-full bg-gradient-to-t from-white to-green-100 blur-md scale-x-110" />
+      </div>
       <div className="layout-wrapper">
         <div className="content-block">
           <div className="flex justify-center mb-10">

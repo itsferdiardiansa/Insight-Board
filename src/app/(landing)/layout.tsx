@@ -4,7 +4,7 @@ import { AppFooter } from '@/components/core/app-footer'
 
 const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <AppHeader />
 
       <main className="pt-[78px]">{children}</main>
