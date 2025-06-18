@@ -3,7 +3,7 @@ import type { Viewport } from 'next'
 import { JetBrains_Mono, Source_Sans_3 } from 'next/font/google'
 
 import { defaultMetadata } from '@/config/site-metadata'
-import { AnimationProvider } from '@/components/providers/animation-provider'
+import { AnimationProvider } from '@/context/gsap-animation'
 import { JsonLd } from '@/components/core/seo'
 import { websiteSchema } from '@/schema/website'
 import { homepageSchema } from '@/schema/homepage'

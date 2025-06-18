@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
-import { BillingProvider } from '@/context/billing/BillingContext'
+import { BillingProvider } from '@/context/billing/BillingProvider'
 import { PlanCard } from './PlanCard'
 import { BillingSelector } from './BillingSelector'
 import productPlans from '../data/product-plans'
