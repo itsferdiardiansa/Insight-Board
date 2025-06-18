@@ -40,23 +40,23 @@ export const AppFooter = () => {
   return (
     <footer className="flex flex-col justify-center bg-slate-50">
       <div className="layout-wrapper">
-        <div className="flex flex-col items-start gap-8">
-          <div className="content-block">
-            <div className="w-full flex flex-col lg:flex-row justify-between gap-8 border-b border-gray-200">
+        <div className="flex flex-col items-start">
+          <div className="content-block max-xl:py-8!">
+            <div className="flex flex-col lg:flex-row justify-between gap-8 border-b border-gray-200 pb-8">
               <div className="flex-1">
                 <FooterLogo />
               </div>
 
-              <div className="grid grid-cols-2 lg:grid-cols-4 flex-1 gap-10 justify-between items-center">
+              <div className="grid grid-cols-2 lg:grid-cols-4 flex-1 gap-10 xl:justify-items-end">
                 <FooterNavColumn title="Product" links={productLinks} />
                 <FooterNavColumn title="Discover" links={discoverLinks} />
                 <FooterNavColumn title="Help Center" links={helpLinks} />
                 <FooterNavColumn title="Company" links={companyLinks} />
               </div>
             </div>
-          </div>
 
-          <AppFooterBottom />
+            <AppFooterBottom />
+          </div>
         </div>
       </div>
     </footer>

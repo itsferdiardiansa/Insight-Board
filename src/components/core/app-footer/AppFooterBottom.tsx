@@ -3,8 +3,8 @@ import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa'
 
 export const AppFooterBottom: React.FC = () => {
   return (
-    <div className="w-full flex flex-wrap gap-2 lg:gap-8 justify-between items-center pb-12 lg:pb-16 text-sm">
-      <button className="flex gap-2 self-stretch my-auto rounded w-[111px] items-center hover:text-slate-700 transition-colors">
+    <div className="w-full flex flex-col lg:flex-row flex-wrap lg:gap-8 justify-between lg:items-center pt-8">
+      <button className="flex-1 flex gap-2 self-stretch my-auto rounded w-[111px] items-center hover:text-slate-700 transition-colors">
         <span>English (US)</span>
       </button>
 
@@ -43,11 +43,12 @@ export const AppFooterBottom: React.FC = () => {
             </a>
           </div>
         </nav>
-        <p className="flex gap-1 my-auto">
-          <span>©</span>
-          <span>2025</span>
-          <span>Insight Board</span>
-        </p>
+      </div>
+
+      <div className="flex gap-1 my-auto">
+        <span>©</span>
+        <span>2025</span>
+        <span>Insight Board</span>
       </div>
     </div>
   )

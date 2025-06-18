@@ -16,9 +16,11 @@ export const FooterNavColumn: React.FC<FooterNavColumnProps> = ({
   links,
 }) => {
   return (
-    <nav className="self-stretch my-auto">
-      <h3 className="text-lg font-semibold text-slate-800">{title}</h3>
-      <ul className="flex flex-col items-start mt-3 text-base rounded-none text-slate-500">
+    <nav className="my-auto">
+      <h3 className="text-lg font-semibold text-slate-800 xl:text-right">
+        {title}
+      </h3>
+      <ul className="flex flex-col xl:items-end mt-3 text-base rounded-none text-slate-500">
         {links.map((link, index) => (
           <li key={index} className={`${index > 0 ? 'mt-3' : ''}`}>
             <Link
