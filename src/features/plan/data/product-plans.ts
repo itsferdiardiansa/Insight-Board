@@ -128,4 +128,6 @@ const productPlans = [
 ]
 
 export type Plan = (typeof productPlans)[number]
+export type FeatureGroup = Plan['features'][number]
+export type FeatureItem = FeatureGroup['items'][number]
 export default productPlans

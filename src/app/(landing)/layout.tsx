@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { AppHeader } from '@/components/layout/app-header'
-import { AppFooter } from '@/components/layout/app-footer'
+import { AppHeader } from '@/components/core/app-header'
+import { AppFooter } from '@/components/core/app-footer'
 
 const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
