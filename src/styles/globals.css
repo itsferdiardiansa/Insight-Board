@@ -2,14 +2,14 @@
 @import './theme/font-size.css';
 @import './utilities/layout.css';
 @import './utilities/typography.css';
+@import './satoshi.css';
 
 /* Root theme variables */
 :root {
   --background: theme(colors.slate.50);
   --foreground: theme(colors.neutral.800);
 
-  --font-sans: var(--font-source-sans);
-  --font-mono: var(--font-mono);
+  --font-sans: "Satoshi", "Satoshi Placeholder", sans-serif;
 }
 
 body {
