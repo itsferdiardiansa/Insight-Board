@@ -4,6 +4,6 @@
   }
 
   .content-block {
-    @apply w-full py-12 lg:py-16;
+    @apply w-full py-12 lg:py-24;
   }
 }
