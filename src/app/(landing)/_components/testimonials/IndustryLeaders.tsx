@@ -1,103 +1,123 @@
 'use client'
 
-import React from 'react'
-import { useKeenSlider } from 'keen-slider/react'
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import React, { type ReactNode } from 'react'
 import type { StaticImageData } from 'next/image'
-import { cn } from '@/utils/tailwind'
-import 'keen-slider/keen-slider.min.css'
 import Image from 'next/image'
+import { cn } from '@/utils/tailwind'
 
 interface Testimonial {
   imageSrc: StaticImageData
   name: string
   role: string
   testimonial: string
+  isFeatured: boolean
+  companyLogo?: ReactNode
+  bgColor?: string
 }
 
-interface IndustryLeadersProps {
-  testimonials: Testimonial[]
+type IndustryLeadersProps = {
+  testimonials: Array<Testimonial[]>
 }
+
+const GridBackground = () => (
+  <svg
+    className="absolute inset-0 w-full h-full"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="xMidYMid slice"
+  >
+    <defs>
+      <pattern
+        id="grid-pattern"
+        width="40"
+        height="40"
+        patternUnits="userSpaceOnUse"
+      >
+        <path
+          d="M 40 0 L 0 0 0 40"
+          fill="none"
+          stroke="rgba(255,255,255,0.1)"
+          strokeWidth="1"
+        />
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+  </svg>
+)
 
 export const IndustryLeaders: React.FC<IndustryLeadersProps> = ({
   testimonials,
 }) => {
-  const [sliderRef, slider] = useKeenSlider<HTMLDivElement>({
-    slides: {
-      perView: 1,
-      spacing: 20,
-    },
-    breakpoints: {
-      '(min-width: 1024px)': {
-        slides: {
-          perView: 3,
-          spacing: 20,
-        },
-      },
-    },
-    mode: 'free-snap',
-    slideChanged(s) {
-      setCurrent(s.track.details.rel)
-    },
-  })
-
-  const [current, setCurrent] = React.useState(0)
-
   return (
     <section className="mt-16 w-full">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-2xl font-bold text-neutral-800">
           Trusted by Industry Leaders
         </h1>
-        <div className="flex gap-2 lg:hidden">
-          <button
-            onClick={() => slider.current?.prev()}
-            className="p-2 rounded-full bg-green-100 hover:bg-green-200 transition cursor-pointer"
-          >
-            <FiChevronLeft />
-          </button>
-          <button
-            onClick={() => slider.current?.next()}
-            className="p-2 rounded-full bg-green-100 hover:bg-green-200 transition cursor-pointer"
-          >
-            <FiChevronRight />
-          </button>
-        </div>
       </div>
 
-      <div ref={sliderRef} className="keen-slider">
-        {testimonials.map((testimonial, i) => (
-          <div key={i} className="keen-slider__slide">
-            <article className="p-6 bg-white rounded-xl">
-              <header className="flex items-center gap-4">
-                <Image
-                  className="w-14 h-14 rounded-full object-cover"
-                  src={testimonial.imageSrc}
-                  alt={testimonial.name}
-                />
-                <div>
-                  <h3 className="text-lg font-bold">{testimonial.name}</h3>
-                  <p className="text-sm text-neutral-500">{testimonial.role}</p>
+      <div className="flex max-md:flex-col gap-4">
+        {testimonials.map((subTestimonial, i) => (
+          <div key={i} className="flex flex-col gap-4">
+            {subTestimonial.map((subTestimonial, j) => (
+              <div
+                key={j}
+                className={cn(
+                  'relative p-6 bg-gray-100 rounded-xl',
+                  subTestimonial.bgColor,
+                  { 'h-full': subTestimonial.isFeatured }
+                )}
+              >
+                <div className="h-full flex flex-col justify-between max-md:gap-8 z-50">
+                  {subTestimonial.isFeatured && (
+                    <div className="w-32">{subTestimonial.companyLogo}</div>
+                  )}
+
+                  <div>
+                    <div className="mb-4">
+                      <p
+                        className={cn('text-lg md:text-xl text-neutral-600', {
+                          'text-neutral-50': subTestimonial.isFeatured,
+                        })}
+                      >
+                        “{subTestimonial.testimonial}”
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <Image
+                        className="w-14 h-14 rounded-full object-cover"
+                        src={subTestimonial.imageSrc}
+                        alt={subTestimonial.name}
+                      />
+                      <div>
+                        <h3
+                          className={cn('text-lg font-bold', {
+                            'text-neutral-200': subTestimonial.isFeatured,
+                          })}
+                        >
+                          {subTestimonial.name}
+                        </h3>
+                        <p
+                          className={cn('text-neutral-500', {
+                            'text-neutral-100': subTestimonial.isFeatured,
+                          })}
+                        >
+                          {subTestimonial.role}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </header>
-              <p className="mt-4 text-neutral-600">
-                “{testimonial.testimonial}”
-              </p>
-            </article>
-          </div>
-        ))}
-      </div>
 
-      <div className="lg:hidden flex justify-center gap-2 mt-6">
-        {Array.from({ length: 3 }).map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => slider.current?.moveToIdx(idx)}
-            className={cn(
-              'w-3 h-3 rounded-full transition',
-              idx === current ? 'bg-green-800' : 'bg-green-200'
-            )}
-          />
+                {subTestimonial.isFeatured && (
+                  <div>
+                    <GridBackground />
+                    <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white/30 to-transparent pointer-events-none z-20" />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         ))}
       </div>
     </section>

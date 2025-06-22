@@ -1,34 +1,40 @@
-import { cn } from '@/utils/tailwind'
-import type { ReactNode } from 'react'
-
-interface FeatureCardProps {
-  backgroundColor: string
+type FeatureCardProps = {
   title: string
   description: string
-  icon: ReactNode
+  number: number
+  isCollapsed: boolean
+  contentRef?: (el: HTMLDivElement | null) => void
 }
 
-export const FeatureCard: React.FC<FeatureCardProps> = ({
-  icon,
-  backgroundColor,
+export const FeatureCard = ({
   title,
   description,
-}) => {
+  number,
+  isCollapsed,
+  contentRef,
+}: FeatureCardProps) => {
   return (
-    <article className="flex flex-col gap-4 items-center lg:items-start">
-      <div
-        className={cn(
-          'h-[42px] w-[42px] p-2 flex items-center justify-center rounded-lg',
-          backgroundColor
-        )}
-      >
-        {icon}
+    <div className="flex flex-row gap-4 py-8 border-b border-gray-100 bg-white">
+      <div className="">
+        <p className="text-2xl xl:text-3xl font-black text-neutral-500">
+          {number}.
+        </p>
       </div>
 
-      <div className="flex flex-col items-center lg:items-start max-lg:text-center">
-        <h3 className="text-xl font-semibold text-neutral-800">{title}</h3>
-        <p className="text-base text-neutral-500">{description}</p>
+      <div>
+        <h3 className="text-2xl xl:text-3xl font-semibold">{title}</h3>
+
+        <div
+          ref={contentRef}
+          className="overflow-hidden"
+          style={{
+            height: isCollapsed ? 'auto' : 0,
+            opacity: isCollapsed ? 1 : 0,
+          }}
+        >
+          <p className="mt-2 text-lg text-gray-600">{description}</p>
+        </div>
       </div>
-    </article>
+    </div>
   )
 }

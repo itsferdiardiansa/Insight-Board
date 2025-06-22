@@ -54,12 +54,12 @@ export const SocialProofPartners: React.FC = () => {
       </h3>
 
       <div className="flex-1 flex max-lg:flex-wrap gap-12 justify-center items-center">
-        <AmazonLogo className="w-1/4 opacity-0" data-animate />
-        <CitibanamexLogo className="w-1/4 opacity-0" data-animate />
-        <SpotifyLogo className="w-1/4 opacity-0" data-animate />
-        <TNTSportsLogo className="w-1/4 opacity-0" data-animate />
-        <VodafoneLogo className="w-1/4 opacity-0" data-animate />
-        <ToyotaLogo className="w-1/4 opacity-0" data-animate />
+        <AmazonLogo className="w-32 opacity-0" data-animate />
+        <CitibanamexLogo className="w-32 opacity-0" data-animate />
+        <SpotifyLogo className="w-32 opacity-0" data-animate />
+        <TNTSportsLogo className="w-32 opacity-0" data-animate />
+        <VodafoneLogo className="w-32 opacity-0" data-animate />
+        <ToyotaLogo className="w-32 opacity-0" data-animate />
       </div>
     </div>
   )

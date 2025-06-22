@@ -8,7 +8,7 @@ import { AuthButtons } from './AuthButtons'
 import { BrandLogo } from '@/components/ui/brand-logo'
 import Drawer from '@/components/ui/drawer'
 import { Button } from '@/components/ui/button'
-import clsx from 'clsx'
+import { cn } from '@/utils/tailwind'
 
 export const AppHeader = () => {
   const [open, setOpen] = useState(false)
@@ -72,9 +72,10 @@ export const AppHeader = () => {
   return (
     <header
       ref={headerRef}
-      className={clsx(
-        'w-full shadow-sm shadow-gray-100/90 py-4 bg-white z-[999] transition-all duration-300',
+      className={cn(
+        'w-full shadow-sm shadow-gray-100/90 py-4 z-[999] bg-white transition-all duration-300',
         'fixed top-0 left-0 right-0'
+        // { 'bg-violet-300': !isFixed }
       )}
     >
       <div className="layout-wrapper flex justify-between items-center gap-4">

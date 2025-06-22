@@ -9,7 +9,7 @@ const Insight: React.FC = () => {
     <div className="content-block">
       <div className="flex flex-wrap gap-12 lg:gap-32 items-center">
         <div className="flex-1 self-stretch my-auto">
-          <div className="flex flex-col w-full max-w-[438px] max-md:max-w-full">
+          <div className="flex flex-col">
             <InsightHeader />
           </div>
           <InsightStats />

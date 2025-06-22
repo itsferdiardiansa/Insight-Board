@@ -5,15 +5,18 @@ import { gsap } from 'gsap'
 
 interface CollaborationHeaderProps {
   title: string
+  subTitle: string
   description: string
 }
 
 export const CollaborationHeader: React.FC<CollaborationHeaderProps> = ({
   title,
+  subTitle,
   description,
 }) => {
   const titleRef = useRef<HTMLHeadingElement | null>(null)
-  const descRef = useRef<HTMLHeadingElement | null>(null)
+  const descRef = useRef<HTMLParagraphElement | null>(null)
+  const desc2Ref = useRef<HTMLParagraphElement | null>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -28,7 +31,7 @@ export const CollaborationHeader: React.FC<CollaborationHeaderProps> = ({
             ease: 'power3.out',
             scrollTrigger: {
               trigger: titleRef.current,
-              start: 'top 85%',
+              start: 'top 80%',
               once: true,
             },
           }
@@ -46,7 +49,25 @@ export const CollaborationHeader: React.FC<CollaborationHeaderProps> = ({
             ease: 'power3.out',
             scrollTrigger: {
               trigger: descRef.current,
-              start: 'top 85%',
+              start: 'top 80%',
+              once: true,
+            },
+          }
+        )
+      }
+
+      if (desc2Ref.current) {
+        gsap.fromTo(
+          desc2Ref.current,
+          { opacity: 0, y: -40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: desc2Ref.current,
+              start: 'top 80%',
               once: true,
             },
           }
@@ -59,13 +80,27 @@ export const CollaborationHeader: React.FC<CollaborationHeaderProps> = ({
 
   return (
     <header className="max-w-full">
-      <div className="mt-4 flex flex-col gap-4 text-center md:text-left">
-        <h1 ref={titleRef} className="heading-display opacity-0">
+      <div className="mt-4 flex flex-col gap-4">
+        <h1
+          ref={titleRef}
+          className="heading-display md:text-neutral-50! opacity-0"
+        >
           {title}
         </h1>
-        <h2 ref={descRef} className="heading-sub opacity-0">
+
+        <p
+          ref={descRef}
+          className="text-xl xl:text-3xl text-neutral-700 md:text-neutral-200 font-semibold xl:mt-4 opacity-0"
+        >
+          {subTitle}
+        </p>
+
+        <p
+          ref={desc2Ref}
+          className="text-lg xl:text-xl text-neutral-500 md:text-neutral-300 opacity-0"
+        >
           {description}
-        </h2>
+        </p>
       </div>
     </header>
   )

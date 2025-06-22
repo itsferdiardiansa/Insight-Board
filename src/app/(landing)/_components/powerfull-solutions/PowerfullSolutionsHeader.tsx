@@ -52,7 +52,7 @@ export const PowerfullSolutionsHeader: React.FC = () => {
   }, [])
 
   return (
-    <header className="flex flex-col lg:text-left gap-4 text-center md:text-left">
+    <div className="flex flex-col lg:text-left gap-4">
       <h1 ref={titleRef} className="heading-display opacity-0">
         Transform your workflow with powerful solutions
       </h1>
@@ -61,6 +61,6 @@ export const PowerfullSolutionsHeader: React.FC = () => {
         Self service data analytics software that makes you visually appealing
         data visualizations and insightful dashboards
       </h2>
-    </header>
+    </div>
   )
 }

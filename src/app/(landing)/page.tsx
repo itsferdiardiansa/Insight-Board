@@ -24,14 +24,15 @@ export default function LandingPage() {
           <AnalyticsDashboard />
           <Insight />
           <Integration />
+
+          <Testimonials />
+          <ProductPlans />
+          <ConversionBanner />
         </div>
       </div>
 
-      <div className="flex flex-col">
-        <Testimonials />
-        <ProductPlans />
-        <ConversionBanner />
-      </div>
+      {/* <div className="flex flex-col">
+      </div> */}
     </>
   )
 }

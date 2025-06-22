@@ -5,7 +5,7 @@ export const BannerImage: React.FC = () => {
   return (
     <div className="relative">
       <Image
-        className="object-contain self-stretch w-full scale-[1.2] max-md:max-w-full"
+        className="object-contain self-stretch w-full max-md:max-w-full"
         src={DashboardCapture}
         alt="Insight Board Dashboard"
       />

@@ -74,7 +74,7 @@ const Features: React.FC = () => {
           subtitle="Discover tools designed to streamline your workflow and boost productivity"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 justify-center items-stretch self-center mt-20 xl:mt-32 max-md:mt-10 max-md:max-w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-center items-stretch self-center mt-20 xl:mt-28 max-md:mt-10 max-md:max-w-full">
           {features.map((feature, index) => (
             <ProductBenefitCard
               key={index}

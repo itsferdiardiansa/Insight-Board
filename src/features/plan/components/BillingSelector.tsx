@@ -28,7 +28,7 @@ export const BillingSelector: React.FC<BillingSelectorProps> = () => {
         aria-checked={isAnnual}
         className={cn(
           'relative w-12 h-6 rounded-full transition-colors duration-300 cursor-pointer',
-          isAnnual ? 'bg-violet-800' : 'bg-gray-300'
+          isAnnual ? 'bg-gray-800' : 'bg-gray-300'
         )}
       >
         <span
@@ -42,7 +42,7 @@ export const BillingSelector: React.FC<BillingSelectorProps> = () => {
       <p
         className={cn(
           'self-stretch py-0.5 my-auto leading-6',
-          isAnnual ? 'text-neutral-800 font-semibold' : 'text-neutral-500'
+          isAnnual ? 'text-neutral-600 font-semibold' : 'text-neutral-500'
         )}
       >
         Billed Annually{' '}

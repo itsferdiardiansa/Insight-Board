@@ -39,21 +39,21 @@ export const BannerContent: React.FC = () => {
   }, [])
 
   return (
-    <div>
-      <h1 className="text-4xl lg:text-5xl font-extrabold text-neutral-800 inline-block">
+    <>
+      <h1 className="text-4xl lg:text-8xl font-bold text-neutral-800 inline-block">
         <span ref={textRef}>{baseText}</span>
-        <br className="lg:hidden" />
+        <br />
         <span>{additionalText}</span>
         <span ref={cursorRef} className="animate-blink text-neutral-800">
           |
         </span>
       </h1>
 
-      <p className="mt-3.5 ml-4 text-base lg:text-xl text-neutral-500 max-md:max-w-full">
+      <p className="text-lg lg:text-2xl text-neutral-500 max-md:max-w-full">
         An awesome & powerful tool for your business to streamline workflows
         <br className="hidden lg:flex" />
         and drive growth with real-time insights.
       </p>
-    </div>
+    </>
   )
 }

@@ -50,7 +50,7 @@ const ProductPlans: React.FC = () => {
   }, [])
 
   return (
-    <div className="layout-wrapper max-xl:mx-0!">
+    <div className="layout-wrapper max-xl:mx-0! px-0">
       <div className="content-block">
         <div className="flex flex-col gap-12 lg:gap-24">
           <div className="flex flex-col items-center gap-4 text-center">

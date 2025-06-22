@@ -5,7 +5,7 @@ import { cn } from '@/utils/tailwind'
 import * as React from 'react'
 
 const badgeVariants = cva(
-  'inline-flex items-center px-3 py-1.5 text-sm font-semibold uppercase tracking-widest rounded-full',
+  'inline-flex items-center px-4 py-1 text-sm font-semibold tracking-widest rounded-full text-lg',
   {
     variants: {
       variant: {
@@ -16,6 +16,7 @@ const badgeVariants = cva(
         danger: 'bg-red-100 text-red-700',
         info: 'bg-sky-100 text-sky-700',
         neutral: 'bg-slate-100 text-slate-700',
+        ghost: 'border border-gray-800',
       },
     },
     defaultVariants: {

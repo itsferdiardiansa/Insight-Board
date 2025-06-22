@@ -77,10 +77,10 @@ export const InsightHeader: React.FC = () => {
   return (
     <>
       <div ref={badgeRef} className="max-md:mx-auto opacity-0">
-        <Badge variant={'primary'}>Data Insights</Badge>
+        <Badge variant={'ghost'}>Data Insights</Badge>
       </div>
 
-      <header className="mt-4 flex flex-col gap-4 text-center md:text-left">
+      <div className="mt-4 flex flex-col gap-4 text-center md:text-left">
         <h1 ref={titleRef} className="heading-display opacity-0">
           Transform raw data into actionable strategies
         </h1>
@@ -88,7 +88,7 @@ export const InsightHeader: React.FC = () => {
           Our advanced analytics platform helps you understand your business
           metrics at a glance with intuitive visualizations.
         </h2>
-      </header>
+      </div>
     </>
   )
 }

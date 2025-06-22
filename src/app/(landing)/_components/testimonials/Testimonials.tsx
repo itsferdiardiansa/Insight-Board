@@ -4,40 +4,89 @@ import * as React from 'react'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
-import { FeaturedTestimonial } from './FeaturedTestimonial'
+// import { FeaturedTestimonial } from './FeaturedTestimonial'
 import { IndustryLeaders } from './IndustryLeaders'
 
-import ChristinaWocin from '@/assets/leaders/christina-wocin.jpg'
+// import ChristinaWocin from '@/assets/leaders/christina-wocin.jpg'
 import SarahCorneli from '@/assets/leaders/sarah-corneli.jpg'
 import ChristianBuehner from '@/assets/leaders/christian-buehner.jpg'
 import VickyHladynets from '@/assets/leaders/vicky-hladynets.jpg'
 
+import AmazonBrandLogo from '@/assets/partners/amazon-custom.svg'
+import MicrosoftBrandLogo from '@/assets/partners/microsoft.svg'
+
 const testimonials = [
-  {
-    imageSrc: ChristianBuehner,
-    name: 'Christian Buehner',
-    role: 'Sr Software Engineer',
-    testimonial:
-      'InsightBoard drastically improved our deployment flow. Real-time dashboards and integrations make debugging a breeze.',
-  },
-  {
-    imageSrc: SarahCorneli,
-    name: 'Sarah Corneli',
-    role: 'Sr Project Manager',
-    testimonial:
-      'Managing multiple teams has never been smoother. InsightBoard brings clarity to complex project timelines.',
-  },
-  {
-    imageSrc: VickyHladynets,
-    name: 'Vicky Hladynets',
-    role: 'VP of Growth',
-    testimonial:
-      'The analytics features helped us uncover hidden patterns in our user journey. Our conversion rates have soared.',
-  },
+  [
+    {
+      imageSrc: ChristianBuehner,
+      name: 'James Carter',
+      role: 'Senior DevOps Engineer at Amazon',
+      isFeatured: false,
+      testimonial:
+        'InsightBoard cut our deployment times by 40%. The visual dashboards help us spot production issues before they escalate.',
+    },
+    {
+      imageSrc: VickyHladynets,
+      name: 'Vicky Hladynets',
+      role: 'VP of Growth at Microsoft',
+      companyLogo: <MicrosoftBrandLogo className="text-white" />,
+      isFeatured: true,
+      bgColor: 'bg-blue-500',
+      testimonial:
+        'We’ve seen a 30% lift in user activation thanks to the predictive analytics from InsightBoard. It’s a must-have for any growth team.',
+    },
+  ],
+  [
+    {
+      imageSrc: ChristianBuehner,
+      name: 'Lena Whitman',
+      role: 'Engineering Director at Notion',
+      isFeatured: false,
+      testimonial:
+        'Our engineering team uses InsightBoard to monitor feature rollouts and performance. It saves us hours of manual tracking.',
+    },
+    {
+      imageSrc: SarahCorneli,
+      name: 'Sarah Corneli',
+      role: 'Senior Project Manager at Atlassian',
+      isFeatured: false,
+      testimonial:
+        'With InsightBoard, we’ve streamlined cross-functional collaboration. Projects are more transparent, and our timelines are tighter.',
+    },
+    {
+      imageSrc: VickyHladynets,
+      name: 'Daniela Moore',
+      role: 'VP of Growth at Zapier',
+      isFeatured: false,
+      testimonial:
+        "InsightBoard exposed bottlenecks in our funnel we didn't know existed. That clarity helped us increase MQLs by 45%.",
+    },
+  ],
+  [
+    {
+      imageSrc: ChristianBuehner,
+      name: 'Christian Buehner',
+      role: 'Sr Software Engineer at Amazon',
+      companyLogo: <AmazonBrandLogo className="text-white" />,
+      bgColor: 'bg-gray-800',
+      isFeatured: true,
+      testimonial:
+        'Having real-time metrics on deployment and system health directly in our Slack has made debugging incredibly efficient.',
+    },
+    {
+      imageSrc: SarahCorneli,
+      name: 'Nina Wallace',
+      role: 'Operations Manager at Slack',
+      isFeatured: false,
+      testimonial:
+        'InsightBoard helped us align our ops and finance teams. Everyone sees the same data, updated in real time, without extra meetings.',
+    },
+  ],
 ]
 
 const Testimonials: React.FC = () => {
   const headingRef = useRef<HTMLHeadingElement>(null)
+  const descRef = useRef<HTMLHeadingElement | null>(null)
   const listRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -54,6 +103,24 @@ const Testimonials: React.FC = () => {
             trigger: headingRef.current,
             start: 'top 85%',
             toggleActions: 'play none none none',
+          },
+        }
+      )
+    }
+
+    if (descRef.current) {
+      gsap.fromTo(
+        descRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: 0.4,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: descRef.current,
+            start: 'top 85%',
           },
         }
       )
@@ -79,38 +146,22 @@ const Testimonials: React.FC = () => {
   }, [])
 
   return (
-    <div className="relative bg-green-100">
-      <div className="absolute -top-8 left-0 w-full h-16 pointer-events-none z-50">
-        <div className="h-full w-full bg-gradient-to-b from-white to-green-100 blur-md scale-x-110" />
+    <div className="content-block">
+      <div className="flex flex-col gap-4 mb-10">
+        <h1 ref={headingRef} className="heading-display text-center opacity-0">
+          Trusted by 45,000+ Customers
+        </h1>
+
+        <h2 ref={descRef} className="heading-sub text-center opacity-0">
+          Discover the Powerful Features That Make InsightBoard the Ultimate
+          SaaS&nbsp;
+          <br className="max-sm:hidden" />
+          Solution for Your Business
+        </h2>
       </div>
 
-      <div className="absolute -bottom-8 inset-x-0 h-16 pointer-events-none z-50">
-        <div className="h-full w-full bg-gradient-to-t from-white to-green-100 blur-md scale-x-110" />
-      </div>
-      <div className="layout-wrapper">
-        <div className="content-block">
-          <div className="flex justify-center mb-10">
-            <h1
-              ref={headingRef}
-              className="heading-display text-center opacity-0"
-            >
-              What Our Customers Say
-            </h1>
-          </div>
-
-          <div>
-            <FeaturedTestimonial
-              imageSrc={ChristinaWocin}
-              name="Sarah Johnson"
-              role="Head of Product"
-              testimonial="The collaboration features have transformed how our team works. We're more efficient and connected than ever before. The platform has become an essential part of our daily operations, enabling seamless communication across all departments."
-            />
-          </div>
-
-          <div ref={listRef} className="opacity-0">
-            <IndustryLeaders testimonials={testimonials} />
-          </div>
-        </div>
+      <div ref={listRef} className="opacity-0">
+        <IndustryLeaders testimonials={testimonials} />
       </div>
     </div>
   )

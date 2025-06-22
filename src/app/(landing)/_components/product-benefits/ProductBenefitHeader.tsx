@@ -81,14 +81,14 @@ export const ProductBenefitHeader: React.FC<ProductBenefitHeaderProps> = ({
   return (
     <div className="flex flex-col justify-center items-center gap-4 text-center">
       <div ref={badgeRef} className="self-start mx-auto opacity-0">
-        <Badge variant={'warning'}>Features</Badge>
+        <Badge variant={'ghost'}>Features</Badge>
       </div>
 
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-2">
         <h1 ref={titleRef} className="heading-display opacity-0">
           {title}
         </h1>
-        <h2 ref={descRef} className="heading-sub opacity-0">
+        <h2 ref={descRef} className="heading-sub xl:max-w-md  opacity-0">
           {subtitle}
         </h2>
       </div>
