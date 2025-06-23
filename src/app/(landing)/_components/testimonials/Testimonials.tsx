@@ -4,16 +4,15 @@ import * as React from 'react'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
-// import { FeaturedTestimonial } from './FeaturedTestimonial'
 import { IndustryLeaders } from './IndustryLeaders'
 
-// import ChristinaWocin from '@/assets/leaders/christina-wocin.jpg'
-import SarahCorneli from '@/assets/leaders/sarah-corneli.jpg'
-import ChristianBuehner from '@/assets/leaders/christian-buehner.jpg'
-import VickyHladynets from '@/assets/leaders/vicky-hladynets.jpg'
+import ChristinaWocin from '@/assets/images/leaders/christina-wocin.jpg'
+import SarahCorneli from '@/assets/images/leaders/sarah-corneli.jpg'
+import ChristianBuehner from '@/assets/images/leaders/christian-buehner.jpg'
+import VickyHladynets from '@/assets/images/leaders/vicky-hladynets.jpg'
 
-import AmazonBrandLogo from '@/assets/partners/amazon-custom.svg'
-import MicrosoftBrandLogo from '@/assets/partners/microsoft.svg'
+import AmazonBrandLogo from '@/assets/logo/partners/amazon.svg'
+import MicrosoftBrandLogo from '@/assets/logo/partners/microsoft.svg'
 
 const testimonials = [
   [
@@ -38,7 +37,7 @@ const testimonials = [
   ],
   [
     {
-      imageSrc: ChristianBuehner,
+      imageSrc: ChristinaWocin,
       name: 'Lena Whitman',
       role: 'Engineering Director at Notion',
       isFeatured: false,

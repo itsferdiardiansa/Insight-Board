@@ -1,10 +1,10 @@
 import * as React from 'react'
 import Image from 'next/image'
 
-import UserPixelFox from '@/assets/users/userPixelFox.jpg'
-import UserNova21 from '@/assets/users/userNova21.jpg'
-import UserShadow87 from '@/assets/users/userShadow87.jpg'
 import { FaStar } from 'react-icons/fa'
+import UserPixelFox from '@/assets/images/users/userPixelFox.jpg'
+import UserNova21 from '@/assets/images/users/userNova21.jpg'
+import UserShadow87 from '@/assets/images/users/userShadow87.jpg'
 
 export const Statistics: React.FC = () => {
   return (

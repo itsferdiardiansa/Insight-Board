@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { gsap } from 'gsap'
 import { CollaborationHeader } from './CollaborationHeader'
 import { CollaborationFeatureItem } from './CollaborationFeatureItem'
-import CollaborationImage from '@/assets/collaboration.jpg'
+import CollaborationImage from '@/assets/images/collaboration.jpg'
 import { cn } from '@/utils/tailwind'
 
 const features = [
@@ -74,9 +74,12 @@ const CollaboratedWithYourTeam: React.FC = () => {
             />
           </div>
 
-          <div className="absolute bottom-[5%] left-[5%] z-50">
+          <div className="absolute bottom-[3%] left-[3%] xl:bottom-[5%] xl:left-[5%] z-50">
             {features.map((feature, index) => (
-              <div key={feature.title} className={cn({ 'mt-4': index > 0 })}>
+              <div
+                key={feature.title}
+                className={cn({ 'mt-2 xl:mt-4': index > 0 })}
+              >
                 <CollaborationFeatureItem
                   title={feature.title}
                   ref={el => {

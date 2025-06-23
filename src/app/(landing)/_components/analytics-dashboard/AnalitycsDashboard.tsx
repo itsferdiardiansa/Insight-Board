@@ -6,8 +6,8 @@ import gsap from 'gsap'
 
 import { AnalyticsDashboardHeader } from './AnalyticsDashboardHeader'
 import { MetricsSection } from './MetricsSection'
-import AnalyzerImage from '@/assets/regrouping.jpg'
-import TodayTransactionsImage from '@/assets/today-transactions.png'
+import AnalyzerImage from '@/assets/images/regrouping.jpg'
+import TodayTransactionsImage from '@/assets/illustrations/today-transactions.png'
 
 const AnalyticsDashboard: React.FC = () => {
   const imageRef = useRef<HTMLImageElement>(null)
@@ -69,14 +69,14 @@ const AnalyticsDashboard: React.FC = () => {
             ref={imageRef}
             className="absolute top-0 left-0 w-full h-full object-cover rounded-4xl overflow-hidden opacity-0"
             src={AnalyzerImage}
-            width={300}
-            height={500}
+            width={500}
+            height={800}
             alt="Analytics Dashboard Visualization"
           />
 
           <Image
             ref={secondImageRef}
-            className="absolute scale-[1] bottom-[5%] left-[5%] opacity-0"
+            className="absolute max-w-60 bottom-[5%] left-[5%] opacity-0"
             src={TodayTransactionsImage}
             alt="Today transactions"
           />

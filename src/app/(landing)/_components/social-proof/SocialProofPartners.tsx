@@ -4,12 +4,12 @@ import * as React from 'react'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
-import CitibanamexLogo from '@/assets/partners/citibanamex.svg'
-import AmazonLogo from '@/assets/partners/amazon.svg'
-import SpotifyLogo from '@/assets/partners/spotify.svg'
-import TNTSportsLogo from '@/assets/partners/tnt-sports.svg'
-import VodafoneLogo from '@/assets/partners/vodafone.svg'
-import ToyotaLogo from '@/assets/partners/toyota.svg'
+import CitibanamexLogo from '@/assets/logo/partners/citibanamex.svg'
+import AmazonLogo from '@/assets/logo/partners/amazon.svg'
+import SpotifyLogo from '@/assets/logo/partners/spotify.svg'
+import TNTSportsLogo from '@/assets/logo/partners/tnt-sports.svg'
+import VodafoneLogo from '@/assets/logo/partners/vodafone.svg'
+import ToyotaLogo from '@/assets/logo/partners/toyota.svg'
 
 export const SocialProofPartners: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null)

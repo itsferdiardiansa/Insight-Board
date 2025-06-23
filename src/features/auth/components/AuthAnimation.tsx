@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef } from 'react'
-import AnalyticsIllustration from '@/assets/analytics-dashboard-illustration.svg'
+import AnalyticsIllustration from '@/assets/illustrations/analytics-dashboard.svg'
 import { FaGoogle, FaFacebookF, FaSlack } from 'react-icons/fa'
 import {
   SiGoogleanalytics,

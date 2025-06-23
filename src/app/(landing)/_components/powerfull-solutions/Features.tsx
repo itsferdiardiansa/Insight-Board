@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { FeatureCard } from './FeatureCard'
 
@@ -27,11 +27,15 @@ const features = [
   },
 ]
 
-export const Features = () => {
+type FeaturesProps = {
+  currentIndex: number
+  setCurrentIndex: (index: number) => void
+}
+
+export const Features = ({ currentIndex, setCurrentIndex }: FeaturesProps) => {
   const sectionRef = useRef<HTMLDivElement>(null)
   const descRefs = useRef<(HTMLDivElement | null)[]>([])
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const prevIndex = useRef(0)
+  const prevIndex = useRef(currentIndex)
 
   useEffect(() => {
     if (!sectionRef.current) return

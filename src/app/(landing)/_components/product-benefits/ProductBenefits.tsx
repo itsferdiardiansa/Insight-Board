@@ -7,41 +7,47 @@ import { gsap } from 'gsap'
 import { ProductBenefitCard } from './ProductBenefitCard'
 import { ProductBenefitHeader } from './ProductBenefitHeader'
 
-import {
-  MdQueryStats,
-  MdSettingsSuggest,
-  MdIntegrationInstructions,
-  MdSecurity,
-} from 'react-icons/md'
+import RealtimeGraphIllustration from '@/assets/illustrations/realtime-graph.png'
+import IntegrationIllustration from '@/assets/illustrations/connect.png'
+import AutomateIllustration from '@/assets/illustrations/get-data.png'
+import SecurityIllustration from '@/assets/illustrations/security.png'
+import TraficIllustration from '@/assets/illustrations/monthly-traffic.png'
 
 const features = [
   {
-    icon: <MdQueryStats size={28} className="text-white" />,
-    iconBgColor: 'bg-lime-500',
     title: 'Real-time Analytics',
     description:
-      'Monitor your business performance with instant insights and detailed reporting dashboards.',
+      'Track and visualize performance as it happens with interactive dashboards and intelligent insights tailored to your business.',
+    span: 2,
+    imageSrc: RealtimeGraphIllustration,
   },
   {
-    icon: <MdSettingsSuggest size={28} className="text-white" />,
-    iconBgColor: 'bg-amber-500',
     title: 'Smart Automation',
     description:
-      'Automate repetitive tasks and workflows to save time and reduce manual errors.',
+      'Eliminate manual work with rule-based automation that streamlines processes and boosts operational efficiency.',
+    span: 1,
+    imageSrc: AutomateIllustration,
   },
   {
-    icon: <MdIntegrationInstructions size={28} className="text-white" />,
-    iconBgColor: 'bg-sky-500',
-    title: 'Custom Integration',
+    title: 'Custom Integrations',
     description:
-      'Connect seamlessly with your existing tools and create a unified workflow.',
+      'Seamlessly connect your favorite apps and services to create an integrated workflow across your entire stack.',
+    span: 1,
+    imageSrc: IntegrationIllustration,
   },
   {
-    icon: <MdSecurity size={28} className="text-white" />,
-    iconBgColor: 'bg-rose-600',
     title: 'Advanced Security',
     description:
-      'Enterprise-grade security features to protect your sensitive business data.',
+      'Safeguard your data with SSO, encryption, and compliance controls designed for modern SaaS environments.',
+    span: 1,
+    imageSrc: SecurityIllustration,
+  },
+  {
+    title: 'Traffic Intelligence',
+    description:
+      'Get a complete view of your traffic sources and user behavior to optimize conversion and engagement.',
+    span: 1,
+    imageSrc: TraficIllustration,
   },
 ]
 
@@ -71,20 +77,17 @@ const Features: React.FC = () => {
       <div className="flex flex-col justify-center">
         <ProductBenefitHeader
           title="Explore our amazing features"
-          subtitle="Discover tools designed to streamline your workflow and boost productivity"
+          subtitle="This template comes packed with modern features and clean layouts tailored for AI products, dev tools, and fast-growing SaaS platforms."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-center items-stretch self-center mt-20 xl:mt-28 max-md:mt-10 max-md:max-w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 xl:gap-8 justify-center mt-20 xl:mt-28 max-md:mt-10 max-md:max-w-full">
           {features.map((feature, index) => (
             <ProductBenefitCard
               key={index}
               ref={el => {
                 itemRefs.current[index] = el
               }}
-              icon={feature.icon}
-              iconBgColor={feature.iconBgColor}
-              title={feature.title}
-              description={feature.description}
+              {...feature}
             />
           ))}
         </div>

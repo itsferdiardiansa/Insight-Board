@@ -3,14 +3,14 @@
 import React, { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 
-import ShopifyLogo from '@/assets/integration-tools/shopify.svg'
-import StripeLogo from '@/assets/integration-tools/stripe.svg'
-import GoogleLogo from '@/assets/integration-tools/google.svg'
-import HubspotLogo from '@/assets/integration-tools/hubspot.svg'
-import IntercomLogo from '@/assets/integration-tools/intercom.svg'
-import SlackLogo from '@/assets/integration-tools/slack.svg'
-import ZapierLogo from '@/assets/integration-tools/zapier.svg'
-import NotionLogo from '@/assets/integration-tools/notion.svg'
+import ShopifyLogo from '@/assets/logo/integration-tools/shopify.svg'
+import StripeLogo from '@/assets/logo/integration-tools/stripe.svg'
+import GoogleLogo from '@/assets/logo/integration-tools/google.svg'
+import HubspotLogo from '@/assets/logo/integration-tools/hubspot.svg'
+import IntercomLogo from '@/assets/logo/integration-tools/intercom.svg'
+import SlackLogo from '@/assets/logo/integration-tools/slack.svg'
+import ZapierLogo from '@/assets/logo/integration-tools/zapier.svg'
+import NotionLogo from '@/assets/logo/integration-tools/notion.svg'
 
 const integrations = [
   { name: 'Shopify', logo: <ShopifyLogo /> },

@@ -58,10 +58,10 @@ export const ProductBenefitHeader: React.FC<ProductBenefitHeaderProps> = ({
       if (descRef.current) {
         gsap.fromTo(
           descRef.current,
-          { opacity: 0, y: 40 },
+          { opacity: 0, x: 40 },
           {
             opacity: 1,
-            y: 0,
+            x: 0,
             duration: 0.8,
             delay: 0.1,
             ease: 'power3.out',
@@ -79,16 +79,16 @@ export const ProductBenefitHeader: React.FC<ProductBenefitHeaderProps> = ({
   }, [])
 
   return (
-    <div className="flex flex-col justify-center items-center gap-4 text-center">
-      <div ref={badgeRef} className="self-start mx-auto opacity-0">
+    <div className="flex flex-col justify-center items-center gap-8 text-center">
+      <div ref={badgeRef} className="self-start max-lg:mx-auto opacity-0">
         <Badge variant={'ghost'}>Features</Badge>
       </div>
 
-      <div className="flex flex-col items-center gap-2">
+      <div className="flex flex-col lg:flex-row gap-2 lg:text-left">
         <h1 ref={titleRef} className="heading-display opacity-0">
           {title}
         </h1>
-        <h2 ref={descRef} className="heading-sub xl:max-w-md  opacity-0">
+        <h2 ref={descRef} className="heading-sub xl:max-w-md opacity-0">
           {subtitle}
         </h2>
       </div>
