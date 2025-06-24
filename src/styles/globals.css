@@ -8,12 +8,16 @@
 :root {
   --background: theme(colors.slate.50);
   --foreground: theme(colors.neutral.800);
-
   --font-sans: "Satoshi", "Satoshi Placeholder", sans-serif;
 }
 
 body {
-  background-color: var(--background);
+  background: linear-gradient(
+    to bottom,
+  #ffffff 0%,
+  #a193e5 40%,
+  #fefeff 100%
+  );
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   @apply text-base antialiased;

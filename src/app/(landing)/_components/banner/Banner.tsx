@@ -44,7 +44,7 @@ const Banner: React.FC = () => {
   }, [])
 
   return (
-    <div className="bg-grid">
+    <div className="bg-grid mt-[-78px] pt-[78px]">
       <div className="layout-wrapper">
         <div className="relative flex flex-col justify-end items-center">
           <div className="content-block pb-0!">

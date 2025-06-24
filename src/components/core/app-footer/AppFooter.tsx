@@ -38,7 +38,7 @@ const companyLinks = [
 
 export const AppFooter = () => {
   return (
-    <footer className="flex flex-col justify-center bg-slate-50">
+    <footer className="flex flex-col justify-center">
       <div className="layout-wrapper">
         <div className="flex flex-col items-start">
           <div className="content-block max-xl:py-8!">

@@ -60,7 +60,7 @@ export const NavigationMenu: React.FC<NavigationMenuProps> = ({
         {menuItems.map((item, index) => (
           <Link
             key={index}
-            className="py-2 md:px-6 flex items-center gap-2 hover:bg-violet-100/50 rounded-lg transition-colors duration-300 cursor-pointer"
+            className="group py-2 md:px-6 flex items-center gap-2 duration-300 cursor-pointer"
             href={item.link}
             onClick={() => onCloseDrawer()}
           >
@@ -69,7 +69,14 @@ export const NavigationMenu: React.FC<NavigationMenuProps> = ({
                 {item.icon}
               </span>
             )}
-            <span>{item.title}</span>
+
+            {/* Slot Machine Text Animation */}
+            <span className="relative overflow-hidden h-[1.4em]">
+              <span className="block transition-transform duration-300 ease-in-out group-hover:-translate-y-[50%]">
+                <span className="block">{item.title}</span>
+                <span className="block">{item.title}</span>
+              </span>
+            </span>
           </Link>
         ))}
       </nav>

@@ -24,7 +24,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <link rel="manifest" href="/manifest.json" />
         <JsonLd data={[websiteSchema, homepageSchema]} />
       </head>
-      <body className="antialiased text-neutral-800 bg-slate-50">
+      <body className="antialiased text-neutral-800">
         <AnimationProvider>{children}</AnimationProvider>
       </body>
     </html>

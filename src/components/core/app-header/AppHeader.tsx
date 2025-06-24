@@ -73,9 +73,10 @@ export const AppHeader = () => {
     <header
       ref={headerRef}
       className={cn(
-        'w-full shadow-sm shadow-gray-100/90 py-4 z-[999] bg-white transition-all duration-300',
-        'fixed top-0 left-0 right-0'
-        // { 'bg-violet-300': !isFixed }
+        'w-full py-4 z-[999] transition-all duration-300 fixed top-0 left-0 right-0',
+        isFixed
+          ? 'bg-white shadow-sm shadow-gray-100/90'
+          : 'bg-transparent shadow-none'
       )}
     >
       <div className="layout-wrapper flex justify-between items-center gap-4">
