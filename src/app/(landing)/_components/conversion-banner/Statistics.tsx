@@ -2,9 +2,7 @@ import * as React from 'react'
 import Image from 'next/image'
 
 import { FaStar } from 'react-icons/fa'
-import UserPixelFox from '@/assets/images/users/userPixelFox.jpg'
-import UserNova21 from '@/assets/images/users/userNova21.jpg'
-import UserShadow87 from '@/assets/images/users/userShadow87.jpg'
+import UserMembers from '@/assets/images/user-members.png'
 
 export const Statistics: React.FC = () => {
   return (
@@ -12,30 +10,16 @@ export const Statistics: React.FC = () => {
       <div className="flex gap-2">
         <div className="flex">
           <div className="relative flex">
-            <div className="w-8 h-8 rounded-full overflow-hidden blur-xs shadow-lg">
+            <div className="w-auto h-10">
               <Image
-                className="object-contain"
-                src={UserNova21}
+                className="w-full h-full object-cover"
+                src={UserMembers}
                 alt="userNova21"
-              />
-            </div>
-            <div className="w-8 h-8 -ml-2 rounded-full overflow-hidden blur-xs shadow-lg">
-              <Image
-                className="object-contain"
-                src={UserPixelFox}
-                alt="userPixelFox"
-              />
-            </div>
-            <div className="w-8 h-8 -ml-2 rounded-full overflow-hidden blur-xs shadow-lg">
-              <Image
-                className="object-contain"
-                src={UserShadow87}
-                alt="userShadow87"
               />
             </div>
           </div>
 
-          <div className="w-8 h-8 flex items-center justify-center -ml-2 font-bold text-white bg-lime-500 rounded-full z-10">
+          <div className="w-8 h-8 flex items-center justify-center mt-1 -ml-4 font-bold text-white bg-lime-500 rounded-full z-10">
             +2k
           </div>
         </div>
