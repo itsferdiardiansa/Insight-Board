@@ -1,21 +1,47 @@
 'use client'
 
-import * as React from 'react'
-import { useRef, useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { FeatureCard } from './FeatureCard'
-import { FaRocket, FaUsers, FaCogs, FaHandshake } from 'react-icons/fa'
 
-export const Features: React.FC = () => {
-  const sectionRef = useRef<HTMLDivElement | null>(null)
+const features = [
+  {
+    title: 'Boost Efficiency',
+    description:
+      'Streamline operations and reduce overhead. Reduce manual work for your team with measurable efficiency.',
+  },
+  {
+    title: 'Team Collaboration',
+    description:
+      'Work together seamlessly across teams. Empower departments to share data, align on KPIs, and make faster decisions.',
+  },
+  {
+    title: 'Advanced Tools',
+    description:
+      'Automate and optimize complex workflows. Use powerful tools designed to accelerate your most critical business operations.',
+  },
+  {
+    title: 'Client Success',
+    description:
+      'Empower teams to serve clients better. Deliver insights, monitor performance, and improve engagement through data.',
+  },
+]
+
+type FeaturesProps = {
+  currentIndex: number
+  setCurrentIndex: (index: number) => void
+}
+
+export const Features = ({ currentIndex, setCurrentIndex }: FeaturesProps) => {
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const descRefs = useRef<(HTMLDivElement | null)[]>([])
+  const prevIndex = useRef(currentIndex)
 
   useEffect(() => {
     if (!sectionRef.current) return
 
-    const cards = sectionRef.current.querySelectorAll('[data-feature]')
-
     gsap.fromTo(
-      cards,
+      sectionRef.current.querySelectorAll('[data-feature]'),
       { opacity: 0, y: 50 },
       {
         opacity: 1,
@@ -32,43 +58,58 @@ export const Features: React.FC = () => {
     )
   }, [])
 
-  return (
-    <div ref={sectionRef} className="flex flex-wrap flex-col lg:flex-row gap-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-        <div className="opacity-0" data-feature>
-          <FeatureCard
-            icon={<FaRocket size={24} className="text-neutral-50" />}
-            backgroundColor="bg-lime-500"
-            title="Boost Efficiency"
-            description="Streamline operations and reduce overhead"
-          />
-        </div>
-        <div className="opacity-0" data-feature>
-          <FeatureCard
-            icon={<FaUsers size={24} className="text-neutral-50" />}
-            backgroundColor="bg-amber-500"
-            title="Team Collaboration"
-            description="Work together seamlessly across teams"
-          />
-        </div>
+  useEffect(() => {
+    const prev = descRefs.current[prevIndex.current]
+    const current = descRefs.current[currentIndex]
 
-        <div className="opacity-0" data-feature>
+    if (prev && prev !== current) {
+      gsap.to(prev, {
+        y: 20,
+        opacity: 0,
+        duration: 0.3,
+        ease: 'power2.inOut',
+        onComplete: () => {
+          gsap.set(prev, { display: 'none' })
+        },
+      })
+    }
+
+    if (current) {
+      const fromY = currentIndex > prevIndex.current ? -20 : 20
+      gsap.set(current, { display: 'block' })
+      gsap.fromTo(
+        current,
+        { y: fromY, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.3,
+          ease: 'power2.out',
+        }
+      )
+    }
+
+    prevIndex.current = currentIndex
+  }, [currentIndex])
+
+  return (
+    <div ref={sectionRef} className="flex flex-col">
+      {features.map((feature, index) => (
+        <div
+          key={index}
+          data-feature
+          onClick={() => setCurrentIndex(index)}
+          className="cursor-pointer opacity-0"
+        >
           <FeatureCard
-            icon={<FaCogs size={24} className="text-neutral-50" />}
-            backgroundColor="bg-pink-500"
-            title="Advanced Tools"
-            description="Automate and optimize complex workflows"
+            number={index + 1}
+            title={feature.title}
+            description={feature.description}
+            isCollapsed={currentIndex === index}
+            contentRef={el => (descRefs.current[index] = el)}
           />
         </div>
-        <div className="opacity-0" data-feature>
-          <FeatureCard
-            icon={<FaHandshake size={24} className="text-neutral-50" />}
-            backgroundColor="bg-teal-500"
-            title="Client Success"
-            description="Empower teams to serve clients better"
-          />
-        </div>
-      </div>
+      ))}
     </div>
   )
 }

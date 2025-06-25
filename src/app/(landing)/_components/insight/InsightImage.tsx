@@ -5,10 +5,10 @@ import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { gsap } from 'gsap'
 
-import MetricsImage from '@/assets/Reports.png'
-import SaveProductsImage from '@/assets/save-products.png'
-import StockProductsImage from '@/assets/stock-products.png'
-import SalesProductsImage from '@/assets/sales-products.png'
+import MetricsImage from '@/assets/illustrations/reports.png'
+import SaveProductsImage from '@/assets/illustrations/save-products.png'
+import StockProductsImage from '@/assets/illustrations/stock-products.png'
+import SalesProductsImage from '@/assets/illustrations/sales-products.png'
 
 export const InsightImage: React.FC = () => {
   const bgLeftRef = useRef<HTMLDivElement>(null)
@@ -57,7 +57,6 @@ export const InsightImage: React.FC = () => {
             start: 'top 85%',
             once: true,
             onEnter: () => {
-              // Pop-in animation for Save + Stock
               gsap.fromTo(
                 saveRef.current,
                 { opacity: 0, scale: 0.5 },

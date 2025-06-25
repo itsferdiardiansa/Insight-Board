@@ -71,9 +71,9 @@ export const AnalyticsDashboardHeader: React.FC = () => {
   }, [])
 
   return (
-    <header className="flex flex-col pb-6 w-full border-b border-solid border-b-neutral-100 max-md:max-w-full">
+    <div className="flex flex-col pb-6 w-full border-b border-solid border-b-neutral-100 max-md:max-w-full">
       <div ref={badgeRef} className="self-start max-md:mx-auto opacity-0">
-        <Badge variant="success">Analytics Dashboard</Badge>
+        <Badge variant="ghost">Analytics Dashboard</Badge>
       </div>
       <div className="mt-4 flex flex-col gap-4 text-center md:text-left">
         <h1 ref={titleRef} className="heading-display opacity-0">
@@ -84,6 +84,6 @@ export const AnalyticsDashboardHeader: React.FC = () => {
           powerful reporting tools
         </h2>
       </div>
-    </header>
+    </div>
   )
 }

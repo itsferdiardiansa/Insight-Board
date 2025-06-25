@@ -1,15 +1,16 @@
 'use client'
 
-import * as React from 'react'
+import { forwardRef } from 'react'
 import Link from 'next/link'
-import { RecommendedBadge } from './RecommendedBadge'
+import { useRef } from 'react'
+
 import { FeatureList } from './FeatureList'
 import { Button } from '@/components/ui/button'
-import { cn } from '@/utils/tailwind'
 import productPlans from '@/features/plan/data/product-plans'
 import type { Plan } from '@/features/plan/data/product-plans'
 import { useBilling } from '@/context/billing/BillingContext'
 import { priceFormatted } from '../utils/priceFormatter'
+import { cn } from '@/utils/tailwind'
 
 type PlanCardProps = {
   isRecommended?: boolean
@@ -39,87 +40,134 @@ const getPlanDifferences = (previous: Plan, current: Plan): string[] => {
   return differences
 }
 
-export const PlanCard: React.FC<PlanCardProps> = ({
-  title,
-  subtitle,
-  price,
-  features,
-  isRecommended = false,
-}) => {
-  const { isAnnual } = useBilling()
-  const planIndex = productPlans.findIndex(plan => plan.title === title)
-  const previousPlan = productPlans[planIndex - 1]
-  const isBasePlan = planIndex === 0
-  const displayPrice = priceFormatted(price, isAnnual)
+const FeatureListTitle = ({ title }: { title: string }) => (
+  <span className="font-bold">Everything in {title}, plus:</span>
+)
 
-  const differences = previousPlan
-    ? getPlanDifferences(previousPlan, { title, subtitle, price, features })
-    : []
+export const PlanCard = forwardRef<HTMLDivElement, PlanCardProps>(
+  ({ title, subtitle, price, features, isRecommended = false }, ref) => {
+    const { isAnnual } = useBilling()
+    const planIndex = productPlans.findIndex(plan => plan.title === title)
+    const previousPlan = productPlans[planIndex - 1]
+    const isBasePlan = planIndex === 0
+    const priceRef = useRef<HTMLDivElement>(null)
 
-  return (
-    <article className="w-full xl:min-w-[322px]">
-      <div
-        className={cn(
-          'h-full relative flex flex-col p-6 justify-between rounded-2xl border border-solid border-gray-200 hover:bg-violet-50 hover:border-violet-800 cursor-pointer',
-          {
-            'bg-violet-50': isRecommended,
-            'border-violet-800': isRecommended,
-          }
-        )}
-      >
-        {isRecommended && <RecommendedBadge />}
+    const differences = previousPlan
+      ? getPlanDifferences(previousPlan, { title, subtitle, price, features })
+      : []
 
-        <div>
-          <header className="flex z-0 flex-col pb-5 w-full border-b border-solid border-b-neutral-200">
-            <div className="w-full">
-              <h2 className="text-3xl font-black text-neutral-900">{title}</h2>
-              <p className="mt-1.5 text-base leading-6 text-neutral-500">
-                {subtitle}
-              </p>
-            </div>
-            <div className="flex gap-4 items-center self-start mt-5 whitespace-nowrap h-[50px]">
-              <p className="self-stretch my-auto text-5xl font-bold text-neutral-900">
-                {displayPrice}
-              </p>
-              <p className="self-stretch my-auto text-base text-neutral-500">
-                /month
-              </p>
-            </div>
-          </header>
+    return (
+      <div ref={ref} className="w-full xl:min-w-[322px] opacity-0">
+        <div
+          className={cn(
+            'bg-gray-100',
+            'h-full relative flex flex-col p-8 justify-between rounded-2xl cursor-pointer hover:scale-[1.03] duration-200',
+            isRecommended &&
+              'bg-gradient-to-b from-gray-500 via-gray-700 to-gray-900'
+          )}
+        >
+          <div>
+            <div className="flex z-0 flex-col pb-5 w-full border-b border-solid border-b-neutral-500">
+              <div className="w-full">
+                <h2
+                  className={cn(
+                    'text-3xl font-black',
+                    isRecommended && 'text-neutral-100'
+                  )}
+                >
+                  {title}
+                </h2>
+                <p
+                  className={cn(
+                    'mt-1.5 text-lg leading-6',
+                    isRecommended && 'text-neutral-200'
+                  )}
+                >
+                  {subtitle}
+                </p>
+              </div>
 
-          <div className="z-0 w-full flex flex-col">
-            {isBasePlan ? (
-              features.map((group, idx) => (
-                <FeatureList
-                  key={idx}
-                  features={group.items
-                    .filter(item => item.value !== false)
-                    .map(item =>
-                      typeof item.value === 'boolean' ? item.name : item.value
-                    )}
-                />
-              ))
-            ) : (
-              <FeatureList
-                title={
-                  <span>
-                    <span className="font-bold">
-                      Everything in {previousPlan.title}, plus:
+              <div className="flex gap-4 items-center self-start mt-5 whitespace-nowrap">
+                <div
+                  ref={priceRef}
+                  className={cn(
+                    'price text-5xl font-bold',
+                    isRecommended && 'text-neutral-100'
+                  )}
+                >
+                  <span className="relative block overflow-hidden h-[36px]">
+                    <span
+                      className={cn(
+                        'block transition-transform duration-300 ease-in-out',
+                        isAnnual ? '-translate-y-[50%]' : 'translate-y-[0]'
+                      )}
+                    >
+                      <span className="block">
+                        ${priceFormatted(price, false)}
+                      </span>
+                      <span className="block">
+                        ${priceFormatted(price, true)}
+                      </span>
                     </span>
                   </span>
-                }
-                features={differences}
-              />
-            )}
+                  {/* <p className="opacity-0">${displayPrice}</p>
+                <div className="absolute left-0 top-0 w-full text-5xl font-bold transition-transform">
+                  ${displayPrice}
+                </div> */}
+                </div>
+                <p
+                  className={cn(
+                    'self-stretch my-auto text-base',
+                    isRecommended && 'text-neutral-200'
+                  )}
+                >
+                  /month
+                </p>
+              </div>
+            </div>
+
+            <div
+              className={cn(
+                'z-0 w-full flex flex-col',
+                isRecommended ? 'text-neutral-100' : 'text-neutral-800'
+              )}
+            >
+              {isBasePlan ? (
+                features.map((group, idx) => (
+                  <FeatureList
+                    key={idx}
+                    isRecommended={isRecommended}
+                    features={group.items
+                      .filter(item => item.value !== false)
+                      .map(item =>
+                        typeof item.value === 'boolean' ? item.name : item.value
+                      )}
+                  />
+                ))
+              ) : (
+                <FeatureList
+                  title={<FeatureListTitle title={title} />}
+                  features={differences}
+                  isRecommended={isRecommended}
+                />
+              )}
+            </div>
+          </div>
+
+          <div className="mt-12 flex flex-col z-0 bottom-[33px]">
+            <Button
+              size="md"
+              variant={isRecommended ? 'secondary' : 'dark'}
+              pill={false}
+              asChild
+            >
+              <Link href={'/subscriptions'}>Get Started</Link>
+            </Button>
           </div>
         </div>
-
-        <div className="mt-12 flex flex-col z-0 bottom-[33px]">
-          <Button size="lg" pill={false} asChild>
-            <Link href={'/subscriptions'}>Get Started</Link>
-          </Button>
-        </div>
       </div>
-    </article>
-  )
-}
+    )
+  }
+)
+
+PlanCard.displayName = 'PlanCard'

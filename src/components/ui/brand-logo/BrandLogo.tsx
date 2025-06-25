@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import DefaultBrandLogo from '@/assets/brand/default-logo.svg'
+import DefaultBrandLogo from '@/assets/logo/brand/default-logo.svg'
 
 export const BrandLogo = () => {
   return (

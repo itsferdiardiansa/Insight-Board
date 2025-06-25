@@ -1,125 +1,121 @@
 'use client'
 
 import React from 'react'
-import { FiCheck, FiX } from 'react-icons/fi'
-import { cn } from '@/utils/tailwind'
-import productPlans from '@/features/plan/data/product-plans'
 import Link from 'next/link'
+import { FiCheck, FiX } from 'react-icons/fi'
+import { FaArrowRight } from 'react-icons/fa'
 import { Button } from '@/components/ui/button'
+import { useBilling } from '@/context/billing/BillingContext'
+import { cn } from '@/utils/tailwind'
+import { priceFormatted } from '../utils/priceFormatter'
+import productPlans from '@/features/plan/data/product-plans'
 
-const allGroups = Array.from(
-  new Set(productPlans.flatMap(plan => plan.features.map(f => f.group)))
-)
+export const PricingComparisonTable = () => {
+  const { isAnnual } = useBilling()
 
-const groupFeatures = (group: string) => {
-  const featuresSet = new Map<string, Set<string | boolean>>()
+  const allGroups = Array.from(
+    new Set(productPlans.flatMap(plan => plan.features.map(f => f.group)))
+  )
 
-  productPlans.forEach(plan => {
-    plan.features
-      .filter(feature => feature.group === group)
-      .forEach(feature => {
-        feature.items.forEach(item => {
-          if (!featuresSet.has(item.name)) {
-            featuresSet.set(item.name, new Set())
-          }
-          featuresSet.get(item.name)?.add(item.value)
-        })
-      })
-  })
+  const allFeatures = allGroups.map(group => ({
+    group,
+    items: Array.from(
+      new Set(
+        productPlans.flatMap(plan =>
+          plan.features
+            .filter(f => f.group === group)
+            .flatMap(f => f.items.map(i => i.name))
+        )
+      )
+    ),
+  }))
 
-  return Array.from(featuresSet.keys())
-}
+  const getFeatureValue = (
+    plan: (typeof productPlans)[number],
+    group: string,
+    item: string
+  ) => {
+    const foundGroup = plan.features.find(f => f.group === group)
+    return foundGroup?.items.find(i => i.name === item)?.value ?? false
+  }
 
-const getFeatureValue = (
-  plan: (typeof productPlans)[number],
-  group: string,
-  feature: string
-): string | boolean => {
-  const groupData = plan.features.find(f => f.group === group)
-  return groupData?.items.find(item => item.name === feature)?.value ?? false
-}
-
-export const PricingComparisonTable: React.FC = () => {
   return (
-    <div className="w-full overflow-auto border border-gray-200 rounded-xl">
-      <div className="min-w-[900px]">
-        <div className="grid grid-cols-[1.5fr_repeat(3,_1fr)] bg-gray-50 font-semibold text-sm text-neutral-800 rounded-t-xl">
-          <div className="px-6 py-4 text-left text-lg font-bold">Features</div>
-          {productPlans.map((plan, i) => (
-            <div key={i} className="px-6 py-4 text-center text-lg font-bold">
-              {plan.title}
-            </div>
-          ))}
-        </div>
+    <div className="w-full overflow-x-auto">
+      <div className="min-w-[900px] border border-gray-100 rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-[1.5fr_repeat(3,_1fr)] border-b border-gray-100">
+          <div className="p-6"></div>
+          {productPlans.map(plan => (
+            <div
+              key={plan.title}
+              className={cn(
+                'p-6 text-center flex flex-col items-center gap-2',
+                plan.title === 'Professional' && 'bg-gray-100'
+              )}
+            >
+              <p className="text-lg font-semibold">{plan.title}</p>
+              <p className="text-4xl font-black">
+                ${+priceFormatted(plan.price, isAnnual)}
+              </p>
+              <span className="font-bold text-sm text-neutral-500">/month</span>
 
-        {allGroups.map(group => (
-          <React.Fragment key={group}>
-            <div className="bg-gray-50 font-bold uppercase px-6 py-3 text-neutral-800">
-              {group}
-            </div>
-
-            {groupFeatures(group).map((feature, idx) => {
-              const isEven = idx % 2 === 1
-              return (
-                <div
-                  key={feature}
-                  className={cn(
-                    'grid grid-cols-[1.5fr_repeat(3,_1fr)] items-center',
-                    isEven ? 'bg-gray-50' : 'bg-white'
-                  )}
-                >
-                  <div className="px-6 py-3 text-neutral-700">{feature}</div>
-
-                  {productPlans.map((plan, index) => {
-                    const value = getFeatureValue(plan, group, feature)
-                    const isBool = typeof value === 'boolean'
-
-                    return (
-                      <div
-                        key={index}
-                        className="flex justify-center items-center py-3"
-                      >
-                        {isBool ? (
-                          <div
-                            className={cn(
-                              'w-6 h-6 rounded-full flex items-center justify-center',
-                              value
-                                ? 'bg-green-600 text-white'
-                                : 'bg-gray-300 text-white'
-                            )}
-                          >
-                            {value ? (
-                              <FiCheck className="font-bold" size={16} />
-                            ) : (
-                              <FiX className="font-bold" size={16} />
-                            )}
-                          </div>
-                        ) : (
-                          <span className="font-medium text-neutral-700">
-                            {value}
-                          </span>
-                        )}
-                      </div>
-                    )
-                  })}
-                </div>
-              )
-            })}
-          </React.Fragment>
-        ))}
-
-        <div className="grid grid-cols-[1.5fr_repeat(3,_1fr)] bg-gray-50 rounded-b-xl border-t border-gray-200">
-          <div className="px-6 py-5 text-left font-medium text-neutral-700">
-            &nbsp;
-          </div>
-          {productPlans.map((_, i) => (
-            <div key={i} className="flex justify-center items-center py-5">
-              <Button asChild>
-                <Link href={'/subscription'}>Get Started Now</Link>
+              <Button className="mt-4 gap-2" variant="dark" pill asChild>
+                <Link href="/subscription">
+                  Get Started
+                  <FaArrowRight />
+                </Link>
               </Button>
             </div>
           ))}
         </div>
+
+        {allFeatures.map(({ group, items }) => (
+          <div key={group} className="text-lg">
+            <div className="grid grid-cols-[1.5fr_repeat(3,_1fr)] border-t border-gray-200">
+              <div className="p-4 font-semibold text-lg text-neutral-800 col-span-2">
+                {group}
+              </div>
+              <div className="p-4 bg-gray-100"></div>
+            </div>
+
+            {items.map(item => (
+              <div
+                key={item}
+                className="grid grid-cols-[1.5fr_repeat(3,_1fr)] border-t border-gray-100"
+              >
+                <div className="p-4 text-neutral-700">{item}</div>
+
+                {productPlans.map(plan => {
+                  const value = getFeatureValue(plan, group, item)
+                  const isBool = typeof value === 'boolean'
+                  const isPro = plan.title === 'Professional'
+
+                  return (
+                    <div
+                      key={plan.title + item}
+                      className={cn(
+                        'p-4 flex justify-center',
+                        isPro && 'bg-gray-100'
+                      )}
+                    >
+                      {isBool ? (
+                        <div
+                          className={cn(
+                            'w-5 h-5 rounded-full flex items-center justify-center text-white',
+                            value ? 'bg-green-500' : 'bg-gray-300'
+                          )}
+                        >
+                          {value ? <FiCheck size={14} /> : <FiX size={14} />}
+                        </div>
+                      ) : (
+                        <span className="text-neutral-700">{value}</span>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   )

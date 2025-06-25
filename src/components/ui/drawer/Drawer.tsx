@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { FiX } from 'react-icons/fi'
 import { getPositionStyles, getTransformStyles } from './utils'
 
-interface DrawerProps {
+type DrawerProps = {
   open: boolean
   onClose: () => void
   children: React.ReactNode
@@ -16,7 +16,7 @@ interface DrawerProps {
   fullScreen?: boolean
 }
 
-interface DrawerSubcomponents {
+type DrawerSubcomponents = {
   Head: React.FC<{ children: React.ReactNode }>
   Content: React.FC<{ children: React.ReactNode }>
 }
@@ -70,7 +70,7 @@ const Drawer: React.FC<DrawerProps> & DrawerSubcomponents = ({
   if (!isMounted) return null
 
   return ReactDOM.createPortal(
-    <div className="fixed inset-0 z-50">
+    <div className="fixed inset-0 z-[9999]">
       <div
         className="absolute inset-0 bg-black"
         style={{

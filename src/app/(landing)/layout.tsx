@@ -1,16 +1,17 @@
 import * as React from 'react'
-import { AppHeader } from '@/components/layout/app-header'
-import { AppFooter } from '@/components/layout/app-footer'
+import { AppHeader } from '@/components/core/app-header'
+import { AppFooter } from '@/components/core/app-footer'
+import './landing.css'
 
 const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <div>
+    <>
       <AppHeader />
 
-      <main>{children}</main>
+      <main className="main-app">{children}</main>
 
       <AppFooter />
-    </div>
+    </>
   )
 }
 

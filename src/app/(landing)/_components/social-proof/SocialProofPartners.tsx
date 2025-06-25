@@ -4,12 +4,12 @@ import * as React from 'react'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
-import CitibanamexLogo from '@/assets/partners/citibanamex.svg'
-import AmazonLogo from '@/assets/partners/amazon.svg'
-import SpotifyLogo from '@/assets/partners/spotify.svg'
-import TNTSportsLogo from '@/assets/partners/tnt-sports.svg'
-import VodafoneLogo from '@/assets/partners/vodafone.svg'
-import ToyotaLogo from '@/assets/partners/toyota.svg'
+import CitibanamexLogo from '@/assets/logo/partners/citibanamex.svg'
+import AmazonLogo from '@/assets/logo/partners/amazon.svg'
+import SpotifyLogo from '@/assets/logo/partners/spotify.svg'
+import TNTSportsLogo from '@/assets/logo/partners/tnt-sports.svg'
+import VodafoneLogo from '@/assets/logo/partners/vodafone.svg'
+import ToyotaLogo from '@/assets/logo/partners/toyota.svg'
 
 export const SocialProofPartners: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -54,12 +54,12 @@ export const SocialProofPartners: React.FC = () => {
       </h3>
 
       <div className="flex-1 flex max-lg:flex-wrap gap-12 justify-center items-center">
-        <AmazonLogo className="w-1/4 opacity-0" data-animate />
-        <CitibanamexLogo className="w-1/4 opacity-0" data-animate />
-        <SpotifyLogo className="w-1/4 opacity-0" data-animate />
-        <TNTSportsLogo className="w-1/4 opacity-0" data-animate />
-        <VodafoneLogo className="w-1/4 opacity-0" data-animate />
-        <ToyotaLogo className="w-1/4 opacity-0" data-animate />
+        <AmazonLogo className="w-32 opacity-0" data-animate />
+        <CitibanamexLogo className="w-32 opacity-0" data-animate />
+        <SpotifyLogo className="w-32 opacity-0" data-animate />
+        <TNTSportsLogo className="w-32 opacity-0" data-animate />
+        <VodafoneLogo className="w-32 opacity-0" data-animate />
+        <ToyotaLogo className="w-32 opacity-0" data-animate />
       </div>
     </div>
   )

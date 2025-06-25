@@ -1,46 +1,46 @@
-import { Button } from '@/components/ui/button'
-import { cn } from '@/utils/tailwind'
-import Link from 'next/link'
 import React, { forwardRef } from 'react'
+import Image, { type StaticImageData } from 'next/image'
+import { cn } from '@/utils/tailwind'
 
-export interface ProductBenefitCardProps {
-  icon: React.ReactNode
-  iconBgColor: string
+export type ProductBenefitCardProps = {
   title: string
   description: string
+  span: number
+  imageSrc: StaticImageData
 }
 
 export const ProductBenefitCard = forwardRef<
   HTMLDivElement,
   ProductBenefitCardProps
->(({ icon, iconBgColor, title, description }, ref) => {
+>(({ title, description, span = 1, imageSrc }, ref) => {
   return (
-    <article
+    <div
       ref={ref}
-      className="flex flex-col items-center justify-between gap-4 lg:gap-6 opacity-0"
+      className={cn(
+        'flex flex-col rounded-2xl border border-gray-100 opacity-0 max-lg:col-span-1!'
+      )}
+      style={{
+        gridColumn: `span ${span} / span ${span}`,
+      }}
     >
-      <div className="flex flex-col gap-4 lg:gap-6">
-        <div className={cn('p-2 lg:p-3 mx-auto rounded-lg', iconBgColor)}>
-          {icon}
-        </div>
-
-        <hr className="w-1/2 lg:w-full mx-auto border-gray-100 border border-solid min-h-px" />
-
-        <div className="flex flex-col self-stretch w-full text-center">
-          <h2 className="text-2xl font-semibold text-neutral-800">{title}</h2>
-          <p className="mt-2 text-base leading-7 text-neutral-500">
-            {description}
-          </p>
+      <div className="flex justify-start bg-gray-50 p-4">
+        <div className="relative w-full aspect-[4/3] max-h-40 xl:max-h-60">
+          <Image
+            src={imageSrc}
+            alt="Connect Illustration"
+            fill
+            className="object-contain"
+          />
         </div>
       </div>
 
-      <Button size={'md'} variant={'secondary'} asChild pill>
-        <Link href="#" className="flex gap-2 items-center text-purple-800">
-          <span className="text-base">Learn more</span>
-          <span className="text-xl">→</span>
-        </Link>
-      </Button>
-    </article>
+      <div className="flex flex-col justify-start p-4">
+        <h2 className="text-xl lg:text-3xl font-semibold text-neutral-800">
+          {title}
+        </h2>
+        <p className="mt-2 lg:text-lg text-neutral-500">{description}</p>
+      </div>
+    </div>
   )
 })
 

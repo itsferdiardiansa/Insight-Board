@@ -1,9 +1,42 @@
 @layer utilities {
   .layout-wrapper {
-    @apply w-full lg:max-w-6xl lg:mx-auto px-8 lg:px-12 overflow-hidden;
+    @apply w-full lg:max-w-7xl lg:mx-auto px-4 overflow-hidden;
+  }
+
+  .section-stack {
+    @apply pt-20 md:pt-28 pb-20 md:pb-28;
+  }
+
+  .section-stack > * + * {
+    @apply mt-16 md:mt-24;
   }
 
   .content-block {
-    @apply py-12 lg:py-16;
+    @apply w-full;
+  }
+
+  /* Optional padding modifiers for content-block */
+  .content-block--p {
+    @apply p-4 md:p-8;
+  }
+
+  .content-block--px {
+    @apply px-4 md:px-8;
+  }
+
+  .content-block--py {
+    @apply py-8 md:py-16;
+  }
+
+  .content-block--pt {
+    @apply pt-8 md:pt-16;
+  }
+
+  .content-block--pb {
+    @apply pb-8 md:pb-16;
+  }
+
+  .content-card {
+    @apply md:p-8 xl:p-12 md:rounded-4xl;
   }
 }

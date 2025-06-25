@@ -1,32 +1,28 @@
 import { forwardRef } from 'react'
 import { FaCheck } from 'react-icons/fa'
 
-interface CollaborationFeatureItemProps {
+type CollaborationFeatureItemProps = {
   title: string
-  description: string
 }
 
 export const CollaborationFeatureItem = forwardRef<
   HTMLDivElement,
   CollaborationFeatureItemProps
->(({ title, description }, ref) => {
+>(({ title }, ref) => {
   return (
-    <article
+    <div
       ref={ref}
-      className="flex flex-wrap gap-4 items-center w-full max-md:max-w-full opacity-0"
+      className="inline-flex gap-2 md:gap-3 items-center px-3 py-1 bg-white rounded-full opacity-0"
     >
-      <div className="p-2 rounded-full bg-green-700 text-white">
-        <FaCheck />
+      <div className="p-1 rounded-full bg-violet-500 text-white">
+        <FaCheck className="max-sm:text-xs" />
       </div>
-      <div className="flex-1 shrink self-stretch my-auto basis-0 min-w-60 max-md:max-w-full">
-        <h3 className="text-lg font-semibold leading-loose text-neutral-800 max-md:max-w-full">
+      <div className="flex-1">
+        <h3 className="text-sm sm:text-lg font-semibold leading-loose text-neutral-800 max-md:max-w-full">
           {title}
         </h3>
-        <p className="text-base text-neutral-500 max-md:max-w-full">
-          {description}
-        </p>
       </div>
-    </article>
+    </div>
   )
 })
 

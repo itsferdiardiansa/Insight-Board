@@ -1,31 +1,20 @@
 @import 'tailwindcss';
 @import './theme/font-size.css';
 @import './utilities/layout.css';
+@import './utilities/background.css';
 @import './utilities/typography.css';
+@import './satoshi.css';
 
 /* Root theme variables */
 :root {
   --background: theme(colors.slate.50);
   --foreground: theme(colors.neutral.800);
-
-  --font-sans: var(--font-source-sans);
-  --font-mono: var(--font-mono);
+  --font-sans: "Satoshi", "Satoshi Placeholder", sans-serif;
 }
 
 body {
-  background-color: var(--background);
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   @apply text-base antialiased;
-}
-
-/* Optional cursor blink animation */
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-.animate-blink {
-  animation: blink 1s step-start infinite;
-  display: inline-block;
 }

@@ -1,14 +1,14 @@
 'use client'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
-import { BillingProvider } from '@/context/billing/BillingContext'
 import { PlanCard } from './PlanCard'
 import { BillingSelector } from './BillingSelector'
 import productPlans from '../data/product-plans'
 
 export const Plans = () => {
   const billingRef = useRef<HTMLDivElement | null>(null)
-  const cardsRef = useRef<HTMLDivElement | null>(null)
+  const cardContainerRef = useRef<HTMLDivElement | null>(null)
+  const cardsRef = useRef<HTMLDivElement[]>([])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -20,7 +20,6 @@ export const Plans = () => {
             opacity: 1,
             y: 0,
             duration: 0.8,
-            delay: 0.2,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: billingRef.current,
@@ -30,19 +29,19 @@ export const Plans = () => {
         )
       }
 
-      if (cardsRef.current) {
-        const cards = cardsRef.current.querySelectorAll('article')
+      if (cardContainerRef.current) {
         gsap.fromTo(
-          cards,
+          cardsRef.current,
           { opacity: 0, y: 40 },
           {
             opacity: 1,
             y: 0,
             duration: 0.6,
+            delay: 0.3,
             stagger: 0.2,
             ease: 'power3.out',
             scrollTrigger: {
-              trigger: cardsRef.current,
+              trigger: cardContainerRef.current,
               start: 'top 85%',
             },
           }
@@ -54,19 +53,25 @@ export const Plans = () => {
   }, [])
 
   return (
-    <BillingProvider>
-      <div ref={billingRef} className="flex justify-center">
+    <>
+      <div ref={billingRef} className="flex justify-center opacity-0">
         <BillingSelector />
       </div>
 
       <div
-        ref={cardsRef}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-12 items-stretch justify-start"
+        ref={cardContainerRef}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-12 justify-start"
       >
         {productPlans.map((item, index) => (
-          <PlanCard key={index} {...item} />
+          <PlanCard
+            key={index}
+            ref={(element: HTMLDivElement) => {
+              cardsRef.current.push(element)
+            }}
+            {...item}
+          />
         ))}
       </div>
-    </BillingProvider>
+    </>
   )
 }

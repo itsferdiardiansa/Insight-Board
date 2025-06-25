@@ -12,11 +12,11 @@ import Integration from './_components/integration'
 
 export default function LandingPage() {
   return (
-    <>
+    <div className="home">
       <Banner />
 
-      <div className="relative bg-white z-50">
-        <div className="layout-wrapper">
+      <div className="relative bg-white">
+        <div className="layout-wrapper section-stack">
           <SocialProof />
           <ProductBenefits />
           <PowerfullSolutions />
@@ -24,14 +24,11 @@ export default function LandingPage() {
           <AnalyticsDashboard />
           <Insight />
           <Integration />
+          <Testimonials />
+          <ProductPlans />
+          <ConversionBanner />
         </div>
       </div>
-
-      <div className="flex flex-col">
-        <Testimonials />
-        <ProductPlans />
-        <ConversionBanner />
-      </div>
-    </>
+    </div>
   )
 }

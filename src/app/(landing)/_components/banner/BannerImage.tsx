@@ -1,14 +1,12 @@
 import Image from 'next/image'
-import DashboardCapture from '@/assets/dahsboard-capture.png'
+import DashboardCapture from '@/assets/images/dashboard-capture.png'
 
 export const BannerImage: React.FC = () => {
   return (
-    <div className="relative">
-      <Image
-        className="object-contain self-stretch w-full scale-[1.2] max-md:max-w-full"
-        src={DashboardCapture}
-        alt="Insight Board Dashboard"
-      />
-    </div>
+    <Image
+      className="object-contain self-stretch w-full max-md:max-w-full"
+      src={DashboardCapture}
+      alt="InsightBoard Dashboard"
+    />
   )
 }

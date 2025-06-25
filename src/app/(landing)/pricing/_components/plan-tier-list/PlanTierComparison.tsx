@@ -70,21 +70,25 @@ export const PlanTierComparison: React.FC = () => {
   }, [])
 
   return (
-    <>
-      <div className="flex flex-col items-center text-center gap-2">
-        <h1 ref={titleRef} className="heading-display">
-          Find the plan that empowers your growth
-        </h1>
+    <div className="content-block">
+      <div className="flex flex-col gap-4 gap-24">
+        <div className="flex flex-col items-center text-center gap-2">
+          <h1 ref={titleRef} className="heading-display">
+            Find the plan that <span className="text-violet-800">empowers</span>{' '}
+            your growth
+          </h1>
 
-        <h2 ref={descRef} className="heading-sub">
-          Compare features side-by-side to discover which plan gives your team
-          the tools to scale, collaborate, and thrive.
-        </h2>
-      </div>
+          <h2 ref={descRef} className="heading-sub text-neutral-600!">
+            Compare features side-by-side to discover which plan gives your team
+            <br />
+            the tools to scale, collaborate, and thrive.
+          </h2>
+        </div>
 
-      <div ref={contentRef} className="relative">
-        <PricingComparisonTable />
+        <div ref={contentRef} className="relative">
+          <PricingComparisonTable />
+        </div>
       </div>
-    </>
+    </div>
   )
 }

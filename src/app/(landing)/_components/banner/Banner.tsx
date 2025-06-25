@@ -44,19 +44,23 @@ const Banner: React.FC = () => {
   }, [])
 
   return (
-    <div className="layout-wrapper flex flex-col justify-end items-center">
-      <div className="content-block w-full flex flex-col items-center gap-12 pb-0! text-center">
-        <div className="flex flex-col items-center gap-8">
-          <BannerContent />
+    <div className="bg-grid">
+      <div className="layout-wrapper pt-[78px]">
+        <div className="content-block content-block--pt">
+          <div className="flex flex-col items-center text-center">
+            <div className="flex flex-col items-center gap-4 lg:gap-8">
+              <BannerContent />
 
-          <div className="opacity-0 translate-y-12" ref={ctaRef}>
-            <BannerCTA />
-          </div>
-        </div>
+              <div ref={ctaRef} className="opacity-0 translate-y-12">
+                <BannerCTA />
+              </div>
+            </div>
 
-        <div ref={imageRef} className="w-full opacity-0">
-          <div className="floating-image">
-            <BannerImage />
+            <div ref={imageRef} className="w-full z-50 opacity-0">
+              <div className="floating-image">
+                <BannerImage />
+              </div>
+            </div>
           </div>
         </div>
       </div>

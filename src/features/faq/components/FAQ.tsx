@@ -33,7 +33,7 @@ export const FAQ: React.FC = () => {
           </button>
 
           {openIndex === index && (
-            <div className="px-6 pb-5 text-neutral-600 leading-relaxed">
+            <div className="px-6 pb-5 text-neutral-600 md:text-lg leading-relaxed">
               {faq.answer}
             </div>
           )}

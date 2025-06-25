@@ -46,7 +46,6 @@ export function useAuthAnimation({
         }
       )
 
-      // Animate Illustration
       gsap.fromTo(
         illustrationRef.current,
         { opacity: 0, scale: 0.9 },

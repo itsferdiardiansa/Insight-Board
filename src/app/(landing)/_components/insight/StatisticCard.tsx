@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-interface StatisticCardProps {
+type StatisticCardProps = {
   title: string
   subtitle: string
   value: string
