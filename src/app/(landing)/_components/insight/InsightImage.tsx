@@ -57,7 +57,6 @@ export const InsightImage: React.FC = () => {
             start: 'top 85%',
             once: true,
             onEnter: () => {
-              // Pop-in animation for Save + Stock
               gsap.fromTo(
                 saveRef.current,
                 { opacity: 0, scale: 0.5 },

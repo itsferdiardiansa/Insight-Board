@@ -71,7 +71,7 @@ export const AnalyticsDashboardHeader: React.FC = () => {
   }, [])
 
   return (
-    <header className="flex flex-col pb-6 w-full border-b border-solid border-b-neutral-100 max-md:max-w-full">
+    <div className="flex flex-col pb-6 w-full border-b border-solid border-b-neutral-100 max-md:max-w-full">
       <div ref={badgeRef} className="self-start max-md:mx-auto opacity-0">
         <Badge variant="ghost">Analytics Dashboard</Badge>
       </div>
@@ -84,6 +84,6 @@ export const AnalyticsDashboardHeader: React.FC = () => {
           powerful reporting tools
         </h2>
       </div>
-    </header>
+    </div>
   )
 }

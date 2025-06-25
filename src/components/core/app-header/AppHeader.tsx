@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { FiMenu } from 'react-icons/fi'
 import { NavigationMenu } from './Navigation'
@@ -19,11 +19,23 @@ export const AppHeader = () => {
   const isVisible = useRef(true)
   const headerHeight = useRef(0)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const header = headerRef.current
     if (!header) return
 
+    const currentY = window.scrollY
     headerHeight.current = header.offsetHeight
+
+    if (currentY > headerHeight.current) {
+      setIsFixed(true)
+    } else {
+      setIsFixed(false)
+    }
+  }, [])
+
+  useEffect(() => {
+    const header = headerRef.current
+    if (!header) return
 
     const showHeader = () => {
       if (!isVisible.current) {
@@ -73,16 +85,14 @@ export const AppHeader = () => {
     <header
       ref={headerRef}
       className={cn(
-        'w-full py-4 z-[999] transition-all duration-300 fixed top-0 left-0 right-0',
+        'fixed top-0 left-0 right-0 w-full py-4 z-[999] transition-all duration-300',
         isFixed
           ? 'bg-white shadow-sm shadow-gray-100/90'
           : 'bg-transparent shadow-none'
       )}
     >
       <div className="layout-wrapper flex justify-between items-center gap-4">
-        <div>
-          <BrandLogo />
-        </div>
+        <BrandLogo />
 
         <div className="lg:hidden">
           <Button
@@ -104,7 +114,7 @@ export const AppHeader = () => {
           onClose={() => setOpen(false)}
         >
           <Drawer.Content>
-            <NavigationMenu onCloseDrawer={() => setOpen(false)} showIcon />
+            <NavigationMenu onCloseDrawer={() => setOpen(false)} />
             <div className="w-full h-1 bg-gray-100 my-4" />
             <AuthButtons />
           </Drawer.Content>

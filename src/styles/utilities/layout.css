@@ -1,42 +1,42 @@
 @layer utilities {
   .layout-wrapper {
     @apply w-full lg:max-w-7xl lg:mx-auto px-4 overflow-hidden;
-    /* @apply w-full xl:container lg:mx-auto px-4 overflow-hidden; */
+  }
+
+  .section-stack {
+    @apply pt-20 md:pt-28 pb-20 md:pb-28;
+  }
+
+  .section-stack > * + * {
+    @apply mt-16 md:mt-24;
   }
 
   .content-block {
-    @apply w-full py-12 lg:py-24;
+    @apply w-full;
+  }
+
+  /* Optional padding modifiers for content-block */
+  .content-block--p {
+    @apply p-4 md:p-8;
+  }
+
+  .content-block--px {
+    @apply px-4 md:px-8;
+  }
+
+  .content-block--py {
+    @apply py-8 md:py-16;
+  }
+
+  .content-block--pt {
+    @apply pt-8 md:pt-16;
+  }
+
+  .content-block--pb {
+    @apply pb-8 md:pb-16;
   }
 
   .content-card {
     @apply md:p-8 xl:p-12 md:rounded-4xl;
   }
-
-   .bg-grid {
-      position: relative;
-    }
-
-    .bg-grid::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-      background-size: 100px 100px;
-    }
-
-    .bg-grid::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 200px;
-      background: linear-gradient(to top, #ffffff 0%, transparent 100%);
-      z-index: 1;
-      pointer-events: none;
-    }
 }

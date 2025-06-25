@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { FeatureItem } from './FeatureItem'
 
-interface FeatureListProps {
+type FeatureListProps = {
   title?: React.ReactNode
   features: string[]
   isRecommended: boolean

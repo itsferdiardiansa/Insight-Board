@@ -5,7 +5,7 @@ import type { StaticImageData } from 'next/image'
 import Image from 'next/image'
 import { cn } from '@/utils/tailwind'
 
-interface Testimonial {
+type Testimonial = {
   imageSrc: StaticImageData
   name: string
   role: string

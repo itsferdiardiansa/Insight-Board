@@ -6,9 +6,7 @@ const SocialProof: React.FC = () => {
   return (
     <div className="content-block">
       <div className="flex flex-col gap-12 lg:gap-24 items-center">
-        <div>
-          <SocialProofPartners />
-        </div>
+        <SocialProofPartners />
       </div>
     </div>
   )

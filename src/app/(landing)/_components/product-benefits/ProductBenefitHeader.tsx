@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { Badge } from '@/components/ui/badge'
 
-export interface ProductBenefitHeaderProps {
+export type ProductBenefitHeaderProps = {
   title: string
   subtitle: string
 }

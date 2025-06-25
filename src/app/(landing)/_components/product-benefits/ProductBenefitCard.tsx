@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import Image, { type StaticImageData } from 'next/image'
 import { cn } from '@/utils/tailwind'
 
-export interface ProductBenefitCardProps {
+export type ProductBenefitCardProps = {
   title: string
   description: string
   span: number

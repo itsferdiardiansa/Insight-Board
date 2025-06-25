@@ -1,16 +1,17 @@
 import * as React from 'react'
 import { AppHeader } from '@/components/core/app-header'
 import { AppFooter } from '@/components/core/app-footer'
+import './landing.css'
 
 const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <div className="overflow-hidden">
+    <>
       <AppHeader />
 
-      <main className="pt-[78px]">{children}</main>
+      <main className="main-app">{children}</main>
 
       <AppFooter />
-    </div>
+    </>
   )
 }
 

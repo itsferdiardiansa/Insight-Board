@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
 import { FaCheck } from 'react-icons/fa'
 
-interface CollaborationFeatureItemProps {
+type CollaborationFeatureItemProps = {
   title: string
 }
 

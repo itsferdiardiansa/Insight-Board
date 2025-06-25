@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 
-interface CollaborationHeaderProps {
+type CollaborationHeaderProps = {
   title: string
   subTitle: string
   description: string
@@ -79,7 +79,7 @@ export const CollaborationHeader: React.FC<CollaborationHeaderProps> = ({
   }, [])
 
   return (
-    <header className="max-w-full">
+    <div className="max-w-full">
       <div className="mt-4 flex flex-col gap-4">
         <h1
           ref={titleRef}
@@ -102,6 +102,6 @@ export const CollaborationHeader: React.FC<CollaborationHeaderProps> = ({
           {description}
         </p>
       </div>
-    </header>
+    </div>
   )
 }

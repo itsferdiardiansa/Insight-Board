@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import * as React from 'react'
 
-interface NavLink {
+type NavLink = {
   text: string
   href: string
 }
 
-interface FooterNavColumnProps {
+type FooterNavColumnProps = {
   title: string
   links: NavLink[]
 }

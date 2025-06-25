@@ -4,7 +4,7 @@ import React from 'react'
 import { useBilling } from '@/context/billing/BillingContext'
 import { cn } from '@/utils/tailwind'
 
-interface BillingSelectorProps {
+type BillingSelectorProps = {
   onToggle?: (isAnnual: boolean) => void
 }
 
@@ -12,7 +12,7 @@ export const BillingSelector: React.FC<BillingSelectorProps> = () => {
   const { isAnnual, toggleBilling } = useBilling()
 
   return (
-    <div className="flex gap-3.5 items-center text-base">
+    <div className="flex gap-3.5 items-center md:text-lg">
       <p
         className={cn(
           'self-stretch my-auto',
@@ -27,13 +27,13 @@ export const BillingSelector: React.FC<BillingSelectorProps> = () => {
         role="switch"
         aria-checked={isAnnual}
         className={cn(
-          'relative w-12 h-6 rounded-full transition-colors duration-300 cursor-pointer',
+          'relative w-14 h-8 rounded-full transition-colors duration-300 cursor-pointer',
           isAnnual ? 'bg-gray-800' : 'bg-gray-300'
         )}
       >
         <span
           className={cn(
-            'absolute top-[2px] left-[2px] h-5 w-5 rounded-full bg-white transition-transform duration-300 transform',
+            'absolute top-[4px] left-[4px] h-6 w-6 rounded-full bg-white transition-transform duration-300 transform',
             isAnnual ? 'translate-x-6' : 'translate-x-0'
           )}
         />

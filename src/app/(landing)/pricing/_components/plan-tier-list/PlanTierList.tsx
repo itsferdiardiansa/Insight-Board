@@ -3,7 +3,6 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { Plans } from '@/features/plan/components/Plans'
-import { PlanTierComparison } from './PlanTierComparison'
 
 const PlanTierList: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement | null>(null)
@@ -52,25 +51,21 @@ const PlanTierList: React.FC = () => {
   }, [])
 
   return (
-    <div className="content-block">
+    <div className="content-block content-block--py">
       <div className="flex flex-col gap-12 lg:gap-24">
         <div className="flex flex-col items-center gap-4 text-center">
-          <h1 ref={titleRef} className="heading-display">
+          <h1 ref={titleRef} className="heading-display opacity-0">
             Choose the perfect plan for your business
           </h1>
 
-          <h2 ref={descRef} className="heading-sub">
+          <h2 ref={descRef} className="heading-sub text-neutral-700! opacity-0">
             Get started with our flexible pricing options designed to meet your
-            business needs and scale with your growth
+            business needs
           </h2>
         </div>
 
         <div className="flex flex-col gap-12">
           <Plans />
-        </div>
-
-        <div className="flex flex-col gap-18">
-          <PlanTierComparison />
         </div>
       </div>
     </div>

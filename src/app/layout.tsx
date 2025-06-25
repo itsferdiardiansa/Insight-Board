@@ -8,6 +8,7 @@ import { websiteSchema } from '@/schema/website'
 import { homepageSchema } from '@/schema/homepage'
 
 import '@/styles/globals.css'
+import { BillingProvider } from '@/context/billing/BillingProvider'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -25,7 +26,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <JsonLd data={[websiteSchema, homepageSchema]} />
       </head>
       <body className="antialiased text-neutral-800">
-        <AnimationProvider>{children}</AnimationProvider>
+        <AnimationProvider>
+          <BillingProvider>
+            <div className="root-app">{children}</div>
+          </BillingProvider>
+        </AnimationProvider>
       </body>
     </html>
   )

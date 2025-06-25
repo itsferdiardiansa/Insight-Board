@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import './theme/font-size.css';
 @import './utilities/layout.css';
+@import './utilities/background.css';
 @import './utilities/typography.css';
 @import './satoshi.css';
 
@@ -12,24 +13,8 @@
 }
 
 body {
-  background: linear-gradient(
-    to bottom,
-  #ffffff 0%,
-  #a193e5 40%,
-  #fefeff 100%
-  );
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   @apply text-base antialiased;
-}
-
-/* Optional cursor blink animation */
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-.animate-blink {
-  animation: blink 1s step-start infinite;
-  display: inline-block;
 }

@@ -3,9 +3,7 @@ export function priceFormatted(
   isAnnual: boolean,
   locale: string = 'en-US'
 ): string {
-  const finalPrice = isAnnual
-    ? monthlyPrice * 0.85 // apply 15% discount
-    : monthlyPrice
+  const finalPrice = isAnnual ? monthlyPrice * 0.85 : monthlyPrice
 
   return new Intl.NumberFormat(locale, {
     minimumFractionDigits: 0,

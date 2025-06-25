@@ -15,13 +15,13 @@ export const FeatureCard = ({
 }: FeatureCardProps) => {
   return (
     <div className="flex flex-row gap-4 py-8 border-b border-gray-100 bg-white">
-      <div className="">
+      <div className="flex">
         <p className="text-2xl xl:text-3xl font-black text-neutral-500">
           {number}.
         </p>
       </div>
 
-      <div>
+      <div className="flex flex-col">
         <h3 className="text-2xl xl:text-3xl font-semibold">{title}</h3>
 
         <div

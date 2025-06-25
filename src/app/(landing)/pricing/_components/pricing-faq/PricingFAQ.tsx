@@ -71,18 +71,20 @@ const PricingFAQ: React.FC = () => {
 
   return (
     <div className="content-block">
-      <div className="flex flex-col items-center text-center gap-4 mb-12">
-        <h1 ref={titleRef} className="heading-display">
-          Frequently Asked Questions
-        </h1>
+      <div className="flex flex-col gap-4 gap-18">
+        <div className="flex flex-col items-center text-center gap-4">
+          <h1 ref={titleRef} className="heading-display">
+            Frequently Asked Questions
+          </h1>
 
-        <h2 ref={descRef} className="heading-sub">
-          Everything you need to know about InsightBoard and getting started.
-        </h2>
-      </div>
+          <h2 ref={descRef} className="heading-sub">
+            Everything you need to know about InsightBoard and getting started.
+          </h2>
+        </div>
 
-      <div ref={contentRef} className="relative">
-        <FAQ />
+        <div ref={contentRef} className="relative">
+          <FAQ />
+        </div>
       </div>
     </div>
   )

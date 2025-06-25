@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-interface StatisticItemProps {
+type StatisticItemProps = {
   value: string
   label: string
 }
