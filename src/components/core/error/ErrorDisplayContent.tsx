@@ -68,7 +68,7 @@ export const ErrorDisplayContent: React.FC<
           </h1>
           <p
             ref={descRef}
-            className="max-w-md heading-sub text-neutral-300! opacity-0"
+            className="max-w-md heading-sub mx-auto text-neutral-300! opacity-0"
             dangerouslySetInnerHTML={{ __html: subTitle }}
           />
         </div>
