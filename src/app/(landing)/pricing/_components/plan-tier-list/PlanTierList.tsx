@@ -55,16 +55,17 @@ const PlanTierList: React.FC = () => {
       <div className="flex flex-col gap-12 lg:gap-24">
         <div className="flex flex-col items-center gap-4 text-center">
           <h1 ref={titleRef} className="heading-display opacity-0">
-            Choose the perfect plan for your business
+            The right plan for your team
           </h1>
 
           <h2 ref={descRef} className="heading-sub text-neutral-700! opacity-0">
-            Get started with our flexible pricing options designed to meet your
-            business needs
+            Get started with our flexible pricing options designed
+            <br />
+            to meet your business needs
           </h2>
         </div>
 
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-12 z-50">
           <Plans />
         </div>
       </div>

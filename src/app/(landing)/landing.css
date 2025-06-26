@@ -3,7 +3,7 @@
   50% { opacity: 0; }
 }
 
-.main-app {
+.home {
   @apply overflow-hidden;
   background: linear-gradient(
     to bottom,
