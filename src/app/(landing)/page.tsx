@@ -11,9 +11,6 @@ import ConversionBanner from './_components/conversion-banner'
 import Integration from './_components/integration'
 
 export default function LandingPage() {
-  // if (typeof window !== 'undefined') {
-  throw new Error('Client-side error')
-  // }
   return (
     <div className="home">
       <Banner />
