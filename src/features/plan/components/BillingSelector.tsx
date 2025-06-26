@@ -12,7 +12,7 @@ export const BillingSelector: React.FC<BillingSelectorProps> = () => {
   const { isAnnual, toggleBilling } = useBilling()
 
   return (
-    <div className="flex gap-3.5 items-center md:text-lg">
+    <div className="w-[369px] flex gap-3.5 items-center md:text-lg bg-white rounded-full px-6 py-3 shadow-md shadow-gray-100">
       <p
         className={cn(
           'self-stretch my-auto',

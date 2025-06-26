@@ -37,6 +37,6 @@
   }
 
   .content-card {
-    @apply md:p-8 xl:p-12 md:rounded-4xl;
+    @apply p-8 md:p-8 xl:p-12 rounded-4xl overflow-hidden;
   }
 }
