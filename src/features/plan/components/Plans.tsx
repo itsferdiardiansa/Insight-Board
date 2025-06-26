@@ -66,7 +66,7 @@ export const Plans = () => {
           <PlanCard
             key={index}
             ref={(element: HTMLDivElement) => {
-              cardsRef.current.push(element)
+              cardsRef.current[index] = element
             }}
             {...item}
           />
