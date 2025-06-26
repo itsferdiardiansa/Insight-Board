@@ -100,7 +100,7 @@ const PricingCallout: React.FC = () => {
   }, [])
 
   return (
-    <div className="content-block pt-0!">
+    <div className="content-block conten-block--pb">
       <div className="bg-violet-700 text-white rounded-4xl px-6 py-10 lg:px-16 lg:py-14 shadow-md">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10 text-center lg:text-left">
           <div className="flex-1">

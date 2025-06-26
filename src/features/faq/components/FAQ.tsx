@@ -24,16 +24,18 @@ export const FAQ: React.FC = () => {
             <span className="text-xl font-medium text-neutral-900">
               {faq.question}
             </span>
-            <FiChevronDown
-              className={cn(
-                'text-xl transition-transform duration-300',
-                openIndex === index && 'rotate-180'
-              )}
-            />
+            <span>
+              <FiChevronDown
+                className={cn(
+                  'text-xl transition-transform duration-300',
+                  openIndex === index && 'rotate-180'
+                )}
+              />
+            </span>
           </button>
 
           {openIndex === index && (
-            <div className="px-6 pb-5 text-neutral-600 md:text-lg leading-relaxed">
+            <div className="px-6 pb-5 text-neutral-600 text-xl leading-relaxed">
               {faq.answer}
             </div>
           )}

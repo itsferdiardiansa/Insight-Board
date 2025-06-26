@@ -101,7 +101,7 @@ export const PricingComparisonTable = () => {
                         <div
                           className={cn(
                             'w-5 h-5 rounded-full flex items-center justify-center text-white',
-                            value ? 'bg-green-500' : 'bg-gray-300'
+                            value ? 'bg-violet-700' : 'bg-gray-300'
                           )}
                         >
                           {value ? <FiCheck size={14} /> : <FiX size={14} />}
