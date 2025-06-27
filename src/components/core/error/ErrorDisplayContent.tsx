@@ -56,7 +56,7 @@ export const ErrorDisplayContent: React.FC<
             ref={errorCodeRef}
             className="text-[6rem] md:text-[12rem] text-white/30 font-black opacity-0"
           >
-            {pageType === 'error' ? '500' : '400'}
+            {pageType === 'error' ? '500' : '404'}
           </p>
         </div>
         <div className="flex flex-col gap-2">
