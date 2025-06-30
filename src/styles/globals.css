@@ -1,8 +1,6 @@
 @import 'tailwindcss';
-@import './theme/font-size.css';
-@import './utilities/layout.css';
-@import './utilities/background.css';
-@import './utilities/typography.css';
+@import './theme.css';
+@import './utility.css';
 @import './satoshi.css';
 
 /* Root theme variables */

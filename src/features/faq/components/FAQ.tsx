@@ -1,6 +1,5 @@
 'use client'
 
-import * as React from 'react'
 import { useState } from 'react'
 import faqData from '../data/faq-data'
 import { FiChevronDown } from 'react-icons/fi'

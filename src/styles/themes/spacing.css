@@ -1,0 +1,12 @@
+@layer theme {
+  :root {
+    --space-xs: calc(var(--spacing) * 1); 
+    --space-sm: calc(var(--spacing) * 3); 
+    --space-md: calc(var(--spacing) * 5); 
+    --space-lg: calc(var(--spacing) * 7); 
+    --space-xl: calc(var(--spacing) * 9); 
+    --space-2xl: calc(var(--spacing) * 11); 
+    --space-3xl: calc(var(--spacing) * 13); 
+    --space-4xl: calc(var(--spacing) * 15); 
+  }
+}

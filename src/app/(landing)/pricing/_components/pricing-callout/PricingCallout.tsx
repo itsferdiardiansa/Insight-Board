@@ -4,6 +4,7 @@ import { useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import gsap from 'gsap'
+import { SectionShell } from '@/components/layout/section'
 
 const PricingCallout: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement | null>(null)
@@ -100,39 +101,37 @@ const PricingCallout: React.FC = () => {
   }, [])
 
   return (
-    <div className="content-block conten-block--pb">
-      <div className="bg-violet-700 text-white rounded-4xl px-6 py-10 lg:px-16 lg:py-14 shadow-md">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 text-center lg:text-left">
-          <div className="flex-1">
-            <div className="space-y-4">
-              <h2 ref={titleRef} className="text-2xl lg:text-6xl font-semibold">
-                Get started with InsightBoard Teams
-              </h2>
-              <p ref={descRef} className="text-base lg:text-xl text-white/80">
-                Unlock advanced analytics and secure collaboration for
-                high-impact teams.
-              </p>
-            </div>
-
-            <div className="mt-4">
-              <Button ref={ctaRef} variant="secondary" asChild>
-                <Link href="/signup">Start for Free</Link>
-              </Button>
-            </div>
-          </div>
-
-          <div className="flex-1 flex flex-col lg:justify-end justify-center">
-            <blockquote ref={quoteRef} className="text-white/80 mt-4 text-4xl">
-              “InsightBoard allows us to focus on outcomes, not just reports —
-              it&apos;s changed the way we make decisions.”
-            </blockquote>
-            <p ref={authorRef} className="text-white/60 font-medium mt-2">
-              Jimmy Chen, Head of Strategy at Flows
+    <SectionShell innerClassName="bg-violet-700 text-white rounded-4xl px-6 py-10 lg:px-16 lg:py-14 shadow-md">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-10 text-center lg:text-left">
+        <div className="flex-1">
+          <div className="space-y-4">
+            <h2 ref={titleRef} className="text-2xl lg:text-6xl font-semibold">
+              Get started with InsightBoard Teams
+            </h2>
+            <p ref={descRef} className="text-base lg:text-xl text-white/80">
+              Unlock advanced analytics and secure collaboration for high-impact
+              teams.
             </p>
           </div>
+
+          <div className="mt-4">
+            <Button ref={ctaRef} variant="secondary" asChild>
+              <Link href="/signup">Start for Free</Link>
+            </Button>
+          </div>
+        </div>
+
+        <div className="flex-1 flex flex-col lg:justify-end justify-center">
+          <blockquote ref={quoteRef} className="text-white/80 mt-4 text-4xl">
+            “InsightBoard allows us to focus on outcomes, not just reports —
+            it&apos;s changed the way we make decisions.”
+          </blockquote>
+          <p ref={authorRef} className="text-white/60 font-medium mt-2">
+            Jimmy Chen, Head of Strategy at Flows
+          </p>
         </div>
       </div>
-    </div>
+    </SectionShell>
   )
 }
 

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { PricingComparisonTable } from '@/features/plan/components/PricingComparisonTable'
+import { SectionHeader, SectionShell } from '@/components/layout/section'
 
 export const PlanTierComparison: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement | null>(null)
@@ -70,25 +71,16 @@ export const PlanTierComparison: React.FC = () => {
   }, [])
 
   return (
-    <div className="content-block">
-      <div className="flex flex-col gap-4 gap-24">
-        <div className="flex flex-col items-center text-center gap-2">
-          <h1 ref={titleRef} className="heading-display">
-            Find the plan that <span className="text-violet-800">empowers</span>{' '}
-            your growth
-          </h1>
+    <SectionShell direction={'col'}>
+      <SectionHeader
+        title="Find the plan that <span class='text-violet-800'>empowers</span> your growth"
+        subtitle="Compare features side-by-side to discover which plan gives your team<br />the tools to scale, collaborate, and thrive."
+        textAlign={'center'}
+      />
 
-          <h2 ref={descRef} className="heading-sub text-neutral-600!">
-            Compare features side-by-side to discover which plan gives your team
-            <br />
-            the tools to scale, collaborate, and thrive.
-          </h2>
-        </div>
-
-        <div ref={contentRef} className="relative">
-          <PricingComparisonTable />
-        </div>
+      <div ref={contentRef} className="relative">
+        <PricingComparisonTable />
       </div>
-    </div>
+    </SectionShell>
   )
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 
 const phrases = ['Operations Today', 'Strategy Now', 'Performance Metrics']
@@ -39,8 +39,8 @@ export const BannerContent: React.FC = () => {
   }, [])
 
   return (
-    <>
-      <h1 className="text-4xl lg:text-8xl font-bold text-neutral-800 inline-block">
+    <div className="flex flex-col gap-(--space-sm) text-center">
+      <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold text-neutral-800 inline-block">
         <span ref={textRef}>{baseText}</span>
         <br />
         <span>{additionalText}</span>
@@ -54,6 +54,6 @@ export const BannerContent: React.FC = () => {
         <br className="hidden lg:flex" />
         and drive growth with real-time insights.
       </p>
-    </>
+    </div>
   )
 }

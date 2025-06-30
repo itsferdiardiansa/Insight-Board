@@ -1,5 +1,5 @@
 import { BrandLogo } from '@/components/ui/brand-logo'
-import * as React from 'react'
+import { siteConfig } from '@/config/site-config'
 
 export const FooterLogo: React.FC = () => {
   return (
@@ -15,13 +15,13 @@ export const FooterLogo: React.FC = () => {
           href="mailto:hello@insightboard.com"
           className="gap-2.5 self-stretch whitespace-nowrap hover:text-slate-700 transition-colors"
         >
-          hello@insightboard.com
+          {siteConfig.mail}
         </a>
         <a
           href="tel:+12345678901"
           className="gap-8 self-stretch mt-2 max-w-full hover:text-slate-700 transition-colors"
         >
-          +1 (234) 567-890
+          {siteConfig.phone}
         </a>
       </address>
     </section>

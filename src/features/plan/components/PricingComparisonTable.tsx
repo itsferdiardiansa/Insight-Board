@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import Link from 'next/link'
 import { FiCheck, FiX } from 'react-icons/fi'
 import { FaArrowRight } from 'react-icons/fa'

@@ -3,6 +3,8 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { Plans } from '@/features/plan/components/Plans'
+import { SectionHeader } from '@/components/layout/section/SectionHeader'
+import { SectionShell } from '@/components/layout/section'
 
 const PlanTierList: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement | null>(null)
@@ -51,25 +53,17 @@ const PlanTierList: React.FC = () => {
   }, [])
 
   return (
-    <div className="content-block content-block--py">
-      <div className="flex flex-col gap-12 lg:gap-24">
-        <div className="flex flex-col items-center gap-4 text-center">
-          <h1 ref={titleRef} className="heading-display opacity-0">
-            The right plan for your team
-          </h1>
+    <SectionShell className="content-block--py" direction={'col'}>
+      <SectionHeader
+        title="The right plan for your team"
+        subtitle="Get started with our flexible pricing options designed <br class='max-md:hidden' /> to meet your business needs"
+        textAlign={'center'}
+      />
 
-          <h2 ref={descRef} className="heading-sub text-neutral-700! opacity-0">
-            Get started with our flexible pricing options designed
-            <br />
-            to meet your business needs
-          </h2>
-        </div>
-
-        <div className="flex flex-col gap-12 z-50">
-          <Plans />
-        </div>
+      <div className="flex flex-col gap-12 z-50">
+        <Plans />
       </div>
-    </div>
+    </SectionShell>
   )
 }
 

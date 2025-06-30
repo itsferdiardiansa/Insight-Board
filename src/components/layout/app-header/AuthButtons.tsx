@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { FiUser, FiBox } from 'react-icons/fi'
+import { Button } from '@/components/ui/button'
 
 export const AuthButtons: React.FC = () => {
   return (

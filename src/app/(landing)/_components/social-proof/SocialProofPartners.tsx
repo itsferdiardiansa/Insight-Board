@@ -1,7 +1,6 @@
 'use client'
 
-import * as React from 'react'
-import { useEffect, useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 
 import CitibanamexLogo from '@/assets/logo/partners/citibanamex.svg'
@@ -11,55 +10,71 @@ import TNTSportsLogo from '@/assets/logo/partners/tnt-sports.svg'
 import VodafoneLogo from '@/assets/logo/partners/vodafone.svg'
 import ToyotaLogo from '@/assets/logo/partners/toyota.svg'
 
+const partners = [
+  { name: 'Amazon', logo: <AmazonLogo /> },
+  { name: 'Citibanamex', logo: <CitibanamexLogo /> },
+  { name: 'Spotify', logo: <SpotifyLogo /> },
+  { name: 'TNT Sports', logo: <TNTSportsLogo /> },
+  { name: 'Vodafone', logo: <VodafoneLogo /> },
+  { name: 'Toyota', logo: <ToyotaLogo /> },
+]
+
 export const SocialProofPartners: React.FC = () => {
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const elements = sectionRef.current?.querySelectorAll('[data-animate]')
+    const track = trackRef.current
+    if (!track) return
 
-      if (!elements) return
+    const totalWidth = track.scrollWidth / 2
 
-      gsap.fromTo(
-        elements,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
-        }
-      )
-    }, sectionRef)
+    gsap.to(track, {
+      x: `-=${totalWidth}`,
+      duration: 30,
+      ease: 'none',
+      repeat: -1,
+      modifiers: {
+        x: gsap.utils.unitize(x => parseFloat(x) % totalWidth),
+      },
+    })
+  }, [])
 
-    return () => ctx.revert()
+  useEffect(() => {
+    if (!containerRef.current) return
+
+    gsap.fromTo(
+      containerRef.current,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+      }
+    )
   }, [])
 
   return (
-    <div
-      className="flex flex-col items-center gap-8 lg:gap-18"
-      ref={sectionRef}
-    >
-      <h3
-        className="text-xl font-semibold text-center text-neutral-500 opacity-0"
-        data-animate
-      >
-        Trusted by industry leaders
-      </h3>
+    <div ref={containerRef} className="relative overflow-hidden opacity-0">
+      <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-24 bg-gradient-to-r from-white to-transparent" />
+      <div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-24 bg-gradient-to-l from-white to-transparent" />
 
-      <div className="flex-1 flex max-lg:flex-wrap gap-12 justify-center items-center">
-        <AmazonLogo className="w-32 opacity-0" data-animate />
-        <CitibanamexLogo className="w-32 opacity-0" data-animate />
-        <SpotifyLogo className="w-32 opacity-0" data-animate />
-        <TNTSportsLogo className="w-32 opacity-0" data-animate />
-        <VodafoneLogo className="w-32 opacity-0" data-animate />
-        <ToyotaLogo className="w-32 opacity-0" data-animate />
+      <div ref={trackRef} className="flex w-max gap-12 px-2">
+        {[...partners, ...partners].map((item, i) => (
+          <div
+            key={`${item.name}-${i}`}
+            className="w-20 md:w-24 flex items-center justify-center overflow-hidden shrink-0 transition-all"
+            title={item.name}
+          >
+            <div className="w-16 md:w-20">{item.logo}</div>
+          </div>
+        ))}
       </div>
     </div>
   )

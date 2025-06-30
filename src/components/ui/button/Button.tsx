@@ -1,9 +1,9 @@
 'use client'
 
+import { type ReactNode, ButtonHTMLAttributes, forwardRef } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { Slot, Slottable } from '@radix-ui/react-slot'
-import { clsx } from 'clsx'
-import { ReactNode, ButtonHTMLAttributes, forwardRef } from 'react'
+import { cn } from '@/utils/tailwind'
 import { FaCircleNotch } from 'react-icons/fa'
 
 const buttonVariants = cva(
@@ -97,7 +97,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         ref={ref}
         {...props}
-        className={clsx(
+        className={cn(
           buttonVariants({ variant, size, fullWidth, pill }),
           className
         )}

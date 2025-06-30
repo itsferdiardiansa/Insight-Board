@@ -1,9 +1,12 @@
 'use client'
 
-import React, { type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import type { StaticImageData } from 'next/image'
 import Image from 'next/image'
 import { cn } from '@/utils/tailwind'
+
+import AmazonBrandLogo from '@/assets/logo/partners/amazon.svg'
+import MicrosoftBrandLogo from '@/assets/logo/partners/microsoft.svg'
 
 type Testimonial = {
   imageSrc: StaticImageData
@@ -11,12 +14,17 @@ type Testimonial = {
   role: string
   testimonial: string
   isFeatured: boolean
-  companyLogo?: ReactNode
+  logoKey?: ReactNode
   bgColor?: string
 }
 
 type IndustryLeadersProps = {
   testimonials: Array<Testimonial[]>
+}
+
+const logos: Record<string, ReactNode> = {
+  microsoft: <MicrosoftBrandLogo className="text-white" />,
+  amazon: <AmazonBrandLogo className="text-white" />,
 }
 
 const GridBackground = () => (
@@ -49,8 +57,8 @@ export const IndustryLeaders: React.FC<IndustryLeadersProps> = ({
   testimonials,
 }) => {
   return (
-    <section className="mt-16 w-full">
-      <div className="flex justify-between items-center mb-8">
+    <div className="w-full">
+      <div className="flex max-md:justify-center mb-8">
         <h1 className="text-2xl font-bold text-neutral-800">
           Trusted by Industry Leaders
         </h1>
@@ -70,7 +78,9 @@ export const IndustryLeaders: React.FC<IndustryLeadersProps> = ({
               >
                 <div className="h-full flex flex-col justify-between max-md:gap-8 z-50">
                   {subTestimonial.isFeatured && (
-                    <div className="w-32">{subTestimonial.companyLogo}</div>
+                    <div className="w-32">
+                      {logos[subTestimonial.logoKey as string]}
+                    </div>
                   )}
 
                   <div>
@@ -120,6 +130,6 @@ export const IndustryLeaders: React.FC<IndustryLeadersProps> = ({
           </div>
         ))}
       </div>
-    </section>
+    </div>
   )
 }

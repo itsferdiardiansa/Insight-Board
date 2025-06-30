@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 
+import { SectionShell } from '@/components/layout/section'
 import { BannerContent } from './BannerContent'
 import { BannerCTA } from './BannerCTA'
 import { BannerImage } from './BannerImage'
@@ -46,23 +47,21 @@ const Banner: React.FC = () => {
   return (
     <div className="bg-grid">
       <div className="layout-wrapper pt-[78px]">
-        <div className="content-block content-block--pt">
-          <div className="flex flex-col items-center text-center">
-            <div className="flex flex-col items-center gap-4 lg:gap-8">
-              <BannerContent />
+        <SectionShell className="content-block--pt" direction={'col'}>
+          <div className="flex flex-col items-center gap-(--space-lg) md:gap-(--space-2xl)">
+            <BannerContent />
 
-              <div ref={ctaRef} className="opacity-0 translate-y-12">
-                <BannerCTA />
-              </div>
-            </div>
-
-            <div ref={imageRef} className="w-full z-50 opacity-0">
-              <div className="floating-image">
-                <BannerImage />
-              </div>
+            <div ref={ctaRef} className="opacity-0">
+              <BannerCTA />
             </div>
           </div>
-        </div>
+
+          <div ref={imageRef} className="w-full z-50 opacity-0">
+            <div className="floating-image">
+              <BannerImage />
+            </div>
+          </div>
+        </SectionShell>
       </div>
     </div>
   )

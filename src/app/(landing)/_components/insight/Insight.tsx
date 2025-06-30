@@ -1,25 +1,28 @@
 'use client'
-import * as React from 'react'
-import { InsightHeader } from './InsightHeader'
+import { SectionHeader, SectionShell } from '@/components/layout/section'
 import { InsightStats } from './InsightStats'
 import { InsightImage } from './InsightImage'
 
 const Insight: React.FC = () => {
   return (
-    <div className="content-block">
-      <div className="flex flex-wrap gap-12 lg:gap-32 items-center">
-        <div className="flex-1 self-stretch my-auto">
-          <div className="flex flex-col">
-            <InsightHeader />
-          </div>
-          <InsightStats />
-        </div>
-
-        <div className="flex-1 max-lg:hidden">
-          <InsightImage />
-        </div>
+    <SectionShell direction={'col'} responsiveDirection={'mdRow'}>
+      <div className="min-h-[410px] lg:min-h-[610px] flex-1 flex self-stretch bg-gradient-to-b from-violet-700 via-violet-100 to-white rounded-4xl overflow-hidden">
+        <InsightImage />
       </div>
-    </div>
+
+      <div className="flex-1 self-stretch my-auto">
+        <SectionHeader
+          title="Transform raw data into actionable strategies"
+          subtitle=" Our advanced analytics platform helps you understand your business metrics at a glance with intuitive visualizations."
+          badgeLabel="Data Insights"
+          badgeVariant={'ghost'}
+          textAlign={'center'}
+          responsiveTextAlign={'mdLeft'}
+        />
+
+        <InsightStats />
+      </div>
+    </SectionShell>
   )
 }
 

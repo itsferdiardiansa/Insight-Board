@@ -10,7 +10,7 @@ import Drawer from '@/components/ui/drawer'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/utils/tailwind'
 
-export const AppHeader = () => {
+export const AppHeader: React.FC = () => {
   const [open, setOpen] = useState(false)
   const [isFixed, setIsFixed] = useState(false)
 
