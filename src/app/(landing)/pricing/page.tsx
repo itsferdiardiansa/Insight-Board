@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import PlanTierList from './_components/plan-tier-list'
 import PricingCallout from './_components/pricing-callout'
 import PricingFAQ from './_components/pricing-faq'
-import { JsonLd } from '@/components/core/seo'
+import { JsonLd } from '@/components/seo'
 import { pricingSchema } from '@/schema/pricing'
 import { PlanTierComparison } from './_components/plan-tier-list/PlanTierComparison'
 

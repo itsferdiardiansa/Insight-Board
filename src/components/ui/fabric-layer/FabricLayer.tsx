@@ -1,12 +1,17 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
+import { cn } from '@/utils/tailwind'
 
 const getLayerFill = (index: number) => {
   const opacities = ['0.08', '0.06', '0.04']
   return `rgba(255,255,255,${opacities[index]})`
 }
 
-export const FabricLayer = () => {
+type FabricLayerProps = {
+  className?: string
+}
+
+export const FabricLayer: React.FC<FabricLayerProps> = ({ className }) => {
   const pathRefs = useRef<SVGPathElement[]>([])
 
   useEffect(() => {
@@ -38,7 +43,7 @@ export const FabricLayer = () => {
   }
 
   return (
-    <div className="fabric-illustrations">
+    <div className={cn('fabric-illustrations', className)}>
       <svg
         className="absolute inset-0 w-full h-full z-0 pointer-events-none"
         viewBox="0 0 500 200"

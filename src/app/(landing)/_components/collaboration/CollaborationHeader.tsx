@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 
 type CollaborationHeaderProps = {
@@ -15,7 +15,7 @@ export const CollaborationHeader: React.FC<CollaborationHeaderProps> = ({
   description,
 }) => {
   const titleRef = useRef<HTMLHeadingElement | null>(null)
-  const descRef = useRef<HTMLParagraphElement | null>(null)
+  const descRef = useRef<HTMLHeadingElement | null>(null)
   const desc2Ref = useRef<HTMLParagraphElement | null>(null)
 
   useEffect(() => {
@@ -79,29 +79,24 @@ export const CollaborationHeader: React.FC<CollaborationHeaderProps> = ({
   }, [])
 
   return (
-    <div className="max-w-full">
-      <div className="mt-4 flex flex-col gap-4">
-        <h1
-          ref={titleRef}
-          className="heading-display md:text-neutral-50! opacity-0"
-        >
-          {title}
-        </h1>
+    <div className="flex flex-col gap-(--space-sm)">
+      <h1 ref={titleRef} className="heading-display text-neutral-50! opacity-0">
+        {title}
+      </h1>
 
-        <p
-          ref={descRef}
-          className="text-xl xl:text-3xl text-neutral-700 md:text-neutral-200 font-semibold xl:mt-4 opacity-0"
-        >
-          {subTitle}
-        </p>
+      <h2
+        ref={descRef}
+        className="text-xl xl:text-3xl text-neutral-200 font-semibold xl:mt-4 opacity-0"
+      >
+        {subTitle}
+      </h2>
 
-        <p
-          ref={desc2Ref}
-          className="text-lg xl:text-xl text-neutral-500 md:text-neutral-300 opacity-0"
-        >
-          {description}
-        </p>
-      </div>
+      <p
+        ref={desc2Ref}
+        className="text-lg xl:text-xl text-neutral-300 opacity-0"
+      >
+        {description}
+      </p>
     </div>
   )
 }

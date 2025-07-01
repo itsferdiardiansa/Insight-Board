@@ -1,5 +1,5 @@
 'use client'
-import { ErrorDisplay } from '@/components/core/error'
+import { ErrorDisplay } from '@/components/feedback'
 
 export default function ErrorPage() {
   return (

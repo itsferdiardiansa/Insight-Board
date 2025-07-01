@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
+import { SectionHeader, SectionShell } from '@/components/layout/section'
 import { Plans } from '@/features/plan/components/Plans'
 
 const ProductPlans: React.FC = () => {
@@ -50,23 +51,17 @@ const ProductPlans: React.FC = () => {
   }, [])
 
   return (
-    <div className="content-block">
-      <div className="flex flex-col gap-12 lg:gap-24">
-        <div className="flex flex-col items-center gap-4 text-center">
-          <h1 ref={titleRef} className="heading-display opacity-0">
-            Unlock your business potential
-          </h1>
-          <h2 ref={descRef} className="heading-sub opacity-0">
-            Join thousands of companies scaling their business with our powerful
-            solutions
-          </h2>
-        </div>
+    <SectionShell direction={'col'}>
+      <SectionHeader
+        title="Unlock your business potential"
+        subtitle="Join thousands of companies scaling their business with our powerful solutions"
+        textAlign={'center'}
+      />
 
-        <div className="flex flex-col gap-12">
-          <Plans />
-        </div>
+      <div className="flex flex-col gap-12">
+        <Plans />
       </div>
-    </div>
+    </SectionShell>
   )
 }
 

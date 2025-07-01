@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { Fragment, useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { PlanCard } from './PlanCard'
 import { BillingSelector } from './BillingSelector'
@@ -53,7 +53,7 @@ export const Plans = () => {
   }, [])
 
   return (
-    <>
+    <Fragment>
       <div ref={billingRef} className="flex justify-center opacity-0">
         <BillingSelector />
       </div>
@@ -72,6 +72,6 @@ export const Plans = () => {
           />
         ))}
       </div>
-    </>
+    </Fragment>
   )
 }

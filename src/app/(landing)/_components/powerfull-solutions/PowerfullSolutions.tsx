@@ -4,8 +4,10 @@ import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 
-import { PowerfullSolutionsHeader } from './PowerfullSolutionsHeader'
+import { SectionHeader } from '@/components/layout/section/SectionHeader'
+import { SectionShell } from '@/components/layout/section'
 import { Features } from './Features'
+import { cn } from '@/utils/tailwind'
 
 import AnalyzerImage from '@/assets/images/dedicated.jpg'
 import AgileMethodologyImage from '@/assets/images/agile-methodology.jpg'
@@ -19,7 +21,7 @@ const images = [
   TeamSharingImageImage,
 ]
 
-function PowerfullSolutions() {
+const PowerfullSolutions: React.FC = () => {
   const imageWrapperRef = useRef<HTMLDivElement | null>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [loadedIndex, setLoadedIndex] = useState(0)
@@ -40,45 +42,61 @@ function PowerfullSolutions() {
     if (imageWrapperRef.current) {
       gsap.fromTo(
         imageWrapperRef.current,
-        { opacity: 0 },
+        { opacity: 0, x: 40 },
         {
           opacity: 1,
+          x: 0,
           duration: 0.6,
           ease: 'power2.out',
+          scrollTrigger: {
+            trigger: imageWrapperRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
         }
       )
     }
-  }, [loadedIndex])
+  }, [])
 
   return (
-    <div className="content-block">
-      <div className="flex flex-col flex-col-reverse md:flex-row gap-12 xl:gap-32">
-        <div className="flex-1 flex flex-col justify-center items-stretch gap-8 xl:gap-16">
-          <PowerfullSolutionsHeader />
-          <Features
-            currentIndex={currentIndex}
-            setCurrentIndex={handleSetIndex}
-          />
-        </div>
+    <SectionShell direction={'col'} responsiveDirection={'mdRow'}>
+      <div className="flex-1 flex flex-col justify-center items-stretch gap-8 xl:gap-16">
+        <SectionHeader
+          title="Transform your workflow with powerful solutions"
+          subtitle="Self service data analytics software that makes you visually appealing data visualizations and insightful dashboards"
+          textAlign={'center'}
+          responsiveTextAlign={'mdLeft'}
+        />
+        <Features
+          currentIndex={currentIndex}
+          setCurrentIndex={handleSetIndex}
+        />
+      </div>
 
-        <div className="relative min-h-[410px] flex-1 rounded-4xl overflow-hidden p-12 bg-violet-200">
-          <div
-            ref={imageWrapperRef}
-            key={loadedIndex}
-            className="absolute inset-0 w-full h-full"
-          >
-            <Image
-              className="w-full h-full object-cover"
-              src={images[loadedIndex]}
-              width={500}
-              height={600}
-              alt="Dynamic Feature Image"
-              priority
-            />
-          </div>
+      <div
+        ref={imageWrapperRef}
+        className="relative flex-1 rounded-4xl overflow-hidden p-12 bg-violet-200 opacity-0 min-h-[410px]"
+      >
+        <div className="absolute inset-0">
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className={cn(
+                'absolute inset-0 w-full h-full transition-opacity duration-1000',
+                loadedIndex === index ? 'opacity-100' : 'opacity-0'
+              )}
+            >
+              <Image
+                className="w-full h-full object-cover"
+                src={image}
+                fill
+                alt={`Dynamic Feature Image - ${index + 1}`}
+              />
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </SectionShell>
   )
 }
 

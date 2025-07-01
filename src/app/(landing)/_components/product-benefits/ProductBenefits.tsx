@@ -1,57 +1,13 @@
 'use client'
 
-import * as React from 'react'
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 
 import { ProductBenefitCard } from './ProductBenefitCard'
 import { ProductBenefitHeader } from './ProductBenefitHeader'
+import productBenefits from './product-benefits-data'
 
-import RealtimeGraphIllustration from '@/assets/illustrations/realtime-graph.png'
-import IntegrationIllustration from '@/assets/illustrations/connect.png'
-import AutomateIllustration from '@/assets/illustrations/get-data.png'
-import SecurityIllustration from '@/assets/illustrations/security.png'
-import TraficIllustration from '@/assets/illustrations/monthly-traffic.png'
-
-const features = [
-  {
-    title: 'Real-time Analytics',
-    description:
-      'Track and visualize performance as it happens with interactive dashboards and intelligent insights tailored to your business.',
-    span: 2,
-    imageSrc: RealtimeGraphIllustration,
-  },
-  {
-    title: 'Smart Automation',
-    description:
-      'Eliminate manual work with rule-based automation that streamlines processes and boosts operational efficiency.',
-    span: 1,
-    imageSrc: AutomateIllustration,
-  },
-  {
-    title: 'Custom Integrations',
-    description:
-      'Seamlessly connect your favorite apps and services to create an integrated workflow across your entire stack.',
-    span: 1,
-    imageSrc: IntegrationIllustration,
-  },
-  {
-    title: 'Advanced Security',
-    description:
-      'Safeguard your data with SSO, encryption, and compliance controls designed for modern SaaS environments.',
-    span: 1,
-    imageSrc: SecurityIllustration,
-  },
-  {
-    title: 'Traffic Intelligence',
-    description:
-      'Get a complete view of your traffic sources and user behavior to optimize conversion and engagement.',
-    span: 1,
-    imageSrc: TraficIllustration,
-  },
-]
-
-const Features: React.FC = () => {
+const ProductBenefits: React.FC = () => {
   const itemRefs = useRef<Array<HTMLDivElement | null>>([])
 
   useEffect(() => {
@@ -81,7 +37,7 @@ const Features: React.FC = () => {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 xl:gap-8 justify-center mt-20 xl:mt-28 max-md:mt-10 max-md:max-w-full">
-          {features.map((feature, index) => (
+          {productBenefits.map((feature, index) => (
             <ProductBenefitCard
               key={index}
               ref={el => {
@@ -96,4 +52,4 @@ const Features: React.FC = () => {
   )
 }
 
-export default Features
+export default ProductBenefits

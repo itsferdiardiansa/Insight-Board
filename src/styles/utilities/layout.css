@@ -1,6 +1,6 @@
 @layer utilities {
   .layout-wrapper {
-    @apply w-full lg:max-w-7xl lg:mx-auto px-4 overflow-hidden;
+    @apply w-full lg:max-w-7xl lg:mx-auto px-(--space-md);
   }
 
   .section-stack {
@@ -8,7 +8,7 @@
   }
 
   .section-stack > * + * {
-    @apply mt-16 md:mt-24;
+    @apply mt-16 md:mt-32;
   }
 
   .content-block {
@@ -37,6 +37,7 @@
   }
 
   .content-card {
-    @apply p-8 md:p-8 xl:p-12 rounded-4xl overflow-hidden;
+    /* @apply p-8 md:p-8 xl:p-12 rounded-4xl overflow-hidden; */
+    @apply p-(--space-lg) md:p-(--space-lg) xl:p-(--space-xl) rounded-4xl overflow-hidden;
   }
 }

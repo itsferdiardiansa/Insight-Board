@@ -1,6 +1,5 @@
 'use client'
 
-import * as React from 'react'
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { Badge } from '@/components/ui/badge'
@@ -79,16 +78,19 @@ export const ProductBenefitHeader: React.FC<ProductBenefitHeaderProps> = ({
   }, [])
 
   return (
-    <div className="flex flex-col justify-center items-center gap-8 text-center">
-      <div ref={badgeRef} className="self-start max-lg:mx-auto opacity-0">
+    <div className="flex flex-col justify-center">
+      <div ref={badgeRef} className="max-lg:mx-auto opacity-0">
         <Badge variant={'ghost'}>Features</Badge>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-2 lg:text-left">
-        <h1 ref={titleRef} className="heading-display opacity-0">
+      <div className="mt-(--space-md) flex flex-col lg:flex-row justify-between gap-(--space-sm) md:gap-(--space-lg) text-center lg:text-left">
+        <h1
+          ref={titleRef}
+          className="heading-display max-lg:basis-[50%] shrink-0 opacity-0"
+        >
           {title}
         </h1>
-        <h2 ref={descRef} className="heading-sub xl:max-w-md opacity-0">
+        <h2 ref={descRef} className="heading-sub xl:max-w-sm opacity-0">
           {subtitle}
         </h2>
       </div>

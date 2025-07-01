@@ -3,7 +3,7 @@ import type { Viewport } from 'next'
 
 import { defaultMetadata } from '@/config/site-metadata'
 import { AnimationProvider } from '@/context/gsap-animation'
-import { JsonLd } from '@/components/core/seo'
+import { JsonLd } from '@/components/seo'
 import { websiteSchema } from '@/schema/website'
 import { homepageSchema } from '@/schema/homepage'
 

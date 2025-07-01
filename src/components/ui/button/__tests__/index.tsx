@@ -1,10 +1,10 @@
+import { forwardRef } from 'react'
 import { fireEvent, render, screen } from '@testing-library/react'
-import { Button, type ButtonProps } from '..'
 import { FaUser } from 'react-icons/fa'
-import React from 'react'
+import { Button, type ButtonProps } from '..'
 import {} from '../Button'
 
-const CustomLink = React.forwardRef<
+const CustomLink = forwardRef<
   HTMLAnchorElement,
   React.AnchorHTMLAttributes<HTMLAnchorElement>
 >((props, ref) => {

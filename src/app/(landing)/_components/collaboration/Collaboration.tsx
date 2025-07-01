@@ -1,11 +1,13 @@
 'use client'
-import React, { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { gsap } from 'gsap'
+import { SectionShell } from '@/components/layout/section'
 import { CollaborationHeader } from './CollaborationHeader'
 import { CollaborationFeatureItem } from './CollaborationFeatureItem'
-import CollaborationImage from '@/assets/images/collaboration.jpg'
 import { cn } from '@/utils/tailwind'
+
+import CollaborationImage from '@/assets/images/collaboration.jpg'
 
 const features = [
   { title: 'Real-time CommunicationTeams' },
@@ -18,7 +20,7 @@ const CollaboratedWithYourTeam: React.FC = () => {
   const contentRef = useRef<HTMLDivElement>(null)
   const featureRefs = useRef<(HTMLDivElement | null)[]>([])
 
-  React.useEffect(() => {
+  useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         imageRef.current,
@@ -58,51 +60,54 @@ const CollaboratedWithYourTeam: React.FC = () => {
   }, [])
 
   return (
-    <div className="content-block">
-      <div className="flex flex-col-reverse xl:flex-row gap-12 xl:gap-32 md:bg-violet-600 md:p-8 xl:p-12 rounded-4xl">
-        <div className="relative flex-1 rounded-4xl overflow-hidden ">
-          <div
-            ref={imageRef}
-            className="min-h-[410px] lg:min-h-[610px] opacity-0 z-10"
-          >
-            <Image
-              className="absolute top-0 left-0 w-full h-full object-cover"
-              src={CollaborationImage}
-              width={300}
-              height={500}
-              alt="Team collaboration illustration"
-            />
-          </div>
-
-          <div className="absolute bottom-[3%] left-[3%] xl:bottom-[5%] xl:left-[5%] z-50">
-            {features.map((feature, index) => (
-              <div
-                key={feature.title}
-                className={cn({ 'mt-2 xl:mt-4': index > 0 })}
-              >
-                <CollaborationFeatureItem
-                  title={feature.title}
-                  ref={el => {
-                    featureRefs.current[index] = el
-                  }}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
+    <SectionShell
+      className="bg-violet-700 rounded-4xl"
+      direction={'col'}
+      responsiveDirection={'mdRow'}
+      innerClassName="p-(--space-md) xl:p-(--space-xl)"
+    >
+      <div className="relative flex-1 rounded-4xl overflow-hidden ">
         <div
-          ref={contentRef}
-          className="flex-1 flex flex-col grow shrink gap-6 lg:gap-12 items-start justify-center self-stretch"
+          ref={imageRef}
+          className="min-h-[410px] lg:min-h-[610px] opacity-0 z-10"
         >
-          <CollaborationHeader
-            title="Collaborate with your team anywhere, anytime"
-            subTitle="Break down geographical barriers and keep your team connected with powerful collaboration tools"
-            description="By truly understanding our customers challenges, we're able to deliver forward-thinking products that solve real problems and deliver more than promised."
+          <Image
+            className="absolute top-0 left-0 w-full h-full object-cover"
+            src={CollaborationImage}
+            width={300}
+            height={500}
+            alt="Team collaboration illustration"
           />
         </div>
+
+        <div className="absolute bottom-[3%] left-[3%] xl:bottom-[5%] xl:left-[5%] z-50">
+          {features.map((feature, index) => (
+            <div
+              key={feature.title}
+              className={cn({ 'mt-2 xl:mt-4': index > 0 })}
+            >
+              <CollaborationFeatureItem
+                title={feature.title}
+                ref={el => {
+                  featureRefs.current[index] = el
+                }}
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+
+      <div
+        ref={contentRef}
+        className="flex-1 flex flex-col grow shrink items-start justify-center self-stretch"
+      >
+        <CollaborationHeader
+          title="Collaborate with your team anywhere, anytime"
+          subTitle="Break down geographical barriers and keep your team connected with powerful collaboration tools"
+          description="By truly understanding our customers challenges, we're able to deliver forward-thinking products that solve real problems and deliver more than promised."
+        />
+      </div>
+    </SectionShell>
   )
 }
 

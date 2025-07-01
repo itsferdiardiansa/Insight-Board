@@ -1,6 +1,5 @@
 'use client'
 
-import * as React from 'react'
 import { useRef, useEffect } from 'react'
 import { StatisticCard } from './StatisticCard'
 import gsap from 'gsap'

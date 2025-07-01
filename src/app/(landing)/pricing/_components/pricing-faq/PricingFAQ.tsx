@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { FAQ } from '@/features/faq/components/FAQ'
+import { SectionHeader, SectionShell } from '@/components/layout/section'
 
 const PricingFAQ: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement | null>(null)
@@ -70,23 +71,17 @@ const PricingFAQ: React.FC = () => {
   }, [])
 
   return (
-    <div className="content-block">
-      <div className="flex flex-col gap-4 gap-18">
-        <div className="flex flex-col items-center text-center gap-4">
-          <h1 ref={titleRef} className="heading-display">
-            Frequently Asked Questions
-          </h1>
+    <SectionShell direction={'col'}>
+      <SectionHeader
+        title="Frequently Asked Questions"
+        subtitle="Everything you need to know about InsightBoard and getting started."
+        textAlign={'center'}
+      />
 
-          <h2 ref={descRef} className="heading-sub">
-            Everything you need to know about InsightBoard and getting started.
-          </h2>
-        </div>
-
-        <div ref={contentRef} className="relative">
-          <FAQ />
-        </div>
+      <div ref={contentRef} className="relative">
+        <FAQ />
       </div>
-    </div>
+    </SectionShell>
   )
 }
 

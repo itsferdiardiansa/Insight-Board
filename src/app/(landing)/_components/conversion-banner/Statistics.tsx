@@ -1,4 +1,3 @@
-import * as React from 'react'
 import Image from 'next/image'
 
 import { FaStar } from 'react-icons/fa'
@@ -6,8 +5,8 @@ import UserMembers from '@/assets/images/user-members.png'
 
 export const Statistics: React.FC = () => {
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex gap-2">
+    <div className="flex flex-col gap-(--space-xs)">
+      <div className="flex gap-(--space-sm)">
         <div className="flex">
           <div className="relative flex">
             <div className="w-auto h-10">
@@ -26,8 +25,8 @@ export const Statistics: React.FC = () => {
 
         <span className="my-auto text-white basis-auto">Joined last month</span>
       </div>
-      <div className="flex gap-2 items-stretch text-white">
-        <div className="flex items-center gap-1">
+      <div className="flex gap-(--space-sm) text-white">
+        <div className="flex items-center gap-(--space-xs)">
           {[...Array(5)].map((_, index) => (
             <span key={index}>
               <FaStar />

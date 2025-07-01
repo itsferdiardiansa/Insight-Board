@@ -1,5 +1,5 @@
-import { ErrorDisplay } from '@/components/core/error'
-import { BaseLayout } from '@/components/core/layout'
+import { ErrorDisplay } from '@/components/feedback'
+import { BaseLayout } from '@/components/layout'
 import { Newsletter } from '@/features/newsletter/components/Newsletter'
 
 export default function NotFoundPage() {

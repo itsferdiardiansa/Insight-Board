@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { FeatureItem } from './FeatureItem'
 
 type FeatureListProps = {

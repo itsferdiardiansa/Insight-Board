@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import Image, { type StaticImageData } from 'next/image'
 import { cn } from '@/utils/tailwind'
 
@@ -38,7 +38,9 @@ export const ProductBenefitCard = forwardRef<
         <h2 className="text-xl lg:text-3xl font-semibold text-neutral-800">
           {title}
         </h2>
-        <p className="mt-2 lg:text-lg text-neutral-500">{description}</p>
+        <p className="mt-(--space-xs) text-lg text-neutral-500">
+          {description}
+        </p>
       </div>
     </div>
   )

@@ -15,7 +15,7 @@ export default function LandingPage() {
     <div className="home">
       <Banner />
 
-      <div className="relative bg-white">
+      <div className="relative bg-white z-50">
         <div className="layout-wrapper section-stack">
           <SocialProof />
           <ProductBenefits />

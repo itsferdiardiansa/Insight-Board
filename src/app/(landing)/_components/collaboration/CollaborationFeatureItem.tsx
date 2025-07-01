@@ -12,7 +12,7 @@ export const CollaborationFeatureItem = forwardRef<
   return (
     <div
       ref={ref}
-      className="inline-flex gap-2 md:gap-3 items-center px-3 py-1 bg-white rounded-full opacity-0"
+      className="inline-flex gap-(--space-xs) md:gap-(--space-sm) items-center px-(--space-sm) py-(--space-xs) bg-white rounded-full opacity-0"
     >
       <div className="p-1 rounded-full bg-violet-500 text-white">
         <FaCheck className="max-sm:text-xs" />

@@ -1,50 +1,9 @@
 import Link from 'next/link'
-import type { ReactNode } from 'react'
-import {
-  FiAward,
-  FiBriefcase,
-  FiBook,
-  FiServer,
-  FiDollarSign,
-} from 'react-icons/fi'
+import { menuItems } from './header-nav-links'
 
 type NavigationMenuProps = {
   onCloseDrawer?: () => void
 }
-
-type MenuItem = {
-  link: string
-  icon: ReactNode
-  title: string
-}
-
-const menuItems: MenuItem[] = [
-  {
-    link: '/features',
-    icon: <FiAward />,
-    title: 'Features',
-  },
-  {
-    link: '/solutions',
-    icon: <FiBriefcase />,
-    title: 'Solutions',
-  },
-  {
-    link: '/resources',
-    icon: <FiBook />,
-    title: 'Resources',
-  },
-  {
-    link: '/enterprise',
-    icon: <FiServer />,
-    title: 'Enterprise',
-  },
-  {
-    link: '/pricing',
-    icon: <FiDollarSign />,
-    title: 'Pricing',
-  },
-]
 
 export const NavigationMenu: React.FC<NavigationMenuProps> = ({
   onCloseDrawer = () => {},

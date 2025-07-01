@@ -6,13 +6,13 @@ type FeatureCardProps = {
   contentRef?: (el: HTMLDivElement | null) => void
 }
 
-export const FeatureCard = ({
+export const FeatureCard: React.FC<FeatureCardProps> = ({
   title,
   description,
   number,
   isCollapsed,
   contentRef,
-}: FeatureCardProps) => {
+}) => {
   return (
     <div className="flex flex-row gap-4 py-8 border-b border-gray-100 bg-white">
       <div className="flex">
