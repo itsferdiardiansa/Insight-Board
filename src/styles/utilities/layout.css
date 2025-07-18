@@ -1,6 +1,7 @@
 @layer utilities {
   .layout-wrapper {
-    @apply w-full lg:max-w-7xl lg:mx-auto px-(--space-md);
+    /* @apply w-full lg:max-w-7xl lg:mx-auto px-(--space-md); */
+    @apply max-w-7xl lg:mx-auto px-(--space-md) overflow-hidden;
   }
 
   .section-stack {
@@ -15,7 +16,6 @@
     @apply w-full;
   }
 
-  /* Optional padding modifiers for content-block */
   .content-block--p {
     @apply p-4 md:p-8;
   }
@@ -37,7 +37,6 @@
   }
 
   .content-card {
-    /* @apply p-8 md:p-8 xl:p-12 rounded-4xl overflow-hidden; */
-    @apply p-(--space-lg) md:p-(--space-lg) xl:p-(--space-xl) rounded-4xl overflow-hidden;
+    @apply relative p-(--space-lg) md:p-(--space-lg) xl:p-(--space-xl) rounded-4xl overflow-hidden;
   }
 }

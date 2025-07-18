@@ -30,9 +30,9 @@ const labelSizes: Record<InputSize, string> = {
 }
 
 const sizeClasses: Record<InputSize, string> = {
-  sm: 'text-sm px-2 py-2',
-  md: 'text-base px-3 py-3',
-  lg: 'text-lg px-4 py-4',
+  sm: 'px-2.5 py-1.5 text-sm',
+  md: 'px-3.5 py-2.5 text-base',
+  lg: 'px-4.5 py-3.5 text-lg',
 }
 
 export const Input: React.FC<InputProps> = ({

@@ -11,11 +11,11 @@ export const FeatureItem: React.FC<FeatureItemProps> = ({
   isRecommended,
 }) => {
   return (
-    <div className="flex gap-4 items-center w-full">
+    <div className="w-full flex gap-4 items-center">
       <div
         className={cn(
           'p-1 rounded-full',
-          isRecommended ? 'bg-neutral-100' : 'bg-neutral-800'
+          isRecommended ? 'bg-neutral-100' : 'bg-neutral-700'
         )}
       >
         <FaCheck
@@ -25,7 +25,7 @@ export const FeatureItem: React.FC<FeatureItemProps> = ({
           )}
         />
       </div>
-      <p className="self-stretch my-auto">{text}</p>
+      <p className="self-stretch my-auto text-lg font-thin">{text}</p>
     </div>
   )
 }

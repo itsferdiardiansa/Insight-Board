@@ -66,7 +66,7 @@ export const Newsletter = () => {
           className="md:flex-[.5] flex flex-row justify-center items-center gap-2 opacity-0"
         >
           <Input type="email" label="Enter your email" fullWidth />
-          <Button variant="dark" type="submit">
+          <Button variant="secondary" type="submit">
             Subscribe
           </Button>
         </div>

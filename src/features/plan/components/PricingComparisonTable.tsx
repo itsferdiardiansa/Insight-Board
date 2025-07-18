@@ -57,11 +57,14 @@ export const PricingComparisonTable = () => {
               </p>
               <span className="font-bold text-sm text-neutral-500">/month</span>
 
-              <Button className="mt-4 gap-2" variant="dark" pill asChild>
-                <Link href="/subscription">
-                  Get Started
-                  <FaArrowRight />
-                </Link>
+              <Button
+                className="mt-4 gap-2"
+                variant="secondary"
+                icon={<FaArrowRight />}
+                iconPosition="right"
+                asChild
+              >
+                <Link href="/subscription">Get Started</Link>
               </Button>
             </div>
           ))}

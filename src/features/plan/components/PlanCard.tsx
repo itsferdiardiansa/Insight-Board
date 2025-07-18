@@ -60,18 +60,24 @@ export const PlanCard = forwardRef<HTMLDivElement, PlanCardProps>(
       <div ref={ref} className="w-full xl:min-w-[322px] opacity-0">
         <div
           className={cn(
-            'bg-gray-100',
+            'bg-white border border-gray-200',
             'h-full relative flex flex-col p-8 justify-between rounded-2xl cursor-pointer hover:scale-[1.03] duration-200',
-            isRecommended &&
-              'bg-gradient-to-b from-gray-500 via-gray-700 to-gray-900'
+            isRecommended && 'bg-violet-700'
           )}
         >
           <div>
-            <div className="flex z-0 flex-col pb-5 w-full border-b border-solid border-b-neutral-500">
+            <div
+              className={cn(
+                'flex z-0 flex-col pb-5 w-full border-b border-solid',
+                isRecommended
+                  ? 'border-b-(--primary-hover)'
+                  : 'border-b-gray-200'
+              )}
+            >
               <div className="w-full">
                 <h2
                   className={cn(
-                    'text-3xl font-black',
+                    'text-5xl font-black',
                     isRecommended && 'text-neutral-100'
                   )}
                 >
@@ -87,7 +93,7 @@ export const PlanCard = forwardRef<HTMLDivElement, PlanCardProps>(
                 </p>
               </div>
 
-              <div className="flex gap-4 items-center self-start mt-5 whitespace-nowrap">
+              <div className="flex gap-(--space-sm) items-center self-start mt-5 whitespace-nowrap">
                 <div
                   ref={priceRef}
                   className={cn(
@@ -110,10 +116,6 @@ export const PlanCard = forwardRef<HTMLDivElement, PlanCardProps>(
                       </span>
                     </span>
                   </span>
-                  {/* <p className="opacity-0">${displayPrice}</p>
-                <div className="absolute left-0 top-0 w-full text-5xl font-bold transition-transform">
-                  ${displayPrice}
-                </div> */}
                 </div>
                 <p
                   className={cn(
@@ -128,7 +130,7 @@ export const PlanCard = forwardRef<HTMLDivElement, PlanCardProps>(
 
             <div
               className={cn(
-                'z-0 w-full flex flex-col',
+                'z-0 w-full flex flex-col font-semibold',
                 isRecommended ? 'text-neutral-100' : 'text-neutral-800'
               )}
             >
@@ -156,9 +158,12 @@ export const PlanCard = forwardRef<HTMLDivElement, PlanCardProps>(
 
           <div className="mt-12 flex flex-col z-0 bottom-[33px]">
             <Button
-              size="md"
-              variant={isRecommended ? 'secondary' : 'dark'}
-              pill={false}
+              variant={isRecommended ? 'outlineSecondary' : 'secondary'}
+              className={cn(
+                isRecommended &&
+                  'bg-white outline-white hover:bg-white hover:outline-white hover:text-(--secondary)'
+              )}
+              size="lg"
               asChild
             >
               <Link href={'/subscriptions'}>Get Started</Link>

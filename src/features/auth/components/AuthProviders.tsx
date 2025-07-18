@@ -12,25 +12,22 @@ export function AuthProviders({ type }: AuthProvidersProps) {
   return (
     <div className="flex flex-col gap-4">
       <Button
-        variant="outline"
-        className="flex items-center gap-2 justify-center"
+        variant={'outlineSecondary'}
+        icon={<FcGoogle className="text-2xl" />}
       >
-        <FcGoogle className="text-xl" />
-        <span className="leading-[18px]">{actionText} with Google</span>
+        {actionText} with Google
       </Button>
       <Button
-        variant="outline"
-        className="flex items-center gap-2 justify-center"
+        variant={'outlineSecondary'}
+        icon={<FaFacebookF className="text-2xl" />}
       >
-        <FaFacebookF className="text-blue-600 text-xl" />
-        <span className="leading-[18px]">{actionText} with Meta</span>
+        {actionText} with Meta
       </Button>
       <Button
-        variant="outline"
-        className="flex items-center gap-2 justify-center"
+        variant={'outlineSecondary'}
+        icon={<FaApple className="text-2xl" />}
       >
-        <FaApple className="text-xl" />
-        <span className="leading-[18px]">{actionText} with Apple</span>
+        {actionText} with Apple
       </Button>
     </div>
   )

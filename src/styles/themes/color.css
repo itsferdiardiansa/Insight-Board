@@ -1,0 +1,10 @@
+@layer theme {
+  :root {
+    --primary: theme(colors.violet.700);
+    --primary-hover: theme(colors.violet.600);
+    --secondary: theme(colors.neutral.900);
+    --secondary-hover: theme(colors.neutral.700);
+    --destructive: theme(colors.red.700)
+    --destructive-hover: theme(colors.red.600)
+  }
+}

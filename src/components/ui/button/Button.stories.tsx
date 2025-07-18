@@ -13,18 +13,21 @@ const meta: Meta<typeof Button> = {
       control: { type: 'select' },
       options: [
         'primary',
-        'secondary',
-        'outline',
         'outlinePrimary',
+        'secondary',
         'outlineSecondary',
+        'destructive',
         'outlineDestructive',
         'ghost',
-        'destructive',
       ],
     },
     size: {
       control: { type: 'radio' },
       options: ['sm', 'md', 'lg'],
+    },
+    rounded: {
+      control: { type: 'radio' },
+      options: ['none', 'sm', 'md', 'full'],
     },
     fullWidth: {
       control: 'boolean',

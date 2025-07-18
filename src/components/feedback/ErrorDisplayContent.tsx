@@ -79,7 +79,7 @@ export const ErrorDisplayContent: React.FC<
           ref={ctaRef}
           className="flex flex-col sm:flex-row items-center justify-center mt-8 opacity-0"
         >
-          <Button variant="secondary" size={'md'} pill asChild>
+          <Button variant="light" asChild>
             <Link href="/">Go to Homepage</Link>
           </Button>
         </div>

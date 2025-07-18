@@ -85,10 +85,8 @@ export const AppHeader: React.FC = () => {
     <header
       ref={headerRef}
       className={cn(
-        'fixed top-0 left-0 right-0 w-full py-4 z-[999] transition-all duration-300',
-        isFixed
-          ? 'bg-white shadow-sm shadow-gray-100/90'
-          : 'bg-transparent shadow-none'
+        'fixed top-0 left-0 right-0 w-full py-4 z-[999] transition-all duration-300 bg-white',
+        'shadow-sm shadow-gray-100/90'
       )}
     >
       <div className="layout-wrapper flex justify-between items-center gap-4">
@@ -98,7 +96,6 @@ export const AppHeader: React.FC = () => {
           <Button
             className="pr-0!"
             variant="ghost"
-            pill
             onClick={() => setOpen(true)}
           >
             <FiMenu className="font-bold text-2xl" />
