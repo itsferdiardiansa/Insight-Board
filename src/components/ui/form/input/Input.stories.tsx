@@ -21,6 +21,10 @@ const meta: Meta<typeof Input> = {
     required: {
       control: 'boolean',
     },
+    inputSize: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+    },
     readOnly: {
       control: 'boolean',
     },

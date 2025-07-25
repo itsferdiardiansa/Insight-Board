@@ -9,7 +9,6 @@ import { websiteSchema } from '@/schema/website'
 import { homepageSchema } from '@/schema/homepage'
 
 import '@/styles/globals.css'
-import { BillingProvider } from '@/context/billing/BillingProvider'
 import { cn } from '@/utils/tailwind'
 
 const nunito = Nunito({
@@ -36,9 +35,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       </head>
       <body className={cn('antialiased text-neutral-800', nunito.variable)}>
         <AnimationProvider>
-          <BillingProvider>
-            <div className="root-app">{children}</div>
-          </BillingProvider>
+          <div className="root-app">{children}</div>
         </AnimationProvider>
       </body>
     </html>

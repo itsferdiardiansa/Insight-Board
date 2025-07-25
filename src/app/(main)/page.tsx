@@ -1,4 +1,4 @@
-import { Plan } from '@/features/plan/components/Plan'
+import { PricingPlan } from '@/features/plan/components/PricingPlan'
 import { Testimonials } from '@/features/testimonials/components/Testimonials'
 import { ClosingCallCTA } from '@/components/layout/sections/cta'
 
@@ -43,7 +43,7 @@ export default function LandingPage() {
         <Integration />
         <Testimonials />
 
-        <Plan
+        <PricingPlan
           title="Unlock your business potential"
           subtitle="Join thousands of companies scaling their business with our powerful solutions"
         />

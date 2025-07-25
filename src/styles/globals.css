@@ -2,19 +2,20 @@
 @import './theme.css';
 @import './utility.css';
 @import './satoshi.css';
+@import "tw-animate-css";
 
-/* Root theme variables */
-:root {
-  /* --background: theme(colors.slate.50); */
-  --background: theme(colors.white);
-  --foreground: theme(colors.neutral.800);
-  --font-sans: "Satoshi", "Satoshi Placeholder", sans-serif;
-}
+@custom-variant dark (&:is(.dark *));
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  /* font-family: var(--font-sans), system-ui, sans-serif; */
   font-family: var(--font-nunito), system-ui, sans-serif;
   @apply text-base antialiased;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Badge } from '.'
 import { FiUser, FiArrowRight } from 'react-icons/fi'
+import { roundedMapKeys, sizeMapKeys, variantMapKeys } from '../_utils/variants'
 
 const meta: Meta<typeof Badge> = {
   title: 'UI/Badge',
@@ -9,23 +10,15 @@ const meta: Meta<typeof Badge> = {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: [
-        'primary',
-        'outlinePrimary',
-        'secondary',
-        'outlineSecondary',
-        'destructive',
-        'outlineDestructive',
-        'ghost',
-      ],
+      options: variantMapKeys,
     },
     size: {
       control: { type: 'radio' },
-      options: ['sm', 'md', 'lg'],
+      options: sizeMapKeys,
     },
     rounded: {
       control: { type: 'radio' },
-      options: ['sm', 'md', 'full'],
+      options: roundedMapKeys,
       description:
         'Set the minimal corner to <code>sm</code>, <code>md></code> or make it ellipse or circle with <code>full</code>',
     },

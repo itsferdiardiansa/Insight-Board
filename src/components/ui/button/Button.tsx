@@ -7,7 +7,7 @@ import { cn } from '@/utils/tailwind'
 import { FaCircleNotch } from 'react-icons/fa'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-bold tracking-wide cursor-pointer transition-all duration-300 ease-in-out disabled:cursor-not-allowed disabled:opacity-50',
+  'inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-bold tracking-wide cursor-pointer transition-all duration-300 ease-in-out',
   {
     variants: {
       variant: {
@@ -38,6 +38,9 @@ const buttonVariants = cva(
         md: 'rounded-md',
         full: 'rounded-full',
       },
+      disabled: {
+        true: 'bg-(--muted) hover:bg-(--muted) disabled:cursor-not-allowed disabled:opacity-50',
+      },
       fullWidth: {
         true: 'w-full',
       },
@@ -47,9 +50,9 @@ const buttonVariants = cva(
       { size: 'md', rounded: 'full', className: 'px-3.5' },
       { size: 'lg', rounded: 'full', className: 'px-4.5' },
 
-      { rounded: 'none', className: 'hover:rounded-md' },
-      { rounded: 'sm', className: 'hover:rounded-lg' },
-      { rounded: 'md', className: 'hover:rounded-xl' },
+      { disabled: false, rounded: 'none', className: 'hover:rounded-md' },
+      { disabled: false, rounded: 'sm', className: 'hover:rounded-lg' },
+      { disabled: false, rounded: 'md', className: 'hover:rounded-xl' },
     ],
     defaultVariants: {
       variant: 'primary',
@@ -65,6 +68,7 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   icon?: ReactNode
   iconPosition?: 'left' | 'right'
+  disabled?: boolean
   loading?: boolean
   asChild?: boolean
 }
@@ -96,7 +100,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-testid="btn"
         disabled={disabled || loading}
         className={cn(
-          buttonVariants({ variant, size, fullWidth, rounded }),
+          buttonVariants({ variant, size, fullWidth, rounded, disabled }),
           iconPosition === 'right' && 'flex-row-reverse',
           className
         )}
