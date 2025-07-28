@@ -1,20 +1,12 @@
 'use client'
 
-import React, { PropsWithChildren, useEffect, useRef } from 'react'
-// import { gsap } from 'gsap'
+import React, { PropsWithChildren, useRef } from 'react'
 import { SectionHeader, SectionShell } from '@/components/layout/sections'
 import { Button, ButtonProps } from '@/components/ui/button'
 import { SectionHeaderProps } from '../sections/SectionHeader'
 import { type BannerImageProps, BannerImage } from './BannerImage'
 import { cn } from '@/utils/tailwind'
-
-type NodePropsChildren = {
-  props: {
-    children: React.ReactNode
-  }
-}
-
-type AnyComp = { displayName?: string }
+import { extractSlots } from '@/utils/slots'
 
 type CTAType = {
   label?: string
@@ -27,10 +19,12 @@ export type BannerProps = {
   className?: string
 } & PropsWithChildren
 
-export const BannerContent: React.FC<PropsWithChildren> = ({ children }) => {
+export const BannerContentSlot: React.FC<PropsWithChildren> = ({
+  children,
+}) => {
   return <div className="relative">{children}</div>
 }
-BannerContent.displayName = 'BannerContent'
+BannerContentSlot.displayName = 'BannerContentSlot'
 
 export const BannerImageSlot: React.FC<PropsWithChildren> = ({ children }) => {
   return <>{children}</>
@@ -45,54 +39,10 @@ const BannerComponent: React.FC<BannerProps> = ({
   children,
 }) => {
   const imageRef = useRef<HTMLDivElement>(null)
-
-  const contentNodeRef = useRef<React.ReactNode | null>(null)
-  const imageNodeRef = useRef<React.ReactNode | null>(null)
-
-  React.Children.forEach(children, child => {
-    if (!React.isValidElement(child)) return
-    const t = child.type as AnyComp
-
-    if (
-      child.type === BannerImageSlot ||
-      t?.displayName === 'BannerImageSlot'
-    ) {
-      imageNodeRef.current = (child as NodePropsChildren).props.children
-      return
-    }
-
-    if (child.type === BannerContent || t?.displayName === 'BannerContent') {
-      contentNodeRef.current = (child as NodePropsChildren).props.children
-    }
+  const { slots } = extractSlots(children, {
+    Content: BannerContentSlot,
+    Image: BannerImageSlot,
   })
-
-  useEffect(() => {
-    // const tl = gsap.timeline()
-    // if (imageRef.current) {
-    //   tl.fromTo(
-    //     imageRef.current,
-    //     {
-    //       opacity: 0,
-    //       rotateX: 18,
-    //       transformPerspective: 990,
-    //       transformOrigin: 'center bottom',
-    //     },
-    //     {
-    //       opacity: 1,
-    //       rotateX: 0,
-    //       y: 0,
-    //       duration: 1.4,
-    //       ease: 'power2.out',
-    //       scrollTrigger: {
-    //         trigger: imageRef.current,
-    //         start: 'top 85%',
-    //         end: 'top 40%',
-    //         scrub: 4,
-    //       },
-    //     }
-    //   )
-    // }
-  }, [])
 
   return (
     <SectionShell
@@ -100,11 +50,7 @@ const BannerComponent: React.FC<BannerProps> = ({
       direction="col"
     >
       <div className="flex flex-col items-center gap-(--space-lg) md:gap-(--space-2xl)">
-        {contentNodeRef.current ? (
-          contentNodeRef.current
-        ) : (
-          <SectionHeader {...headerProps} />
-        )}
+        {slots.Content ? slots.Content : <SectionHeader {...headerProps} />}
 
         {Boolean(ctas?.length) && (
           <div className="flex gap-(--space-md) items-start max-w-full font-semibold">
@@ -117,8 +63,8 @@ const BannerComponent: React.FC<BannerProps> = ({
         )}
       </div>
 
-      {imageNodeRef.current ? (
-        imageNodeRef.current
+      {slots.Image ? (
+        slots.Image
       ) : (
         <div ref={imageRef} className="lid-op">
           <BannerImage {...(imageProps as BannerImageProps)} />
@@ -129,9 +75,9 @@ const BannerComponent: React.FC<BannerProps> = ({
 }
 
 export const Banner = BannerComponent as React.FC<BannerProps> & {
-  Content: typeof BannerContent
+  Content: typeof BannerContentSlot
   Image: typeof BannerImageSlot
 }
 
-Banner.Content = BannerContent
+Banner.Content = BannerContentSlot
 Banner.Image = BannerImageSlot

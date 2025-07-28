@@ -44,7 +44,7 @@ export const PricingPlanCard = forwardRef<HTMLDivElement, PricingPlanCardProps>(
           className={cn(
             'bg-white border border-gray-200',
             'h-full relative flex flex-col p-8 justify-between rounded-2xl cursor-pointer hover:scale-[1.03] duration-200',
-            isRecommended && 'bg-violet-700'
+            isRecommended && 'bg-linear-to-tl from-violet-700 to-violet-500'
           )}
         >
           <div>

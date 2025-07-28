@@ -31,7 +31,7 @@ const SocialProof: React.FC = () => {
       <div className="">
         <h3
           ref={titleRef}
-          className="text-2xl font-semibold text-center text-neutral-100! opacity-0"
+          className="text-2xl font-semibold text-center text-neutral-800 opacity-0"
         >
           Trusted by 10,000+ founders & business owners
         </h3>

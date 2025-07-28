@@ -19,7 +19,7 @@ const HomeBanner: React.FC = () => {
   ])
 
   return (
-    <Banner ctas={ctaLinks.current}>
+    <Banner ctas={ctaLinks.current} className="pt-0!">
       <Banner.Content>
         <HomeBannerContent />
       </Banner.Content>

@@ -15,12 +15,10 @@ import CoreBenefit from './_components/core-benefit'
 export default function LandingPage() {
   return (
     <div className="home">
-      <div className="layout-wrapper overflow-visible!">
-        <HomeBanner />
-      </div>
+      <div className="bg-linear-to-b from-violet-50 via-pink-50 to-white">
+        <div className="layout-wrapper section-stack overflow-visible!">
+          <HomeBanner />
 
-      <div className="bg-(--secondary)">
-        <div className="layout-wrapper py-(--space-4xl)">
           <SocialProof />
         </div>
       </div>

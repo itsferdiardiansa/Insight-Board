@@ -27,19 +27,14 @@ export default function FeaturePage() {
         <FeatureShowcase />
       </div>
 
-      <div className="bg-gradient-to-br from-violet-300 via-violet-100 to-violet-100">
+      <div className="bg-gradient-to-b from-violet-300 via-violet-100 to-white">
         <div className="layout-wrapper section-stack">
           <PlatformFeatures />
         </div>
       </div>
 
-      <div className="bg-gradient-to-b from-violet-100 to-white">
-        <div className="layout-wrapper section-stack">
-          <Advantages />
-        </div>
-      </div>
-
       <div className="layout-wrapper section-stack">
+        <Advantages />
         <IntegratedFlow />
 
         <CeoStatement />

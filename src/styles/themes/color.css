@@ -8,7 +8,7 @@
   --success: theme(colors.green.600);
   --info: theme(colors.cyan.500);
   --warning: theme(colors.yellow.300);
-  --muted: theme(colors.gray.700);
+  --muted: theme(colors.gray.50);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);

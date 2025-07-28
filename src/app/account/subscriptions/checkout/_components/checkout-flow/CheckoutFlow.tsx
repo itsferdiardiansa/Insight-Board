@@ -19,7 +19,7 @@ export const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
 
   return (
     <div className="max-h-[calc(100vh-78px)] overflow-y-auto md:col-span-2">
-      <div className="w-2/3 py-(--space-4xl) mx-auto">
+      <div className="2xl:w-2/3 p-(--space-4xl) mx-auto">
         <div className="flex-col gap-(--space-md)">
           <div className="mb-(--space-lg)">
             <h1 className="text-4xl font-black">

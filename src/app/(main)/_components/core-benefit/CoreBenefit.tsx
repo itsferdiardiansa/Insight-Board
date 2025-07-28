@@ -145,7 +145,7 @@ const CoreBenefit: React.FC = () => {
 
             <p
               ref={subheadingRef}
-              className="heading-sub text-neutral-300 opacity-0"
+              className="heading-sub text-neutral-400! opacity-0"
             >
               InsightBoard connects your data from Stripe, Notion, Shopify, and
               more—turning raw information into real-time insights. Build
@@ -177,7 +177,7 @@ const CoreBenefit: React.FC = () => {
                 <h1 className="text-2xl md:text-4xl font-bold text-neutral-100">
                   {item.title}
                 </h1>
-                <p className="text-lg text-neutral-500">{item.description}</p>
+                <p className="text-lg text-neutral-400">{item.description}</p>
               </div>
             </div>
           ))}
@@ -191,7 +191,7 @@ const CoreBenefit: React.FC = () => {
             iconPosition="right"
             asChild
           >
-            <Link href={'/contact'}>Get started with Secure AI</Link>
+            <Link href={'/contact'}>Get started</Link>
           </Button>
         </div>
       </div>

@@ -6,7 +6,7 @@ export const BaseLayout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <Fragment>
       <AppHeader />
-      <main className="main-app pt-[78px]">{children}</main>
+      <main className="main-app pt-[86px]">{children}</main>
       <AppFooter />
     </Fragment>
   )

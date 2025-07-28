@@ -125,7 +125,7 @@ export const Advantages: React.FC = () => {
 
         <div
           ref={navContainerRef}
-          className="flex relative border-b border-neutral-200 overflow-x-auto md:overflow-visible opacity-0"
+          className="flex relative border-b-[1px] border-(--muted) overflow-x-auto md:overflow-visible opacity-0"
         >
           <div className="w-full flex justify-between">
             {advantages.map((item, index) => {
@@ -137,10 +137,10 @@ export const Advantages: React.FC = () => {
                     tabRefs.current[index] = el
                   }}
                   className={cn(
-                    'flex-1 relative px-6 py-4 whitespace-nowrap transition-all duration-300 font-semibold cursor-pointer text-center border-b',
+                    'flex-1 relative px-6 py-4 whitespace-nowrap transition-all duration-300 font-semibold cursor-pointer text-center border-b-[1px]',
                     isOpen
                       ? 'border-transparent text-neutral-800 font-bold'
-                      : 'border-gray-100 text-neutral-600 hover:bg-white/5'
+                      : 'border-gray-100 text-neutral-400 hover:bg-white/5'
                   )}
                   onClick={() => setOpenIndex(index)}
                 >
@@ -150,7 +150,7 @@ export const Advantages: React.FC = () => {
             })}
             <div
               ref={indicatorRef}
-              className="absolute bottom-0 h-[4px] bg-gray-800 rounded transition-all"
+              className="absolute bottom-0 h-[2px] bg-gray-800 rounded transition-all"
               style={{ left: 0, width: 0 }}
             />
           </div>

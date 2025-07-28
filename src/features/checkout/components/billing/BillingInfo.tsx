@@ -50,7 +50,7 @@ export const BillingInfo: React.FC = () => {
   }
 
   return (
-    <div className="border border-stone-200 dark:border-neutral-800 rounded-2xl overflow-hidden">
+    <div className="border border-stone-200 rounded-2xl overflow-hidden">
       <div className="flex flex-col md:flex-row justify-between items-center gap-4 p-6">
         <div className="flex">
           <h3 className="font-semibold">
@@ -65,16 +65,12 @@ export const BillingInfo: React.FC = () => {
         </div>
       </div>
 
-      <div className="border-t border-stone-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 px-6 py-8">
-        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12 text-sm sm:text-[15px]">
+      <div className="border-t border-stone-200 p-(--space-md)">
+        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-(--space-md) text-sm sm:text-[15px]">
           {billingFields.map(({ label, value, span }, idx) => (
             <div key={idx} className={span ? 'sm:col-span-2' : ''}>
-              <dt className="text-neutral-500 dark:text-neutral-400 mb-1">
-                {label}
-              </dt>
-              <dd className="text-neutral-900 dark:text-white font-medium">
-                {value}
-              </dd>
+              <dt className="text-neutral-500 mb-1">{label}</dt>
+              <dd className="text-neutral-800 font-semibold">{value}</dd>
             </div>
           ))}
         </dl>

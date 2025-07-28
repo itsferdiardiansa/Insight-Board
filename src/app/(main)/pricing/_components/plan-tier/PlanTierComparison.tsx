@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { PricingComparisonTable } from '@/features/plan/components/PricingComparisonTable'
 import { SectionHeader, SectionShell } from '@/components/layout/sections'
+import { TbBoxMultiple } from 'react-icons/tb'
 
 export const PlanTierComparison: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement | null>(null)
@@ -73,9 +74,12 @@ export const PlanTierComparison: React.FC = () => {
   return (
     <SectionShell direction={'col'}>
       <SectionHeader
-        title="Find the plan that <span class='text-violet-800'>empowers</span> your growth"
+        title="The plan that <span class='text-violet-800'>empowers</span> your growth"
         subtitle="Compare features side-by-side to discover which plan gives your team<br />the tools to scale, collaborate, and thrive."
-        textAlign={'center'}
+        textAlign="center"
+        badgeLabel="Compare"
+        badgeVariant="secondary"
+        badgeIcon={<TbBoxMultiple />}
       />
 
       <div ref={contentRef} className="relative">
