@@ -31,13 +31,8 @@ const PowerfullSolutions: React.FC = () => {
   const handleSetIndex = (index: number) => {
     if (index === currentIndex) return
 
-    const img = new window.Image()
-    img.src = images[index].src
-
-    img.onload = () => {
-      setLoadedIndex(index)
-      setCurrentIndex(index)
-    }
+    setLoadedIndex(index)
+    setCurrentIndex(index)
   }
 
   useEffect(() => {
@@ -94,8 +89,10 @@ const PowerfullSolutions: React.FC = () => {
               <Image
                 className="w-full h-full object-cover"
                 src={image}
-                fill
                 alt={`Dynamic Feature Image - ${index + 1}`}
+                width={438}
+                height={570}
+                fill
               />
             </div>
           ))}

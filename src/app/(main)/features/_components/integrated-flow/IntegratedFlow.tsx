@@ -6,30 +6,9 @@ import gsap from 'gsap'
 
 import { SectionShell, SectionHeader } from '@/components/layout/sections'
 import { siteConfig } from '@/config/site-config'
-import AnthonyWhite from '@/assets/images/leaders/anthony-white.jpg'
+import integratedFlows from './integrated-flow-data'
 
-const features = [
-  {
-    title: '1. Unified connections',
-    description:
-      'Connect Stripe, Notion, Shopify, and other tools in minutes — no developer needed.',
-  },
-  {
-    title: '2. Instant dashboards',
-    description:
-      'Prebuilt views for revenue, operations, and product insights tailored for your stack.',
-  },
-  {
-    title: '3. Smart filtering',
-    description:
-      'Drill down by product, team, region, or timeframe — everything updates in real-time.',
-  },
-  {
-    title: '4. Automated exports',
-    description:
-      'Send scheduled reports to Slack, Notion, or email so your team stays always informed.',
-  },
-]
+import AnthonyWhite from '@/assets/images/leaders/anthony-white.jpg'
 
 export const IntegratedFlow: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -151,7 +130,12 @@ export const IntegratedFlow: React.FC = () => {
             ref={avatarRef}
             className="w-12 h-12 rounded-full overflow-hidden opacity-0"
           >
-            <Image src={AnthonyWhite} alt="Our CEO" />
+            <Image
+              src={AnthonyWhite}
+              alt="Engineering Manager of Notion"
+              width={76}
+              height={76}
+            />
           </div>
 
           <div
@@ -164,7 +148,7 @@ export const IntegratedFlow: React.FC = () => {
         </div>
 
         <div className="mt-(--space-md) flex flex-col md:flex-row gap-(--space-md) text-lg">
-          {features.map((feature, index) => (
+          {integratedFlows.map((feature, index) => (
             <div
               key={index}
               ref={el => {

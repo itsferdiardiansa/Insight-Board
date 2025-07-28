@@ -111,6 +111,8 @@ export const FeatureGrid: React.FC<FeatureGridProps> = ({
             className="w-full h-full object-cover"
             src={imageSrc}
             alt={imageMeta}
+            width={990}
+            height={760}
           />
         )}
 

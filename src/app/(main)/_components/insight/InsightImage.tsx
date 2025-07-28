@@ -34,12 +34,12 @@ export const InsightImage: React.FC = () => {
 
   return (
     <Image
-      src={ManageRawData}
       ref={imageRef}
+      src={ManageRawData}
       className="absolute inset-0 object-cover opacity-0"
-      width={590}
-      height={890}
       alt="Data insights visualization"
+      width={590}
+      height={885}
     />
   )
 }

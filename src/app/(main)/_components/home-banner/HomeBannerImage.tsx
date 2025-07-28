@@ -7,6 +7,8 @@ export const HomeBannerImage: React.FC = () => {
       className="w-full object-contain self-stretch scale-[1.1]"
       src={ClientDashboardIllustration}
       alt="InsightBoard Dashboard"
+      width={1240}
+      height={860}
     />
   )
 }

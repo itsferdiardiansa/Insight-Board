@@ -98,6 +98,8 @@ export const IndustryLeaders: React.FC<IndustryLeadersProps> = ({
                         className="w-14 h-14 rounded-full object-cover"
                         src={subTestimonial.imageSrc}
                         alt={subTestimonial.name}
+                        width={76}
+                        height={76}
                       />
                       <div>
                         <h3

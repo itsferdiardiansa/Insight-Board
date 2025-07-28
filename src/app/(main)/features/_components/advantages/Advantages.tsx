@@ -195,7 +195,9 @@ export const Advantages: React.FC = () => {
               <Image
                 className="object-contain"
                 src={advantage.image}
-                alt="Illustration"
+                alt={advantage.title}
+                width={590}
+                height={374}
               />
             </div>
           </div>
