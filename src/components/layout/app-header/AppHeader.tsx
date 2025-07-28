@@ -8,7 +8,6 @@ import { AuthButtons } from './AuthButtons'
 import { BrandLogo } from '@/components/ui/brand-logo'
 import Drawer from '@/components/ui/drawer'
 import { Button } from '@/components/ui/button'
-import { cn } from '@/utils/tailwind'
 
 export const AppHeader: React.FC = () => {
   const [open, setOpen] = useState(false)
@@ -84,48 +83,45 @@ export const AppHeader: React.FC = () => {
   return (
     <header
       ref={headerRef}
-      className={cn(
-        'fixed top-0 left-0 right-0 w-full py-4 z-[999] transition-all duration-300',
-        isFixed
-          ? 'bg-white shadow-sm shadow-gray-100/90'
-          : 'bg-transparent shadow-none'
-      )}
+      className="fixed top-0 inset-x-0 z-[999] transition-all duration-300 bg-white shadow-sm shadow-gray-100/90"
     >
-      <div className="layout-wrapper flex justify-between items-center gap-4">
-        <BrandLogo />
+      <div className="layout-wrapper py-(--space-xs) md:py-(--space-sm)">
+        <div className="flex justify-between items-center gap-(--space-md)">
+          <BrandLogo />
 
-        <div className="lg:hidden">
-          <Button
-            className="pr-0!"
-            variant="ghost"
-            pill
-            onClick={() => setOpen(true)}
+          <div className="lg:hidden">
+            <Button
+              className="pr-0!"
+              variant="ghost"
+              aria-label="Toggle navigation menu"
+              onClick={() => setOpen(true)}
+            >
+              <FiMenu className="font-bold text-2xl" />
+            </Button>
+          </div>
+
+          <Drawer
+            open={open}
+            title="Main Menu"
+            position="bottom"
+            duration={500}
+            fullScreen
+            onClose={() => setOpen(false)}
           >
-            <FiMenu className="font-bold text-2xl" />
-          </Button>
-        </div>
+            <Drawer.Content>
+              <NavigationMenu onCloseDrawer={() => setOpen(false)} />
+              <div className="w-full h-1 bg-gray-100 my-4" />
+              <AuthButtons />
+            </Drawer.Content>
+          </Drawer>
 
-        <Drawer
-          open={open}
-          title="Main Menu"
-          position="bottom"
-          duration={500}
-          fullScreen
-          onClose={() => setOpen(false)}
-        >
-          <Drawer.Content>
-            <NavigationMenu onCloseDrawer={() => setOpen(false)} />
-            <div className="w-full h-1 bg-gray-100 my-4" />
+          <div className="hidden lg:flex gap-4 items-center">
+            <NavigationMenu />
+          </div>
+
+          <div className="hidden lg:flex gap-4 items-center">
             <AuthButtons />
-          </Drawer.Content>
-        </Drawer>
-
-        <div className="hidden lg:flex gap-4 items-center">
-          <NavigationMenu />
-        </div>
-
-        <div className="hidden lg:flex gap-4 items-center">
-          <AuthButtons />
+          </div>
         </div>
       </div>
     </header>

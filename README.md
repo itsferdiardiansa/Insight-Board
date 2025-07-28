@@ -9,7 +9,7 @@
 A modern, scalable SaaS application built with **Next.js (TypeScript)**. It provides AI-powered dashboards by integrating data from services like Stripe, Shopify, and Google Analytics.
 Designed with **TDD**, component-based architecture, and full test coverage using **Jest** and **React Testing Library**.
 
-![landing-page](https://github.com/user-attachments/assets/dbceff98-8285-438c-90d7-96f2d537ca10)
+![homepage](https://github.com/user-attachments/assets/6430339c-c0ad-4881-a122-dd7bd588e135)
 
 ---
 

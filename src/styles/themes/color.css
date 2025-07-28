@@ -1,0 +1,17 @@
+@theme inline {
+  --primary: theme(colors.violet.700);
+  --primary-hover: theme(colors.violet.600);
+  --secondary: theme(colors.neutral.900);
+  --secondary-hover: theme(colors.neutral.700);
+  --destructive: theme(colors.red.700);
+  --destructive-hover: theme(colors.red.600);
+  --success: theme(colors.green.600);
+  --info: theme(colors.cyan.500);
+  --warning: theme(colors.yellow.300);
+  --muted: theme(colors.gray.300);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+}

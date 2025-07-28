@@ -6,6 +6,7 @@ exports[`components/BrandLogo it should render the component and match snapshot 
   "baseElement": <body>
     <div>
       <a
+        aria-label="Homepage"
         href="/"
       >
         <svg
@@ -16,6 +17,7 @@ exports[`components/BrandLogo it should render the component and match snapshot 
   </body>,
   "container": <div>
     <a
+      aria-label="Homepage"
       href="/"
     >
       <svg

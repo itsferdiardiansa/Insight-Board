@@ -1,27 +1,28 @@
 import { siteConfig } from '@/config/site-config'
-import productPlans from '@/features/plan/data/product-plans'
+import productPlans from '@/constants/subscription-plans'
 import type {
-  Plan,
-  FeatureGroup,
-  FeatureItem,
-} from '@/features/plan/data/product-plans'
+  SubscriptionPlan,
+  SubscriptionFeatures,
+  SubscriptionFeature,
+} from '@/constants/subscription-plans'
 
-export function generatePricingSchema(plans: Plan[]) {
+export function generatePricingSchema(plans: SubscriptionPlan[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     itemListElement: plans.map((plan, index) => {
-      const features: string[] = plan.features.flatMap((group: FeatureGroup) =>
-        group.items.map((item: FeatureItem) => {
-          const value =
-            typeof item.value === 'boolean'
-              ? item.value
-                ? 'Yes'
-                : 'No'
-              : item.value
+      const features: string[] = plan.features.flatMap(
+        (group: SubscriptionFeatures) =>
+          group.items.map((item: SubscriptionFeature) => {
+            const value =
+              typeof item.value === 'boolean'
+                ? item.value
+                  ? 'Yes'
+                  : 'No'
+                : item.value
 
-          return `${group.group}: ${item.name} - ${value}`
-        })
+            return `${group.group}: ${item.name} - ${value}`
+          })
       )
 
       return {

@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { cn } from '@/utils/tailwind'
@@ -43,9 +44,9 @@ export const FabricLayer: React.FC<FabricLayerProps> = ({ className }) => {
   }
 
   return (
-    <div className={cn('fabric-illustrations', className)}>
+    <div className={cn('w-full h-full absolute', className)}>
       <svg
-        className="absolute inset-0 w-full h-full z-0 pointer-events-none"
+        className="w-full h-full absolute inset-0 z-0 pointer-events-none"
         viewBox="0 0 500 200"
         preserveAspectRatio="none"
       >

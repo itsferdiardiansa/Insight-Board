@@ -45,31 +45,26 @@ export const Newsletter = () => {
   }, [])
 
   return (
-    <div
-      ref={sectionRef}
-      className="content-block content-block--py border-b border-gray-200"
-    >
-      <div className="flex flex-col md:flex-row gap-4 md:gap-8">
-        <div className="flex-1 flex flex-col items-start gap-4">
-          <h2 ref={headingRef} className="heading-display mb-4 opacity-0">
-            Stay in the loop
-          </h2>
+    <div ref={sectionRef} className="flex flex-col md:flex-row gap-4 md:gap-8">
+      <div className="flex-1 flex flex-col items-start gap-4">
+        <h2 ref={headingRef} className="heading-display mb-4 opacity-0">
+          Stay in the loop
+        </h2>
 
-          <p ref={paragraphRef} className="heading-sub max-w-xl mb-6 opacity-0">
-            Subscribe to our newsletter and get the latest product updates,
-            insights, and exclusive offers directly to your inbox.
-          </p>
-        </div>
+        <p ref={paragraphRef} className="heading-sub max-w-xl mb-6 opacity-0">
+          Subscribe to our newsletter and get the latest product updates,
+          insights, and exclusive offers directly to your inbox.
+        </p>
+      </div>
 
-        <div
-          ref={formRef}
-          className="md:flex-[.5] flex flex-row justify-center items-center gap-2 opacity-0"
-        >
-          <Input type="email" label="Enter your email" fullWidth />
-          <Button variant="dark" type="submit">
-            Subscribe
-          </Button>
-        </div>
+      <div
+        ref={formRef}
+        className="md:flex-[.5] flex flex-row justify-center items-center gap-2 opacity-0"
+      >
+        <Input type="email" label="Enter your email" fullWidth />
+        <Button variant="secondary" type="submit">
+          Subscribe
+        </Button>
       </div>
     </div>
   )

@@ -50,7 +50,7 @@ describe('components/form/Input', () => {
     expect(input).toHaveValue('')
 
     const label = container.querySelector('label')
-    expect(label).toHaveClass('translate-y-[12px]')
+    expect(label).toHaveClass('translate-y-[10px]')
   })
 
   it('applies disabled state', () => {

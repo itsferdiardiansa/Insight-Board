@@ -2,24 +2,20 @@
 
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/utils/tailwind'
+import { roundedMap, sizeMap, variantMap } from '../_utils/variants'
 
 const badgeVariants = cva(
-  'inline-flex items-center px-4 py-1 text-sm font-bold rounded-full text-lg',
+  'inline-flex items-center gap-(--space-sm) font-bold rounded-full',
   {
     variants: {
-      variant: {
-        primary: 'bg-violet-700 text-white',
-        secondary: 'bg-gray-100 text-gray-700',
-        success: 'bg-green-100 text-green-700',
-        warning: 'bg-yellow-100 text-yellow-800',
-        danger: 'bg-red-100 text-red-700',
-        info: 'bg-sky-100 text-sky-700',
-        neutral: 'bg-slate-100 text-slate-700',
-        ghost: 'border border-gray-800',
-      },
+      variant: variantMap,
+      rounded: roundedMap,
+      size: sizeMap,
     },
     defaultVariants: {
-      variant: 'neutral',
+      variant: 'primary',
+      size: 'md',
+      rounded: 'md',
     },
   }
 )
@@ -28,17 +24,31 @@ export interface BadgeProps
   extends React.HTMLAttributes<HTMLSpanElement>,
     VariantProps<typeof badgeVariants> {
   children: React.ReactNode
+  icon?: React.ReactNode
+  iconPosition?: 'left' | 'right'
 }
 
 export const Badge: React.FC<BadgeProps> = ({
   className,
   variant,
+  size,
+  rounded,
+  icon,
+  iconPosition = 'left',
   children,
   ...props
 }) => {
   return (
-    <span className={cn(badgeVariants({ variant }), className)} {...props}>
-      {children}
-    </span>
+    <div
+      className={cn(
+        badgeVariants({ variant, size, rounded }),
+        iconPosition === 'right' && 'flex-row-reverse',
+        className
+      )}
+      {...props}
+    >
+      {icon && <span>{icon}</span>}
+      <span>{children}</span>
+    </div>
   )
 }

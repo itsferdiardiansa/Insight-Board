@@ -1,70 +1,85 @@
 'use client'
 
 import Link from 'next/link'
+import { useMemo } from 'react'
 import { FiCheck, FiX } from 'react-icons/fi'
 import { FaArrowRight } from 'react-icons/fa'
 import { Button } from '@/components/ui/button'
-import { useBilling } from '@/context/billing/BillingContext'
+import { usePricing } from '@/context/pricing/PricingContext'
+import subscriptionPlans from '@/constants/subscription-plans'
+import { BILLING_DISCOUNTS } from '@/constants/billing'
 import { cn } from '@/utils/tailwind'
-import { priceFormatted } from '../utils/priceFormatter'
-import productPlans from '@/features/plan/data/product-plans'
+import { formatCurrency } from '@/utils/number-formatter'
+import { getFeatureValue } from '../_utils/plan-filter'
 
 export const PricingComparisonTable = () => {
-  const { isAnnual } = useBilling()
+  const { isAnnual } = usePricing()
 
-  const allGroups = Array.from(
-    new Set(productPlans.flatMap(plan => plan.features.map(f => f.group)))
+  const allGroups = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          subscriptionPlans.flatMap(plan => plan.features.map(f => f.group))
+        )
+      ),
+    []
   )
 
-  const allFeatures = allGroups.map(group => ({
-    group,
-    items: Array.from(
-      new Set(
-        productPlans.flatMap(plan =>
-          plan.features
-            .filter(f => f.group === group)
-            .flatMap(f => f.items.map(i => i.name))
-        )
-      )
-    ),
-  }))
-
-  const getFeatureValue = (
-    plan: (typeof productPlans)[number],
-    group: string,
-    item: string
-  ) => {
-    const foundGroup = plan.features.find(f => f.group === group)
-    return foundGroup?.items.find(i => i.name === item)?.value ?? false
-  }
+  const allFeatures = useMemo(
+    () =>
+      allGroups.map(group => ({
+        group,
+        items: Array.from(
+          new Set(
+            subscriptionPlans.flatMap(plan =>
+              plan.features
+                .filter(f => f.group === group)
+                .flatMap(f => f.items.map(i => i.name))
+            )
+          )
+        ),
+      })),
+    [allGroups]
+  )
 
   return (
     <div className="w-full overflow-x-auto">
       <div className="min-w-[900px] border border-gray-100 rounded-2xl overflow-hidden">
         <div className="grid grid-cols-[1.5fr_repeat(3,_1fr)] border-b border-gray-100">
           <div className="p-6"></div>
-          {productPlans.map(plan => (
-            <div
-              key={plan.title}
-              className={cn(
-                'p-6 text-center flex flex-col items-center gap-2',
-                plan.title === 'Professional' && 'bg-gray-100'
-              )}
-            >
-              <p className="text-lg font-semibold">{plan.title}</p>
-              <p className="text-4xl font-black">
-                ${+priceFormatted(plan.price, isAnnual)}
-              </p>
-              <span className="font-bold text-sm text-neutral-500">/month</span>
+          {subscriptionPlans.map((plan, index) => {
+            const annualDiscountRate = BILLING_DISCOUNTS['annual']
+            const discountedAnnualPrice = plan.price * (1 - annualDiscountRate)
+            const displayPrice = isAnnual ? discountedAnnualPrice : plan.price
 
-              <Button className="mt-4 gap-2" variant="dark" pill asChild>
-                <Link href="/subscription">
-                  Get Started
-                  <FaArrowRight />
-                </Link>
-              </Button>
-            </div>
-          ))}
+            return (
+              <div
+                key={index}
+                className={cn(
+                  'p-6 text-center flex flex-col items-center gap-2',
+                  plan.title === 'Professional' && 'bg-gray-100'
+                )}
+              >
+                <p className="text-lg font-semibold">{plan.title}</p>
+                <p className="text-4xl font-black">
+                  {formatCurrency(displayPrice)}
+                </p>
+                <span className="font-bold text-sm text-neutral-500">
+                  /month
+                </span>
+
+                <Button
+                  className="mt-4 gap-2"
+                  variant="secondary"
+                  icon={<FaArrowRight />}
+                  iconPosition="right"
+                  asChild
+                >
+                  <Link href="/subscription">Get Started</Link>
+                </Button>
+              </div>
+            )
+          })}
         </div>
 
         {allFeatures.map(({ group, items }) => (
@@ -83,7 +98,7 @@ export const PricingComparisonTable = () => {
               >
                 <div className="p-4 text-neutral-700">{item}</div>
 
-                {productPlans.map(plan => {
+                {subscriptionPlans.map(plan => {
                   const value = getFeatureValue(plan, group, item)
                   const isBool = typeof value === 'boolean'
                   const isPro = plan.title === 'Professional'

@@ -1,12 +1,13 @@
 import { ErrorDisplay } from '@/components/feedback'
 import { BaseLayout } from '@/components/layout'
+import { SectionShell } from '@/components/layout/sections'
 import { Newsletter } from '@/features/newsletter/components/Newsletter'
 
 export default function NotFoundPage() {
   return (
     <BaseLayout>
-      <div className="layout-wrapper pt-[78px]">
-        <div className="content-block content-block--py">
+      <div className="layout-wrapper section-stack">
+        <SectionShell direction="col">
           <div className="h-[calc(100vh-200px)] flex justify-center items-center">
             <ErrorDisplay
               title="Page not found"
@@ -14,9 +15,11 @@ export default function NotFoundPage() {
               pageType="not-found"
             />
           </div>
+        </SectionShell>
 
+        <SectionShell direction="col">
           <Newsletter />
-        </div>
+        </SectionShell>
       </div>
     </BaseLayout>
   )
