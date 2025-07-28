@@ -41,7 +41,7 @@ const buttonVariants = cva(
         full: 'rounded-full',
       },
       disabled: {
-        true: 'bg-(--muted) hover:bg-(--muted) disabled:cursor-not-allowed disabled:opacity-50',
+        true: 'bg-(--muted) text-neutral-800 hover:bg-(--muted) disabled:cursor-not-allowed disabled:opacity-50',
       },
       fullWidth: {
         true: 'w-full',

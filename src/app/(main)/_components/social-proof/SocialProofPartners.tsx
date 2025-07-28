@@ -96,7 +96,7 @@ export const SocialProofPartners: React.FC = () => {
               }}
               title={partner.name}
             >
-              <Logo className="w-24 text-(--secondary)" />
+              <Logo className="w-24 md:w-32 text-(--secondary)" />
             </div>
           )
         })}
@@ -118,7 +118,7 @@ export const SocialProofPartners: React.FC = () => {
               }}
               title={partner.name}
             >
-              <Logo className="w-24 text-(--secondary)" />
+              <Logo className="w-24 md:w-32 text-(--secondary)" />
             </div>
           )
         })}
