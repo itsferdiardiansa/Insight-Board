@@ -102,13 +102,13 @@ export const IndustryLeaders: React.FC<IndustryLeadersProps> = ({
                         height={76}
                       />
                       <div>
-                        <h3
+                        <p
                           className={cn('text-lg font-bold', {
                             'text-neutral-200': subTestimonial.isFeatured,
                           })}
                         >
                           {subTestimonial.name}
-                        </h3>
+                        </p>
                         <p
                           className={cn('text-neutral-500', {
                             'text-neutral-100': subTestimonial.isFeatured,

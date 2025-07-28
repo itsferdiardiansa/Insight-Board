@@ -7,9 +7,11 @@ import { SectionHeaderProps } from '../sections/SectionHeader'
 import { type BannerImageProps, BannerImage } from './BannerImage'
 import { cn } from '@/utils/tailwind'
 import { extractSlots } from '@/utils/slots'
+import Link from 'next/link'
 
 type CTAType = {
   label?: string
+  link: string
 } & ButtonProps
 
 export type BannerProps = {
@@ -55,8 +57,12 @@ const BannerComponent: React.FC<BannerProps> = ({
         {Boolean(ctas?.length) && (
           <div className="flex gap-(--space-md) items-start max-w-full font-semibold">
             {ctas?.map((cta, index) => (
-              <Button key={index} {...cta}>
-                {cta.children ? cta.children : cta.label}
+              <Button key={index} {...cta} asChild={Boolean(cta.link)}>
+                {cta.link ? (
+                  <Link href={cta.link}>{cta.label}</Link>
+                ) : (
+                  cta.label
+                )}
               </Button>
             ))}
           </div>

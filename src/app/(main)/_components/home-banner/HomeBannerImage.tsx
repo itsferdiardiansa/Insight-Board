@@ -9,6 +9,9 @@ export const HomeBannerImage: React.FC = () => {
       alt="InsightBoard Dashboard"
       width={1240}
       height={860}
+      // quality={90}
+      fetchPriority="high"
+      priority
     />
   )
 }

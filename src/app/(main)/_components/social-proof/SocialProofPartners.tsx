@@ -76,55 +76,52 @@ export const SocialProofPartners: React.FC = () => {
   }, [])
 
   return (
-    <div ref={containerRef} className="w-full relative overflow-hidden">
-      <div className="h-[60px] flex flex-col items-center justify-center transition-all">
-        <div className="absolute inset-0 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-(--space-sm) justify-center">
-          {firstGroup.map((partner, i) => {
-            const Logo = partner.logo
+    <div
+      ref={containerRef}
+      className="w-full h-[60px] relative flex flex-col items-center justify-center transition-all overflow-hidden"
+    >
+      <div className="absolute inset-0 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-(--space-sm) justify-center">
+        {firstGroup.map((partner, i) => {
+          const Logo = partner.logo
 
-            return (
-              <div
-                key={`${partner.name}-${i}`}
-                className={cn(
-                  'flex items-center justify-center rounded-xl px-(--space-lg) py-(--space-sm) shrink-0 opacity-0 bg-(--sescondary)',
-                  'max-sm:[&:nth-child(n+4)]:hidden max-lg:[&:nth-child(n+5)]:hidden'
-                )}
-                ref={el => {
-                  firstGroupRefs.current[i] = el
-                }}
-                title={partner.name}
-              >
-                <div className="flex items-center">
-                  <Logo className="w-18 sm:w-28 text-(--secondary)" />
-                </div>
-              </div>
-            )
-          })}
-        </div>
+          return (
+            <div
+              key={`${partner.name}-${i}`}
+              className={cn(
+                'flex items-center justify-center shrink-0 opacity-0 bg-(--sescondary)',
+                'max-sm:[&:nth-child(n+4)]:hidden max-lg:[&:nth-child(n+5)]:hidden'
+              )}
+              ref={el => {
+                firstGroupRefs.current[i] = el
+              }}
+              title={partner.name}
+            >
+              <Logo className="w-24 text-(--secondary)" />
+            </div>
+          )
+        })}
+      </div>
 
-        <div className="absolute inset-0 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-(--space-sm) justify-center">
-          {secondGroup.map((partner, i) => {
-            const Logo = partner.logo
+      <div className="absolute inset-0 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-(--space-sm) justify-center">
+        {secondGroup.map((partner, i) => {
+          const Logo = partner.logo
 
-            return (
-              <div
-                key={`${partner.name}-${i}`}
-                className={cn(
-                  'flex items-center justify-center rounded-xl px-(--space-lg) py-(--space-sm) shrink-0 opacity-0 bg-(--sescondary)',
-                  'max-sm:[&:nth-child(n+4)]:hidden max-lg:[&:nth-child(n+5)]:hidden'
-                )}
-                ref={el => {
-                  secondGroupRefs.current[i] = el
-                }}
-                title={partner.name}
-              >
-                <div className="flex items-center">
-                  <Logo className="w-18 sm:w-28 text-(--secondary)" />
-                </div>
-              </div>
-            )
-          })}
-        </div>
+          return (
+            <div
+              key={`${partner.name}-${i}`}
+              className={cn(
+                'flex items-center justify-center shrink-0 opacity-0 bg-(--sescondary)',
+                'max-sm:[&:nth-child(n+4)]:hidden max-lg:[&:nth-child(n+5)]:hidden'
+              )}
+              ref={el => {
+                secondGroupRefs.current[i] = el
+              }}
+              title={partner.name}
+            >
+              <Logo className="w-24 text-(--secondary)" />
+            </div>
+          )
+        })}
       </div>
     </div>
   )

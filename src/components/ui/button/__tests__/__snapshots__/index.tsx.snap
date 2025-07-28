@@ -81,19 +81,31 @@ exports[`components/Button renders contents correctly 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-bold tracking-wide cursor-pointer transition-all duration-300 ease-in-out bg-(--primary) text-neutral-100 hover:bg-(--primary-hover) px-3.5 py-2.5 text-base rounded-md"
+        class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-bold tracking-wide cursor-pointer transition-all duration-300 ease-in-out bg-(--primary) text-neutral-100 hover:bg-(--primary-hover) rounded-md"
         data-testid="btn"
       >
-        Click me!
+        <div
+          class="flex gap-(--space-sm) items-center justify-center px-3.5 py-2.5 text-base"
+        >
+          <span>
+            Click me!
+          </span>
+        </div>
       </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-bold tracking-wide cursor-pointer transition-all duration-300 ease-in-out bg-(--primary) text-neutral-100 hover:bg-(--primary-hover) px-3.5 py-2.5 text-base rounded-md"
+      class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-bold tracking-wide cursor-pointer transition-all duration-300 ease-in-out bg-(--primary) text-neutral-100 hover:bg-(--primary-hover) rounded-md"
       data-testid="btn"
     >
-      Click me!
+      <div
+        class="flex gap-(--space-sm) items-center justify-center px-3.5 py-2.5 text-base"
+      >
+        <span>
+          Click me!
+        </span>
+      </div>
     </button>
   </div>,
   "debug": [Function],

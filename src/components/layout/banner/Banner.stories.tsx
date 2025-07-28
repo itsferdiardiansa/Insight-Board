@@ -9,11 +9,13 @@ import ClientDashboardIllustration from '@/assets/illustrations/client-dashboard
 const demoCtas: BannerProps['ctas'] = [
   {
     variant: 'primary',
-    children: 'Request Demo', // label text
+    link: 'contact',
+    label: 'Request Demo',
   },
   {
     variant: 'outlineSecondary',
-    children: 'Learn More',
+    link: 'learn-more',
+    label: 'Learn More',
   },
 ]
 

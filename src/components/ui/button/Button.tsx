@@ -6,6 +6,12 @@ import { Slot, Slottable } from '@radix-ui/react-slot'
 import { cn } from '@/utils/tailwind'
 import { FaCircleNotch } from 'react-icons/fa'
 
+const buttonSizes = {
+  sm: 'px-2.5 py-1.5 text-sm',
+  md: 'px-3.5 py-2.5 text-base',
+  lg: 'px-4.5 py-3.5 text-lg',
+}
+
 const buttonVariants = cva(
   'inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-bold tracking-wide cursor-pointer transition-all duration-300 ease-in-out',
   {
@@ -27,11 +33,7 @@ const buttonVariants = cva(
           'outline outline-gray-300 text-neutral-800 hover:bg-white hover:text-black',
         ghost: 'text-(--secondary)',
       },
-      size: {
-        sm: 'px-2.5 py-1.5 text-sm',
-        md: 'px-3.5 py-2.5 text-base',
-        lg: 'px-4.5 py-3.5 text-lg',
-      },
+      size: buttonSizes,
       rounded: {
         none: 'rounded-none',
         sm: 'rounded-sm',
@@ -56,7 +58,7 @@ const buttonVariants = cva(
     ],
     defaultVariants: {
       variant: 'primary',
-      size: 'md',
+      // size: 'md',
       fullWidth: false,
       rounded: 'md',
     },
@@ -68,6 +70,7 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   icon?: ReactNode
   iconPosition?: 'left' | 'right'
+  size?: keyof typeof buttonSizes
   disabled?: boolean
   loading?: boolean
   asChild?: boolean
@@ -81,7 +84,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       icon,
       iconPosition = 'left',
       variant,
-      size,
+      size = 'md',
       fullWidth,
       rounded,
       loading = false,
@@ -100,16 +103,32 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-testid="btn"
         disabled={disabled || loading}
         className={cn(
-          buttonVariants({ variant, size, fullWidth, rounded, disabled }),
+          buttonVariants({ variant, fullWidth, rounded, disabled }),
+          asChild && buttonSizes[size],
           iconPosition === 'right' && 'flex-row-reverse',
           className
         )}
       >
         {loading && <FaCircleNotch className="animate-spin" aria-hidden />}
-        {!loading && icon && (
-          <span className="contents self-stretch">{icon}</span>
+        {!loading && (
+          <Slottable>
+            {asChild ? (
+              children
+            ) : (
+              <div
+                className={cn(
+                  'flex gap-(--space-sm) items-center justify-center',
+                  buttonSizes[size as keyof typeof buttonSizes]
+                )}
+              >
+                {!loading && icon && (
+                  <span className="contents self-stretch">{icon}</span>
+                )}
+                <span>{children}</span>
+              </div>
+            )}
+          </Slottable>
         )}
-        {!loading && <Slottable>{children}</Slottable>}
       </Comp>
     )
   }

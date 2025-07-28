@@ -75,25 +75,23 @@ export const PricingPlanCard = forwardRef<HTMLDivElement, PricingPlanCardProps>(
                 </p>
               </div>
 
-              <div className="flex gap-(--space-sm) items-center self-start mt-5 whitespace-nowrap">
+              <div className="relative flex gap-(--space-sm) items-center self-start mt-5 whitespace-nowrap">
                 <div
                   ref={priceRef}
                   className={cn(
-                    'price text-5xl font-bold',
+                    'h-[36px] overflow-hidden text-5xl font-bold',
                     isRecommended && 'text-neutral-100'
                   )}
                 >
-                  <span className="relative block overflow-hidden h-[36px]">
-                    <span
-                      className={cn(
-                        'block transition-transform duration-300 ease-in-out',
-                        isAnnual ? '-translate-y-[50%]' : 'translate-y-[0]'
-                      )}
-                    >
-                      <span className="block">{formatCurrency(price)}</span>
-                      <span className="block">
-                        {formatCurrency(discountedAnnualPrice)}
-                      </span>
+                  <span
+                    className={cn(
+                      'block transition-transform duration-300 ease-in-out',
+                      isAnnual ? '-translate-y-[50%]' : 'translate-y-[0]'
+                    )}
+                  >
+                    <span className="block">{formatCurrency(price)}</span>
+                    <span className="block">
+                      {formatCurrency(discountedAnnualPrice)}
                     </span>
                   </span>
                 </div>
@@ -128,7 +126,7 @@ export const PricingPlanCard = forwardRef<HTMLDivElement, PricingPlanCardProps>(
                 ))
               ) : (
                 <PricingPlanFeatures
-                  title={title}
+                  title={previousPlan.title}
                   features={differences}
                   isRecommended={isRecommended}
                 />

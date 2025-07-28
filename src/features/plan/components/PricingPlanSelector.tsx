@@ -74,7 +74,7 @@ export const PlanSelector: React.FC<PlanSelectorProps> = ({
       ref={containerRef}
       className={pricingPlanSelectorVariants({ variant })}
     >
-      <div className="flex items-center gap-0 p-(--space-xs)">
+      <div className="flex items-center p-(--space-xs)">
         <div
           ref={sliderRef}
           className="absolute inset-0 my-auto rounded-[inherit] rounded-xl bg-white pointer-events-none"
@@ -87,9 +87,9 @@ export const PlanSelector: React.FC<PlanSelectorProps> = ({
           variant="ghost"
           onClick={handleMonthly}
           className={cn(
-            'relative z-10 px-(--space-md) py-(--space-sm) my-auto rounded-xl transition-colors duration-150',
+            'relative rounded-md! overflow-hidden transition-colors duration-150',
             !isAnnual
-              ? 'text-neutral-700'
+              ? 'bg-white text-neutral-700'
               : variant === 'gradient'
                 ? 'text-neutral-700'
                 : 'text-neutral-50'
@@ -104,9 +104,9 @@ export const PlanSelector: React.FC<PlanSelectorProps> = ({
           variant="ghost"
           onClick={handleAnnual}
           className={cn(
-            'relative z-10 px-(--space-md) py-(--space-sm) my-auto rounded-xl transition-colors duration-150',
+            'relative rounded-md! overflow-hidden transition-colors duration-150',
             isAnnual
-              ? 'text-neutral-700'
+              ? 'bg-white text-neutral-700'
               : variant === 'gradient'
                 ? 'text-neutral-700'
                 : 'text-neutral-50'

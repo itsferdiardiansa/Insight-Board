@@ -28,18 +28,16 @@ const SocialProof: React.FC = () => {
   })
   return (
     <SectionShell direction="col" gapSize="md">
-      <div className="">
-        <h3
+      <div className="relative">
+        <h2
           ref={titleRef}
           className="text-2xl font-semibold text-center text-neutral-800 opacity-0"
         >
           Trusted by 10,000+ founders & business owners
-        </h3>
+        </h2>
       </div>
 
-      <div className="flex justify-center">
-        <SocialProofPartners />
-      </div>
+      <SocialProofPartners />
     </SectionShell>
   )
 }

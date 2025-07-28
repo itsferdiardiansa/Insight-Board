@@ -85,7 +85,7 @@ export const AppHeader: React.FC = () => {
       ref={headerRef}
       className="fixed top-0 inset-x-0 z-[999] transition-all duration-300 bg-white shadow-sm shadow-gray-100/90"
     >
-      <div className="layout-wrapper py-(--space-md)">
+      <div className="layout-wrapper py-(--space-xs) md:py-(--space-sm)">
         <div className="flex justify-between items-center gap-(--space-md)">
           <BrandLogo />
 
@@ -93,6 +93,7 @@ export const AppHeader: React.FC = () => {
             <Button
               className="pr-0!"
               variant="ghost"
+              aria-label="Toggle navigation menu"
               onClick={() => setOpen(true)}
             >
               <FiMenu className="font-bold text-2xl" />

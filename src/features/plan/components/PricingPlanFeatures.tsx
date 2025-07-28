@@ -12,13 +12,13 @@ export const PricingPlanFeatures: React.FC<PricingPlanFeaturesProps> = ({
   isRecommended,
 }) => {
   return (
-    <section className="w-full">
+    <div className="w-full text-lg font-medium">
       {title && (
         <h3 className="mt-4 font-semibold">
           <span className="font-bold">Everything in {title}, plus:</span>
         </h3>
       )}
-      <div className="mt-4 space-y-4">
+      <div className="mt-4 space-y-(--space-sm)">
         {features.map((feature, index) => (
           <PricingPlanFeature
             key={index}
@@ -27,6 +27,6 @@ export const PricingPlanFeatures: React.FC<PricingPlanFeaturesProps> = ({
           />
         ))}
       </div>
-    </section>
+    </div>
   )
 }

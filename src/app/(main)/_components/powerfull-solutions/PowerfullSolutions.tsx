@@ -92,7 +92,6 @@ const PowerfullSolutions: React.FC = () => {
                 alt={`Dynamic Feature Image - ${index + 1}`}
                 width={438}
                 height={570}
-                fill
               />
             </div>
           ))}
