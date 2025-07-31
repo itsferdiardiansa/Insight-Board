@@ -71,6 +71,7 @@ export interface ButtonProps
   icon?: ReactNode
   iconPosition?: 'left' | 'right'
   size?: keyof typeof buttonSizes
+  innerClassName?: string
   disabled?: boolean
   loading?: boolean
   asChild?: boolean
@@ -80,6 +81,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       className,
+      innerClassName,
       children,
       icon,
       iconPosition = 'left',
@@ -118,7 +120,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
               <div
                 className={cn(
                   'flex gap-(--space-sm) items-center justify-center',
-                  buttonSizes[size as keyof typeof buttonSizes]
+                  buttonSizes[size as keyof typeof buttonSizes],
+                  innerClassName
                 )}
               >
                 {!loading && icon && (

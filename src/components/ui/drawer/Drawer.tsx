@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-import ReactDOM from 'react-dom'
+import { ReactNode, useEffect, useRef, useState } from 'react'
+import * as Portal from '@radix-ui/react-portal'
 import { FiX } from 'react-icons/fi'
 import { getPositionStyles, getTransformStyles } from './utils'
 
@@ -13,6 +13,7 @@ type DrawerProps = {
   overlayOpacity?: number
   title?: string
   showCloseButton?: boolean
+  closeIcon?: ReactNode
   fullScreen?: boolean
 }
 
@@ -30,6 +31,7 @@ const Drawer: React.FC<DrawerProps> & DrawerSubcomponents = ({
   overlayOpacity = 0.5,
   title,
   showCloseButton = true,
+  closeIcon,
   fullScreen = false,
 }) => {
   const [isMounted, setIsMounted] = useState(false)
@@ -69,8 +71,8 @@ const Drawer: React.FC<DrawerProps> & DrawerSubcomponents = ({
 
   if (!isMounted) return null
 
-  return ReactDOM.createPortal(
-    <div className="fixed inset-0 z-[9999]">
+  return (
+    <Portal.Root className="fixed inset-0 z-[9999]">
       <div
         className="absolute inset-0 bg-black"
         style={{
@@ -100,7 +102,7 @@ const Drawer: React.FC<DrawerProps> & DrawerSubcomponents = ({
                 className="rounded-full hover:bg-gray-100 transition-colors"
                 aria-label="Close drawer"
               >
-                <FiX className="w-5 h-5" />
+                {closeIcon ? closeIcon : <FiX className="w-5 h-5" />}
               </button>
             )}
             {title && (
@@ -113,8 +115,7 @@ const Drawer: React.FC<DrawerProps> & DrawerSubcomponents = ({
 
         {children}
       </div>
-    </div>,
-    document.body
+    </Portal.Root>
   )
 }
 

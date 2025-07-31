@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 export default function FeaturePage() {
   return (
     <div className="feature">
-      <div className="bg-gradient-to-tr from-purple-400 via-purple-100 to-violet-200 overflow-hidden">
-        <div className="layout-wrapper overflow-visible!">
+      <div className="bg-gradient-to-b from-white via-purple-100 to-white overflow-hidden">
+        <div className="layout-wrapper section-stack overflow-visible!">
           <FeatureBanner />
         </div>
       </div>

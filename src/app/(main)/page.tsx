@@ -16,7 +16,7 @@ export default function LandingPage() {
   return (
     <div className="home">
       <div className="bg-linear-to-b from-violet-50 via-pink-50 to-white">
-        <div className="layout-wrapper section-stack overflow-visible! pb-0!">
+        <div className="layout-wrapper section-stack overflow-hidden pb-0!">
           <HomeBanner />
 
           <SocialProof />

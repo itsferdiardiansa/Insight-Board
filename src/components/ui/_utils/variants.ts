@@ -17,16 +17,17 @@ export const variantMap = {
 } as const
 
 export const roundedMap = {
+  none: 'rounded-none',
   sm: 'rounded-sm',
   md: 'rounded-md',
   full: 'rounded-full',
 } as const
 
 export const sizeMap = {
-  xs: 'p-1 text-xs',
-  sm: 'px-2.5 py-1.5 text-sm',
-  md: 'px-3.5 py-2.5 text-base',
-  lg: 'px-4.5 py-3.5 text-lg',
+  xs: 'p-1 text-xs leading-2',
+  sm: 'px-2.5 py-1.5 text-sm leading-3',
+  md: 'px-3.5 py-2.5 text-base leading-4',
+  lg: 'px-4.5 py-3.5 text-lg leading-5',
 } as const
 
 export const variantMapKeys = Object.keys(variantMap)

@@ -3,11 +3,12 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { FiMenu } from 'react-icons/fi'
-import { NavigationMenu } from './Navigation'
-import { AuthButtons } from './AuthButtons'
+import { Navigation } from './navigation'
+import { AuthButton } from './AuthButton'
 import { BrandLogo } from '@/components/ui/brand-logo'
 import Drawer from '@/components/ui/drawer'
 import { Button } from '@/components/ui/button'
+import { CTAButton } from './CTAButton'
 
 export const AppHeader: React.FC = () => {
   const [open, setOpen] = useState(false)
@@ -82,22 +83,17 @@ export const AppHeader: React.FC = () => {
 
   return (
     <header
-      ref={headerRef}
-      className="fixed top-0 inset-x-0 z-[999] transition-all duration-300 bg-white shadow-sm shadow-gray-100/90"
+      // ref={headerRef}
+      className="sticky top-0 inset-x-0 z-[999] transition-all duration-300 bg-white/80 backdrop-blur-sm"
     >
-      <div className="layout-wrapper py-(--space-xs) md:py-(--space-sm)">
+      <div className="layout-wrapper py-(--space-xs) md:py-(--space-sm) z-50">
         <div className="flex justify-between items-center gap-(--space-md)">
-          <BrandLogo />
+          <div className="flex items-center gap-(--space-4xl)">
+            <BrandLogo />
+          </div>
 
-          <div className="lg:hidden">
-            <Button
-              className="pr-0!"
-              variant="ghost"
-              aria-label="Toggle navigation menu"
-              onClick={() => setOpen(true)}
-            >
-              <FiMenu className="font-bold text-2xl" />
-            </Button>
+          <div className="hidden lg:flex gap-4 items-center">
+            <Navigation />
           </div>
 
           <Drawer
@@ -109,18 +105,25 @@ export const AppHeader: React.FC = () => {
             onClose={() => setOpen(false)}
           >
             <Drawer.Content>
-              <NavigationMenu onCloseDrawer={() => setOpen(false)} />
-              <div className="w-full h-1 bg-gray-100 my-4" />
-              <AuthButtons />
+              <Navigation onCloseDrawer={() => setOpen(false)} />
+              <AuthButton className="py-(--space-sm)" />
             </Drawer.Content>
           </Drawer>
 
-          <div className="hidden lg:flex gap-4 items-center">
-            <NavigationMenu />
-          </div>
+          <div className="flex gap-(--space-xs) items-center">
+            <AuthButton className="hidden lg:block" />
+            <CTAButton />
 
-          <div className="hidden lg:flex gap-4 items-center">
-            <AuthButtons />
+            <div className="lg:hidden">
+              <Button
+                innerClassName="pr-0!"
+                variant="ghost"
+                aria-label="Toggle navigation menu"
+                onClick={() => setOpen(true)}
+              >
+                <FiMenu className="font-bold text-2xl" />
+              </Button>
+            </div>
           </div>
         </div>
       </div>

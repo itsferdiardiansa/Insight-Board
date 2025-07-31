@@ -17,7 +17,7 @@ export default function PricingPage() {
       <div className="pricing">
         <JsonLd data={pricingSchema} />
 
-        <div className="bg-gradient-to-b from-violet-100 via-violet-50 to-white">
+        <div className="bg-gradient-to-b from-white via-violet-50 to-white">
           <div className="layout-wrapper section-stack">
             <PricingPlan
               title="The right plan for your team"

@@ -1,4 +1,4 @@
 export { AppHeader } from './AppHeader'
 
-export { AuthButtons } from './AuthButtons'
-export { NavigationMenu } from './Navigation'
+export { AuthButton } from './AuthButton'
+export { Navigation } from './navigation'

@@ -46,6 +46,7 @@ export interface CardProps
   title?: string
   description?: string
   thumbnail?: StaticImageData
+  thumbnailMeta?: string
   aspectRatio?: string
 }
 
@@ -60,6 +61,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
       title,
       description,
       thumbnail,
+      thumbnailMeta,
       aspectRatio = 'aspect-[16/9]',
       children,
       ...props
@@ -89,15 +91,14 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
             <Image
               src={thumbnail}
               className="w-full h-full absolute inset-0 m-auto object-cover"
-              alt="img"
-              // fill
+              alt={thumbnailMeta as string}
             />
           </div>
         )}
 
         <div
           className={cn(
-            'transition-all',
+            'h-full transition-all',
             thumbnail && cardVariants({ padding })
           )}
         >
