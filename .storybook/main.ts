@@ -15,7 +15,7 @@ const config: StorybookConfig = {
     "@storybook/addon-docs", 
     "@storybook/addon-actions", 
     "@storybook/addon-onboarding", 
-    // "@storybook/addon-interactions", 
+    "storybook-addon-deep-controls",
     "@storybook/addon-webpack5-compiler-swc"
   ],
   framework: {

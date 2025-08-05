@@ -31,32 +31,34 @@ export const HighlightCard: React.FC<HighlightCardProps> = ({
   className,
 }) => {
   return (
-    <Card roundedSize="md" border="none" padding="md" className={className}>
-      <div className="h-full flex flex-col justify-center gap-(--space-sm)">
-        <div className="space-y-(--space-sm)">
-          <Badge
-            variant={badgeVariant}
-            size={badgeSize}
-            rounded="sm"
-            className={cn('w-auto self-start', badgeClassName)}
+    <Card roundedSize="md" padding="md" className={className}>
+      <Card.Content>
+        <div className="h-full flex flex-col justify-center gap-(--space-sm)">
+          <div className="space-y-(--space-sm)">
+            <Badge
+              variant={badgeVariant}
+              size={badgeSize}
+              rounded="sm"
+              className={cn('w-auto self-start', badgeClassName)}
+            >
+              {badgeText}
+            </Badge>
+
+            <h1 className={cn('text-xl font-bold', titleClassName)}>{title}</h1>
+          </div>
+
+          <Link
+            href={link}
+            className={cn(
+              'hover:underline font-semibold flex items-center',
+              linkClassName
+            )}
           >
-            {badgeText}
-          </Badge>
-
-          <h1 className={cn('text-xl font-bold', titleClassName)}>{title}</h1>
+            <span>{label}</span>
+            <BiChevronRight className="text-lg mt-1" />
+          </Link>
         </div>
-
-        <Link
-          href={link}
-          className={cn(
-            'hover:underline font-semibold flex items-center',
-            linkClassName
-          )}
-        >
-          <span>{label}</span>
-          <BiChevronRight className="text-lg mt-1" />
-        </Link>
-      </div>
+      </Card.Content>
     </Card>
   )
 }

@@ -1,4 +1,4 @@
-@theme {
+@theme inline {
   --text-xs: 0.625rem;
   --text-xs-line-height: calc(1 / 0.625);
 

@@ -27,7 +27,8 @@ export function extractSlots(
       )?.[0]
 
       if (matchedSlotKey) {
-        slots[matchedSlotKey] = (child as NodePropsChildren).props.children
+        const children = (child as NodePropsChildren).props.children
+        slots[matchedSlotKey] = children ?? child
         return
       }
     }

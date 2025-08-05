@@ -48,9 +48,9 @@ const buttonVariants = cva(
       },
     },
     compoundVariants: [
-      { size: 'sm', rounded: 'full', className: 'px-2.5' },
-      { size: 'md', rounded: 'full', className: 'px-3.5' },
-      { size: 'lg', rounded: 'full', className: 'px-4.5' },
+      // { size: 'sm', rounded: 'full', className: 'px-2.5' },
+      // { size: 'md', rounded: 'full', className: 'px-3.5' },
+      // { size: 'lg', rounded: 'full', className: 'px-4.5' },
 
       { disabled: false, rounded: 'none', className: 'hover:rounded-md' },
       { disabled: false, rounded: 'sm', className: 'hover:rounded-lg' },

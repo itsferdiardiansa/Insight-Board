@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import React, { PropsWithChildren, useRef } from 'react'
 import { SectionHeader, SectionShell } from '@/components/layout/sections'
 import { Button, ButtonProps } from '@/components/ui/button'
@@ -7,7 +8,6 @@ import { SectionHeaderProps } from '../sections/SectionHeader'
 import { type BannerImageProps, BannerImage } from './BannerImage'
 import { cn } from '@/utils/tailwind'
 import { extractSlots } from '@/utils/slots'
-import Link from 'next/link'
 
 type CTAType = {
   label?: string

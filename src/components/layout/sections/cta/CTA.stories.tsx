@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const meta: Meta<typeof CTA> = {
   component: CTA,
-  title: 'Sections/CTA',
+  title: 'Layout/Sections/CTA',
   tags: ['autodocs'],
   args: {
     title: 'Learn how partners use our product',

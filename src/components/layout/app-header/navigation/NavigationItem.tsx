@@ -93,7 +93,7 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
 
       {hasMegaMenu && isMegaMenuOpen && (
         <Portal.Root
-          className="absolute top-[0] w-auto z-[9998]"
+          className="fixed w-auto z-[9998]"
           style={{
             top: `${menuTop ?? 0}px`,
             left: `${menuLeft ?? 0}px`,

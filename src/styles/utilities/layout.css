@@ -1,6 +1,5 @@
 @layer utilities {
   .layout-wrapper {
-    /* @apply w-full lg:max-w-7xl lg:mx-auto px-(--space-md); */
     @apply max-w-7xl lg:mx-auto px-(--space-md) overflow-hidden;
   }
 
@@ -38,5 +37,14 @@
 
   .content-card {
     @apply relative p-(--space-lg) md:p-(--space-lg) xl:p-(--space-xl) rounded-4xl overflow-hidden;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }

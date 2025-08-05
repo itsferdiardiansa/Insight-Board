@@ -58,7 +58,6 @@ export const CTA: React.FC<CTAProps> = ({
   return (
     <Card
       roundedSize="md"
-      border="none"
       padding={spacing}
       className={cn(
         'bg-blue-200',

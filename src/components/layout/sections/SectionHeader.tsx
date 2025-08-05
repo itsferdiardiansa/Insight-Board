@@ -43,6 +43,7 @@ export interface SectionHeaderProps
   className?: string
   titleClassName?: string
   subTitleClassName?: string
+  isAnimate?: boolean
 }
 
 const isStringHtml = (content: unknown): content is string => {
@@ -65,6 +66,7 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
       className,
       titleClassName,
       subTitleClassName,
+      isAnimate = true,
     },
     ref
   ) => {
@@ -73,6 +75,8 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
     const descRef = useRef<HTMLHeadingElement>(null)
 
     useEffect(() => {
+      if (!isAnimate) return
+
       const ctx = gsap.context(() => {
         if (badgeRef.current) {
           gsap.fromTo(
@@ -130,7 +134,7 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
       })
 
       return () => ctx.revert()
-    }, [])
+    }, [isAnimate])
 
     return (
       <div
@@ -157,7 +161,11 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
         <div className="inline-flex flex flex-col justify-between gap-(--space-sm) md:gap-(--space-md)">
           <h1
             ref={titleRef}
-            className={cn('heading-display opacity-0', titleClassName)}
+            className={cn(
+              'heading-display',
+              isAnimate && 'opacity-0',
+              titleClassName
+            )}
           >
             {typeof title === 'string' && isStringHtml(title) ? (
               <span dangerouslySetInnerHTML={{ __html: title }} />
@@ -169,7 +177,11 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
           {subtitle && (
             <h2
               ref={descRef}
-              className={cn('heading-sub opacity-0', subTitleClassName)}
+              className={cn(
+                'heading-sub',
+                isAnimate && 'opacity-0',
+                subTitleClassName
+              )}
             >
               {typeof subtitle === 'string' && isStringHtml(subtitle) ? (
                 <span dangerouslySetInnerHTML={{ __html: subtitle }} />

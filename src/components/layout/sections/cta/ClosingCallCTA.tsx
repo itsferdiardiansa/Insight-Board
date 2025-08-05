@@ -114,49 +114,51 @@ export const ClosingCallCTA: React.FC = () => {
   return (
     <SectionShell direction="col" ref={containerRef}>
       <Card className="bg-(--secondary)" padding="lg" roundedSize="lg">
-        <div className="flex flex-col items-center max-lg:items-center">
-          <div className="text-center">
-            <h1
-              ref={titleRef}
-              className="text-4xl md:text-5xl font-bold text-neutral-100 opacity-0"
-            >
-              Supercharge your performance with
-              <br className="max-md:hidden" />
-              the tools you already love.
-            </h1>
+        <Card.Content>
+          <div className="flex flex-col items-center max-lg:items-center">
+            <div className="text-center">
+              <h1
+                ref={titleRef}
+                className="text-4xl md:text-5xl font-bold text-neutral-100 opacity-0"
+              >
+                Supercharge your performance with
+                <br className="max-md:hidden" />
+                the tools you already love.
+              </h1>
 
-            <p
-              ref={descRef}
-              className="mt-(--space-sm) text-base md:text-lg leading-7 text-neutral-200 opacity-0"
+              <p
+                ref={descRef}
+                className="mt-(--space-sm) text-base md:text-lg leading-7 text-neutral-200 opacity-0"
+              >
+                Join 13,000+ teams who rely on InsightBoard to stay ahead,
+                automate insights, and fuel their strategy.
+              </p>
+            </div>
+
+            <div
+              ref={btnsRef}
+              className="flex flex-col md:flex-row gap-(--space-md) mt-(--space-xl) opacity-0"
             >
-              Join 13,000+ teams who rely on InsightBoard to stay ahead,
-              automate insights, and fuel their strategy.
-            </p>
+              <Button variant="light" asChild>
+                <Link href="sign-in">Get 14 Days Free Trial</Link>
+              </Button>
+            </div>
           </div>
 
-          <div
-            ref={btnsRef}
-            className="flex flex-col md:flex-row gap-(--space-md) mt-(--space-xl) opacity-0"
-          >
-            <Button variant="light" asChild>
-              <Link href="sign-in">Get 14 Days Free Trial</Link>
-            </Button>
+          <div className="w-full absolute inset-0 pointer-events-none">
+            <Image
+              className="w-2/8 absolute top-20 -left-40 -rotate-25"
+              src={WeeklyActivityIllustration}
+              alt="Monthly revenue"
+            />
+
+            <Image
+              className="w-2/8 absolute bottom-2 -right-30 rotate-25"
+              src={MonthlyRevenueIllustration}
+              alt="Monthly revenue"
+            />
           </div>
-        </div>
-
-        <div className="w-full absolute inset-0 pointer-events-none">
-          <Image
-            className="w-2/8 absolute top-20 -left-40 -rotate-25"
-            src={WeeklyActivityIllustration}
-            alt="Monthly revenue"
-          />
-
-          <Image
-            className="w-2/8 absolute bottom-2 -right-30 rotate-25"
-            src={MonthlyRevenueIllustration}
-            alt="Monthly revenue"
-          />
-        </div>
+        </Card.Content>
       </Card>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-(--space-md)">

@@ -121,7 +121,7 @@ export const menuItems: MenuItem[] = [
           {
             title: 'Blogs',
             subtitle: 'Explore products',
-            link: '/blog',
+            link: '/article',
           },
           {
             title: 'Event & Webinars',
