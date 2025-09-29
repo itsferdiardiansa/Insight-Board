@@ -2,10 +2,6 @@
   "name": "insight-board",
   "version": "0.1.0",
   "private": true,
-  "author": {
-    "email": "ferdiardiansa@gmail.com",
-    "name": "itsferdiardiansa"
-  },
   "scripts": {
     "install": "npx only-allow pnpm",
     "prepare": "husky",
