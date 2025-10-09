@@ -50,7 +50,7 @@ export const PlanList = forwardRef<HTMLDivElement, PlanListProps>(
       <div
         ref={containerRef}
         className={cn(
-          'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-(--space-md) lg:gap-(--space-lg) justify-start',
+          'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md lg:gap-space-lg justify-start',
           className
         )}
       >

@@ -79,21 +79,21 @@ export const CollaborationHeader: React.FC<CollaborationHeaderProps> = ({
   }, [])
 
   return (
-    <div className="flex flex-col gap-(--space-sm)">
-      <h1 ref={titleRef} className="heading-display text-neutral-50! opacity-0">
+    <div className="flex flex-col gap-space-sm text-inverse!">
+      <h1 ref={titleRef} className="text-heading-4xl font-bold! opacity-0">
         {title}
       </h1>
 
       <h2
         ref={descRef}
-        className="text-xl xl:text-3xl text-neutral-200 font-semibold xl:mt-4 opacity-0"
+        className="xl:mt-space-sm text-heading-xl font-thin opacity-0"
       >
         {subTitle}
       </h2>
 
       <p
         ref={desc2Ref}
-        className="text-lg xl:text-xl text-neutral-300 opacity-0"
+        className="text-body-md md:text-body-lg font-thin! text-inverse/90 opacity-0"
       >
         {description}
       </p>

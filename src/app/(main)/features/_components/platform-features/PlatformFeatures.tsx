@@ -17,7 +17,7 @@ export const PlatformFeatures: React.FC = () => {
         subtitle="Unlock the story behind your data using detailed reports tailored to your business needs."
         badgeLabel="Clear Insights"
         badgeVariant="ghost"
-        badgeClassName="pl-0! text-(--primary)!"
+        badgeClassName="pl-0! text-primary!"
         badgeIcon={<LiaBusinessTimeSolid />}
         imageSrc={CrystalInsightsIllustrtation}
         imageMeta="CrystalInsight"
@@ -32,7 +32,7 @@ export const PlatformFeatures: React.FC = () => {
         subtitle="Convert complex data into simple, meaningful reports that help you move faster and make informed choices."
         badgeLabel="Smart Report"
         badgeVariant="ghost"
-        badgeClassName="pl-0! text-(--primary)!"
+        badgeClassName="pl-0! text-primary!"
         badgeIcon={<BsClipboard2Data />}
         imageSrc={SmartReportsIllustrtation}
         imageMeta="InisghtBoard - Smart Reports"
@@ -47,7 +47,7 @@ export const PlatformFeatures: React.FC = () => {
         subtitle="Set rules to send reports or alerts to Slack, Notion, or email when your data hits key milestones—no manual steps needed."
         badgeLabel="Automation"
         badgeVariant="ghost"
-        badgeClassName="pl-0! text-(--primary)!"
+        badgeClassName="pl-0! text-primary!"
         badgeIcon={<MdUpdate />}
         imageSrc={AutomateWorkflowsIllustrtation}
         imageMeta="InisghtBoard - Automate Workflows"
@@ -62,7 +62,7 @@ export const PlatformFeatures: React.FC = () => {
         subtitle="Slice your data by team, product, geography, or timeframe to unlock powerful insights specific to your business case."
         badgeLabel="Advanced Filters"
         badgeVariant="ghost"
-        badgeClassName="pl-0! text-(--primary)!"
+        badgeClassName="pl-0! text-primary!"
         badgeIcon={<TbFilterSearch />}
         imageSrc={AdvancedFiltersIllustrtation}
         imageMeta="InisghtBoard - Advanced Filters"

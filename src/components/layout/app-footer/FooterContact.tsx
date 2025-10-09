@@ -4,7 +4,7 @@ import { siteConfig } from '@/config/site-config'
 export const FooterContact: React.FC = () => {
   return (
     <div className="min-w-60 max-md:max-w-full">
-      <div className="flex flex-col justify-center w-full md:text-lg max-md:max-w-full">
+      <div className="w-full max-md:max-w-full flex flex-col justify-center">
         <BrandLogo />
 
         <p className="mt-2">
@@ -12,16 +12,16 @@ export const FooterContact: React.FC = () => {
         </p>
       </div>
 
-      <address className="flex flex-col justify-center items-start mt-6 w-full md:text-lg max-md:max-w-full not-italic">
+      <address className="w-full max-md:max-w-full flex flex-col justify-center items-start mt-space-md not-italic">
         <a
-          href="mailto:hello@insightboard.com"
-          className="gap-2.5 self-stretch whitespace-nowrap hover:text-neutral-300 transition-colors"
+          href="mailto:hello@example.com"
+          className="gap-2.5 self-stretch whitespace-nowrap hover:text-subtlest transition-colors"
         >
           {siteConfig.mail}
         </a>
         <a
           href="tel:+12345678901"
-          className="gap-8 self-stretch mt-2 max-w-full hover:text-neutral-300 transition-colors"
+          className="gap-space-md self-stretch mt-space-xs max-w-full hover:text-subtlest transition-colors"
         >
           {siteConfig.phone}
         </a>

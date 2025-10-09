@@ -31,7 +31,7 @@ export const AppFooter: React.FC = () => {
           ease: 'power3.out',
           scrollTrigger: {
             trigger: containerRef.current,
-            start: 'top 60%',
+            start: 'top 90%',
           },
         }
       )
@@ -48,7 +48,7 @@ export const AppFooter: React.FC = () => {
           ease: 'power3.out',
           scrollTrigger: {
             trigger: containerRef.current,
-            start: 'top 60%',
+            start: 'top 90%',
           },
         }
       )
@@ -58,22 +58,19 @@ export const AppFooter: React.FC = () => {
   })
 
   return (
-    <footer ref={containerRef} className="bg-(--secondary) text-neutral-50">
+    <footer className="bg-secondary-intense-pressed text-inverse">
       <div className="layout-wrapper ">
         <SectionShell
           className="content-block--py"
           gapSize={'sm'}
           direction={'col'}
         >
-          <div
-            ref={topFooterRef}
-            className="flex flex-col lg:flex-row justify-between gap-8 border-b border-neutral-700 pb-8 opacity-0"
-          >
+          <div className="flex flex-col lg:flex-row justify-between gap-space-md border-b border-secondary pb-space-md">
             <div className="flex-1">
               <FooterContact />
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 flex-1 gap-10 xl:justify-items-end">
+            <div className="grid grid-cols-2 lg:grid-cols-4 flex-1 gap-space-md xl:justify-items-end">
               <FooterNavColumn title="Product" links={productLinks} />
               <FooterNavColumn title="Discover" links={discoverLinks} />
               <FooterNavColumn title="Help Center" links={helpLinks} />
@@ -81,7 +78,7 @@ export const AppFooter: React.FC = () => {
             </div>
           </div>
 
-          <AppFooterBottom ref={bottomFooterRef} className="opacity-0" />
+          <AppFooterBottom />
         </SectionShell>
       </div>
     </footer>

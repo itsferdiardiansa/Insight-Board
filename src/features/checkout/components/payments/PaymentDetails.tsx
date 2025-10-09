@@ -50,18 +50,18 @@ export const PaymentDetails: React.FC = () => {
 
   return (
     <div className="border border-stone-200 rounded-xl">
-      <div className="flex justify-between gap-(--space-md) p-(--space-md)">
-        <div className="flex flex-col gap-(--space-sm)">
+      <div className="flex justify-between gap-space-md p-space-md">
+        <div className="flex flex-col gap-space-sm">
           <h3 className="">
             Save a payment method to make future purchases faster and easier.
           </h3>
-          <div className="flex gap-(--space-sm)">
+          <div className="flex gap-space-sm">
             {paymentMethods.map((item, index) => {
               const Logo = item.logo
               return (
                 <span
                   key={index}
-                  className="flex items-center py-(--space-xs) px-(--space-sm) border border-stone-200 rounded-md overflow-hidden"
+                  className="flex items-center py-space-xs px-space-sm border border-stone-200 rounded-md overflow-hidden"
                 >
                   <Logo className="w-8 h-6" />
                 </span>
@@ -84,8 +84,8 @@ export const PaymentDetails: React.FC = () => {
         />
       </div>
 
-      <div className="border-t border-stone-200">
-        <div className="px-(--space-md) divide-y divide-stone-200">
+      <div className="border-t border-default">
+        <div className="px-space-md">
           {savedCards.map((card, index) => {
             const Logo = paymentMethods[card.id].logo
             const isInactive = !card.active
@@ -94,7 +94,7 @@ export const PaymentDetails: React.FC = () => {
               <div
                 key={index}
                 className={cn(
-                  'flex justify-between items-center p-(--space-md)',
+                  'flex justify-between items-center p-space-md border-b border-default last:border-b-0',
                   isInactive && 'opacity-50 pointer-events-none'
                 )}
               >
@@ -104,13 +104,11 @@ export const PaymentDetails: React.FC = () => {
                     <p className="font-bold">
                       {card.type} •••• {card.last4}
                     </p>
-                    <p className="text-sm text-muted-foreground">
-                      {card.label}
-                    </p>
+                    <p className="text-body-sm text-muted">{card.label}</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-space-xs">
                   <Button
                     size="sm"
                     variant={card.selected ? 'secondary' : 'ghost'}

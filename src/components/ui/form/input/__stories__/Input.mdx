@@ -1,0 +1,457 @@
+import { Meta, Story, ArgTypes, Source } from "@storybook/addon-docs/blocks";
+import * as InputStories from "./Input.stories";
+import { Canvas } from "@/stories/_components/Canvas"
+import { DocInfo } from "@/stories/_components/DocInfo"
+import { TableOfContents } from "@/stories/_components/TableOfContents"
+
+<Meta title="UI/Form/Input" of={InputStories} />
+
+<div className="flex gap-space-4xl">
+  <div>
+    # Input
+
+    A component for accepting user input.
+    <DocInfo 
+      importStatement={`import { Input } from "@/components/ui/form/input"`} 
+      sourcePath={`components/ui/form/input`} 
+    />
+
+    <br />
+
+    ## **Purpose and Context**
+
+    The `Input` component is a fundamental UI element used to collect information from users. It provides a versatile way to capture various types of data, such as text, numbers, email addresses, and passwords. Use it to:
+
+    -   Gather user credentials for authentication.
+    -   Collect personal information for profiles or forms.
+    -   Enable users to search for content.
+    -   Accept numerical data for calculations or settings.
+
+    In InsightBoard UI, the `Input` component is highly customizable through its props:
+
+    -   **Type**: Specify the type of input (e.g., text, email, password) to enable appropriate validation and keyboard layouts.
+    -   **FullWidth**: Control whether the input takes up the full width of its container.
+    -   **Required**: Indicate that the input is mandatory.
+    -   **InputSize**: Adjust the size of the input to fit the surrounding content.
+    -   **ReadOnly**: Prevent users from editing the input's value.
+    -   **Disabled**: Disable the input, preventing any interaction.
+    -   **Placeholder**: Display a hint to guide users on what to enter.
+
+    ## **Examples**
+
+    ### **Text**
+
+    A basic text input for accepting general text.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={InputStories.Text} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Input } from "@/components/ui/form/input";
+
+          const InputTextExample = () => {
+            return <Input type="text" placeholder="Enter text" />;
+          };
+
+          export default InputTextExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **Password**
+
+    A password input for secure text entry.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={InputStories.Password} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Input } from "@/components/ui/form/input";
+
+          const InputPasswordExample = () => {
+            return <Input type="password" placeholder="Enter password" />;
+          };
+
+          export default InputPasswordExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **Number**
+
+    A number input for accepting numeric values.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={InputStories.Number} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Input } from "@/components/ui/form/input";
+
+          const InputNumberExample = () => {
+            return <Input type="number" placeholder="Enter number" />;
+          };
+
+          export default InputNumberExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **Search**
+
+    A search input for search queries.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={InputStories.Search} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Input } from "@/components/ui/form/input";
+
+          const InputSearchExample = () => {
+            return <Input type="search" placeholder="Enter search term" />;
+          };
+
+          export default InputSearchExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **Full Width**
+
+    A full-width input that takes up the entire container width.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={InputStories.FullWidth} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Input } from "@/components/ui/form/input";
+
+          const InputFullWidthExample = () => {
+            return <Input fullWidth placeholder="Full width input" />;
+          };
+
+          export default InputFullWidthExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **Required**
+
+    A required input that must be filled out.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={InputStories.Required} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Input } from "@/components/ui/form/input";
+
+          const InputRequiredExample = () => {
+            return <Input required placeholder="Required input" />;
+          };
+
+          export default InputRequiredExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **Small**
+
+    A small-sized input.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={InputStories.Small} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Input } from "@/components/ui/form/input";
+
+          const InputSmallExample = () => {
+            return <Input inputSize="sm" placeholder="Small input" />;
+          };
+
+          export default InputSmallExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **Medium**
+
+    A medium-sized input.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={InputStories.Medium} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Input } from "@/components/ui/form/input";
+
+          const InputMediumExample = () => {
+            return <Input inputSize="md" placeholder="Medium input" />;
+          };
+
+          export default InputMediumExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **Large**
+
+    A large-sized input.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={InputStories.Large} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Input } from "@/components/ui/form/input";
+
+          const InputLargeExample = () => {
+            return <Input inputSize="lg" placeholder="Large input" />;
+          };
+
+          export default InputLargeExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **Read Only**
+
+    A read-only input that cannot be edited.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={InputStories.ReadOnly} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Input } from "@/components/ui/form/input";
+
+          const InputReadOnlyExample = () => {
+            return <Input readOnly placeholder="Read-only input" />;
+          };
+
+          export default InputReadOnlyExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **Disabled**
+
+    A disabled input that cannot be interacted with.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={InputStories.Disabled} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Input } from "@/components/ui/form/input";
+
+          const InputDisabledExample = () => {
+            return <Input disabled placeholder="Disabled input" />;
+          };
+
+          export default InputDisabledExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ## **API**
+
+    Below is a comprehensive list of all the props available for the Input component, along with their types, default values, and descriptions.
+
+    <ArgTypes />
+
+    ## **FAQ**
+
+    #### **What are the different input types available?**
+
+    The Input component supports the following types: `text`, `email`, `password`, `number`, and `search`. Each type provides specific validation and keyboard layouts.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Input type="text" placeholder="Enter your username" />
+      `} />
+    </Canvas.Source>
+
+    #### **How do I make an input full width?**
+
+    Use the `fullWidth` prop to make the input take up the entire width of its container.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Input fullWidth placeholder="Full width input" />
+      `} />
+    </Canvas.Source>
+
+    #### **How do I make an input required?**
+
+    Use the `required` prop to indicate that the input is mandatory.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Input required placeholder="Required input" />
+      `} />
+    </Canvas.Source>
+
+    #### **How do I change the size of an input?**
+
+    Use the `inputSize` prop to control the input's size. Available sizes are: `sm`, `md`, and `lg`.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Input inputSize="lg" placeholder="Large input" />
+      `} />
+    </Canvas.Source>
+
+    #### **How do I make an input read-only?**
+
+    Use the `readOnly` prop to prevent users from editing the input's value.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Input readOnly placeholder="Read-only input" />
+      `} />
+    </Canvas.Source>
+
+    #### **How do I disable an input?**
+
+    Use the `disabled` prop to disable the input, preventing any interaction.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Input disabled placeholder="Disabled input" />
+      `} />
+    </Canvas.Source>
+  </div>
+
+  <div>
+    <TableOfContents
+      items={[
+        {
+          id: "purpose-and-context",
+          label: "Purpose and Context"
+        },
+        {
+          id: "examples",
+          label: "Examples",
+          children: [
+            {
+              id: "text",
+              label: "Text"
+            },
+            {
+              id: "password",
+              label: "Password"
+            },
+            {
+              id: "number",
+              label: "Number"
+            },
+            {
+              id: "search",
+              label: "Search"
+            },
+            {
+              id: "full-width",
+              label: "Full Width"
+            },
+            {
+              id: "required",
+              label: "Required"
+            },
+            {
+              id: "small",
+              label: "Small"
+            },
+            {
+              id: "medium",
+              label: "Medium"
+            },
+            {
+              id: "large",
+              label: "Large"
+            },
+            {
+              id: "read-only",
+              label: "Read Only"
+            },
+            {
+              id: "disabled",
+              label: "Disabled"
+            }
+          ]
+        },
+        {
+          id: "api",
+          label: "API"
+        },
+        {
+          id: "faq",
+          label: "FAQ",
+          children: [
+            {
+              id: "what-are-the-different-input-types-available",
+              label: "What are the different..."
+            },
+            {
+              id: "how-do-i-make-an-input-full-width",
+              label: "How do I make an..."
+            },
+            {
+              id: "how-do-i-make-an-input-required",
+              label: "How do I make an input..."
+            }
+          ]
+        },
+      ]}
+    />
+  </div>
+</div>

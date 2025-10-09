@@ -32,7 +32,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <link rel="manifest" href="/manifest.json" />
         <JsonLd data={[websiteSchema, homepageSchema]} />
       </head>
-      <body className={cn('antialiased text-neutral-800', nunito.variable)}>
+      <body className={cn(nunito.variable)}>
         <AnimationProvider>
           <div className="root-app">{children}</div>
         </AnimationProvider>

@@ -128,7 +128,7 @@ export const FeatureGrid: React.FC<FeatureGridProps> = ({
         )}
       </div>
 
-      <div className="flex-1 flex flex-col gap-(--space-xl) py-(--space-lg)">
+      <div className="flex-1 flex flex-col gap-space-xl py-space-lg">
         <SectionHeader
           title={title}
           subtitle={subtitle}
@@ -137,29 +137,28 @@ export const FeatureGrid: React.FC<FeatureGridProps> = ({
           badgeIcon={badgeIcon}
           badgeClassName={badgeClassName}
           textAlign="left"
+          subTitleClassName="text-heading-lg font-medium!"
         />
 
         {featureList.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-(--space-lg)">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
             {featureList.map((feature, index) => (
-              <div key={index} className="flex items-start gap-(--space-sm)">
-                <div className="w-6 h-6 text-white bg-gray-900 rounded-full flex items-center justify-center shrink-0">
+              <div key={index} className="flex items-start gap-space-sm">
+                <div className="w-6 h-6 text-inverse bg-secondary-intense rounded-full flex items-center justify-center shrink-0">
                   {feature.icon || (
-                    <span className="text-sm font-bold">{index + 1}</span>
+                    <span className="text-body-sm font-bold">{index + 1}</span>
                   )}
                 </div>
                 <div>
-                  <h4 className="font-semibold text-neutral-800">
-                    {feature.title}
-                  </h4>
-                  <p className="text-neutral-600">{feature.description}</p>
+                  <h4 className="font-semibold">{feature.title}</h4>
+                  <p className="text-subtle">{feature.description}</p>
                 </div>
               </div>
             ))}
           </div>
         )}
 
-        <div ref={ctaRef} className="flex gap-(--space-sm) opacity-0">
+        <div ref={ctaRef} className="flex gap-space-sm opacity-0">
           <Button
             variant="secondary"
             icon={<HiArrowTopRightOnSquare />}

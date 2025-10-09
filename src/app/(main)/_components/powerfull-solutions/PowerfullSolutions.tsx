@@ -60,7 +60,7 @@ const PowerfullSolutions: React.FC = () => {
       <div className="flex-1 flex flex-col justify-center items-stretch gap-8 xl:gap-16">
         <SectionHeader
           title="Transform your workflow with powerful solutions"
-          subtitle="Self service data analytics software that makes you visually appealing data visualizations and insightful dashboards"
+          subtitle="Self service data analytics software that makes you visually appealing data visualizations"
           textAlign={'center'}
           responsiveTextAlign={'mdLeft'}
           badgeLabel="Workflow"

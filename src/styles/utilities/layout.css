@@ -1,6 +1,6 @@
 @layer utilities {
   .layout-wrapper {
-    @apply max-w-7xl lg:mx-auto px-(--space-md) overflow-hidden;
+    @apply max-w-7xl lg:mx-auto px-space-md overflow-hidden;
   }
 
   .section-stack {
@@ -36,7 +36,7 @@
   }
 
   .content-card {
-    @apply relative p-(--space-lg) md:p-(--space-lg) xl:p-(--space-xl) rounded-4xl overflow-hidden;
+    @apply relative p-space-lg md:p-space-lg xl:p-space-xl rounded-4xl overflow-hidden;
   }
 
   .no-scrollbar {

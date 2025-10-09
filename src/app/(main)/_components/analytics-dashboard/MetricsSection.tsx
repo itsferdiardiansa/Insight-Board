@@ -35,7 +35,7 @@ export const MetricsSection: React.FC = () => {
   return (
     <div
       ref={sectionRef}
-      className="flex overflow-hidden flex-col items-start py-2.5 mt-6 w-full max-md:max-w-full"
+      className="w-full max-md:max-w-full flex overflow-hidden flex-col items-start py-2.5 mt-space-lg"
     >
       <div className="opacity-0" data-animate>
         <StatisticItem value="85%" label="Customer Satisfaction" />

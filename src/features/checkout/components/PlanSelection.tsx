@@ -7,7 +7,7 @@ export const PlanSelection: React.FC = () => {
   } = useCheckout()
 
   return (
-    <div className="m-auto flex flex-col gap-(--space-xl)">
+    <div className="m-auto flex flex-col gap-space-xl">
       <PlanOptions selectedId={id} onPlanChange={(id: number) => setId(id)} />
     </div>
   )

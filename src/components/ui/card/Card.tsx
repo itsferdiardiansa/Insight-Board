@@ -6,17 +6,24 @@ import { Badge, BadgeProps } from '../badge'
 import { cn } from '@/utils/tailwind'
 import { extractSlots } from '@/utils/slots'
 
-export const textSizeMap = {
-  sm: 'text-sm',
-  md: 'text-base',
-  lg: 'text-lg',
-  xl: 'text-xl',
-  '2xl': 'text-2xl',
-  '3xl': 'text-3xl',
-  '4xl': 'text-4xl',
+export const textHeadingSizeMap = {
+  md: 'text-heading-base',
+  lg: 'text-heading-lg',
+  xl: 'text-heading-xl',
+  '2xl': 'text-heading-2xl',
+  '3xl': 'text-heading-3xl',
+  '4xl': 'text-heading-4xl',
 }
 
+export const textSizeMap = {
+  sm: 'text-body-sm',
+  md: 'text-body-md',
+  lg: 'text-body-lg',
+}
+
+type TextHeadingSizeMap = typeof textHeadingSizeMap
 type TextSizeMap = typeof textSizeMap
+type TextHeadingSizeKeys = keyof TextHeadingSizeMap
 type TextSizeKeys = keyof TextSizeMap
 
 const cardVariants = cva('', {
@@ -27,7 +34,7 @@ const cardVariants = cva('', {
       lg: 'rounded-2xl',
       xl: 'rounded-4xl',
     },
-    titleSize: textSizeMap,
+    titleSize: textHeadingSizeMap,
     descriptionSize: textSizeMap,
     footerActionSize: textSizeMap,
     paddingAxis: {
@@ -43,41 +50,45 @@ const cardVariants = cva('', {
   },
   compoundVariants: [
     // sm
-    { padding: 'sm', paddingAxis: 'all', class: 'p-(--space-sm)' },
-    { padding: 'sm', paddingAxis: 'y', class: 'py-(--space-sm)' },
+    // { padding: 'sm', paddingAxis: 'all', class: 'p-space-sm' },
+    // { padding: 'sm', paddingAxis: 'y', class: 'py-space-sm' },
 
     // md
-    { padding: 'md', paddingAxis: 'all', class: 'p-(--space-md)' },
-    { padding: 'md', paddingAxis: 'y', class: 'py-(--space-md)' },
+    { padding: 'md', paddingAxis: 'all', class: 'p-space-md' },
+    { padding: 'md', paddingAxis: 'y', class: 'py-space-md' },
 
     // lg
-    { padding: 'lg', paddingAxis: 'all', class: 'p-(--space-lg)' },
-    { padding: 'lg', paddingAxis: 'y', class: 'py-(--space-lg)' },
+    { padding: 'lg', paddingAxis: 'all', class: 'p-space-lg' },
+    { padding: 'lg', paddingAxis: 'y', class: 'py-space-lg' },
 
     // xl
-    { padding: 'xl', paddingAxis: 'all', class: 'p-(--space-xl)' },
-    { padding: 'xl', paddingAxis: 'y', class: 'py-(--space-xl)' },
+    { padding: 'xl', paddingAxis: 'all', class: 'p-space-xl' },
+    { padding: 'xl', paddingAxis: 'y', class: 'py-space-xl' },
 
+    // {
+    //   footerActionSize: 'sm',
+    //   className: 'h-[1rem] group-hover:-translate-y-5',
+    // },
     {
-      footerActionSize: 'sm',
-      className: 'h-[1rem] group-hover:-translate-y-5',
+      footerActionSize: ['sm'],
+      className: 'h-[1rem] group-hover:-translate-y-4',
     },
     {
-      footerActionSize: ['md', 'lg'],
-      className: 'h-[1.5rem] group-hover:-translate-y-6',
+      footerActionSize: ['md'],
+      className: 'h-[1.7rem] group-hover:-translate-y-6',
     },
     {
-      footerActionSize: ['xl', '2xl', '3xl'],
+      footerActionSize: ['lg'],
       className: 'h-[1.7rem] group-hover:-translate-y-7',
     },
-    {
-      footerActionSize: '4xl',
-      className: 'h-[2rem] group-hover:-translate-y-9',
-    },
+    // {
+    //   footerActionSize: '4xl',
+    //   className: 'h-[2rem] group-hover:-translate-y-9',
+    // },
   ],
 })
 
-type TextSizes = 'title' | 'description' | 'footerAction'
+type TextSizes = 'description' | 'footerAction'
 type ExcludeVariants =
   | 'titleSize'
   | 'descriptionSize'
@@ -99,7 +110,9 @@ export interface CardProps
   }
   textSize?: Partial<{
     [key in TextSizes]: TextSizeKeys
-  }>
+  }> & {
+    title: TextHeadingSizeKeys
+  }
 }
 
 export const CardComponent = forwardRef<HTMLDivElement, CardProps>(
@@ -166,30 +179,25 @@ export const CardComponent = forwardRef<HTMLDivElement, CardProps>(
         ) : (
           <div
             className={cn(
-              'h-full transition-all space-y-(--space-md) pointer-events-none',
+              'h-full transition-all space-y-gap-md pointer-events-none',
               hasThumbnail && cardVariants({ padding, paddingAxis: 'y' })
             )}
           >
-            <div className="space-y-(--space-md)">
+            <div className="space-y-gap-md">
               {badge?.label && (
                 <Badge
                   size={badge.size}
                   variant={badge.variant ?? 'ghost'}
-                  className="p-0! text-(--primary)"
+                  className="p-0! text-primary!"
                 >
                   {badge.label}
                 </Badge>
               )}
 
               {(title || description) && (
-                <div className="space-y-(--space-xs)">
+                <div className="space-y-gap-xs">
                   {title && (
-                    <h1
-                      className={cn(
-                        'font-bold clamp-2',
-                        cardVariants({ titleSize })
-                      )}
-                    >
+                    <h1 className={cn(cardVariants({ titleSize }), 'clamp-2')}>
                       {title}
                     </h1>
                   )}
@@ -197,8 +205,8 @@ export const CardComponent = forwardRef<HTMLDivElement, CardProps>(
                   {description && (
                     <p
                       className={cn(
-                        'text-neutral-500 clamp-3',
-                        cardVariants({ descriptionSize })
+                        cardVariants({ descriptionSize }),
+                        'text-subtle clamp-3'
                       )}
                     >
                       {description}
@@ -219,7 +227,7 @@ export const CardComponent = forwardRef<HTMLDivElement, CardProps>(
                   )}
                 >
                   {hasMetaItems && (
-                    <div className="flex gap-(--space-sm) text-neutral-500">
+                    <div className="flex gap-space-sm text-subtlest">
                       {metaItems?.map((item, index) => (
                         <Fragment key={index}>
                           <p>{item}</p>
@@ -231,7 +239,7 @@ export const CardComponent = forwardRef<HTMLDivElement, CardProps>(
 
                   {footerActionLabel && (
                     <div className="relative">
-                      <p className="text-(--primary)">{footerActionLabel}</p>
+                      <p className="text-primary">{footerActionLabel}</p>
                     </div>
                   )}
                 </div>

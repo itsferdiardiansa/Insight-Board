@@ -16,37 +16,39 @@ export const AppFooterBottom = forwardRef<HTMLDivElement, AppFooterBottomProps>(
       <div
         ref={ref}
         className={cn(
-          'w-full flex flex-col lg:flex-row flex-wrap lg:gap-8 justify-between lg:items-center md:text-lg',
+          'w-full flex flex-col lg:flex-row flex-wrap gap-space-sm justify-between lg:items-center text-body-md',
           className
         )}
       >
-        <button className="flex-1 flex gap-2 self-stretch my-auto rounded w-[111px] items-center hover:text-neutral-300 transition-colors">
+        <button className="flex-1 w-[111px] flex gap-space-xs self-stretch my-auto rounded items-center hover:text-subtlest transition-colors">
           <span>English (US)</span>
         </button>
 
-        <div className="flex flex-wrap gap-2 lg:gap-8 self-stretch my-auto max-md:max-w-full">
-          <nav className="flex flex-auto gap-6 items-center whitespace-nowrap">
-            {footerLinks.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                className="self-stretch my-auto hover:text-neutral-300 transition-colors"
-              >
-                {label}
-              </Link>
-            ))}
+        <div className="max-md:max-w-full flex flex-wrap items-center gap-space-xs lg:gap-space-md self-stretch my-auto">
+          <nav className="flex flex-col lg:flex-row items-center gap-space-md whitespace-nowrap">
+            <div className="flex items-center gap-space-sm">
+              {footerLinks.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="self-stretch my-auto hover:text-subtlest transition-colors"
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
 
-            <div className="flex gap-4">
+            <div className="flex gap-space-md">
               {socialLinks.map(({ href, icon: Icon, label }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-neutral-600 hover:bg-neutral-500 transition"
+                  className="p-2 rounded-full bg-neutral-intense"
                   aria-label={label}
                 >
-                  <Icon className="text-neutral-100 text-2xl" />
+                  <Icon className="text-inverse text-2xl" />
                 </a>
               ))}
             </div>

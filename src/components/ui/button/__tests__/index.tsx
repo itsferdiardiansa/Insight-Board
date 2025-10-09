@@ -91,9 +91,10 @@ describe('components/Button', () => {
   it('renders loading spinner', () => {
     render(<Button loading>Loading</Button>)
     const button = screen.getByTestId('btn')
+    const buttonLoadingSpinner = screen.getByTestId('btn-loading-spinner')
+
     expect(button).toBeDisabled()
-    expect(button.querySelector('svg')).toHaveClass('animate-spin')
-    expect(button).not.toHaveTextContent('Loading') // because children is visually hidden
+    expect(buttonLoadingSpinner).toBeInTheDocument()
   })
 
   it('disables when `disabled` is passed', () => {

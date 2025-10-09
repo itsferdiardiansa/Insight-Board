@@ -1,0 +1,53 @@
+import { Meta, Story, ArgTypes, Source } from "@storybook/addon-docs/blocks"
+import * as BrandLogoStories from "./BrandLogo.stories"
+import { Canvas } from "@/stories/_components/Canvas"
+import { DocInfo } from "@/stories/_components/DocInfo"
+import { TableOfContents } from "@/stories/_components/TableOfContents"
+
+<Meta title="UI/BrandLogo" of={BrandLogoStories} />
+
+<div className="flex gap-space-4xl">
+  <div>
+    # BrandLogo
+
+    A component to display the brand's logo.
+    <DocInfo importStatement={`import { BrandLogo } from "@/components/ui/brand-logo"`} sourcePath={`components/ui/brand-logo`} />
+
+    <br />
+
+    ## **Purpose and Context**
+
+    The `BrandLogo` component is used to consistently display the brand's logo throughout the application. It helps reinforce brand recognition and provides a visual anchor for users.
+
+    In InsightBoard UI, the `BrandLogo` component can be customized through its props:
+
+    -   **Size**: Adjust the logo size to fit different contexts (e.g., header, footer, sidebar).
+    -   **Variant**: Choose a visual style (e.g., color, monochrome) to match the background and overall design.
+
+    ## **Examples**
+
+    ### **Default**
+
+    A basic BrandLogo component with default settings.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={BrandLogoStories.Default} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { BrandLogo } from "@/components/ui/brand-logo";
+
+          const BrandLogoDefaultExample = () => {
+            return <BrandLogo />;
+          };
+
+          export default BrandLogoDefaultExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+  </div>
+</div>

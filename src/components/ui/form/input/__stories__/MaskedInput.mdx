@@ -1,0 +1,241 @@
+import { Meta, Story, ArgTypes, Source } from "@storybook/addon-docs/blocks";
+import * as MaskedInputStories from "./MaskedInput.stories";
+import { Canvas } from "@/stories/_components/Canvas"
+import { DocInfo } from "@/stories/_components/DocInfo"
+import { TableOfContents } from "@/stories/_components/TableOfContents"
+
+<Meta title="UI/Form/MaskedInput" of={MaskedInputStories} />
+
+<div className="flex gap-space-4xl">
+  <div>
+    # MaskedInput
+
+    A component for accepting user input with predefined formatting. it is useful for inputs like phone numbers, credit card numbers, and dates.
+    
+    <DocInfo 
+      importStatement={`import { MaskedInput } from "@/components/ui/form/input"`} 
+      sourcePath={`components/ui/form/input`} 
+    />
+
+    <br />
+
+    ## **Purpose and Context**
+
+    The `MaskedInput` component is designed to enhance user experience by providing a structured way to input data that requires specific formatting. It helps users enter information correctly and reduces errors by enforcing a predefined format.
+
+    -  **MaskPreset**: Choose from predefined mask patterns for common input types such as credit card numbers, expiration dates, CVC codes, and phone numbers.
+    -  **InputMode**: Specify the type of data expected, which can influence the virtual keyboard layout on mobile devices.
+    -  **Placeholder**: Display a hint to guide users on what to enter.
+
+    In addition to these, the `MaskedInput` component inherits all standard HTML input attributes, allowing for extensive customization and flexibility. This includes attributes such as:
+    -  `type`: Define the type of input (e.g., text, email, password).
+    -  `value`: Set the current value of the input.
+    -  `onChange`: Handle changes to the input value.
+    -  `disabled`: Disable the input to prevent user interaction.
+    -  `readOnly`: Make the input read-only, preventing user edits.
+    -  `required`: Mark the input as required for form submission.
+    -  `maxLength`: Limit the number of characters that can be entered.
+
+    <br />
+
+    ## **Examples**
+
+    ### **CreditCard**
+
+    A credit card input with a mask for 16-digit card numbers. It formats the input as `1234 5678 9012 3456`.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={MaskedInputStories.CreditCard} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { MaskedInput } from "@/components/ui/form/input";
+
+          const MaskedInputExample = () => {
+            return <MaskedInput 
+              label="Expiry (MM/YY)"
+              maskPreset="expiryMMYY"
+              inputMode="numeric"
+              autoComplete="cc-exp"
+              placeholder="2222 2222 2222 2222"
+            />;
+          };
+
+          export default MaskedInputExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **Expiry Date**
+    An expiry date input with a mask for month and year. It formats the input as `MM/YY`. Useful for credit card expiration dates.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={MaskedInputStories.ExpiryDate} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { MaskedInput } from "@/components/ui/form/input";
+
+          const MaskedInputExample = () => {
+            return <MaskedInput 
+              label="Expiry (MM/YY)"
+              maskPreset="expiryMMYY"
+              inputMode="numeric"
+              autoComplete="cc-exp"
+              placeholder="MM/YY"
+            />;
+          };
+
+          export default MaskedInputExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **CVC Code**
+    A CVC code input with a mask for 3-digit security codes. It formats the input as `123`. Commonly used for credit card security codes.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={MaskedInputStories.CVCCode} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { MaskedInput } from "@/components/ui/form/input";
+
+          const MaskedInputExample = () => {
+            return <MaskedInput 
+              label="CVC"
+              maskPreset="cvc3"
+              inputMode="numeric"
+              autoComplete="cc-csc"
+              placeholder="123"
+            />;
+          };
+
+          export default MaskedInputExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ## **Controlled Input Example**
+    A controlled `MaskedInput` example where the input value is managed by React state. This allows for more complex interactions and validations.
+    <Canvas>
+      <Canvas.Story>
+        <Story of={MaskedInputStories.ControlledExample} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { useState } from 'react';
+          import { MaskedInput } from "@/components/ui/form/input";
+
+          const ControlledMaskedInputExample = () => {
+            const [value, setValue] = useState('');
+
+            return (
+              <MaskedInput 
+                label="Phone Number"
+                maskPreset="phoneUS"
+                inputMode="tel"
+                autoComplete="tel"
+                placeholder="(123) 456-7890"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+              />
+            );
+          };
+
+          export default ControlledMaskedInputExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+    
+    ## **API**
+    Below is a comprehensive list of all the props available for the Input component, along with their types, default values, and descriptions.
+
+    <ArgTypes />
+
+    ## **FAQ**
+    ### **What are the different preset types available?**
+    The `maskPreset` prop offers several predefined patterns to choose from, including:
+    -  `card16`: For 16-digit credit card numbers (e.g., `1234 5678 9012 3456`).
+    -  `expiryMMYY`: For expiration dates in MM/YY format (e.g., `12/34`).
+    -  `cvc3`: For 3-digit CVC codes (e.g., `123`).
+    -  `phoneUS`: For US phone numbers (e.g., `(123) 456-7890`).
+    -  `phoneIntlLite`: For international phone numbers with a simplified format.
+
+    ### **How do I make an autoComplete input?**
+    Use the `autoComplete` prop to specify the type of data expected. For example, use `autoComplete="cc-exp"` for credit card expiration dates or `autoComplete="cc-csc"` for CVC codes. 
+
+    ### **How do I make an input required?**
+    Add the `required` attribute to the `MaskedInput` component to make it a mandatory field in a form.
+  </div>
+
+  <div>
+    <TableOfContents
+      items={[
+        {
+          id: "purpose-and-context",
+          label: "Purpose and Context"
+        },
+        {
+          id: "examples",
+          label: "Examples",
+          children: [
+            {
+              id: "credit-card",
+              label: "Credit Card"
+            },
+            {
+              id: "expiry-date",
+              label: "Expiry Date"
+            },
+            {
+              id: "cvc-code",
+              label: "CVC Code"
+            },
+            {
+              id: "controlled-input-example",
+              label: "Controlled Input"
+            }
+          ]
+        },
+        {
+          id: "api",
+          label: "API"
+        },
+        {
+          id: "faq",
+          label: "FAQ",
+          children: [
+            {
+              id: "what-are-the-different-preset-types-available",
+              label: "What are the different..."
+            },
+            {
+              id: "how-do-i-make-an-autocomplete-input",
+              label: "How do I make an autoComplete..."
+            },
+            {
+              id: "how-do-i-make-an-input-required",
+              label: "How do I make an input required?"
+            }
+          ]
+        },
+      ]}
+    />
+  </div>
+</div>

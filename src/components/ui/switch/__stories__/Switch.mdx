@@ -1,0 +1,163 @@
+import { Meta, Story, ArgTypes, Source } from "@storybook/addon-docs/blocks"
+import * as Switch from "./Switch.stories"
+import { Canvas } from "@/stories/_components/Canvas"
+import { DocInfo } from "@/stories/_components/DocInfo"
+import { TableOfContents } from "@/stories/_components/TableOfContents"
+
+<Meta title="UI/Switch" of={Switch} />
+
+<div className="flex gap-space-4xl">
+  <div>
+    # Switch
+
+    A component for toggling between two states, typically "on" and "off". It is commonly used in forms and settings where a binary choice is required.
+
+    <DocInfo 
+      importStatement={`import { Switch } from "@/components/ui/switch"`} 
+      sourcePath={`components/ui/switch`} 
+    />
+
+    <br />
+
+    ## **Purpose and Context**
+
+    The `Switch` component is designed to provide users with a clear and intuitive way to toggle between two options. It is often used in scenarios such as enabling/disabling features, setting preferences, and controlling settings.
+
+    -  **Checked**: Indicates whether the switch is in the "on" position.
+    -  **Disabled**: Disables the switch, preventing user interaction.
+    -  **Label**: The text label associated with the switch, providing context for the choice.
+
+    In addition to these, the `Switch` component inherits all standard HTML input attributes, allowing for extensive customization and flexibility. This includes attributes such as:
+    -  `name`: Groups switches together, allowing only one to be selected at a time.
+    -  `value`: The value associated with the switch when selected.
+    -  `onChange`: Handles changes to the selection state.
+    -  `required`: Marks the switch as required for form submission.
+
+    <br />
+
+    ## **Examples**
+
+    ### **Basic Switch**
+
+    A simple switch with a label.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={Switch.Default} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Switch } from "@/components/ui/switch";
+
+          const SwitchExample = () => {
+            return <Switch 
+              label="Enable feature"
+              name="featureToggle"
+              value="enabled"
+            />;
+          };
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ## **API**
+    Below are the props for the `Switch` component:
+    
+    <ArgTypes />
+
+    <br />
+
+    ## **FAQ**
+    ### **What are the different states of a switch?**
+    A switch can be in various states such as checked (on), unchecked (off), disabled, and focused.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Switch 
+          label="Enable feature"
+          name="featureToggle"
+          value="enabled"
+          checked
+          disabled
+        />
+      `} />
+    </Canvas.Source>
+
+    ### **How do I group multiple switches?**
+    Use the same `name` attribute for all switches in a group to ensure only one can be selected at a time.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Switch 
+          label="Option 1"
+          name="options"
+          value="option1"
+        />
+        <Switch 
+          label="Option 2"
+          name="options"
+          value="option2"
+        />
+      `} />
+    </Canvas.Source>
+
+    ### **How do I make a switch required?**
+    Add the `required` attribute to the switch input to make it mandatory for form submission.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Switch 
+          label="Accept terms"
+          name="terms"
+          value="accepted"
+          required
+        />
+      `} />
+    </Canvas.Source>
+  </div>
+  <div className="hidden lg:block sticky top-24 h-max self-start">
+    <TableOfContents 
+      items={[
+        {
+          id: "switch",
+          label: "Switch",
+          children: [
+            {
+              id: "purpose-and-context",
+              label: "Purpose and Context"
+            },
+            {
+              id: "examples",
+              label: "Examples"
+            },
+          ]
+        },
+        {
+          id: "api",
+          label: "API"
+        },
+        {
+          id: "faq",
+          label: "FAQ",
+          children: [
+            {
+              id: "what-are-the-different-states-of-a-switch",
+              label: "What are the different states of a switch?"
+            },
+            {
+              id: "how-do-i-group-multiple-switches",
+              label: "How do I group multiple switches?"
+            },
+            {
+              id: "how-do-i-make-a-switch-required",
+              label: "How do I make a switch required?"
+            }
+          ]
+        }
+      ]} 
+    />
+  </div>
+</div>

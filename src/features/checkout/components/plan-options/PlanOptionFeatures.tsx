@@ -13,11 +13,7 @@ export const PlanOptionFeatures: React.FC<PlanOptionFeaturesProps> = ({
 }) => {
   return (
     <div className="w-full">
-      {title && (
-        <h3 className="mt-4 font-semibold">
-          <span className="font-bold">Everything in {title}, plus:</span>
-        </h3>
-      )}
+      {title && <h3 className="mt-4 font-bold">{title}</h3>}
       <div className="mt-4 space-y-4">
         {features.map((feature, index) => (
           <PlanOptionFeature

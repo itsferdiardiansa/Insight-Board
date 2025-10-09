@@ -57,42 +57,40 @@ export const PlanOptionCard = forwardRef<HTMLDivElement, PlanOptionCardProps>(
       <div
         ref={ref}
         className={cn(
-          'w-full h-full border flex flex-col p-(--space-md) cursor-pointer',
+          'w-full h-full border flex flex-col p-space-md cursor-pointer',
           isActive
-            ? 'bg-violet-100 border-(--primary)'
-            : 'bg-transparent border-gray-300 text-neutral-800 hover:border-violet-400'
+            ? 'bg-primary border-primary'
+            : 'bg-transparent border-default hover:border-primary'
         )}
       >
         <div>
-          <div className="w-full flex flex-col pb-4">
-            <h2 className="text-2xl font-bold">{title}</h2>
-            <p className="mt-1 text-base">{subtitle}</p>
+          <div className="w-full flex flex-col pb-space-md">
+            <h2 className="text-heading-2xl font-bold!">{title}</h2>
+            <p className="mt-1 text-subtle">{subtitle}</p>
 
-            <div className="flex flex-col gap-(--space-sm) mt-4">
+            <div className="flex flex-col gap-space-sm mt-4 font-semibold">
               <div className="flex flex-col items-start">
                 {isAnnual && (
-                  <span className="text-neutral-500 line-through">
+                  <span className="text-subtle line-through">
                     {displayPrice(annualPrice, currency)}
                   </span>
                 )}
-                <div className="flex items-end">
+                <div className="flex items-center">
                   <div className="price">
-                    <span className="relative text-4xl font-black">
+                    <span className="relative text-heading-4xl font-black!">
                       {isAnnual
                         ? displayPrice(discountedAnnualPrice, currency)
                         : displayPrice(convertedPrice, currency)}
                     </span>
                   </div>
-                  <p className="ml-(--space-sm)">
+                  <p className="ml-space-sm">
                     {currency.toUpperCase()}/{isAnnual ? 'year' : 'month'}
                   </p>
                 </div>
               </div>
 
               <div>
-                <p className="text-base">
-                  Billed {isAnnual ? 'Annually' : 'Monthly'}
-                </p>
+                <p>Billed {isAnnual ? 'Annually' : 'Monthly'}</p>
               </div>
             </div>
           </div>
@@ -112,7 +110,7 @@ export const PlanOptionCard = forwardRef<HTMLDivElement, PlanOptionCardProps>(
               ))
             ) : (
               <PlanOptionFeatures
-                title={title}
+                title={`Everything in ${previousPlan.title}, plus:`}
                 features={differences}
                 isRecommended={isActive}
               />

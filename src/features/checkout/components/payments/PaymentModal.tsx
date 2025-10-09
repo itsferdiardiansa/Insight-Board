@@ -24,7 +24,7 @@ type PaymentModalProps = {
 export const PaymentModal: React.FC<PaymentModalProps> = ({
   isOpen,
   isEdit = false,
-  onOpenChange,
+  onOpenChange = () => {},
 }) => {
   const [open, setOpen] = useState(isOpen ?? false)
   const [paymentSelectedId, setPaymentSelectedId] =
@@ -49,17 +49,17 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
           </Dialog.Description>
 
           <div className="flex items-start justify-between">
-            <Dialog.Title className="text-lg font-bold">
+            <Dialog.Title className="text-heading-lg font-bold!">
               {isEdit ? 'Edit' : 'Add a New'} Payment Method
             </Dialog.Title>
             <Dialog.Close asChild>
-              <button className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white">
+              <button className="text-subtle hover:text-subtlest cursor-pointer">
                 <IoCloseOutline className="w-5 h-5" />
               </button>
             </Dialog.Close>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-gap-md">
             <Select
               label="Payment Methods"
               value={paymentSelectedId}
@@ -70,7 +70,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
             />
 
             {paymentSelectedId === PaymentGroupId.PAYPAL && (
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-space-md">
                 <h2 className="font-semibold">
                   Connect your PayPal account to continue
                 </h2>
@@ -81,7 +81,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
             )}
 
             {paymentSelectedId === PaymentGroupId.GOOGLE_PAY && (
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-space-md">
                 <h2 className="font-semibold">
                   Connect your Google account to continue
                 </h2>
@@ -97,7 +97,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
               <>
                 <Input label="Card Holder Name" />
                 <MaskedInput maskPreset="card16" label="Card Number" />
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-space-md">
                   <MaskedInput maskPreset="expiryMMYY" label="Expiry Date" />
                   <MaskedInput maskPreset="cvc3" label="CVC" />
                 </div>
@@ -105,18 +105,12 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
             )}
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-zinc-200 dark:border-zinc-800">
+          <div className="flex justify-end gap-space-sm pt-space-md border-t border-default">
             <Dialog.Close asChild>
               <Button variant="outlineSecondary">Cancel</Button>
             </Dialog.Close>
             {paymentSelectedId === PaymentGroupId.BANK && (
-              <Button
-                variant="primary"
-                onClick={() => {
-                  // Handle submit logic here
-                  setOpen(false)
-                }}
-              >
+              <Button variant="primary" onClick={() => onOpenChange(false)}>
                 {isEdit ? 'Save Changes' : 'Save Payment'}
               </Button>
             )}

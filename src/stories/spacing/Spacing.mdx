@@ -1,0 +1,107 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import { SpacingList } from "./SpacingList";
+import { FlexSpacing } from "./FlexSpacing";
+import { LayoutSpacing } from "./LayoutSpacing";
+import { TableOfContents } from "@/stories/_components/TableOfContents";
+
+<Meta title="Foundations/Spacing" />
+
+<div className="flex gap-space-4xl">
+  <div>
+    # Spacing
+    Spacing is the invisible structure that gives your interface breathing room and order. A consistent spacing scale ensures predictable margins, paddings, and gaps across the system, helping designers and developers create balanced layouts, maintain hierarchy, and deliver intuitive user experiences.
+
+    <br />
+    <br />
+
+    ## **The Spacing Scale**
+
+    Our spacing scale follows a modular system, making it adaptable for anything from fine-grained component adjustments to large-scale layout design. Each value has a dedicated token, ensuring both internal component spacing and spacing between components follow the same design language.
+
+    <SpacingList />
+
+    <br />
+
+    ## **Best Practices for Applying Spacing**
+    **When working with spacing, keep these principles in mind:**
+      - Use consistent padding and gap values across similar patterns.
+      - Visually group related elements by keeping them close together.
+      - Space conveys meaning — proximity implies relationship.
+      - Apply generous spacing around primary actions or focal content to draw attention.
+
+    ## **Spacing Code**
+    <Source
+      language="css"
+      dark
+      code={`
+        --spacing-space-xs: calc(var(--spacing) * 1); 
+        --spacing-gap-xs: calc(var(--spacing) * 1); 
+        --spacing-space-sm: calc(var(--spacing) * 3); 
+        --spacing-gap-sm: calc(var(--spacing) * 3); 
+        --spacing-space-md: calc(var(--spacing) * 5); 
+        --spacing-gap-md: calc(var(--spacing) * 5);
+        ... 
+      `}
+    />
+
+    ## **Implementation**
+    Spacing is a fundamental part of maintaining visual rhythm and hierarchy in our design system.  
+    We use a consistent spacing scale across all components and layouts to ensure predictable, harmonious spacing between elements.  
+
+    The examples below demonstrate two key approaches to applying spacing in the system:  
+      - **Flex-Based Spacing** – Ideal for evenly distributing space between items without extra wrappers or manual margins.  
+      - **Layout Spacing** – Defines the structural spacing between major layout sections or page elements.
+
+    <br />
+    ---
+    <br />
+
+    ### **Flex-Based Spacing**
+    Flex-based spacing automatically distributes consistent gaps between items in a row or column.  
+    Our `Flex` component uses the spacing scale to apply uniform separation, working both horizontally and vertically without the need for custom CSS.
+
+    <FlexSpacing />
+
+    ### **Spacing in Layouts**
+    <LayoutSpacing />
+  </div>
+
+  <div>
+    <TableOfContents
+      items={[
+        {
+          id: "spacing",
+          label: "Spacing",
+          children: [
+            {
+              id: "the-spacing-scale",
+              label: "The Spacing Scale"
+            },
+            {
+              id: "best-practices-for-applying-spacing",
+              label: "Applying Spacing"
+            },
+            {
+              id: "spacing-code",
+              label: "Code"
+            },
+          ]
+        },
+        {
+          id: 'implementation',
+          label: "Implementation",
+          children: [
+            {
+              id: "flex-based-spacing",
+              label: "Flex Based Spacing"
+            },
+            {
+              id: "spacing-in-layouts",
+              label: "Spacing in Layouts"
+            }
+          ]
+        },
+      ]}
+    />
+  </div>
+</div>

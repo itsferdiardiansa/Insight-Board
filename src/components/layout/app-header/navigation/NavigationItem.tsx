@@ -71,13 +71,11 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
         href={item.link || '#'}
         onClick={handleClick}
         className={cn(
-          'w-full max-lg:px-0 p-(--space-sm) flex justify-between lg:justify-center items-center duration-300',
-          'max-lg:border-b max-lg:border-gray-100',
-          'text-xl lg:text-lg hover:text-(--primary-hover)',
+          'w-full max-lg:px-0 p-space-sm flex justify-between lg:justify-center items-center duration-300',
+          'max-lg:border-b max-lg:border-default',
+          'text-body-md md:text-body-lg font-semibold!',
           isActive ? 'pointer-events-none' : 'cursor-pointer',
-          isActive
-            ? 'text-(--primary) font-bold'
-            : 'font-semibold text-(--secondary) hover:text-(--primary)'
+          isActive ? 'text-primary' : 'hover:text-primary'
         )}
       >
         <span className="block">{item.title}</span>
@@ -93,7 +91,10 @@ export const NavigationItem: React.FC<NavigationItemProps> = ({
 
       {hasMegaMenu && isMegaMenuOpen && (
         <Portal.Root
-          className="fixed w-auto z-[9998]"
+          className={cn(
+            'fixed w-auto z-[9998]',
+            menuTop && menuLeft ? 'opacity-100' : 'opacity-0'
+          )}
           style={{
             top: `${menuTop ?? 0}px`,
             left: `${menuLeft ?? 0}px`,

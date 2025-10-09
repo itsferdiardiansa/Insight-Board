@@ -113,19 +113,17 @@ export const IntegratedFlow: React.FC = () => {
         responsiveTextAlign="mdLeft"
       />
 
-      <div className="mt-(--space-md) flex flex-col gap-(--space-md)">
+      <div className="mt-space-md flex flex-col gap-space-lg text-body-md md:text-body-lg">
         <div ref={quoteRef} className="max-w-lg max-md:text-center opacity-0">
-          <p className="text-lg text-neutral-500">
+          <p className="text-subtle">
             &quot;Before {siteConfig.name}, our team jumped between Stripe
             dashboards, Notion reports, and messy Google Sheets. Now,{' '}
-            <strong className="text-neutral-800">
-              we see everything in one integrated view
-            </strong>{' '}
-            — making reporting and decision-making 10x faster.&quot;
+            <strong>we see everything in one integrated view</strong> — making
+            reporting and decision-making 10x faster.&quot;
           </p>
         </div>
 
-        <div className="flex gap-(--space-sm)">
+        <div className="flex gap-space-sm">
           <div
             ref={avatarRef}
             className="w-12 h-12 rounded-full overflow-hidden opacity-0"
@@ -140,24 +138,24 @@ export const IntegratedFlow: React.FC = () => {
 
           <div
             ref={userInfoRef}
-            className="flex flex-col justify-center text-lg opacity-0"
+            className="flex flex-col justify-center opacity-0"
           >
-            <p className="text-neutral-800 font-bold">Alex P</p>
-            <p className="text-neutral-500">Engineering Manager of Notion</p>
+            <p className="font-bold">Alex P</p>
+            <p className="text-subtle">Engineering Manager of Notion</p>
           </div>
         </div>
 
-        <div className="mt-(--space-md) flex flex-col md:flex-row gap-(--space-md) text-lg">
+        <div className="mt-space-md flex flex-col md:flex-row gap-space-md">
           {integratedFlows.map((feature, index) => (
             <div
               key={index}
               ref={el => {
                 featureItemRefs.current[index] = el
               }}
-              className="flex-1 flex flex-col gap-(--space-sm) max-md:border-b md:border-l border-gray-200 max-md:pb-(--space-lg) md:pl-(--space-lg) opacity-0"
+              className="flex-1 flex flex-col gap-space-xs max-md:border-b md:border-l border-default max-md:pb-space-lg md:pl-space-lg opacity-0"
             >
               <h4 className="font-bold">{feature.title}</h4>
-              <p>{feature.description}</p>
+              <p className="text-subtle">{feature.description}</p>
             </div>
           ))}
         </div>

@@ -80,7 +80,7 @@ export const SocialProofPartners: React.FC = () => {
       ref={containerRef}
       className="w-full h-[60px] relative flex flex-col items-center justify-center transition-all overflow-hidden"
     >
-      <div className="absolute inset-0 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-(--space-sm) justify-center">
+      <div className="absolute inset-0 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-space-sm justify-center">
         {firstGroup.map((partner, i) => {
           const Logo = partner.logo
 
@@ -88,7 +88,7 @@ export const SocialProofPartners: React.FC = () => {
             <div
               key={`${partner.name}-${i}`}
               className={cn(
-                'flex items-center justify-center shrink-0 opacity-0 bg-(--sescondary)',
+                'flex items-center justify-center shrink-0 opacity-0',
                 'max-sm:[&:nth-child(n+4)]:hidden max-lg:[&:nth-child(n+5)]:hidden'
               )}
               ref={el => {
@@ -96,13 +96,13 @@ export const SocialProofPartners: React.FC = () => {
               }}
               title={partner.name}
             >
-              <Logo className="w-24 md:w-32 text-(--secondary)" />
+              <Logo className="w-24 md:w-32" />
             </div>
           )
         })}
       </div>
 
-      <div className="absolute inset-0 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-(--space-sm) justify-center">
+      <div className="absolute inset-0 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-space-sm justify-center">
         {secondGroup.map((partner, i) => {
           const Logo = partner.logo
 
@@ -110,7 +110,7 @@ export const SocialProofPartners: React.FC = () => {
             <div
               key={`${partner.name}-${i}`}
               className={cn(
-                'flex items-center justify-center shrink-0 opacity-0 bg-(--sescondary)',
+                'flex items-center justify-center shrink-0 opacity-0',
                 'max-sm:[&:nth-child(n+4)]:hidden max-lg:[&:nth-child(n+5)]:hidden'
               )}
               ref={el => {
@@ -118,7 +118,7 @@ export const SocialProofPartners: React.FC = () => {
               }}
               title={partner.name}
             >
-              <Logo className="w-24 md:w-32 text-(--secondary)" />
+              <Logo className="w-24 md:w-32" />
             </div>
           )
         })}

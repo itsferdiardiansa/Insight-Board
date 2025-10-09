@@ -1,0 +1,7 @@
+@keyframes spin-variable {
+  0%   { transform: rotate(0deg); }
+  20%  { transform: rotate(90deg); }
+  50%  { transform: rotate(180deg); }
+  80%  { transform: rotate(270deg); }
+  100% { transform: rotate(360deg); }
+}

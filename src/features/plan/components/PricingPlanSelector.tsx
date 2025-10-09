@@ -9,14 +9,14 @@ import { cn } from '@/utils/tailwind'
 import { cva, VariantProps } from 'class-variance-authority'
 
 const pricingPlanSelectorVariants = cva(
-  'relative flex items-center gap-(--space-sm) rounded-xl border shadow-md',
+  'relative flex items-center gap-space-sm rounded-xl border shadow-md',
   {
     variants: {
       variant: {
         default:
-          'bg-gradient-to-br from-violet-700 to-violet-500 shadow-violet-100 border-violet-100 text-neutral-50!',
+          'bg-gradient-to-br from-violet-700 to-violet-500 shadow-violet-100 border-violet-100 text-inverse!',
         gradient:
-          'bg-gradient-to-tr from-violet-100 via-pink-200 to-violet-200 shadow-violet-100 border-violet-100 text-neutral-500',
+          'bg-gradient-to-tr from-violet-100 via-pink-200 to-violet-200 shadow-violet-100 border-violet-100 text-subtlest',
       },
     },
     defaultVariants: {
@@ -74,7 +74,7 @@ export const PlanSelector: React.FC<PlanSelectorProps> = ({
       ref={containerRef}
       className={pricingPlanSelectorVariants({ variant })}
     >
-      <div className="flex items-center p-(--space-xs)">
+      <div className="flex items-center p-space-xs">
         <div
           ref={sliderRef}
           className="absolute inset-0 my-auto rounded-[inherit] rounded-xl bg-white pointer-events-none"
@@ -89,10 +89,10 @@ export const PlanSelector: React.FC<PlanSelectorProps> = ({
           className={cn(
             'relative rounded-md! overflow-hidden transition-colors duration-150',
             !isAnnual
-              ? 'bg-white text-neutral-700'
+              ? 'bg-white text-subtle'
               : variant === 'gradient'
-                ? 'text-neutral-700'
-                : 'text-neutral-50'
+                ? 'text-subtle'
+                : 'text-inverse!'
           )}
         >
           Monthly
@@ -106,14 +106,14 @@ export const PlanSelector: React.FC<PlanSelectorProps> = ({
           className={cn(
             'relative rounded-md! overflow-hidden transition-colors duration-150',
             isAnnual
-              ? 'bg-white text-neutral-700'
+              ? 'bg-white text-subtle'
               : variant === 'gradient'
-                ? 'text-neutral-700'
-                : 'text-neutral-50'
+                ? 'text-subtle'
+                : 'text-inverse!'
           )}
         >
           Annually{' '}
-          <span className={cn(isAnnual && 'text-(--primary)')}>
+          <span className={cn(isAnnual && 'text-primary')}>
             (-{discount}% off)
           </span>
         </Button>

@@ -39,17 +39,17 @@ export const HomeBannerContent: React.FC = () => {
   }, [])
 
   return (
-    <div className="flex flex-col gap-(--space-sm) text-center">
-      <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold text-neutral-800 inline-block">
+    <div className="flex flex-col gap-space-sm text-center">
+      <h1 className="text-display font-black! inline-block">
         <span ref={textRef}>{baseText}</span>
         <br />
         <span>{additionalText}</span>
-        <span ref={cursorRef} className="animate-blink text-neutral-800">
+        <span ref={cursorRef} className="animate-blink">
           |
         </span>
       </h1>
 
-      <p className="text-lg lg:text-2xl text-neutral-500 max-md:max-w-full">
+      <p className=" max-md:max-w-full text-heading-xl text-subtle">
         An awesome & powerful tool for your business to streamline workflows
         <br className="hidden lg:flex" />
         and drive growth with real-time insights.

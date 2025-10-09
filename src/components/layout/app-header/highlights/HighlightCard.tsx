@@ -33,8 +33,8 @@ export const HighlightCard: React.FC<HighlightCardProps> = ({
   return (
     <Card roundedSize="md" padding="md" className={className}>
       <Card.Content>
-        <div className="h-full flex flex-col justify-center gap-(--space-sm)">
-          <div className="space-y-(--space-sm)">
+        <div className="h-full flex flex-col justify-center gap-space-sm">
+          <div className="space-y-gap-sm">
             <Badge
               variant={badgeVariant}
               size={badgeSize}

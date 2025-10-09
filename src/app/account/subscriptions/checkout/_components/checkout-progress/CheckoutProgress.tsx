@@ -8,13 +8,12 @@ export const CheckoutProgress: React.FC = () => {
 
   const handleStepClick = (index: number) => {
     if (index <= step.current) {
-      console.log('INDEX: ', index)
       step.set(index)
     }
   }
 
   return (
-    <div className="flex items-center gap-(--space-sm)">
+    <div className="flex items-center gap-space-sm">
       {step.list.map((item, index) => {
         const isActive = index === step.current
         const isCompleted = index < step.current
@@ -22,10 +21,10 @@ export const CheckoutProgress: React.FC = () => {
 
         const stepClass = cn(
           'text-lg transition-colors',
-          isActive && 'text-black font-bold',
+          isActive && 'font-bold',
           isCompleted &&
-            'text-black font-bold hover:underline hover:text-(--primary) cursor-pointer',
-          isFuture && 'text-neutral-400 cursor-default'
+            'font-bold hover:underline hover:text-primary cursor-pointer',
+          isFuture && 'text-subtlest cursor-default'
         )
 
         return (

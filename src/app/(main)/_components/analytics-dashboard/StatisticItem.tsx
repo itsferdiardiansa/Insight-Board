@@ -8,13 +8,11 @@ export const StatisticItem: React.FC<StatisticItemProps> = ({
   label,
 }) => {
   return (
-    <article className="flex gap-(--space-sm) items-center">
-      <strong className="self-stretch my-auto text-3xl font-semibold leading-none min-w-[70px] text-neutral-800">
+    <article className="flex gap-space-sm items-center text-body-md md:text-body-lg">
+      <p className="min-w-[50px] self-stretch my-auto font-bold leading-none">
         {value}
-      </strong>
-      <p className="self-stretch my-auto text-lg leading-6 text-neutral-500">
-        {label}
       </p>
+      <p className="self-stretch my-auto text-subtle">{label}</p>
     </article>
   )
 }

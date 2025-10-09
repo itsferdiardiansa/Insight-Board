@@ -6,7 +6,7 @@ import { cva, VariantProps } from 'class-variance-authority'
 import { Badge, type BadgeProps } from '@/components/ui/badge'
 import { cn } from '@/utils/tailwind'
 
-const sectionHeaderVariants = cva('flex flex-col gap-(--space-md)', {
+const sectionHeaderVariants = cva('flex flex-col gap-space-md', {
   variants: {
     textAlign: {
       left: 'text-left items-start',
@@ -158,13 +158,12 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
           </div>
         )}
 
-        <div className="inline-flex flex flex-col justify-between gap-(--space-sm) md:gap-(--space-md)">
+        <div className="inline-flex flex flex-col justify-between gap-space-sm">
           <h1
             ref={titleRef}
             className={cn(
-              'heading-display',
-              isAnimate && 'opacity-0',
-              titleClassName
+              titleClassName ? titleClassName : 'text-heading-4xl font-bold!',
+              isAnimate && 'opacity-0'
             )}
           >
             {typeof title === 'string' && isStringHtml(title) ? (
@@ -178,9 +177,10 @@ export const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
             <h2
               ref={descRef}
               className={cn(
-                'heading-sub',
-                isAnimate && 'opacity-0',
                 subTitleClassName
+                  ? subTitleClassName
+                  : 'text-heading-xl text-subtle font-light!',
+                isAnimate && 'opacity-0'
               )}
             >
               {typeof subtitle === 'string' && isStringHtml(subtitle) ? (

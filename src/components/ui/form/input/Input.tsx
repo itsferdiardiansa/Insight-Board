@@ -63,7 +63,7 @@ export const Input: React.FC<InputProps> = ({
         className={cn(
           'peer w-full placeholder-transparent focus:outline-none',
           sizeClasses[inputSize],
-          disabled ? 'text-gray-400' : 'text-neutral-900',
+          disabled ? 'text-subtlest' : 'text-default',
           hasError && inputColors.error.text
         )}
         type={type}

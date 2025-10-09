@@ -2,6 +2,7 @@ import { ReactNode, useEffect, useRef, useState } from 'react'
 import * as Portal from '@radix-ui/react-portal'
 import { FiX } from 'react-icons/fi'
 import { getPositionStyles, getTransformStyles } from './utils'
+import { cn } from '@/utils/tailwind'
 
 type DrawerProps = {
   open: boolean
@@ -19,7 +20,11 @@ type DrawerProps = {
 
 type DrawerSubcomponents = {
   Head: React.FC<{ children: React.ReactNode }>
-  Content: React.FC<{ children: React.ReactNode }>
+  Content: React.FC<{
+    children: React.ReactNode
+    className?: string
+    position?: 'left' | 'right' | 'bottom' | 'top'
+  }>
 }
 
 const Drawer: React.FC<DrawerProps> & DrawerSubcomponents = ({
@@ -85,7 +90,7 @@ const Drawer: React.FC<DrawerProps> & DrawerSubcomponents = ({
 
       <div
         ref={drawerRef}
-        className="absolute bg-white shadow-2xl flex flex-col"
+        className="absolute bg-default shadow-2xl flex flex-col"
         style={{
           ...getPositionStyles(position, fullScreen),
           ...getTransformStyles(position, isVisible),
@@ -95,20 +100,20 @@ const Drawer: React.FC<DrawerProps> & DrawerSubcomponents = ({
         onTransitionEnd={handleTransitionEnd}
       >
         {(title || showCloseButton) && (
-          <div className="flex items-center gap-2 p-4 border-b border-gray-100">
+          <div className="flex items-center gap-2 p-4 border-b border-default">
             {showCloseButton && (
               <button
                 onClick={onClose}
-                className="rounded-full hover:bg-gray-100 transition-colors"
+                className="rounded-full hover:bg-accent-gray-hovered transition-colors cursor-pointer"
                 aria-label="Close drawer"
               >
                 {closeIcon ? closeIcon : <FiX className="w-5 h-5" />}
               </button>
             )}
             {title && (
-              <h3 className="text-lg font-semibold text-neutral-800">
+              <h1 className="text-heading-lg font-semibold text-default">
                 {title}
-              </h3>
+              </h1>
             )}
           </div>
         )}
@@ -120,12 +125,22 @@ const Drawer: React.FC<DrawerProps> & DrawerSubcomponents = ({
 }
 
 const DrawerHead: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <div className="p-4 border-b">{children}</div>
+  <div className="p-space-md border-b">{children}</div>
 )
 
-const DrawerContent: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => <div className="flex-1 overflow-auto p-4">{children}</div>
+const DrawerContent: React.FC<{
+  children: React.ReactNode
+  className?: string
+  position?: 'left' | 'right' | 'bottom' | 'top'
+}> = ({ children, className, position }) => {
+  const widthClasses = cn(
+    'flex-1 overflow-auto p-space-md',
+    className,
+    position === 'left' || position === 'right' ? 'w-[80%] md:w-[378px]' : ''
+  )
+
+  return <div className={widthClasses}>{children}</div>
+}
 
 Drawer.Head = DrawerHead
 Drawer.Content = DrawerContent

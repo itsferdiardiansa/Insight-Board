@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function PricingCheckoutPage() {
   return (
-    <div className="flex flex-col gap-(--space-4xl)">
+    <div className="flex flex-col gap-space-4xl">
       <div className="bg-stone-50">
         <div className="relative grid grid-cols-1 md:grid-cols-3">
           <CheckoutFlow />

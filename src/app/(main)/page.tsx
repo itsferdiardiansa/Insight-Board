@@ -15,7 +15,8 @@ import CoreBenefit from './_components/core-benefit'
 export default function LandingPage() {
   return (
     <div className="home">
-      <div className="bg-linear-to-b from-violet-50 via-pink-50 to-white">
+      {/* <div className="bg-linear-to-b from-violet-50 via-pink-50 to-white"> */}
+      <div className="bg-gradient-to-b from-white via-pink-50 to-white">
         <div className="layout-wrapper section-stack overflow-hidden pb-0!">
           <HomeBanner />
 
@@ -31,8 +32,8 @@ export default function LandingPage() {
         <Insight />
       </div>
 
-      <div className="bg-(--secondary)">
-        <div className="layout-wrapper py-(--space-4xl)">
+      <div className="bg-secondary-intense-pressed">
+        <div className="layout-wrapper py-space-4xl">
           <CoreBenefit />
         </div>
       </div>

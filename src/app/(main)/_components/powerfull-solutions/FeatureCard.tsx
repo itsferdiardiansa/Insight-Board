@@ -14,15 +14,13 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
   contentRef,
 }) => {
   return (
-    <div className="flex flex-row gap-4 py-8 border-b border-gray-100 bg-white">
+    <div className="flex flex-row gap-space-md py-space-md border-b border-default bg-defult">
       <div className="flex">
-        <p className="text-2xl xl:text-3xl font-black text-neutral-500">
-          {number}.
-        </p>
+        <p className="text-heading-xl text-subtle">{number}.</p>
       </div>
 
       <div className="flex flex-col">
-        <h3 className="text-2xl xl:text-3xl font-semibold">{title}</h3>
+        <h3 className="text-heading-xl">{title}</h3>
 
         <div
           ref={contentRef}
@@ -32,7 +30,9 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
             opacity: isCollapsed ? 1 : 0,
           }}
         >
-          <p className="mt-2 text-lg text-gray-600">{description}</p>
+          <p className="mt-space-xs text-body-md md:text-body-lg text-subtle">
+            {description}
+          </p>
         </div>
       </div>
     </div>

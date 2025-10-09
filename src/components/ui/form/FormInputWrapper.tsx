@@ -1,5 +1,7 @@
 'use client'
 
+import { ReactNode, useId } from 'react'
+import type { InputSize } from '@/components/ui/form/_props/input-props'
 import { cn } from '@/utils/tailwind'
 import {
   inputColors,
@@ -7,8 +9,6 @@ import {
   labelPositions,
   labelSizes,
 } from '@/components/ui/form/_props/input-props'
-import type { InputSize } from '@/components/ui/form/_props/input-props'
-import { ReactNode, useId } from 'react'
 
 type FormInputWrapperProps = {
   id?: string
@@ -43,7 +43,7 @@ export const FormInputWrapper = ({
 
   const displayLabel = (
     <span>
-      {(readOnly ? 'Read Only' : disabled) ? 'Disabled' : label}
+      {readOnly ? 'Read Only' : disabled ? 'Disabled' : label}
       {required && !readOnly && !disabled && <span>*</span>}
     </span>
   )
@@ -53,7 +53,7 @@ export const FormInputWrapper = ({
       <label
         htmlFor={inputId}
         className={cn(
-          'absolute top-0 -left-1 bg-white px-1 transition-all pointer-events-none z-[1]',
+          'absolute -left-1 bg-white px-1 transition-all pointer-events-none z-[1]',
           labelClasses[inputSize],
           (focused || filled || readOnly || disabled) && [
             labelSizes[inputSize],

@@ -1,0 +1,232 @@
+import { Meta, Story, ArgTypes, Source } from "@storybook/addon-docs/blocks"
+import * as DrawerStories from "./Drawer.stories"
+import { Canvas } from "@/stories/_components/Canvas"
+import { DocInfo } from "@/stories/_components/DocInfo"
+import { TableOfContents } from "@/stories/_components/TableOfContents"
+
+<Meta title="UI/Drawer" of={DrawerStories} />
+
+<div className="flex gap-space-4xl">
+  <div>
+    # Drawer
+
+    A panel that slides in from the side of the screen to display additional content.
+    <DocInfo importStatement={`import { Drawer } from "@/components/ui/drawer"`} sourcePath={`components/ui/drawer`} />
+    
+    <br />
+
+    ## **Purpose and Context**
+
+    Drawers are used to present supplementary information or actions without navigating away from the current page. They are commonly used for:
+
+    -   Navigation menus
+    -   Settings panels
+    -   Filter options
+    -   Detailed views of items
+
+    In InsightBoard UI, drawers are customizable through their props:
+
+    -   **Open**: Controls whether the drawer is visible or hidden.
+    -   **Position**: Determines the side of the screen from which the drawer appears (left, right, top, bottom).
+    -   **FullScreen**: Makes the drawer occupy the entire screen.
+    -   **Duration**: Sets the animation speed for the drawer's appearance and disappearance.
+    -   **Title**: Provides a heading for the drawer's content.
+
+    ## **Examples**
+
+    ### **Default**
+
+    A basic drawer that slides in from the bottom.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={DrawerStories.Default} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Drawer } from "@/components/ui/drawer";
+          import { Button } from "@/components/ui/button";
+
+          const DrawerDefaultExample = () => {
+            return (
+              <div>
+                <Button onClick={() => console.log('Open Drawer Clicked')}>Open Drawer</Button>
+                <Drawer open={true}>
+                  <Drawer.Content>
+                    Drawer Content
+                  </Drawer.Content>
+                </Drawer>
+              </div>
+            );
+          };
+
+          export default DrawerDefaultExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **Left Position**
+
+    A drawer that slides in from the left.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={DrawerStories.LeftPosition} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Drawer } from "@/components/ui/drawer";
+          import { Button } from "@/components/ui/button";
+
+          const DrawerLeftPositionExample = () => {
+            return (
+              <div>
+                <Button onClick={() => console.log('Open Drawer Clicked')}>Open Drawer</Button>
+                <Drawer position="left" open={true}>
+                  <Drawer.Content>
+                    Drawer Content
+                  </Drawer.Content>
+                </Drawer>
+              </div>
+            );
+          };
+
+          export default DrawerLeftPositionExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **Full Screen**
+
+    A full-screen drawer.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={DrawerStories.FullScreen} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Drawer } from "@/components/ui/drawer";
+          import { Button } from "@/components/ui/button";
+
+          const DrawerFullScreenExample = () => {
+            return (
+              <div>
+                <Button onClick={() => console.log('Open Drawer Clicked')}>Open Drawer</Button>
+                <Drawer fullScreen open={true}>
+                  <Drawer.Content>
+                    Drawer Content
+                  </Drawer.Content>
+                </Drawer>
+              </div>
+            );
+          };
+
+          export default DrawerFullScreenExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ## **API**
+
+    Below is a comprehensive list of all the props available for the Drawer component, along with their types, default values, and descriptions.
+
+    <ArgTypes />
+
+    ## **FAQ**
+
+    #### **How do I control whether the drawer is open or closed?**
+
+    Use the `open` prop to specify whether the drawer is visible or hidden.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Drawer open={true}>Drawer Content</Drawer>
+      `} />
+    </Canvas.Source>
+
+    <br />
+
+    #### **How do I change the position of the drawer?**
+
+    Use the `position` prop to specify the side of the screen from which the drawer appears. Options are `left`, `right`, `top`, and `bottom`.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Drawer position="left">Drawer Content</Drawer>
+      `} />
+    </Canvas.Source>
+
+    <br />
+
+    #### **How do I make the drawer full screen?**
+
+    Use the `fullScreen` prop to make the drawer occupy the entire screen.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Drawer fullScreen>Drawer Content</Drawer>
+      `} />
+    </Canvas.Source>
+  </div>
+
+  <div>
+    <TableOfContents
+      items={[
+        {
+          id: "purpose-and-context",
+          label: "Purpose and Context"
+        },
+        {
+          id: "examples",
+          label: "Examples",
+          children: [
+            {
+              id: "default",
+              label: "Default"
+            },
+            {
+              id: "left-position",
+              label: "Left Position"
+            },
+            {
+              id: "full-screen",
+              label: "Full Screen"
+            }
+          ]
+        },
+        {
+          id: "api",
+          label: "API"
+        },
+        {
+          id: "faq",
+          label: "FAQ",
+          children: [
+            {
+              id: "how-do-i-control-whether-the-drawer-is-open-or-closed",
+              label: "How do I control whether the drawer is open or closed?"
+            },
+            {
+              id: "how-do-i-change-the-position-of-the-drawer",
+              label: "How do I change the position of the drawer?"
+            },
+            {
+              id: "how-do-i-make-the-drawer-full-screen",
+              label: "How do I make the drawer full screen?"
+            }
+          ]
+        },
+      ]}
+    />
+  </div>
+</div>

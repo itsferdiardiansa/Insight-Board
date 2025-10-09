@@ -5,7 +5,7 @@ import { cn } from '@/utils/tailwind'
 import { roundedMap, sizeMap, variantMap } from '../_utils/variants'
 
 const badgeVariants = cva(
-  'inline-flex align-self items-center gap-(--space-sm) font-bold rounded-full',
+  'inline-flex align-self items-center gap-space-xs font-bold rounded-full',
   {
     variants: {
       variant: variantMap,

@@ -22,6 +22,8 @@ export default function PricingPage() {
             <PricingPlan
               title="The right plan for your team"
               subtitle="Get started with our flexible pricing options designed <br class='max-md:hidden' /> to meet your business needs"
+              titleClassName="text-display"
+              subTitleClassName="text-heading-xl text-subtle"
             />
           </div>
         </div>

@@ -44,7 +44,7 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({
         onMouseLeave={() => setHoveredIndex(null)}
       >
         <div
-          className="flex flex-wrap lg:grid gap-(--space-sm) lg:p-(--space-sm)"
+          className="flex flex-wrap lg:grid gap-space-sm lg:p-space-sm"
           style={{
             gridTemplateColumns: `repeat(${item.items?.length ?? 0}, 1fr) 280px`,
           }}
@@ -57,7 +57,7 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({
             />
           ))}
 
-          <div className="w-full block lg:flex lg:items-stretch mac-lg:border-t max-lg:border-gray-100 max-lg:pt-(--space-sm)">
+          <div className="w-full block lg:flex lg:items-stretch mac-lg:border-t max-lg:border-gray-100 max-lg:pt-space-sm">
             {ContentHighlight && <ContentHighlight />}
           </div>
         </div>

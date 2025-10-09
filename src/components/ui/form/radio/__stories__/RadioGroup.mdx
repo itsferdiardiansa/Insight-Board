@@ -1,0 +1,137 @@
+import { Meta, Story, ArgTypes, Source } from "@storybook/addon-docs/blocks";
+import * as RadioGroupStories from "./RadioGroup.stories";
+import { Canvas } from "@/stories/_components/Canvas"
+import { DocInfo } from "@/stories/_components/DocInfo"
+import { TableOfContents } from "@/stories/_components/TableOfContents"
+
+<Meta title="UI/Form/RadioGroup" of={RadioGroupStories} />
+
+<div className="flex gap-space-4xl">
+  <div>
+    # RadioGroup
+
+    A component for selecting a single option from a set of choices. It is typically used in forms where only one selection is allowed.
+
+    <DocInfo 
+      importStatement={`import { RadioGroup } from "@/components/ui/form/radio"`} 
+      sourcePath={`components/ui/form/radio`} 
+    />
+
+    <br />
+
+    ## **Purpose and Context**
+
+    The `Radio` component is designed to provide users with a clear and intuitive way to select one option from a group. It is commonly used in scenarios such as surveys, preference settings, and any form where exclusive selection is required.
+
+    -  **Checked**: Indicates whether the radio button is selected.
+    -  **Disabled**: Disables the radio button, preventing user interaction.
+    -  **Label**: The text label associated with the radio button, providing context for the choice.
+
+    In addition to these, the `Radio` component inherits all standard HTML input attributes, allowing for extensive customization and flexibility. This includes attributes such as:
+    -  `name`: Groups radio buttons together, allowing only one to be selected at a time.
+    -  `value`: The value associated with the radio button when selected.
+    -  `onChange`: Handles changes to the selection state.
+    -  `required`: Marks the radio button as required for form submission.
+
+    <br />
+
+    ## **Examples**
+
+    ### **Basic Radio Button**
+
+    A simple radio button with a label.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={RadioGroupStories.Default} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Radio } from "@/components/ui/form/radio";
+
+          const RadioExample = () => {
+            return <Radio 
+              label="Option 1"
+              name="example"
+              value="option1"
+            />;
+          };
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ## **API**
+    Below are the props for the `RadioGroup` component:
+
+    <ArgTypes />
+
+    ## **FAQ**
+    ### **What are the different states of radio buttons?**
+    Radio buttons can be in various states such as checked, unchecked, disabled, and focused.
+
+    ### **How do I group multiple radio buttons?**
+    Use the same `name` attribute for all radio buttons in a group to ensure only one can be selected at a time.
+
+    ### **How do I make a radio button required?**
+    Add the `required` attribute to the radio button input to make it mandatory for form submission
+  </div>
+
+  <div className="hidden lg:block sticky top-24 h-max self-start">
+    <TableOfContents 
+      items={[
+        {
+          id: "radio",
+          label: "Radio",
+          children: [
+            {
+              id: "purpose-and-context",
+              label: "Purpose and Context"
+            },
+            {
+              id: "props",
+              label: "Props"
+            },
+            {
+              id: "examples",
+              label: "Examples",
+              children: [
+                {
+                  id: "basic-radio-button",
+                  label: "Basic Radio Button"
+                },
+                {
+                  id: "disabled-radio-button",
+                  label: "Disabled Radio Button"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: "api",
+          label: "API"
+        },
+        {
+          id: "faq",
+          label: "FAQ",
+          children: [
+            {
+              id: "what-are-the-different-states-of-radio-buttons",
+              label: "What are the different states..."
+            },
+            {
+              id: "how-do-i-group-multiple-radio-buttons",
+              label: "How do I group multiple..."
+            },
+            { id: "how-do-i-make-a-radio-button-required",
+              label: "How do I make a radio button required?"
+            }
+          ]
+        },
+      ]}
+    />
+  </div>
+</div>

@@ -12,13 +12,13 @@ export const PricingPlanFeatures: React.FC<PricingPlanFeaturesProps> = ({
   isRecommended,
 }) => {
   return (
-    <div className="w-full text-lg font-medium">
+    <div className="w-full text-body-md md:text-body-lg font-medium">
       {title && (
         <h3 className="mt-4 font-semibold">
           <span className="font-bold">Everything in {title}, plus:</span>
         </h3>
       )}
-      <div className="mt-4 space-y-(--space-sm)">
+      <div className="mt-4 space-y-gap-sm font-thin!">
         {features.map((feature, index) => (
           <PricingPlanFeature
             key={index}

@@ -23,8 +23,8 @@ type IndustryLeadersProps = {
 }
 
 const logos: Record<string, ReactNode> = {
-  microsoft: <MicrosoftBrandLogo className="text-white" />,
-  amazon: <AmazonBrandLogo className="text-white" />,
+  microsoft: <MicrosoftBrandLogo className="text-inverse" />,
+  amazon: <AmazonBrandLogo className="text-inverse" />,
 }
 
 const GridBackground = () => (
@@ -59,20 +59,22 @@ export const IndustryLeaders: React.FC<IndustryLeadersProps> = ({
   return (
     <div className="w-full">
       <div className="flex max-md:justify-center mb-8">
-        <h1 className="text-2xl font-bold text-neutral-800">
+        <h1 className="text-heading-2xl text-default">
           Trusted by Industry Leaders
         </h1>
       </div>
 
       <div className="flex max-md:flex-col gap-4">
         {testimonials.map((subTestimonial, i) => (
-          <div key={i} className="flex flex-col gap-4">
+          <div key={i} className="flex flex-col gap-space-md">
             {subTestimonial.map((subTestimonial, j) => (
               <div
                 key={j}
                 className={cn(
-                  'relative p-6 bg-gray-100 rounded-xl',
-                  subTestimonial.bgColor,
+                  'relative p-6 rounded-xl',
+                  subTestimonial.bgColor
+                    ? subTestimonial.bgColor
+                    : 'bg-accent-gray-subtlest',
                   { 'h-full': subTestimonial.isFeatured }
                 )}
               >
@@ -84,11 +86,14 @@ export const IndustryLeaders: React.FC<IndustryLeadersProps> = ({
                   )}
 
                   <div>
-                    <div className="mb-4">
+                    <div className="mb-space-md">
                       <p
-                        className={cn('text-lg md:text-xl text-neutral-600', {
-                          'text-neutral-50': subTestimonial.isFeatured,
-                        })}
+                        className={cn(
+                          'text-body-md md:text-body-lg',
+                          subTestimonial.isFeatured
+                            ? 'text-inverse'
+                            : 'text-subtle'
+                        )}
                       >
                         “{subTestimonial.testimonial}”
                       </p>
@@ -103,16 +108,18 @@ export const IndustryLeaders: React.FC<IndustryLeadersProps> = ({
                       />
                       <div>
                         <p
-                          className={cn('text-lg font-bold', {
-                            'text-neutral-200': subTestimonial.isFeatured,
+                          className={cn('text-body-md md:text-body-lg font-bold', {
+                            'text-inverse': subTestimonial.isFeatured,
                           })}
                         >
                           {subTestimonial.name}
                         </p>
                         <p
-                          className={cn('text-neutral-500', {
-                            'text-neutral-100': subTestimonial.isFeatured,
-                          })}
+                          className={cn(
+                            subTestimonial.isFeatured
+                              ? 'text-inverse'
+                              : 'text-subtle'
+                          )}
                         >
                           {subTestimonial.role}
                         </p>

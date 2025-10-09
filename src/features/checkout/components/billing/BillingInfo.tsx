@@ -51,7 +51,7 @@ export const BillingInfo: React.FC = () => {
 
   return (
     <div className="border border-stone-200 rounded-2xl overflow-hidden">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4 p-6">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-space-md p-space-md">
         <div className="flex">
           <h3 className="font-semibold">
             Add your fictional company&apos;s Tax ID or VAT number to appear on
@@ -65,17 +65,17 @@ export const BillingInfo: React.FC = () => {
         </div>
       </div>
 
-      <div className="border-t border-stone-200 p-(--space-md)">
-        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-(--space-md) text-sm sm:text-[15px]">
+      <div className="border-t border-default p-space-md">
+        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-space-md text-body-md">
           {billingFields.map(({ label, value, span }, idx) => (
             <div key={idx} className={span ? 'sm:col-span-2' : ''}>
-              <dt className="text-neutral-500 mb-1">{label}</dt>
-              <dd className="text-neutral-800 font-semibold">{value}</dd>
+              <dt className="text-subtle mb-space-xs">{label}</dt>
+              <dd className="font-semibold">{value}</dd>
             </div>
           ))}
         </dl>
 
-        <div className="flex justify-end mt-10">
+        <div className="flex justify-end mt-space-xl">
           <Button
             variant="ghost"
             size="sm"

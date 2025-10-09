@@ -68,12 +68,12 @@ export const CTA: React.FC<CTAProps> = ({
         isIcon && 'flex items-center gap-3'
       )}
     >
-      {isMediaTop && media && <div className="mb-(--space-sm">{media}</div>}
+      {isMediaTop && media && <div className="mb-space-sm">{media}</div>}
 
       <div
         className={cn(
-          isMediaLeft && 'flex items-center gap-(--space-sm)',
-          !isInline && !isHorizontal && !isMediaLeft && 'space-y-(--space-sm)'
+          isMediaLeft && 'flex items-center gap-space-sm',
+          !isInline && !isHorizontal && !isMediaLeft && 'space-y-space-sm'
         )}
       >
         {isMediaLeft && media && <div>{media}</div>}
@@ -81,8 +81,8 @@ export const CTA: React.FC<CTAProps> = ({
         <div
           className={cn(
             isCentered && 'mx-auto',
-            isInline && 'flex items-center gap-(--space-lg)',
-            isHorizontal && 'flex flex-col gap-(--space-sm)'
+            isInline && 'flex items-center gap-space-lg',
+            isHorizontal && 'flex flex-col gap-space-sm'
           )}
         >
           {!isMinimal && badgeText && (

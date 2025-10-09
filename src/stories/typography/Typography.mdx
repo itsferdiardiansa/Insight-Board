@@ -1,0 +1,152 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { TableOfContents } from "@/stories/_components/TableOfContents";
+import { TypographyPrinciples } from "./TypographyPrinciples";
+import { 
+  TypographyHeadingList, 
+  TypographyBodyList, 
+  TypographyCodeList, 
+  TypographyLabelList, 
+  TypographyCaptionList,
+  TypographyTextStylesList 
+} from "./TypographyList"
+
+<Meta title="Foundations/Typography" />
+
+<div className="flex gap-space-4xl">
+  <div>
+    # Overview
+    We've introduced a modernized typography system for our app suite. By using our product typeface, **Nunito**, we ensure a cohesive, polished reading experience across all browsers and platforms.  
+    
+    As we transition to this system, guidance and resources are available to make adoption smooth and consistent.
+
+    <br />
+
+    ## **Typographic principles**
+    Apply these principles to create typography that is legible, balanced, and visually harmonious.  
+    Pair them with the InsightBoard [color tokens](?path=/docs/foundations-colors--docs) and [spacing tokens](?path=/docs/foundations-spacing--docs) to build consistent product experiences.
+
+    <TypographyPrinciples />
+
+    ## **Text styles and tokens**
+    Our text styles and typography tokens define values such as font family, size, weight, and line height.  
+    In design tools like Figma, these appear as text styles. In code, they are implemented as typography tokens.  
+
+    Use the defined heading, body, and code text styles in your designs and builds.  
+    Each style includes optimized spacing and works seamlessly with other design foundations like spacing and color.  
+    These tokens are future-ready, enabling typography theming across products.
+
+    For easier implementation, use the heading and text components in code — they apply typography tokens automatically.
+
+    ## **Applying Typography**
+    Use text styles when designing in Figma, and typography tokens and components in code. Use the heading component for heading text, and the text component for body text. 
+    
+    To learn how to apply our typography styles in Figma, go to our Figma Typography Playground for step by step instructions and helpful tips.
+  
+    ## **Heading**
+    Use headings for page titles or subheadings to introduce content. Headings are sized to contrast with content, increase visual hierarchy, and help readers easily understand the structure of content.
+
+    Headings should be used to introduce a new section of content. Use heading styles, rather than bold or a change of font size, as they’re important for accessibility.
+
+    Heading levels help users navigate a page, especially users of screen readers and other assistive technology. Using the right heading levels also helps to group content so it’s easier to scan.
+
+    Heading levels `(<h1> to <h6>)` should be used in a descending sequence. Only use one h1 per page (usually the page title) and don’t skip a level (for example, use an h2 then an h4).
+  
+    <TypographyHeadingList />
+
+    <br />
+
+    ## **Body**
+    Use body text for main content. They typically appear after headings or subheadings as detailed descriptions and messages, but also as standalone text in components. Body text includes additional paragraph spacing for readability and flow in blocks of text.
+    
+    Body text comes in three sizes, for use in different contexts:
+      - **Body LG** is the default size for long-form content. Use this size for a comfortable reading experience such as in blogs.
+      - **Body MD (Default)** is the default size in components or where space is limited, for detailed or descriptive content such as primary descriptions in flags.
+      - **Body SM** should be used sparingly and is for secondary level content such as fine print or semantic messaging.
+
+    <TypographyBodyList />
+
+    <br />
+
+    ## **Code**
+    Use code text styles for inline snippets or technical UI content like identifiers, variables, or commands.  
+    Code styles are monospaced and optimized for readability in both inline and block contexts.  
+
+    <TypographyCodeList />
+
+    <br />
+
+    ## **Label**
+    Labels are short, functional text styles used for UI elements such as buttons, form fields, or navigation.  
+    They are optimized for compact spaces where hierarchy is needed without overwhelming the layout.  
+
+    <TypographyLabelList />
+
+    <br />
+
+    ## **Caption**
+    Captions are the smallest text styles, used sparingly to provide supplementary or contextual information. They help annotate visuals or provide extra guidance but should not replace body text for main content.  
+
+    <TypographyCaptionList />
+
+    <br />
+
+    ## **Text**
+    In addition to heading and body styles, we provide utility text styles that bring semantic meaning and visual hierarchy:
+    - **Muted (`text-muted`)**  
+      Use muted text for secondary or de-emphasized content, such as supporting descriptions, captions, or less prominent labels.  
+      It reduces visual noise while keeping the text readable.
+
+    - **Strong (`text-strong`)**  
+      Use strong text to highlight important words or phrases within a sentence.  
+      This applies emphasis through increased weight while preserving the current font size and line height.  
+      Ideal for key terms, warnings, or calls to action inside body copy.
+
+    - **Emphasis (`text-em`)**  
+      Use emphasis to draw attention subtly, often rendering as italicized text.  
+      This is best for alternate tone, foreign words, or nuanced emphasis in running content.  
+      It inherits the surrounding size and spacing for consistency.
+
+    <TypographyTextStylesList />
+  </div>
+
+  <div>
+    <TableOfContents
+      items={[
+        {
+          id: "overview",
+          label: "Overview"
+        },
+        {
+          id: "text-styles-and-tokens",
+          label: "Text styles and tokens",
+          children: [
+            {
+              id: "heading",
+              label: "Heading"
+            },
+            {
+              id: "body",
+              label: "Body"
+            },
+            {
+              id: "code",
+              label: "Code & Links"
+            },
+            {
+              id: "label",
+              label: "Label"
+            },
+            {
+              id: "caption",
+              label: "Caption"
+            },
+            {
+              id: "text",
+              label: "Text"
+            },
+          ]
+        },
+      ]}
+    />
+  </div>
+</div>

@@ -24,7 +24,7 @@ export const CheckoutSummary: React.FC = () => {
   }
 
   return (
-    <div className="sticky h-[calc(100vh-78px)] top-0 shadow-lg bg-white shadow-stone-200 p-(--space-4xl)">
+    <div className="w-[480px] h-[calc(100vh-78px)] fixed right-0 shadow-lg bg-white shadow-stone-200 p-space-xl">
       <OrderSummary
         isCompleteDisabled={!allowNextStep}
         onComplete={handleComplete}

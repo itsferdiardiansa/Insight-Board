@@ -16,10 +16,10 @@ export const CheckoutPlanSelection: React.FC<
   CheckoutPlanSelectionProps
 > = () => {
   return (
-    <div className="flex flex-col gap-(--space-md)">
-      <div className="flex flex-col gap-(--space-sm)">
-        <div className="align-self inline-flex items-center gap-(--space-sm)">
-          <div className="bg-(--primary) p-(--space-xs) rounded-md">
+    <div className="flex flex-col gap-space-md">
+      <div className="flex flex-col gap-space-sm">
+        <div className="align-self inline-flex items-center gap-space-sm">
+          <div className="bg-primary-intense p-space-xs rounded-md">
             <AiFillProduct className="text-white text-xl" />
           </div>
           <span className="text-xl font-black text-gray-800">Plans</span>
@@ -33,7 +33,7 @@ export const CheckoutPlanSelection: React.FC<
           <div>
             <Link
               href="/account/subscriptions/pricing"
-              className="text-(--primary)"
+              className="text-primary font-semibold"
             >
               See all features
             </Link>

@@ -69,24 +69,29 @@ export const Alert: React.FC<AlertProps> = ({
     <div
       className={cn(
         alertVariants({ variant, rounded, size }),
-        banner && 'w-full',
+        banner && 'w-full flex items-center',
         className
       )}
       role="alert"
     >
       {showIcon && icon && (
-        <div className="mr-3 self-start text-xl">{icon}</div>
+        <div className="h-6 mr-space-sm self-start flex items-center text-xl">
+          {icon}
+        </div>
       )}
       <div className="flex-1">
-        <div className="font-semibold">{message}</div>
+        <div className="text-heading-lg">{message}</div>
         {description && (
-          <div className="text-sm opacity-90 mt-1">{description}</div>
+          <div className="text-body-md opacity-90">{description}</div>
         )}
       </div>
       {action && <div className="ml-4">{action}</div>}
       {closable && (
         <button
-          className="self-start ml-3 text-xl opacity-70 hover:opacity-100 transition cursor-pointer"
+          className={cn(
+            'ml-space-sm text-body-lg opacity-70 hover:opacity-100 transition cursor-pointer',
+            !banner && 'self-start'
+          )}
           onClick={handleClose}
         >
           <AiOutlineClose />

@@ -63,7 +63,6 @@ const AnalyticsDashboard: React.FC = () => {
       <div className="flex-1 self-stretch">
         <SectionHeader
           title="Custom reports that guide your decision making"
-          subtitle="Transform complex data into clear, actionable insights with our powerful reporting tools"
           badgeLabel="Analytics Dashboard"
           badgeIcon={<SiDatabricks />}
           textAlign="center"

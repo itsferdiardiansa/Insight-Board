@@ -7,9 +7,9 @@ import { cn } from '@/utils/tailwind'
 const sectionShellVariants = cva('flex', {
   variants: {
     gapSize: {
-      sm: 'gap-(--space-sm) md:gap-(--space-lg)',
-      md: 'gap-(--space-md) md:gap-(--space-xl)',
-      lg: 'gap-(--space-lg) md:gap-(--space-4xl)',
+      sm: 'gap-space-sm md:gap-space-lg',
+      md: 'gap-space-md md:gap-space-xl',
+      lg: 'gap-space-lg md:gap-space-4xl',
     },
     direction: {
       row: 'flex-row',

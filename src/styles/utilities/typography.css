@@ -10,4 +10,103 @@
   .text-muted {
     @apply text-base text-neutral-500;
   }
+
+  /* === Headings === */
+  .text-display {
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight;
+  }
+
+  .text-heading-6xl {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-snug;
+  }
+
+  .text-heading-5xl {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-snug;
+  }
+
+  .text-heading-4xl {
+    @apply text-3xl lg:text-4xl font-semibold tracking-tight leading-snug;
+  }
+
+  .text-heading-3xl {
+    @apply text-2xl lg:text-3xl font-semibold leading-snug;
+  }
+
+  .text-heading-2xl {
+    @apply text-xl lg:text-2xl font-semibold leading-snug;
+  }
+
+  .text-heading-xl {
+    @apply text-base md:text-lg lg:text-xl font-semibold leading-normal;
+  }
+
+  .text-heading-lg {
+    @apply text-base lg:text-lg font-semibold leading-normal;
+  }
+
+  .text-heading-base {
+    @apply text-base font-semibold leading-normal;
+  }
+
+  /* === UI Text / Labels === */
+  .text-caption {
+    @apply text-xs leading-tight;
+  }
+
+  .text-overline {
+    @apply text-[10px] uppercase tracking-wider font-semibold;
+  }
+
+  .text-label-lg {
+    @apply text-sm md:text-base font-medium;
+  }
+
+  .text-label-sm {
+    @apply text-xs font-medium;
+  }
+
+  /* === Code / Monospace === */
+  .text-code {
+    @apply font-mono text-sm text-accent-violet;
+  }
+
+  /* === Link / Action === */
+  .text-link {
+    @apply font-medium text-accent-blue hover:underline;
+  }
+
+  /* === Muted / Subtle === */
+  .text-muted {
+    @apply text-neutral-500;
+  }
+
+  /* === Strong / Emphasis === */
+  .text-strong {
+    @apply font-semibold text-neutral-900;
+  }
+
+  .text-em {
+    @apply italic text-secondary;
+  }
+}
+
+/* === Body === */
+@utility text-body-xl {
+  @apply text-xl leading-relaxed;
+}
+
+@utility text-body-lg {
+  @apply text-lg leading-relaxed;
+}
+
+@utility text-body-md {
+  @apply text-base leading-normal;
+}
+
+@utility text-body-sm {
+  @apply text-sm leading-normal;
+}
+
+@utility text-body-xs {
+  @apply text-xs leading-normal;
 }

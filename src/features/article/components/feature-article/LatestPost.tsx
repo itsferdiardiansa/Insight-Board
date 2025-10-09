@@ -26,8 +26,8 @@ const posts = [
 export const LatestPosts: React.FC = () => {
   return (
     <div className="flex flex-col">
-      <div className="pb-(--space-md) lg:pb-(--space-sm) lg:border-b lg:border-gray-100">
-        <h1 className="text-2xl lg:text-5xl font-semibold">Latest Posts</h1>
+      <div className="pb-space-md lg:pb-space-sm lg:border-b lg:border-default">
+        <h1 className="text-heading-3xl font-semibold!">Latest Posts</h1>
       </div>
 
       <div className="flex flex-row lg:flex-col max-lg:overflow-x-auto no-scrollbar">

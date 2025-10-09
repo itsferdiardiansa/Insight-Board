@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/nextjs'
 import * as React from 'react'
 
 import { Banner, type BannerProps } from './Banner'
@@ -23,8 +23,8 @@ const defaultHeader: BannerProps['header'] = {
   title: 'Unleash insights without boundaries',
   subtitle: 'Collaborate in real time and access your data anywhere.',
   textAlign: 'center',
-  titleClassName: 'font-black! text-4xl sm:text-6xl md:text-9xl!',
-  subTitleClassName: 'md:text-3xl!',
+  // titleClassName: 'font-black! text-4xl sm:text-6xl md:text-display!',
+  // subTitleClassName: 'md:text-3xl!',
   badgeLabel: 'Features',
   badgeIcon: <GiCardboardBoxClosed />,
 }
@@ -98,7 +98,7 @@ export const CustomChildrenOnly: Story = {
         </div>
       </Banner.Content>
       <Banner.Image>
-        <div className="mx-(--space-lg) bg-(--primary) h-48 rounded-xl flex items-center justify-center">
+        <div className="mx-space-lg bg-primary-intense h-48 rounded-xl flex items-center justify-center">
           <span className="text-neutral-100 font-bold">Image Slot</span>
         </div>
       </Banner.Image>

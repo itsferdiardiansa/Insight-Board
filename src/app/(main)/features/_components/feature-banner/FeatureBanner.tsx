@@ -10,8 +10,9 @@ export const FeatureBanner: React.FC = () => {
         title: 'Unleash insights without boundaries',
         subtitle: 'Collaborate in real time and access your data anywhere.',
         textAlign: 'center',
-        titleClassName: 'font-black! text-4xl sm:text-8xl!',
-        subTitleClassName: 'md:text-3xl!',
+        className: 'pt-0!',
+        titleClassName: 'text-display',
+        subTitleClassName: 'text-heading-2xl text-subtle',
         badgeLabel: 'Features',
         badgeIcon: <GiCardboardBoxClosed />,
       }}

@@ -18,12 +18,12 @@ const PlainLayoutComponent: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <Fragment>
       <header className="fixed top-0 inset-x-0 z-[50] transition-all duration-300 bg-white shadow-sm shadow-gray-100/90">
-        <div className="flex items-center py-(--space-md)">
-          <div className="flex justify-between items-center gap-4 px-(--space-md)">
+        <div className="flex items-center py-space-md">
+          <div className="flex justify-between items-center gap-4 px-space-md">
             <BrandLogo />
           </div>
 
-          <div className="ml-(--space-xl)">{slots.Header}</div>
+          <div className="ml-space-xl">{slots.Header}</div>
         </div>
       </header>
 

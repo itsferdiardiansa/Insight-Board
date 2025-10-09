@@ -2,7 +2,7 @@ import { HighlightCard } from './HighlightCard'
 
 export const ResourcesHighlight: React.FC = () => {
   return (
-    <div className="flex flex-col gap-(--space-sm)">
+    <div className="flex flex-col gap-space-sm">
       <HighlightCard
         title="How Our Analytics Platform Helps Startups Find Product-Market Fit Faster"
         label="Read article"

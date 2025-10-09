@@ -71,14 +71,12 @@ export const FAQList: React.FC = () => {
             <div
               id={questionId}
               onClick={() => toggle(index)}
-              className="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-gray-50 transition"
+              className="w-full p-space-md flex justify-between items-center text-left"
               aria-expanded={isOpen}
               aria-controls={answerId}
             >
-              <span className="text-xl font-bold text-(--secondary)">
-                {faq.question}
-              </span>
-              <span className="text-2xl text-(--secondary) font-black">
+              <span className="text-heading-xl font-bold!">{faq.question}</span>
+              <span className="text-xl text-secondary font-black">
                 {isOpen ? <FiMinus /> : <FiPlus />}
               </span>
             </div>
@@ -91,14 +89,14 @@ export const FAQList: React.FC = () => {
               role="region"
               aria-labelledby={questionId}
               className={cn(
-                'px-6 text-neutral-600 text-lg overflow-hidden transition-all duration-500 ease-in-out'
+                'px-space-md text-subtle text-body-md md:text-body-lg overflow-hidden transition-all duration-500 ease-in-out'
               )}
               style={{
                 maxHeight: '0px',
                 opacity: 0,
               }}
             >
-              <div className="py-4">{faq.answer}</div>
+              <div className="pb-space-md">{faq.answer}</div>
             </div>
           </div>
         )

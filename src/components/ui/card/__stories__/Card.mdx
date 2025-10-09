@@ -1,0 +1,213 @@
+import { Meta, Story, ArgTypes, Source } from "@storybook/addon-docs/blocks"
+import * as CardStories from "./Card.stories"
+import { Canvas } from "@/stories/_components/Canvas"
+import { DocInfo } from "@/stories/_components/DocInfo"
+import { TableOfContents } from "@/stories/_components/TableOfContents"
+
+<Meta title="UI/Card" of={CardStories} />
+
+<div className="flex gap-space-4xl">
+  <div>
+    # Card
+
+    A flexible container for grouping and displaying related content.
+    <DocInfo importStatement={`import { Card } from "@/components/ui/card"`} sourcePath={`components/ui/card`} />
+    
+    <br />
+
+    ## **Purpose and Context**
+
+    Cards are versatile UI elements used to organize and present information in a concise and visually appealing manner. They are commonly used to:
+
+    -   Display summaries of articles or blog posts.
+    -   Showcase product listings or services.
+    -   Present user profiles or team member information.
+    -   Group related actions or options.
+
+    In InsightBoard UI, cards are highly customizable and can be adapted to different contexts through their props:
+
+    -   **Title**: Provides a clear heading for the card's content.
+    -   **Description**: Offers a brief summary or overview of the card's content.
+    -   **Thumbnail**: Displays an image to visually represent the card's content.
+    -   **Rounded Size**: Controls the roundness of the card's corners.
+    -   **Padding**: Adjusts the spacing within the card.
+    -   **ClassName**: Allows for custom styling with Tailwind CSS classes.
+    -   **Link**: Makes the entire card clickable, navigating to a specified URL.
+    -   **Meta Items**: Displays additional information or metadata.
+    -   **Footer Action Label**: Adds a call-to-action button in the card's footer.
+    -   **Text Size**: Controls the text size for the title, description, and footer action.
+    -   **Badge**: Adds a badge to highlight specific aspects of the card.
+
+    ## **Examples**
+
+    <br />
+
+    ### **With Image**
+
+    A card with a thumbnail image, meta items, and a footer action.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={CardStories.WithImage} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Card } from "@/components/ui/card";
+          import AgileImage from "@/assets/images/agile-methodology.jpg";
+
+          const CardWithImageExample = () => {
+            return (
+              <Card
+                title="Project Report"
+                description="Real-time metrics with a clear layout."
+                thumbnail={AgileImage}
+                metaItems={["Product", "28.2025"]}
+                footerActionLabel="Read more"
+              />
+            );
+          };
+
+          export default CardWithImageExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **With Custom Content**
+
+    A card with custom content in the body.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={CardStories.WithCustomContent} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Card } from "@/components/ui/card";
+
+          const CardWithCustomContentExample = () => {
+            return (
+              <Card>
+                <Card.Content>
+                  <h3 className="text-xl font-bold mb-2">Custom Title</h3>
+                  <p className="text-gray-600">
+                    This is a custom body. You can place any content you want here.
+                  </p>
+                </Card.Content>
+              </Card>
+            );
+          };
+
+          export default CardWithCustomContentExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ## **API**
+
+    Below is a comprehensive list of all the props available for the Card component, along with their types, default values, and descriptions.
+
+    <ArgTypes />
+
+    ## **FAQ**
+
+    #### **How do I add a title and description to a card?**
+
+    Use the `title` and `description` props to specify the title and description text for the card.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Card title="My Card" description="This is a description." />
+      `} />
+    </Canvas.Source>
+
+    <br />
+    #### **How do I add a thumbnail image to a card?**
+
+    Use the `thumbnail` prop to specify the URL of the image to display as a thumbnail.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Card thumbnail="/path/to/image.jpg" />
+      `} />
+    </Canvas.Source>
+
+    <br />
+    #### **How do I add meta items to a card?**
+
+    Use the `metaItems` prop to pass an array of strings to display as meta information.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Card metaItems={["Category", "Date"]} />
+      `} />
+    </Canvas.Source>
+
+    <br />
+    #### **How do I add a footer action to a card?**
+
+    Use the `footerActionLabel` prop to specify the text for the footer action button.  You'll also need to use the `link` prop to specify the URL to navigate to when the button is clicked.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Card footerActionLabel="Learn More" link="/learn-more" />
+      `} />
+    </Canvas.Source>
+  </div>
+
+  <div>
+    <TableOfContents
+      items={[
+        {
+          id: "purpose-and-context",
+          label: "Purpose and Context"
+        },
+        {
+          id: "examples",
+          label: "Examples",
+          children: [
+            {
+              id: "default",
+              label: "Default"
+            },
+            {
+              id: "with-image",
+              label: "With Image"
+            },
+            {
+              id: "with-custom-content",
+              label: "With Custom Content"
+            }
+          ]
+        },
+        {
+          id: "api",
+          label: "API"
+        },
+        {
+          id: "faq",
+          label: "FAQ",
+          children: [
+            {
+              id: "how-do-i-add-a-title-and-description-to-a-card",
+              label: "How do I add a title and description..."
+            },
+            {
+              id: "how-do-i-add-a-thumbnail-image-to-a-card",
+              label: "How do I add a thumbnail..."
+            },
+            {
+              id: "how-do-i-add-meta-items-to-a-card",
+              label: "How do I add..."
+            }
+          ]
+        },
+      ]}
+    />
+  </div>
+</div>

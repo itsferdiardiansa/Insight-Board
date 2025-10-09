@@ -1,12 +1,25 @@
-@layer theme {
-  :root {
-    --space-xs: calc(var(--spacing) * 1); 
-    --space-sm: calc(var(--spacing) * 3); 
-    --space-md: calc(var(--spacing) * 5); 
-    --space-lg: calc(var(--spacing) * 7); 
-    --space-xl: calc(var(--spacing) * 9); 
-    --space-2xl: calc(var(--spacing) * 11); 
-    --space-3xl: calc(var(--spacing) * 13); 
-    --space-4xl: calc(var(--spacing) * 15); 
-  }
+@theme inline {
+  --spacing-space-xs: calc(var(--spacing) * 1); 
+  --spacing-gap-xs: calc(var(--spacing) * 1); 
+  
+  --spacing-space-sm: calc(var(--spacing) * 3); 
+  --spacing-gap-sm: calc(var(--spacing) * 3); 
+  
+  --spacing-space-md: calc(var(--spacing) * 5); 
+  --spacing-gap-md: calc(var(--spacing) * 5); 
+
+  --spacing-space-lg: calc(var(--spacing) * 7); 
+  --spacing-gap-lg: calc(var(--spacing) * 7); 
+  
+  --spacing-space-xl: calc(var(--spacing) * 9); 
+  --spacing-gap-xl: calc(var(--spacing) * 9); 
+  
+  --spacing-space-2xl: calc(var(--spacing) * 11); 
+  --spacing-gap-2xl: calc(var(--spacing) * 11); 
+  
+  --spacing-space-3xl: calc(var(--spacing) * 13); 
+  --spacing-gap-3xl: calc(var(--spacing) * 13); 
+  
+  --spacing-space-4xl: calc(var(--spacing) * 15); 
+  --spacing-gap-4xl: calc(var(--spacing) * 15); 
 }

@@ -1,0 +1,336 @@
+import { Meta, Story, ArgTypes, Source } from "@storybook/addon-docs/blocks";
+import * as BadgeStories from "./Badge.stories";
+import { Canvas } from "@/stories/_components/Canvas"
+import { DocInfo } from "@/stories/_components/DocInfo"
+import { TableOfContents } from "@/stories/_components/TableOfContents"
+import { id } from "zod/locales";
+
+<Meta title="UI/Badge" of={BadgeStories} />
+
+<div className="flex gap-space-4xl">
+  <div>
+    # Badge
+
+    A small, visually distinct element used to highlight or label items.
+    <DocInfo importStatement={`import { Badge } from "@/components/ui/badge"`} sourcePath={`components/ui/badge`} />
+
+    <br />
+
+    ## **Purpose and Context**
+
+    Badges are used to draw attention to specific elements or pieces of information within an interface. They provide a concise way to convey status, category, or other relevant details. Use them to:
+
+    -   Highlight new or updated content.
+    -   Indicate the status of an item (e.g., "In Progress," "Completed").
+    -   Categorize items (e.g., "Featured," "Trending").
+    -   Display counts or metrics.
+
+    In InsightBoard UI, badges are flexible and can be adapted to different contexts through their props:
+
+    -   **Variant**: Choose a visual style that reflects the meaning of the badge.
+    -   **Size**: Adjust the badge size to fit the surrounding content.
+    -   **Rounded**: Control the badge's shape with different levels of rounding.
+    -   **Icon**: Add an icon to further enhance the badge's visual communication.
+    -   **Icon Position**: Place the icon on the left or right side of the badge.
+
+    ## **Examples**
+
+    ### **Basic**
+
+    Basic usage of the Badge component with default props.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={BadgeStories.Playground} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Badge } from "@/components/ui/badge";
+
+          const BadgeBasicExample = () => {
+            return <Badge>Feature</Badge>;
+          };
+
+          export default BadgeBasicExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **Solid Variants**
+
+    Showcasing the different solid variant options for the Badge component. Solid variants provide a more prominent appearance to draw attention.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={BadgeStories.Variants} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Badge } from "@/components/ui/badge";
+
+          const BadgeVariantsExample = () => {
+            return (
+              <div className="flex gap-2">
+                <Badge variant="primary">Primary</Badge>
+                <Badge variant="secondary">Secondary</Badge>
+                <Badge variant="success">Success</Badge>
+                <Badge variant="info">Info</Badge>
+                <Badge variant="warning">Warning</Badge>
+                <Badge variant="destructive">Destructive</Badge>
+              </div>
+            );
+          };
+
+          export default BadgeVariantsExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+    
+    <br />
+
+    ### **Outline Variants**
+
+    Showcasing the different outline variant options for the Badge component. Outline variants provide a more subtle appearance while still conveying the intended meaning.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={BadgeStories.OutlineVariants} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Badge } from "@/components/ui/badge";
+
+          const BadgeVariantsExample = () => {
+            return (
+              <div className="flex gap-2">
+                <Badge variant="outlinePrimary">Outline Primary</Badge>
+                <Badge variant="outlineSecondary">Outline Secondary</Badge>
+                <Badge variant="outlineSuccess">Outline Success</Badge>
+                <Badge variant="outlineInfo">Outline Info</Badge>
+                <Badge variant="outlineWarning">Outline Warning</Badge>
+                <Badge variant="outlineDestructive">Outline Destructive</Badge>
+              </div>
+            );
+          };
+
+          export default BadgeVariantsExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **Sizes**
+
+    Demonstrating the different size options for the Badge component.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={BadgeStories.Sizes} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Badge } from "@/components/ui/badge";
+
+          const BadgeSizesExample = () => {
+            return (
+              <div className="flex gap-2">
+                <Badge size="xs">Extra Small</Badge>
+                <Badge size="sm">Small</Badge>
+                <Badge size="md">Medium</Badge>
+                <Badge size="lg">Large</Badge>
+              </div>
+            );
+          };
+
+          export default BadgeSizesExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **Rounded**
+
+    Illustrating the different rounded corner options for the Badge component.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={BadgeStories.Rounded} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Badge } from "@/components/ui/badge";
+
+          const BadgeRoundedExample = () => {
+            return (
+              <div className="flex gap-2">
+                <Badge rounded="none">None</Badge>
+                <Badge rounded="sm">Small</Badge>
+                <Badge rounded="md">Medium</Badge>
+                <Badge rounded="full">Full</Badge>
+              </div>
+            );
+          };
+
+          export default BadgeRoundedExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **With Icon**
+
+    Displaying the Badge component with icons on the left and right sides.
+
+    <Canvas>
+      <Canvas.Story>
+        <Story of={BadgeStories.WithIcon} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Badge } from "@/components/ui/badge";
+          import { FiUser, FiArrowRight } from 'react-icons/fi';
+
+          const BadgeWithIconExample = () => {
+            return (
+              <div className="flex gap-2">
+                <Badge icon={<FiUser />} iconPosition="left">User</Badge>
+                <Badge icon={<FiArrowRight />} iconPosition="right">Arrow</Badge>
+              </div>
+            );
+          };
+
+          export default BadgeWithIconExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ## **API**
+
+    Below is a comprehensive list of all the props available for the Badge component, along with their types, default values, and descriptions.
+
+    <ArgTypes />
+
+    ## **FAQ**
+
+    #### **What are the different badge variants available?**
+
+    The Badge component supports the following variants: `primary`, `secondary`, `success`, `info`, `warning`, and `destructive`. Each variant provides a different visual style to represent the badge's meaning.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Badge variant="warning">Warning</Badge>
+      `} />
+    </Canvas.Source>
+
+    #### **How do I change the size of a badge?**
+
+    You can use the `size` prop to control the badge's size. Available sizes are: `sm`, `md`, and `lg`.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Badge size="lg">Large</Badge>
+      `} />
+    </Canvas.Source>
+
+    #### **How do I control the badge's border radius?**
+
+    Use the `rounded` prop to control the badge's border radius. Options include `none`, `sm`, `md`, and `full`.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Badge rounded="full">Full</Badge>
+      `} />
+    </Canvas.Source>
+
+    #### **How do I add an icon to a badge?**
+
+    You can add an icon to a badge by passing a React element to the `icon` prop. Use the `iconPosition` prop to control whether the icon appears on the left or right side of the badge label.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        import { FiUser } from 'react-icons/fi';
+        <Badge icon={<FiUser />} iconPosition="left">User</Badge>
+      `} />
+    </Canvas.Source>
+  </div>
+
+  <div>
+    <TableOfContents
+      items={[
+        {
+          id: "purpose-and-context",
+          label: "Purpose and Context"
+        },
+        {
+          id: "examples",
+          label: "Examples",
+          children: [
+            {
+              id: "basic",
+              label: "Basic"
+            },
+            {
+              id: "variants",
+              label: "Solid Variants"
+            },
+            {
+              id: "outline-variants",
+              label: "Outline Variants"
+            },
+            {
+              id: "sizes",
+              label: "Sizes"
+            },
+            {
+              id: "rounded",
+              label: "Rounded"
+            },
+            {
+              id: "with-icon",
+              label: "With Icon"
+            }
+          ]
+        },
+        {
+          id: "api",
+          label: "API"
+        },
+        {
+          id: "faq",
+          label: "FAQ",
+          children: [
+            {
+              id: "what-are-the-different-badge-variants-available",
+              label: "What are the different..."
+            },
+            {
+              id: "how-do-i-change-the-size-of-a-badge",
+              label: "How do I change the size..."
+            },
+            {
+              id: "how-do-i-control-the-badge-s-border-radius",
+              label: "How do I control the badge's..."
+            },
+            {
+              id: "how-do-i-add-an-icon-to-a-badge",
+              label: "How do I add an icon..."
+            }
+          ]
+        },
+      ]}
+    />
+  </div>
+</div>

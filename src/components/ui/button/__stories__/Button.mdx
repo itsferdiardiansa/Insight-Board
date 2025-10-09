@@ -1,0 +1,275 @@
+import { Meta, Story, ArgTypes, Controls, Source } from "@storybook/addon-docs/blocks"
+import * as ButtonStories from "./Button.stories"
+import { Canvas } from "@/stories/_components/Canvas"
+import { DocInfo } from "@/stories/_components/DocInfo"
+import { TableOfContents } from "@/stories/_components/TableOfContents"
+
+<Meta title="UI/Button" of={ButtonStories} />
+
+<div className="flex gap-space-4xl">
+  <div>
+    # Button
+
+    To trigger an operation.
+    <DocInfo importStatement={`import { Button } from "@/components/ui/button"`} sourcePath={`components/ui/button`} />
+
+    <br />
+
+    ## **When To Use**
+    Buttons represent actions a user can take. They should clearly communicate intent and guide interaction. Use them thoughtfully to ensure a consistent and accessible experience.
+
+    In InsightBoard UI, buttons are highly flexible and can adapt to different contexts through their props:
+
+      - **Variant**: Choose a visual style that reflects the purpose of the action.  
+        - *Primary*: For main actions.  
+        - *Secondary*: For supporting actions.  
+        - *Success / Info*: For positive or informative actions.  
+        - *Destructive*: For dangerous or irreversible actions (e.g., delete).  
+        - *Outline / Ghost*: For less prominent actions where subtlety is preferred.
+
+      - **Size**: Adjust the button to match the interface context.  
+        - *xs / sm*: Compact actions, toolbars, or dense UIs.  
+        - *md*: Default and most common usage.  
+        - *lg*: Prominent actions requiring emphasis.
+
+    - **Icon & Icon Position**: Add optional icons to reinforce meaning. Place them on the *left* or *right* of the label to guide visual flow.
+    - **Full Width**: Use when the button should span the entire width of its container, common in forms or mobile layouts.
+    - **Loading**: Indicate an action is processing and prevent multiple submissions. The button becomes disabled while loading.
+    - **Disabled**: Clearly signal when an action is unavailable. Disabled buttons cannot be interacted with.
+    - **Rounded**: Control the button’s shape — from sharp corners (`none`) to fully pill-shaped (`full`).
+    - **As Child**: Render the button as a child element (via `Slot`), useful for integrating with other UI primitives or custom wrappers.
+    - **Inner Class Name**: Apply custom styles to the inner content wrapper when fine-grained control of padding or spacing is needed.
+
+    These options make the button a versatile building block that fits many use cases, while maintaining a consistent foundation across the product.
+
+    ## **Examples**
+    ### **Solid**
+    
+    Solid buttons are used for primary actions that require emphasis. They have a filled background and are the most visually prominent button style.
+    <Canvas>
+      <Canvas.Story>
+        <Story of={ButtonStories.Solid} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Button } from "@/component/ui/button"
+
+          const ButtonSelectedExample = () => {
+            return <Button variant="primary">Selected button</Button>
+          };
+
+          export default ButtonSelectedExample
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+
+    ### **Outline**
+    Outline buttons are used for secondary actions that are less prominent. They have a transparent background with a border, providing a more subtle appearance.
+    <Canvas>
+      <Canvas.Story>
+        <Story of={ButtonStories.Outline} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Button } from "@/component/ui/button"
+
+          const ButtonSelectedExample = () => {
+            return <Button variant="outlinePrimary">Selected button</Button>
+          };
+
+          export default ButtonSelectedExample
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    ### **Loading**
+    Loading buttons indicate that an action is in progress. They display a loading spinner and are disabled to prevent further interaction until the action is complete.
+    <Canvas>
+      <Canvas.Story>
+        <Story of={ButtonStories.Loading} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Button } from "@/component/ui/button"
+
+          const ButtonSelectedExample = () => {
+            return <Button variant="outlinePrimary" loading>Selected button</Button>
+          };
+
+          export default ButtonSelectedExample
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    ## **API**
+    Below is a comprehensive list of all the props available for the Button component, along with their types, default values, and descriptions.
+    <ArgTypes />
+
+    ## **FAQ**
+
+    #### **How to choose variant type?**
+
+    Type is essentially syntactic sugar for colors and variants. It internally provides a set of mapping relationships between colors and variants for the type. If both exist at the same time, the colors and variants will be used first.
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Button variant="primary">Click me</Button>
+      `} />
+    </Canvas.Source>
+
+    #### **What are the different button variants available?**
+
+    The Button component supports the following variants: `primary`, `secondary`, `success`, `info`, `destructive`, `outline`, and `ghost`. Each variant provides a different visual style to represent the button's purpose.
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Button variant="secondary">Click me</Button>
+      `} />
+    </Canvas.Source>
+
+    <br />
+
+    #### **How do I change the size of a button?**
+
+    You can use the `size` prop to control the button's size. Available sizes are: `xs`, `sm`, `md` (default), and `lg`.
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Button size="lg">Click me</Button>
+      `} />
+    </Canvas.Source>
+
+    <br />
+
+    #### **How do I add an icon to a button?**
+
+    You can add an icon to a button by passing a React element to the `icon` prop. Use the `iconPosition` prop to control whether the icon appears on the left or right side of the button label.
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        import { FaStar } from 'react-icons/fa';
+        <Button icon={<FaStar />} iconPosition="left">Click me</Button>
+      `} />
+    </Canvas.Source>
+
+    <br />
+
+    #### **How do I make a button take up the full width of its container?**
+
+    Set the `fullWidth` prop to `true` to make the button span the entire width of its parent container.
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Button fullWidth>Click me</Button>
+      `} />
+    </Canvas.Source>
+
+    <br />
+
+    #### **How do I show a loading indicator on a button?**
+
+    Set the `loading` prop to `true` to display a loading indicator and disable the button. This is useful for preventing multiple submissions.
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Button loading>Click me</Button>
+      `} />
+    </Canvas.Source>
+
+    <br />
+
+    #### **How do I disable a button?**
+
+    Set the `disabled` prop to `true` to disable the button and prevent user interaction.
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Button disabled>Click me</Button>
+      `} />
+    </Canvas.Source>
+
+    <br />
+
+    #### **How do I control the button's border radius?**
+
+    Use the `rounded` prop to control the button's border radius. Options include `none` (sharp corners), `sm`, `md`, `lg`, and `full` (pill-shaped).
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Button rounded="full">Click me</Button>
+      `} />
+    </Canvas.Source>
+
+    <br />
+
+    #### **Can I render the Button component as a child of another component?**
+
+    Yes, you can use the `asChild` prop (via `Slot`) to render the Button as a child element, allowing you to integrate it with other UI primitives or custom wrappers.
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Button asChild>
+          <Link href="/custom">Click me</Link>
+        </Button>
+      `} />
+    </Canvas.Source>
+
+    <br />
+
+    #### **How can I apply custom styles to the inner content of the button?**
+
+    Use the `innerClassName` prop to apply custom styles to the inner content wrapper of the button. This provides fine-grained control over padding and spacing.
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Button innerClassName="my-custom-class">Click me</Button>
+      `} />
+    </Canvas.Source>
+  </div>
+
+  <div>
+    <TableOfContents
+      items={[
+        {
+          id: "when-to-use",
+          label: "When To Use"
+        },
+        {
+          id: "examples",
+          label: "Examples",
+          children: [
+            {
+              id: "solid",
+              label: "Solid"
+            },
+            {
+              id: "outline",
+              label: "Outline"
+            },
+            {
+              id: "loading",
+              label: "Loading"
+            },
+          ]
+        },
+        {
+          id: "api",
+          label: "API"
+        },
+        {
+          id: "faq",
+          label: "FAQ",
+          children: [
+            {
+              id: "how-to-choose-variant-type",
+              label: "How to choose..."
+            },
+            {
+              id: "what-are-the-different-button-variants-available",
+              label: "What are the different..."
+            },
+            {
+              id: "how-do-i-change-the-size-of-a-button",
+              label: "How do I change the size of a button?"
+            },
+          ]
+        },
+      ]}
+    />
+  </div>
+</div>
+

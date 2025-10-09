@@ -7,17 +7,18 @@
 
 body {
   font-family: var(--font-nunito), system-ui, sans-serif;
-  @apply text-base antialiased;
+  @apply antialiased;
 }
 
-@layer base {
+/* @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
-}
+} */
 
 @keyframes blink {
   0%, 100% { opacity: 1; }

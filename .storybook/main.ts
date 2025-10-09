@@ -1,4 +1,5 @@
-import type { StorybookConfig } from '@storybook/nextjs';
+import type { StorybookConfig } from '@storybook/nextjs'
+import remarkGfm from "remark-gfm"
 
 const config: StorybookConfig = {
   stories: [
@@ -6,57 +7,52 @@ const config: StorybookConfig = {
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
   addons: [
+    // {
+    //   name: "@storybook/addon-essentials",
+    //   options: {
+    //     docs: false
+    //   }
+    // }, 
+    // "@storybook/addon-actions", 
+    // "@storybook/addon-interactions", 
+    "@storybook/addon-webpack5-compiler-swc",
     {
-      name: "@storybook/addon-essentials",
+      name: "@storybook/addon-docs",
       options: {
-        docs: false
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm]
+          }
+        }
       }
-    }, 
-    "@storybook/addon-docs", 
-    "@storybook/addon-actions", 
-    "@storybook/addon-onboarding", 
-    "storybook-addon-deep-controls",
-    "@storybook/addon-webpack5-compiler-swc"
+    }
   ],
   framework: {
-    "name": "@storybook/nextjs",
-    "options": {}
+    name: "@storybook/nextjs",
+    options: {}
   },
   staticDirs: [
-    "../public"
+    "../public",
+    {
+      from: "../src/assets/docs", to: "/assets"
+    }
   ],
   webpackFinal: async (config) => {
-    config.module = config.module || {};
-    config.module.rules = config.module.rules || [];
+    config.module = config.module || {}
+    config.module.rules = config.module.rules || []
  
-    const imageRule = config.module.rules.find((rule) => rule?.['test']?.test('.svg'));
+    const imageRule = config.module.rules.find((rule) => rule?.['test']?.test('.svg'))
     if (imageRule) {
-      imageRule['exclude'] = /\.svg$/;
+      imageRule['exclude'] = /\.svg$/
     }
- 
+    
     // Configure .svg files to be loaded with @svgr/webpack
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     })
-
-    config.module.rules.push({
-      test: /\.mdx$/,
-      use: [
-        {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-react'],
-          },
-        },
-        {
-          loader: '@mdx-js/loader',
-          options: {},
-        },
-      ],
-    })
  
-    return config;
+    return config
   }
-};
-export default config;
+}
+export default config

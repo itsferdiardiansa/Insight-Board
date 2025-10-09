@@ -113,13 +113,17 @@ export const ClosingCallCTA: React.FC = () => {
 
   return (
     <SectionShell direction="col" ref={containerRef}>
-      <Card className="bg-(--secondary)" padding="lg" roundedSize="lg">
+      <Card
+        className="bg-secondary-intense-pressed"
+        padding="lg"
+        roundedSize="lg"
+      >
         <Card.Content>
           <div className="flex flex-col items-center max-lg:items-center">
             <div className="text-center">
               <h1
                 ref={titleRef}
-                className="text-4xl md:text-5xl font-bold text-neutral-100 opacity-0"
+                className="text-heading-4xl font-bold! text-inverse opacity-0"
               >
                 Supercharge your performance with
                 <br className="max-md:hidden" />
@@ -128,16 +132,16 @@ export const ClosingCallCTA: React.FC = () => {
 
               <p
                 ref={descRef}
-                className="mt-(--space-sm) text-base md:text-lg leading-7 text-neutral-200 opacity-0"
+                className="mt-space-sm text-heading-lg leading-7 text-inverse opacity-0"
               >
                 Join 13,000+ teams who rely on InsightBoard to stay ahead,
-                automate insights, and fuel their strategy.
+                automate insights.
               </p>
             </div>
 
             <div
               ref={btnsRef}
-              className="flex flex-col md:flex-row gap-(--space-md) mt-(--space-xl) opacity-0"
+              className="flex flex-col md:flex-row gap-space-md mt-space-xl opacity-0"
             >
               <Button variant="light" asChild>
                 <Link href="sign-in">Get 14 Days Free Trial</Link>
@@ -161,22 +165,24 @@ export const ClosingCallCTA: React.FC = () => {
         </Card.Content>
       </Card>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-(--space-md)">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-space-md">
         {keyBenefits.map((item, i) => (
           <div
             key={i}
             ref={el => {
               featuresRef.current[i] = el
             }}
-            className="border-l border-gray-300 pl-(--space-xl) opacity-0"
+            className="border-l border-default pl-space-xl opacity-0"
           >
-            <div className="flex items-center gap-(--space-sm) text-xl">
+            <div className="flex items-center gap-space-sm">
               {item.icon}
-              <h2 className="text-neutral-800 font-bold">{item.title}</h2>
+              <h2 className="text-heading-xl font-bold">{item.title}</h2>
             </div>
 
-            <div className="mt-(--space-sm)">
-              <p>{item.desc}</p>
+            <div className="mt-space-xs">
+              <p className="text-body-md md:text-body-lg text-subtle">
+                {item.desc}
+              </p>
             </div>
           </div>
         ))}

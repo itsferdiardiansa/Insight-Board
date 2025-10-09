@@ -14,6 +14,7 @@ type ArticleCategory = {
 
 type BasedCategorArticleProps = {
   title: string
+  titleClassName?: string
   limit?: number
   categories?: ArticleCategory[]
   showCategory?: boolean
@@ -22,6 +23,7 @@ type BasedCategorArticleProps = {
 
 export const BasedCategorArticle: React.FC<BasedCategorArticleProps> = ({
   title,
+  titleClassName,
   limit = 10,
   categories,
   showCategory = false,
@@ -31,28 +33,33 @@ export const BasedCategorArticle: React.FC<BasedCategorArticleProps> = ({
 
   const cardTextSizes: CardProps['textSize'] = useMemo(
     () => ({
-      title: '3xl',
-      description: 'lg',
-      footerAction: 'lg',
+      title: 'xl',
+      description: 'md',
+      footerAction: 'md',
     }),
     []
   )
 
   return (
-    <SectionShell direction="col" gapSize="lg">
-      <div className="flex flex-col md:flex-row max-md:gap-(--space-md) md:justify-between">
-        <SectionHeader title={title} textAlign="left" isAnimate={false} />
+    <SectionShell direction="col" gapSize="md">
+      <div className="flex flex-col md:flex-row max-md:gap-space-md md:justify-between">
+        <SectionHeader
+          title={title}
+          titleClassName={titleClassName} 
+          textAlign="left" 
+          isAnimate={false} 
+        />
 
         {hasCategories && showCategory && (
           <div className="md:self-center">
-            <div className="flex gap-(--space-sm) p-(--space-xs) overflow-x-auto no-scrollbar">
+            <div className="flex gap-space-sm p-space-xs overflow-x-auto no-scrollbar">
               {categories?.map((category, index) => (
                 <Button
                   key={index}
                   variant="outlineSecondary"
                   size="lg"
                   rounded="full"
-                  innerClassName="py-(--space-xs)!"
+                  innerClassName="py-space-xs!"
                 >
                   {category.name}
                 </Button>
@@ -63,15 +70,15 @@ export const BasedCategorArticle: React.FC<BasedCategorArticleProps> = ({
       </div>
 
       <div>
-        <div className="grid md:grid-cols-3 gap-(--space-md)">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-space-md">
           {[...Array(limit)].map((_, index) => (
             <Card
               key={index}
-              className="sm:max-md:flex sm:max-md:gap-(--space-md) sm:max-md:[&>*]:flex-1"
+              className="sm:max-md:flex sm:max-md:gap-space-md sm:max-md:[&>*]:flex-1"
               title="What event feedback surveys tell you (and what they don't)"
               description="Event feedback can be a goldmine of useful insights to create better future events—but only if you know what it's telling you. See how to interpret event feedback surveys for more accurate analysis that you can use to make your next event even more successful."
               textSize={cardTextSizes}
-              badge={{ label: 'Analytics', size: 'lg' }}
+              badge={{ label: 'Analytics', size: 'md' }}
               roundedSize="lg"
               metaItems={['James Isack', '04.2025']}
               link="/article/lorem-ipsum"
@@ -86,15 +93,17 @@ export const BasedCategorArticle: React.FC<BasedCategorArticleProps> = ({
           ))}
         </div>
 
-        <div className="mt-(--space-md) flex justify-end">
-          <Link
-            href="/article/category"
-            className="flex items-center gap-(--space-sm) text-xl font-bold pb-(--space-xs) border-b-2 border-neutral-400"
-          >
-            <span>{actionLabel ?? 'See More'}</span>
-            <BsArrowRight />
-          </Link>
-        </div>
+        {actionLabel && (
+          <div className="mt-space-md flex justify-end">
+            <Link
+              href="/article/category"
+              className="flex items-center gap-space-sm text-heading-lg font-bold! pb-space-xs border-b-2 border-secondary"
+            >
+              <span>{actionLabel}</span>
+              <BsArrowRight />
+            </Link>
+          </div>
+        )}
       </div>
     </SectionShell>
   )

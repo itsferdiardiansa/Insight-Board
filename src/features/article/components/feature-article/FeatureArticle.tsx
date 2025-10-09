@@ -8,8 +8,8 @@ import { useMemo } from 'react'
 export const FeatureArticle: React.FC = () => {
   const cardTextSize: CardProps['textSize'] = useMemo(
     () => ({
-      title: '4xl',
-      description: 'xl',
+      title: '3xl',
+      description: 'lg',
     }),
     []
   )

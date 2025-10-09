@@ -26,8 +26,8 @@ type RowProps = {
 }
 
 const Row: React.FC<RowProps> = ({ label, value, valueClass }) => (
-  <div className="flex justify-between mb-2 last:mb-0 text-lg font-semibold">
-    <span className="text-gray-600">{label}</span>
+  <div className="flex justify-between mb-2 last:mb-0">
+    <span className="text-subtle">{label}</span>
     <span className={cn('font-bold', valueClass)}>{value}</span>
   </div>
 )
@@ -40,7 +40,7 @@ type TrustRowProps = {
 const TrustRow: React.FC<TrustRowProps> = ({ icon, text }) => (
   <div className="flex items-center">
     <span className="mr-2">{icon}</span>
-    <span className="text-sm text-gray-600">{text}</span>
+    <span className="text-body-sm text-subtle">{text}</span>
   </div>
 )
 
@@ -81,10 +81,10 @@ export const OrderSummary: React.FC<OrderSummaryProps> = ({
     setCurrency(e.target.value as CurrencyValues)
 
   return (
-    <div className="flex flex-col gap-(--space-md)">
-      <div className="border-b border-stone-200 pb-(--space-md)">
-        <div className="flex justify-between items-center mb-(--space-md)">
-          <h3 className="text-4xl font-black text-neutral-800">
+    <div className="flex flex-col gap-space-md">
+      <div className="border-b border-default pb-space-md">
+        <div className="flex justify-between items-center mb-space-md">
+          <h3 className="text-heading-2xl font-black!">
             Your new subscription
           </h3>
 
@@ -96,7 +96,7 @@ export const OrderSummary: React.FC<OrderSummaryProps> = ({
           />
         </div>
 
-        <div className="flex items-center gap-(--space-md)">
+        <div className="flex items-center gap-space-md">
           <RadioGroup
             value={billingCycle}
             onChange={handleBillingChange}
@@ -108,7 +108,7 @@ export const OrderSummary: React.FC<OrderSummaryProps> = ({
               label={
                 <>
                   Annual
-                  <Badge variant="primary" size="xs" className="ml-2">
+                  <Badge variant="primary" size="xs" className="ml-space-sm">
                     Save 15%
                   </Badge>
                 </>
@@ -120,30 +120,30 @@ export const OrderSummary: React.FC<OrderSummaryProps> = ({
 
       {/* Selected Plan */}
       {selected && (
-        <div className="pb-4 border-b border-stone-200">
+        <div className="pb-space-md border-b border-default">
           <Row label="Selected Plan" value={selected.title} />
           <Row label="Price" value={formatCurrency(unitPrice, currency)} />
           <Row label="Billing Cycle" value={billingLabel} />
         </div>
       )}
 
-      <div className="pb-6 border-b border-stone-200">
+      <div className="pb-space-md border-b border-default">
         <Row label="Subtotal" value={formatCurrency(subtotal, currency)} />
         {discountAmount > 0 && (
           <Row
             label="Discount"
             value={`-${formatCurrency(discountAmount, currency)}`}
-            valueClass="text-green-600"
+            valueClass="text-success"
           />
         )}
         <Row
           label={`Tax (${BILLING_TAX * 100}%)`}
           value={`+${formatCurrency(taxAmount, currency)}`}
-          valueClass="text-red-600"
+          valueClass="text-destructive"
         />
       </div>
 
-      <div className="flex justify-between mb-6 text-3xl">
+      <div className="flex justify-between text-heading-2xl">
         <span className="font-bold">{billingLabel} Total</span>
         <span className="font-bold">{formatCurrency(total, currency)}</span>
       </div>
@@ -152,8 +152,8 @@ export const OrderSummary: React.FC<OrderSummaryProps> = ({
         <Alert
           variant="secondary"
           message={
-            <div className="flex gap-(--space-md)">
-              <RiPriceTag3Line className="text-xl shrink-0 mt-[2px]" />
+            <div className="flex gap-space-md text-body-md">
+              <RiPriceTag3Line className="shrink-0 mt-[4px]" />
               <span>
                 Your savings{' '}
                 <strong>{formatCurrency(annualSavings, currency)}</strong>{' '}
@@ -170,29 +170,29 @@ export const OrderSummary: React.FC<OrderSummaryProps> = ({
         {buttonLabel}
       </Button>
 
-      <div className="border-t border-stone-200 py-(--space-md)">
-        <div className="space-y-4">
+      <div className="border-t border-default py-space-md">
+        <div className="flex items-center justify-center gap-space-sm">
           <TrustRow
-            icon={<RiShieldKeyholeLine className="h-5 w-5 text-green-500" />}
-            text="Secure 256-bit SSL encryption"
+            icon={<RiShieldKeyholeLine className="h-5 w-5 text-success" />}
+            text="SSL encryption"
           />
           <TrustRow
-            icon={<RiRefund2Line className="h-5 w-5 text-green-500" />}
-            text="14-day money-back guarantee"
+            icon={<RiRefund2Line className="h-5 w-5 text-success" />}
+            text="Guarantee"
           />
           <TrustRow
-            icon={<RiCalendarEventLine className="h-5 w-5 text-green-500" />}
+            icon={<RiCalendarEventLine className="h-5 w-5 text-success" />}
             text="Cancel anytime"
           />
         </div>
 
-        <p className="text-sm text-neutral-500 mt-(--space-md) text-center">
+        <p className="text-body-sm text-subtlest mt-space-md text-center">
           By completing your purchase you agree to our{' '}
-          <Link href="#" className="text-(--primary) hover:underline">
+          <Link href="#" className="text-primary hover:underline">
             Terms of Service
           </Link>{' '}
           and{' '}
-          <Link href="#" className="text-(--primary) hover:underline">
+          <Link href="#" className="text-primary hover:underline">
             Privacy Policy
           </Link>
           .

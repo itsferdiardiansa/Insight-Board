@@ -11,12 +11,16 @@ import { PlanSelector, PlanSelectorProps } from './PricingPlanSelector'
 type PlanProps = {
   title?: string
   subtitle?: string
+  titleClassName?: string
+  subTitleClassName?: string
   selectorVariant?: PlanSelectorProps['variant']
 }
 
 export const PricingPlan: React.FC<PlanProps> = ({
   title,
   subtitle,
+  titleClassName,
+  subTitleClassName,
   selectorVariant,
 }) => {
   const planSelectorRef = useRef<HTMLDivElement | null>(null)
@@ -52,6 +56,8 @@ export const PricingPlan: React.FC<PlanProps> = ({
           <SectionHeader
             title={title}
             subtitle={subtitle}
+            titleClassName={titleClassName}
+            subTitleClassName={subTitleClassName}
             badgeLabel="Pricing"
             badgeVariant="secondary"
             badgeIcon={<IoPricetagsOutline />}
@@ -59,7 +65,7 @@ export const PricingPlan: React.FC<PlanProps> = ({
           />
         )}
 
-        <div className="flex flex-col gap-(--space-4xl)">
+        <div className="flex flex-col gap-space-4xl">
           <div ref={planSelectorRef} className="flex justify-center opacity-0">
             <PlanSelector variant={selectorVariant} />
           </div>

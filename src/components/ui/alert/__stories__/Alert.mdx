@@ -1,0 +1,273 @@
+import { Meta, Story, ArgTypes, Source } from "@storybook/addon-docs/blocks";
+import * as AlertStories from "./Alert.stories";
+import { Canvas } from "@/stories/_components/Canvas"
+import { DocInfo } from "@/stories/_components/DocInfo"
+import { TableOfContents } from "@/stories/_components/TableOfContents"
+
+<Meta title="UI/Alert" of={AlertStories} />
+
+<div className="flex gap-space-4xl">
+  <div>
+    # Alert
+
+    Displays an important, time-sensitive message to the user.
+    <DocInfo importStatement={`import { Alert } from "@/components/ui/alert"`} sourcePath={`components/ui/alert`} />
+
+    <br />
+
+    ## **When To Use**
+
+    Alerts are used to communicate important information to the user, such as success messages, warnings, errors, or general information. They should be used sparingly and only when the message is critical to the user's understanding or workflow.
+
+    In InsightBoard UI, alerts are flexible and can be adapted to different contexts through their props:
+
+    -   **Variant**: Choose a visual style that reflects the severity or purpose of the alert.
+        -   *Success*: Indicates a successful action or state.
+        -   *Warning*: Indicates a potential problem or something that requires attention.
+        -   *Error*: Indicates a critical error or failure.
+        -   *Info*: Provides general information or context.
+    -   **Title**: Use a title to provide more context and quickly grab the user's attention.
+    -   **Description**: Provide a more detailed explanation or instructions within the alert.
+    -   **Closable**: Allow the user to dismiss the alert if it's not critical or if they have already acknowledged the message.
+
+    ## **Accesibility**
+    The Alert component is designed with accessibility in mind. It uses appropriate ARIA roles and properties to ensure that screen readers can properly announce the alert message. When an alert is rendered, it automatically receives focus, allowing users relying on assistive technologies to be immediately informed of the message.
+    
+    Additionally, the visual design of the alert ensures sufficient color contrast between text and background, making it readable for users with visual impairments. The use of icons alongside text can also help convey the message more effectively to a wider audience.
+      -  **Keyboard Navigation**: If the alert is closable, the close button is focusable and can be activated using the keyboard (e.g., by pressing Enter or Space).
+      -  **Screen Reader Support**: The alert uses ARIA roles (e.g., `role="alert"`) to ensure that screen readers announce the alert message when it appears.
+      -  **Focus Management**: When an alert appears, it can automatically receive focus to ensure that users of assistive technologies are immediately informed of the message.
+      -  **Color Contrast**: The color scheme of the alert is designed to meet WCAG guidelines for color contrast, ensuring that text is readable against the background for users with visual impairments.
+      -  **Icons**: If the alert includes an icon, it should have appropriate `aria-hidden="true"` attributes to prevent screen readers from announcing it redundantly.
+      -  **Descriptive Text**: Ensure that the alert message is clear and concise, providing enough context for users to understand the significance of the alert.
+      -  **Testing**: Regularly test the alert component with various assistive technologies to ensure it behaves as expected and provides a good user experience for all users.
+    
+    <br />
+    
+    ## **Examples**
+
+    ### **Basic**
+    Basic usage of the Alert component with default props.
+    <Canvas>
+      <Canvas.Story>
+        <Story of={AlertStories.Solid} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Alert } from "@/components/ui/alert";
+
+          const AlertBasicExample = () => {
+            return (
+              <Alert
+                message="This is an alert"
+                description="Here is the description text for the alert."
+                variant="success" 
+                title="Success"
+              />
+              
+            )
+          };
+
+          export default AlertSuccessExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **With Icon**
+    Alert with an icon to visually represent the type of message.
+    <Canvas>
+      <Canvas.Story>
+        <Story of={AlertStories.WithAction} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Alert } from "@/components/ui/alert";
+
+          const AlertWithIconExample = () => {
+            return <Alert
+              message="This is an alert"
+              description="Here is the description text for the alert."
+              variant="primary"
+              showIcon
+              closable
+              action={(
+                <Button className="bg-primary-intense-pressed" size="sm">
+                  Retry
+                </Button>
+              )}
+            />
+          };
+
+          export default AlertSuccessExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ### **Banner**
+    Banner style alert that spans the full width of its container.
+    <Canvas>
+      <Canvas.Story>
+        <Story of={AlertStories.Banner} />
+      </Canvas.Story>
+
+      <Canvas.Source>
+        <Source className="my-0!" dark code={`
+          import { Alert } from "@/components/ui/alert";
+
+          const AlertWithIconExample = () => {
+            return <Alert
+              message="This is an alert"
+              description="Here is the description text for the alert."
+              variant="outlinePrimary"
+              banner
+              colesable
+            />
+          };
+
+          export default AlertSuccessExample;
+        `} />
+      </Canvas.Source>
+    </Canvas>
+
+    <br />
+
+    ## **API**
+    Below is a comprehensive list of all the props available for the Alert component, along with their types, default values, and descriptions.
+    <ArgTypes />
+
+    #### **PresetVariants**
+    > type PresetVariants = primary | outlinePrimary | secondary | outlineSecondary | success | outlineSuccess | info | outlineInfo | warning | outlineWarning | destructive | outlineDestructive | light | outlineLight | ghost
+
+    <br />
+
+    ## **FAQ**
+    #### **What are the different alert variants available?**
+
+    The Alert component supports the following variants: `success`, `warning`, `error`, and `info`. Each variant provides a different visual style to represent the alert's severity or purpose.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Alert variant="warning">This is a warning alert.</Alert>
+      `} />
+    </Canvas.Source>
+
+    #### **How do I add a title to an alert?**
+
+    Use the `title` prop to specify the title text for the alert.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Alert title="Attention">This is an alert with a title.</Alert>
+      `} />
+    </Canvas.Source>
+
+    #### **How do I add a description to an alert?**
+
+    Use the `description` prop to provide a more detailed explanation within the alert.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Alert description="Please review your settings.">This alert has a description.</Alert>
+      `} />
+    </Canvas.Source>
+
+    #### **How do I make an alert closable?**
+
+    Set the `closable` prop to `true` to add a close button to the alert.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Alert closable>This alert can be dismissed.</Alert>
+      `} />
+    </Canvas.Source>
+
+    #### **Can I customize the icon used in the alert?**
+
+    (Assuming there's an `icon` prop) Yes, you can use the `icon` prop to pass a custom React element to be used as the alert's icon.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        import { FaCheckCircle } from 'react-icons/fa';
+        <Alert icon={<FaCheckCircle />} variant="success">Success!</Alert>
+      `} />
+    </Canvas.Source>
+
+    #### **How do I handle the alert being closed?**
+
+    (Assuming there's an `onClose` prop) Use the `onClose` prop to provide a callback function that will be executed when the user closes the alert.
+
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        const handleClose = () => { console.log("Alert closed"); };
+        <Alert closable onClose={handleClose}>This alert has a close handler.</Alert>
+      `} />
+    </Canvas.Source>
+  </div>
+
+  <div>
+    <TableOfContents
+      items={[
+        {
+          id: "when-to-use",
+          label: "When To Use"
+        },
+        {
+          id: "accesibility",
+          label: "Accessibility"
+        },
+        {
+          id: "examples",
+          label: "Examples",
+          children: [
+            {
+              id: "basic",
+              label: "Basic"
+            },
+            {
+              id: "with-icon",
+              label: "With Icon"
+            },
+            {
+              id: "banner",
+              label: "Banner"
+            }
+          ]
+        },
+        {
+          id: "api",
+          label: "API",
+          children: [
+            {
+              id: "presetvariants",
+              label: "Preset Variants"
+            }
+          ]
+        },
+        {
+          id: "faq",
+          label: "FAQ",
+          children: [
+            {
+              id: "what-are-the-different-alert-variants-available",
+              label: "What are the different..."
+            },
+            {
+              id: "how-do-i-add-a-title-to-an-alert",
+              label: "How do I add a title..."
+            },
+            {
+              id: "how-do-i-add-a-description-to-an-alert",
+              label: "How do I add..."
+            }
+          ]
+        },
+      ]}
+    />
+  </div>
+</div>

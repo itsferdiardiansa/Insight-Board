@@ -74,7 +74,7 @@ export const PlanTierComparison: React.FC = () => {
   return (
     <SectionShell direction={'col'}>
       <SectionHeader
-        title="The plan that <span class='text-violet-800'>empowers</span> your growth"
+        title="The plan that <span class='text-primary'>empowers</span> your growth"
         subtitle="Compare features side-by-side to discover which plan gives your team<br />the tools to scale, collaborate, and thrive."
         textAlign="center"
         badgeLabel="Compare"

@@ -16,7 +16,7 @@ const coreBenefits = [
   {
     title: 'Enterprise-grade data governance',
     description:
-      'InsightBoard ensures full control, transparency, and auditability of your analytics—backed by secure, compliant infrastructure.',
+      'InsightBoard ensures full control and transparencyof your analytics—backed by secure, compliant infrastructure.',
     icon: <AiOutlineSafetyCertificate />,
   },
   {
@@ -40,7 +40,7 @@ const coreBenefits = [
   {
     title: 'Native integrations',
     description:
-      'Seamlessly connect with Stripe, Notion, Shopify, Google Sheets, and other popular tools.',
+      'Seamlessly connect with Stripe, Notion, Google Sheets, and other popular tools.',
     icon: <MdOutlineIntegrationInstructions />,
   },
   {
@@ -133,24 +133,22 @@ const CoreBenefit: React.FC = () => {
 
   return (
     <SectionShell direction="col" ref={containerRef}>
-      <div className="flex flex-col justify-stretch gap-(--space-4xl) text-neutral-300">
-        <div className="flex flex-row gap-(--space-lg)">
-          <div className="flex-1 flex flex-col gap-(--space-md)">
+      <div className="flex flex-col justify-stretch gap-space-xl md:gap-space-4xl text-subtlest max-md:text-center">
+        <div className="flex flex-row gap-space-lg">
+          <div className="flex-1 flex flex-col gap-space-sm">
             <h1
               ref={headingRef}
-              className="heading-display text-neutral-100! opacity-0"
+              className="text-heading-4xl text-inverse! opacity-0"
             >
               Analytics + automation, all in one place
             </h1>
 
             <p
               ref={subheadingRef}
-              className="heading-sub text-neutral-400! opacity-0"
+              className="text-heading-xl text-subtlest! opacity-0"
             >
-              InsightBoard connects your data from Stripe, Notion, Shopify, and
-              more—turning raw information into real-time insights. Build
-              dashboards, automate reports, and drive smarter decisions without
-              writing code.
+              InsightBoard connects your data from Stripe, Shopify, and
+              more—turning raw information into real-time insights.
             </p>
           </div>
         </div>
@@ -163,8 +161,8 @@ const CoreBenefit: React.FC = () => {
                 cardsRef.current[index] = el
               }}
               className={cn(
-                'flex flex-col justify-between gap-(--space-2xl) md:gap-(--space-4xl) py-(--space-md) md:px-(--space-md) opacity-0',
-                'border-b md:border-r border-neutral-600',
+                'flex flex-col justify-between max-md:items-center gap-space-xl md:gap-space-4xl py-space-xl md:px-space-md opacity-0',
+                'border-b md:border-r border-secondary',
                 (index + 1) % 3 === 0 && 'border-r-0',
                 index >= 3 && 'lg:border-b-0'
               )}
@@ -173,11 +171,11 @@ const CoreBenefit: React.FC = () => {
                 <span className="text-4xl md:text-5xl">{item.icon}</span>
               </div>
 
-              <div className="flex flex-col gap-(--space-md)">
-                <h1 className="text-2xl md:text-4xl font-bold text-neutral-100">
-                  {item.title}
-                </h1>
-                <p className="text-lg text-neutral-400">{item.description}</p>
+              <div className="flex flex-col gap-space-xs">
+                <h1 className="text-heading-xl text-inverse">{item.title}</h1>
+                <p className="text-body-md lg:text-body-lg text-subtlest">
+                  {item.description}
+                </p>
               </div>
             </div>
           ))}
@@ -186,7 +184,6 @@ const CoreBenefit: React.FC = () => {
         <div ref={buttonRef} className="flex justify-center opacity-0">
           <Button
             variant="light"
-            size="lg"
             icon={<GoArrowRight />}
             iconPosition="right"
             asChild

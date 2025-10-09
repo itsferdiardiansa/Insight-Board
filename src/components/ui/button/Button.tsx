@@ -4,34 +4,34 @@ import { type ReactNode, ButtonHTMLAttributes, forwardRef } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { Slot, Slottable } from '@radix-ui/react-slot'
 import { cn } from '@/utils/tailwind'
-import { FaCircleNotch } from 'react-icons/fa'
 
 const buttonSizes = {
-  sm: 'px-2.5 py-1.5 text-sm',
-  md: 'px-3.5 py-2.5 text-base',
-  lg: 'px-4.5 py-3.5 text-lg',
+  sm: 'px-2.5 py-1.5 text-body-sm',
+  md: 'px-3.5 py-2.5 text-body-md',
+  lg: 'px-4.5 py-3.5 text-body-lg',
 }
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-bold tracking-wide cursor-pointer transition-all duration-300 ease-in-out',
+  'inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-bold! tracking-wide cursor-pointer transition-all duration-300 ease-in-out',
   {
     variants: {
       variant: {
-        primary: 'bg-(--primary) text-neutral-100 hover:bg-(--primary-hover)',
+        primary:
+          'bg-primary-intense text-inverse hover:bg-primary-intense-hovered',
         outlinePrimary:
-          'outline outline-(--primary) text-(--primary) hover:bg-(--primary) hover:text-neutral-100',
+          'border border-primary text-primary hover:bg-primary-intense hover:border-primary-intense hover:text-inverse',
         secondary:
-          'bg-(--secondary) text-neutral-100 hover:bg-(--secondary-hover)',
+          'bg-secondary-intense-pressed text-inverse hover:bg-secondary-intense-hovered',
         outlineSecondary:
-          'outline outline-(--secondary) hover:bg-(--secondary) hover:text-neutral-100',
+          'border border-secondary text-secondary hover:bg-secondary-intense hover:border-secondary-intense hover:text-inverse',
         destructive:
-          'bg-(--destructive) text-neutral-100 hover:bg-(--destructive-hover)',
+          'bg-destructive-intense text-inverse hover:bg-destructive-intense-hovered',
         outlineDestructive:
-          'outline outline-(--destructive) text-(--destructive) hover:bg-(--destructive) hover:text-neutral-100',
-        light: 'bg-white text-neutral-800 hover:bg-gray-50',
+          'border border-destructive text-accent-red hover:bg-destructive-intense hover:border-destructive-intense hover:text-inverse',
+        light: 'bg-default text-default hover:bg-inverse-hovered',
         outlineLight:
-          'outline outline-gray-300 text-neutral-800 hover:bg-white hover:text-black',
-        ghost: 'text-(--secondary)',
+          'border border-disabled text-default hover:bg-default hover:text-default',
+        ghost: 'text-secondary',
       },
       size: buttonSizes,
       rounded: {
@@ -41,24 +41,19 @@ const buttonVariants = cva(
         full: 'rounded-full',
       },
       disabled: {
-        true: 'bg-(--muted) text-neutral-800 hover:bg-(--muted) disabled:cursor-not-allowed disabled:opacity-50',
+        true: 'bg-disabled! text-secondary disabled:cursor-not-allowed disabled:opacity-50',
       },
       fullWidth: {
         true: 'w-full',
       },
     },
     compoundVariants: [
-      // { size: 'sm', rounded: 'full', className: 'px-2.5' },
-      // { size: 'md', rounded: 'full', className: 'px-3.5' },
-      // { size: 'lg', rounded: 'full', className: 'px-4.5' },
-
       { disabled: false, rounded: 'none', className: 'hover:rounded-md' },
       { disabled: false, rounded: 'sm', className: 'hover:rounded-lg' },
       { disabled: false, rounded: 'md', className: 'hover:rounded-xl' },
     ],
     defaultVariants: {
       variant: 'primary',
-      // size: 'md',
       fullWidth: false,
       rounded: 'md',
     },
@@ -111,7 +106,22 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           className
         )}
       >
-        {loading && <FaCircleNotch className="animate-spin" aria-hidden />}
+        {loading && (
+          <div
+            className={cn(
+              'flex gap-space-sm items-center justify-center cursor-not-allowed',
+              buttonSizes[size as keyof typeof buttonSizes],
+              innerClassName
+            )}
+          >
+            <div
+              className="w-4 h-4 rounded-full inline-block border-t-[2px] border-r-[2px] border-white border-r-transparent box-border animate-spin"
+              data-testid="btn-loading-spinner"
+              aria-hidden
+            />
+          </div>
+        )}
+
         {!loading && (
           <Slottable>
             {asChild ? (
@@ -119,7 +129,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             ) : (
               <div
                 className={cn(
-                  'flex gap-(--space-sm) items-center justify-center',
+                  'flex gap-space-sm items-center justify-center',
                   buttonSizes[size as keyof typeof buttonSizes],
                   innerClassName
                 )}

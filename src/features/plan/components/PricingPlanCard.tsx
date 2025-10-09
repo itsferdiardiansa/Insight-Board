@@ -42,7 +42,7 @@ export const PricingPlanCard = forwardRef<HTMLDivElement, PricingPlanCardProps>(
       <div ref={ref} className="relative w-full xl:min-w-[322px] opacity-0">
         <div
           className={cn(
-            'bg-white border border-gray-200',
+            'bg-white border border-default',
             'h-full relative flex flex-col p-8 justify-between rounded-2xl cursor-pointer hover:scale-[1.03] duration-200',
             isRecommended && 'bg-linear-to-tl from-violet-700 to-violet-500'
           )}
@@ -51,36 +51,34 @@ export const PricingPlanCard = forwardRef<HTMLDivElement, PricingPlanCardProps>(
             <div
               className={cn(
                 'flex z-0 flex-col pb-5 w-full border-b border-solid',
-                isRecommended
-                  ? 'border-b-(--primary-hover)'
-                  : 'border-b-gray-200'
+                isRecommended ? 'border-b-accent-violet' : 'border-b-default'
               )}
             >
               <div className="w-full">
                 <h2
                   className={cn(
-                    'text-5xl font-black',
-                    isRecommended && 'text-neutral-100'
+                    'text-heading-3xl font-black!',
+                    isRecommended && 'text-inverse'
                   )}
                 >
                   {title}
                 </h2>
                 <p
                   className={cn(
-                    'mt-1.5 text-lg leading-6',
-                    isRecommended && 'text-neutral-200'
+                    'mt-space-xs text-body-md md:text-body-lg font-medium! leading-6',
+                    !isRecommended ? 'text-subtle' : 'text-inverse/90'
                   )}
                 >
                   {subtitle}
                 </p>
               </div>
 
-              <div className="relative flex gap-(--space-sm) items-center self-start mt-5 whitespace-nowrap">
+              <div className="relative flex gap-space-sm items-center self-start mt-space-md whitespace-nowrap">
                 <div
                   ref={priceRef}
                   className={cn(
-                    'h-[36px] overflow-hidden text-5xl font-bold',
-                    isRecommended && 'text-neutral-100'
+                    'h-[45px] overflow-hidden text-heading-4xl',
+                    isRecommended && 'text-inverse'
                   )}
                 >
                   <span
@@ -98,7 +96,7 @@ export const PricingPlanCard = forwardRef<HTMLDivElement, PricingPlanCardProps>(
                 <p
                   className={cn(
                     'self-stretch my-auto text-base',
-                    isRecommended && 'text-neutral-200'
+                    isRecommended && 'text-inverse'
                   )}
                 >
                   /month
@@ -108,8 +106,8 @@ export const PricingPlanCard = forwardRef<HTMLDivElement, PricingPlanCardProps>(
 
             <div
               className={cn(
-                'z-0 w-full flex flex-col font-semibold',
-                isRecommended ? 'text-neutral-100' : 'text-neutral-800'
+                'w-full flex flex-col z-0',
+                isRecommended && 'text-inverse'
               )}
             >
               {isBasePlan ? (
@@ -134,14 +132,10 @@ export const PricingPlanCard = forwardRef<HTMLDivElement, PricingPlanCardProps>(
             </div>
           </div>
 
-          <div className="mt-12 flex flex-col z-0 bottom-[33px]">
+          <div className="mt-space-2xl flex flex-col z-0 bottom-[33px]">
             <Button
-              variant={isRecommended ? 'outlineSecondary' : 'secondary'}
-              className={cn(
-                isRecommended &&
-                  'bg-white outline-white hover:bg-white hover:outline-white hover:text-(--secondary)'
-              )}
-              size="lg"
+              variant={isRecommended ? 'light' : 'secondary'}
+              size="md"
               asChild
             >
               <Link href={'/subscriptions'}>Get Started</Link>

@@ -44,7 +44,7 @@ export const CeoStatement: React.FC = () => {
     <SectionShell direction={'col'} gapSize={'sm'}>
       <div
         ref={containerRef}
-        className="text-2xl md:text-6xl font-bold leading-relaxed text-neutral-800 text-center"
+        className="text-heading-4xl font-bold leading-relaxed text-center"
       >
         {wordList.map((word, i) => (
           <span
@@ -53,9 +53,9 @@ export const CeoStatement: React.FC = () => {
               if (el) wordsRef.current[i] = el
             }}
             className={cn(
-              'inline-block mr-2 transition-opacity duration-300',
+              'inline-block mr-space-md transition-opacity duration-300',
               word.toLowerCase().includes('insightboard')
-                ? 'text-violet-700 font-bold'
+                ? 'text-primary font-bold'
                 : ''
             )}
           >
@@ -64,9 +64,9 @@ export const CeoStatement: React.FC = () => {
         ))}
       </div>
 
-      <div className="text-lg text-neutral-600 text-center">
+      <div className="text-heading-lg text-subtle text-center">
         — <strong>Ferdi Ardiansa</strong>, CEO of{' '}
-        <span className="text-indigo-600">{siteConfig.name}</span>
+        <span className="text-primary">{siteConfig.name}</span>
       </div>
     </SectionShell>
   )

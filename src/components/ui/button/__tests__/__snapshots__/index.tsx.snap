@@ -81,11 +81,11 @@ exports[`components/Button renders contents correctly 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-bold tracking-wide cursor-pointer transition-all duration-300 ease-in-out bg-(--primary) text-neutral-100 hover:bg-(--primary-hover) rounded-md"
+        class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-bold! tracking-wide cursor-pointer transition-all duration-300 ease-in-out bg-primary-intense text-inverse hover:bg-primary-intense-hovered rounded-md"
         data-testid="btn"
       >
         <div
-          class="flex gap-(--space-sm) items-center justify-center px-3.5 py-2.5 text-base"
+          class="flex gap-space-sm items-center justify-center px-3.5 py-2.5 text-body-md"
         >
           <span>
             Click me!
@@ -96,11 +96,11 @@ exports[`components/Button renders contents correctly 1`] = `
   </body>,
   "container": <div>
     <button
-      class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-bold tracking-wide cursor-pointer transition-all duration-300 ease-in-out bg-(--primary) text-neutral-100 hover:bg-(--primary-hover) rounded-md"
+      class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-bold! tracking-wide cursor-pointer transition-all duration-300 ease-in-out bg-primary-intense text-inverse hover:bg-primary-intense-hovered rounded-md"
       data-testid="btn"
     >
       <div
-        class="flex gap-(--space-sm) items-center justify-center px-3.5 py-2.5 text-base"
+        class="flex gap-space-sm items-center justify-center px-3.5 py-2.5 text-body-md"
       >
         <span>
           Click me!

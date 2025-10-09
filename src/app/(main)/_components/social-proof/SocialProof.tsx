@@ -29,10 +29,7 @@ const SocialProof: React.FC = () => {
   return (
     <SectionShell direction="col" gapSize="md">
       <div className="relative">
-        <h2
-          ref={titleRef}
-          className="text-2xl font-semibold text-center text-neutral-800 opacity-0"
-        >
+        <h2 ref={titleRef} className="text-heading-2xl text-center opacity-0">
           Trusted by 10,000+ founders & business owners
         </h2>
       </div>

@@ -11,16 +11,16 @@ export const PricingPlanFeature: React.FC<PricingPlanFeatureProps> = ({
   isRecommended,
 }) => {
   return (
-    <div className="w-full flex gap-(--space-sm) items-center">
+    <div className="w-full flex gap-space-sm items-center">
       <FaCheck
         className={cn(
-          'p-1 rounded-full text-xl',
+          'p-1 rounded-full text-body-xl',
           isRecommended ? 'bg-neutral-100' : 'bg-neutral-700',
           isRecommended ? 'text-gray-900' : 'text-gray-100'
         )}
       />
 
-      <p className="self-stretch my-auto">{text}</p>
+      <p className="self-stretch my-auto text-body-md md:text-body-lg">{text}</p>
     </div>
   )
 }

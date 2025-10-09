@@ -15,7 +15,7 @@ type BillingInfoModalProps = {
 export const BillingInfoModal: React.FC<BillingInfoModalProps> = ({
   isOpen,
   isEdit = false,
-  onOpenChange,
+  onOpenChange = () => {},
 }) => {
   const [open, setOpen] = useState(isOpen ?? false)
 
@@ -28,23 +28,23 @@ export const BillingInfoModal: React.FC<BillingInfoModalProps> = ({
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50" />
 
-        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-6 bg-white dark:bg-zinc-950 p-6 rounded-xl shadow-xl focus:outline-none">
+        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-space-md bg-white dark:bg-zinc-950 p-6 rounded-xl shadow-xl focus:outline-none">
           <Dialog.Description className="sr-only">
             {isEdit ? 'Edit' : 'Add'} billing information using the form below.
           </Dialog.Description>
 
           <div className="flex items-start justify-between">
-            <Dialog.Title className="text-lg font-bold">
+            <Dialog.Title className="text-heading-lg font-bold!">
               {isEdit ? 'Edit Billing Info' : 'Add Billing Info'}
             </Dialog.Title>
             <Dialog.Close asChild>
-              <button className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white">
+              <button className="text-subtle hover:text-subtlest cursor-pointer">
                 <IoCloseOutline className="w-5 h-5" />
               </button>
             </Dialog.Close>
           </div>
 
-          <form className="space-y-4">
+          <form className="space-y-gap-md">
             <Input label="Company Name" value="Acme Corporation" />
             <MaskedInput
               label="Tax ID (NPWP)"
@@ -66,16 +66,11 @@ export const BillingInfoModal: React.FC<BillingInfoModalProps> = ({
             <Input label="Country" value="Konoha" />
           </form>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-zinc-200 dark:border-zinc-800">
+          <div className="flex justify-end gap-space-sm pt-space-md border-t border-default">
             <Dialog.Close asChild>
               <Button variant="outlineSecondary">Cancel</Button>
             </Dialog.Close>
-            <Button
-              variant="primary"
-              onClick={() => {
-                setOpen(false)
-              }}
-            >
+            <Button variant="primary" onClick={() => onOpenChange(false)}>
               {isEdit ? 'Save Changes' : 'Save Billing Info'}
             </Button>
           </div>

@@ -4,14 +4,40 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/form/input'
+import { cva, VariantProps } from 'class-variance-authority'
+import { cn } from '@/utils/tailwind'
 
-export const Newsletter = () => {
+const newsletterVariants = cva('', {
+  variants: {
+    variant: {
+      horizontal: 'flex-col md:flex-row',
+      vertical: 'flex-col',
+    },
+    formLayout: {
+      horizontal: 'md:flex-[.5] flex-row',
+      vertical: 'flex-col [&>*]:flex-1 items-stretch',
+    },
+  },
+})
+
+export interface NewsletterProps
+  extends VariantProps<typeof newsletterVariants> {
+  isAnimate?: boolean
+}
+
+export const Newsletter: React.FC<NewsletterProps> = ({
+  variant = 'horizontal',
+  formLayout = 'horizontal',
+  isAnimate,
+}) => {
   const sectionRef = useRef<HTMLDivElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
   const paragraphRef = useRef<HTMLParagraphElement>(null)
   const formRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (!isAnimate) return
+
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -42,16 +68,25 @@ export const Newsletter = () => {
     }, sectionRef)
 
     return () => ctx.revert()
-  }, [])
+  }, [isAnimate])
 
   return (
-    <div ref={sectionRef} className="flex flex-col md:flex-row gap-4 md:gap-8">
-      <div className="flex-1 flex flex-col items-start gap-4">
-        <h2 ref={headingRef} className="heading-display mb-4 opacity-0">
+    <div
+      ref={sectionRef}
+      className={cn('flex gap-sm md:gap-md', newsletterVariants({ variant }))}
+    >
+      <div className="flex-1 flex flex-col items-start gap-sm">
+        <h2
+          ref={headingRef}
+          className={cn('text-heading-4xl', isAnimate && 'opacity-0')}
+        >
           Stay in the loop
         </h2>
 
-        <p ref={paragraphRef} className="heading-sub max-w-xl mb-6 opacity-0">
+        <p
+          ref={paragraphRef}
+          className={cn('max-w-xl text-heading-lg text-subtle font-light! mt-space-xs mb-6', isAnimate && 'opacity-0')}
+        >
           Subscribe to our newsletter and get the latest product updates,
           insights, and exclusive offers directly to your inbox.
         </p>
@@ -59,7 +94,11 @@ export const Newsletter = () => {
 
       <div
         ref={formRef}
-        className="md:flex-[.5] flex flex-row justify-center items-center gap-2 opacity-0"
+        className={cn(
+          'flex justify-center items-center gap-space-md',
+          newsletterVariants({ formLayout }),
+          isAnimate && 'opacity-0'
+        )}
       >
         <Input type="email" label="Enter your email" fullWidth />
         <Button variant="secondary" type="submit">

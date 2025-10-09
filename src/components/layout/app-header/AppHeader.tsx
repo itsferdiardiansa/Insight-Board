@@ -86,9 +86,9 @@ export const AppHeader: React.FC = () => {
       // ref={headerRef}
       className="sticky top-0 inset-x-0 z-[999] transition-all duration-300 bg-white/80 backdrop-blur-sm"
     >
-      <div className="layout-wrapper py-(--space-xs) md:py-(--space-sm) z-50">
-        <div className="flex justify-between items-center gap-(--space-md)">
-          <div className="flex items-center gap-(--space-4xl)">
+      <div className="layout-wrapper py-space-xs md:py-space-sm z-50">
+        <div className="flex justify-between items-center gap-space-md">
+          <div className="flex items-center gap-space-4xl">
             <BrandLogo />
           </div>
 
@@ -104,13 +104,13 @@ export const AppHeader: React.FC = () => {
             fullScreen
             onClose={() => setOpen(false)}
           >
-            <Drawer.Content>
+            <Drawer.Content className="py-0!">
               <Navigation onCloseDrawer={() => setOpen(false)} />
-              <AuthButton className="py-(--space-sm)" />
+              <AuthButton className="py-space-sm" />
             </Drawer.Content>
           </Drawer>
 
-          <div className="flex gap-(--space-xs) items-center">
+          <div className="flex gap-space-xs items-center">
             <AuthButton className="hidden lg:block" />
             <CTAButton />
 

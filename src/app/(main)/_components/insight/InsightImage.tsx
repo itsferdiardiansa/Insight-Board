@@ -36,7 +36,7 @@ export const InsightImage: React.FC = () => {
     <Image
       ref={imageRef}
       src={ManageRawData}
-      className="absolute inset-0 object-cover opacity-0"
+      className="w-full absolute inset-0 object-cover opacity-0"
       alt="Data insights visualization"
       width={590}
       height={885}

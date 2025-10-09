@@ -14,4 +14,228 @@
   --color-foreground: var(--foreground);
   --color-border: var(--border);
   --color-ring: var(--ring);
+  
+  /* ========= TEXT =========== */
+  /* =========        =========== */
+  /* === Core Text Colors === */
+  --text-color-default: theme(colors.neutral.900);
+  --text-color-subtle: theme(colors.neutral.600);
+  --text-color-subtlest: theme(colors.neutral.400);
+  --text-color-inverse: theme(colors.neutral.50);
+  --text-color-warning-inverse: theme(colors.neutral.700);
+  
+  /* === Semantic Text Colors */
+  --text-color-primary: theme(colors.violet.700);
+  --text-color-secondary: theme(colors.neutral.700);
+  --text-color-success: theme(colors.green.600);
+  --text-color-warning: theme(colors.yellow.400);
+  --text-color-destructive: theme(colors.red.700);
+  --text-color-info: theme(colors.blue.700);
+  
+  /* === Accent Text Colors === */
+  --text-color-accent-neutral: theme(colors.neutral.700);
+  --text-color-accent-neutral-intense: theme(colors.neutral.800);
+
+  --text-color-accent-violet: theme(colors.violet.700);
+  --text-color-accent-violet-intense: theme(colors.violet.800);
+
+  --text-color-accent-gray: theme(colors.gray.700);
+  --text-color-accent-gray-intense: theme(colors.gray.800);
+
+  --text-color-accent-red: theme(colors.red.700);
+  --text-color-accent-red-intense: theme(colors.red.800);
+
+  --text-color-accent-green: theme(colors.green.700);
+  --text-color-accent-green-intense: theme(colors.green.800);
+
+  --text-color-accent-cyan: theme(colors.cyan.700);
+  --text-color-accent-cyan-intense: theme(colors.cyan.800);
+
+  --text-color-accent-orange: theme(colors.orange.700);
+  --text-color-accent-orange-intense: theme(colors.orange.800);
+
+  --text-color-accent-blue: theme(colors.blue.700);
+  --text-color-accent-blue-intense: theme(colors.blue.800);
+
+
+  /* ========= LINK =========== */
+  /* =========        =========== */
+  /* === Link Text Colors */
+  --text-color-link: theme(colors.violet.700);
+  --text-color-link-pressed: theme(colors.violet.800);
+
+  /* ========= ICON =========== */
+  /* =========        =========== */
+  /* === Icon Text Colors */
+  --color-icon: theme(colors.neutral.900);
+  --color-icon-disabled: theme(colors.neutral.400);
+  --color-icon-inverse: theme(colors.neutral.100);
+  --color-icon-subtle: theme(colors.neutral.700);
+  --color-icon-sublest: theme(colors.neutral.700);
+
+  /* == Icon Semeantic Colors */
+  --color-icon-primary: theme(colors.violet.700);
+  --color-icon-secondary: theme(colors.neutral.700);
+  --color-icon-success: theme(colors.green.700);
+  --color-icon-warning: theme(colors.yellow.700);
+  --color-icon-destructive: theme(colors.red.700);
+  --color-icon-info: theme(colors.blue.700);
+
+  /* == Icon Accent Colors */
+  --color-icon-accent-violet: theme(colors.violet.600);
+  --color-icon-accent-gray: theme(colors.gray.600);
+  --color-icon-accent-red: theme(colors.red.600);
+  --color-icon-accent-green: theme(colors.green.600);
+  --color-icon-accent-cyan: theme(colors.cyan.600);
+  --color-icon-accent-orange: theme(colors.orange.600);
+  --color-icon-accent-blue: theme(colors.blue.600);
+
+
+  /* ========= BORDER =========== */
+  /* =========        =========== */
+  /* == Border Core Colors */
+  --border-color-default: theme(colors.gray.200);
+  --border-color-disabled: theme(colors.gray.400);
+  --border-color-input: theme(colors.gray.300);
+  --border-color-focused: theme(colors.violet.700);
+  --border-color-error: theme(colors.red.700);
+  --border-color-inverse: theme(colors.gray.50);
+  --border-color-selected: theme(colors.violet.700);
+
+  /* == Border Semantic Colors */
+  --border-color-primary: theme(colors.violet.700);
+  --border-color-secondary: theme(colors.neutral.700);
+  --border-color-success: theme(colors.green.700);
+  --border-color-warning: theme(colors.yellow.400);
+  --border-color-destructive: theme(colors.red.700);
+  --border-color-info: theme(colors.blue.700);
+
+  /* == Border Accent Colors */
+  --border-color-accent-violet: theme(colors.violet.600);
+  --border-color-accent-gray: theme(colors.gray.600);
+  --border-color-accent-red: theme(colors.red.600);
+  --border-color-accent-green: theme(colors.green.600);
+  --border-color-accent-cyan: theme(colors.cyan.600);
+  --border-color-accent-orange: theme(colors.orange.600);
+  --border-color-accent-blue: theme(colors.blue.600);
+
+  /* ========= BACKGROUND =========== */
+  /* =========        =========== */
+  /* == Background Core Colors */
+  --background-color-default: theme(colors.white);
+  --background-color-disabled: theme(colors.gray.300);
+
+  --background-color-input: theme(colors.gray.50);
+  --background-color-input-hovered: theme(colors.gray.100);
+  --background-color-input-pressed: theme(colors.gray.50);
+  
+  --background-color-inverse: theme(colors.gray.50);
+  --background-color-inverse-hovered: theme(colors.gray.100);
+  --background-color-inverse-pressed: theme(colors.gray.200);
+  
+  --background-color-neutral: theme(colors.neutral.100);
+  --background-color-neutral-hovered: theme(colors.neutral.200);
+  --background-color-neutral-pressed: theme(colors.neutral.300);
+
+  --background-color-neutral-intense: theme(colors.neutral.700);
+  --background-color-neutral-intense-hovered: theme(colors.neutral.800);
+  --background-color-neutral-intense-pressed: theme(colors.neutral.900);
+
+  /* == Background Semantic Colors */
+  --background-color-primary: theme(colors.violet.100);
+  --background-color-primary-hovered: theme(colors.violet.200);
+  --background-color-primary-pressed: theme(colors.violet.300);
+
+  --background-color-primary-intense: theme(colors.violet.700);
+  --background-color-primary-intense-hovered: theme(colors.violet.800);
+  --background-color-primary-intense-pressed: theme(colors.violet.900);
+
+  --background-color-secondary: theme(colors.neutral.100);
+  --background-color-secondary-hovered: theme(colors.neutral.200);
+  --background-color-secondary-pressed: theme(colors.neutral.300);
+
+  --background-color-secondary-intense: theme(colors.neutral.700);
+  --background-color-secondary-intense-hovered: theme(colors.neutral.800);
+  --background-color-secondary-intense-pressed: theme(colors.neutral.900);
+  
+  --background-color-success: theme(colors.green.100);
+  --background-color-success-hovered: theme(colors.green.200);
+  --background-color-success-pressed: theme(colors.green.300);
+
+  --background-color-success-intense: theme(colors.green.700);
+  --background-color-success-intense-hovered: theme(colors.green.800);
+  --background-color-success-intense-pressed: theme(colors.green.900);
+
+  --background-color-warning: theme(colors.yellow.100);
+  --background-color-warning-hovered: theme(colors.yellow.200);
+  --background-color-warning-pressed: theme(colors.yellow.300);
+
+  --background-color-warning-intense: theme(colors.yellow.400);
+  --background-color-warning-intense-hovered: theme(colors.yellow.500);
+  --background-color-warning-intense-pressed: theme(colors.yellow.600);
+  
+  --background-color-destructive: theme(colors.red.100);
+  --background-color-destructive-hovered: theme(colors.red.200);
+  --background-color-destructive-pressed: theme(colors.red.300);
+
+  --background-color-destructive-intense: theme(colors.red.700);
+  --background-color-destructive-intense-hovered: theme(colors.red.800);
+  --background-color-destructive-intense-pressed: theme(colors.red.900);
+
+  --background-color-info: theme(colors.blue.100);
+  --background-color-info-hovered: theme(colors.blue.200);
+  --background-color-info-pressed: theme(colors.blue.300);
+
+  --background-color-info-intense: theme(colors.blue.700);
+  --background-color-info-intense-hovered: theme(colors.blue.800);
+  --background-color-info-intense-pressed: theme(colors.blue.900);
+
+  /* == Background Accent Colors */
+  --background-color-accent-violet-subtlest: theme(colors.violet.100);
+  --background-color-accent-violet-subtlest-hovered: theme(colors.violet.200);
+  --background-color-accent-violet-subtlest-pressed: theme(colors.violet.300);
+
+  --background-color-accent-violet-intense: theme(colors.violet.700);
+  --background-color-accent-violet-intense-hovered: theme(colors.violet.800);
+  --background-color-accent-violet-intense-pressed: theme(colors.violet.900);
+  
+  --background-color-accent-gray-subtlest: theme(colors.gray.100);
+  --background-color-accent-gray-subtlest-hovered: theme(colors.gray.200);
+  --background-color-accent-gray-subtlest-pressed: theme(colors.gray.300);
+
+  --background-color-accent-gray-intense: theme(colors.gray.700);
+  --background-color-accent-gray-intense-hovered: theme(colors.gray.800);
+  --background-color-accent-gray-intense-pressed: theme(colors.gray.900);
+
+  --background-color-accent-red-subtlest: theme(colors.red.100);
+  --background-color-accent-red-subtlest-hovered: theme(colors.red.200);
+  --background-color-accent-red-subtlest-pressed: theme(colors.red.300);
+
+  --background-color-accent-red-intense: theme(colors.red.700);
+  --background-color-accent-red-intense-hovered: theme(colors.red.800);
+  --background-color-accent-red-intense-pressed: theme(colors.red.900);
+
+  --background-color-accent-green-subtlest: theme(colors.green.100);
+  --background-color-accent-green-subtlest-hovered: theme(colors.green.200);
+  --background-color-accent-green-subtlest-pressed: theme(colors.green.300);
+
+  --background-color-accent-green-intense: theme(colors.green.700);
+  --background-color-accent-green-intense-hovered: theme(colors.green.800);
+  --background-color-accent-green-intense-pressed: theme(colors.green.900);
+
+  --background-color-accent-cyan-subtlest: theme(colors.cyan.100);
+  --background-color-accent-cyan-subtlest-hovered: theme(colors.cyan.200);
+  --background-color-accent-cyan-subtlest-pressed: theme(colors.cyan.300);
+
+  --background-color-accent-cyan-intense: theme(colors.cyan.700);
+  --background-color-accent-cyan-intense-hovered: theme(colors.cyan.800);
+  --background-color-accent-cyan-intense-pressed: theme(colors.cyan.900);
+
+  --background-color-accent-orange-subtlest: theme(colors.orange.100);
+  --background-color-accent-orange-subtlest-hovered: theme(colors.orange.200);
+  --background-color-accent-orange-subtlest-pressed: theme(colors.orange.300);
+
+  --background-color-accent-orange-intense: theme(colors.orange.700);
+  --background-color-accent-orange-intense-hovered: theme(colors.orange.800);
+  --background-color-accent-orange-intense-pressed: theme(colors.orange.900);
 }

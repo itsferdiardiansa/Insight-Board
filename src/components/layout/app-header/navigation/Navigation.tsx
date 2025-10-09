@@ -47,7 +47,7 @@ export const Navigation = ({ onCloseDrawer = () => {} }) => {
   }, [hoveredIndex])
 
   return (
-    <nav className="relative flex flex-col lg:flex-row z-50">
+    <nav className="relative flex flex-col lg:flex-row lg:gap-space-md z-50">
       {menuItems.map((item, index) => (
         <NavigationItem
           key={index}

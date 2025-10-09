@@ -1,0 +1,218 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import { ColorList } from "./ColorList";
+import { TableOfContents } from "@/stories/_components/TableOfContents";
+import FoundationColor from "@/assets/docs/foundation-color.png";
+import { 
+  backgroundColorTokenKeys, 
+  backgroundColorTokens, 
+  borderColorTokenKeys, 
+  borderColorTokens, 
+  textColorTokenKeys, 
+  textColorTokens 
+} from "./color-tokens"
+
+<Meta title="Foundations/Colors" />
+
+<div className="flex gap-space-4xl">
+  <div>
+    # Colors
+    **InsightBoard.com** is a highly visual tool, and our color system plays a critical role in enhancing usability. Colors help users quickly identify statuses, recognize actionable elements, find guidance, and understand the next steps.
+    By using a consistent and accessible color language, we reduce cognitive load and deliver a cohesive user experience across the product. Our palette is structured into three main themes to support various use cases and accessibility requirements.
+
+    <br />
+    <br />
+
+    ## **Text Colors**
+    **Text color tokens** define a consistent set of colors specifically for typography. They ensure readability, contrast, and alignment with the design system's semantic rules for text elements.
+    <ColorList prefix="text-color" tokenGroup={textColorTokenKeys} tokens={textColorTokens} />
+
+    ## **Border Colors**
+    **Border color tokens** provide a standardized palette for outlining, dividing, and framing components. They reinforce visual hierarchy, separate content, and maintain consistent boundaries across the UI.
+    <ColorList prefix="border-color" tokenGroup={borderColorTokenKeys} tokens={borderColorTokens} />
+
+    ## **Background Colors**
+    **Background color tokens** establish the base and contextual layers of the interface. They create depth, group related content, and align with brand guidelines for visual balance.
+    <ColorList prefix="background-color" tokenGroup={backgroundColorTokenKeys} tokens={backgroundColorTokens} />
+
+
+    ## **Usage**
+
+    ### Implementation Principles
+    - **Use tokens, not hex:** Always reference semantic tokens (e.g. `bg-default`, `border-default`, `text-primary`) rather than raw colors so updates are centralized.
+    - **Map tokens to states:** For each component define defaults, hover, pressed, active and disabled tokens (e.g. `bg-primary`, `bg-primary-hovered`, `bg-primary-pressed`, `bg-disabled`).
+    - **Pair surface + text:** Choose background and text token pairs that meet accessibility contrast (e.g. `bg-surface` + `text-default`).
+    - **Keep borders semantic:** Use border tokens for structure, focus and selection (`border-default`, `border-focused`, `border-selected`).
+    - **Prefer token names that reflect intent:** Use names that describe role (e.g. `bg-input`, `bg-accent-violet-intense`) so developers pick them correctly.
+    - **Document component-level usage:** Each component should list which tokens it uses for which state.
+
+    <br />
+
+    <div>
+      ### Quick token → component mapping
+      <table className="w-full text-left border-collapse">
+        <thead>
+          <tr>
+            <th className="py-space-sm px-space-md border-b">Token</th>
+            <th className="py-space-sm px-space-md border-b">Where to use</th>
+            <th className="py-space-sm px-space-md border-b">State</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="py-space-sm px-space-md font-semibold">bg-default</td>
+            <td className="py-space-sm px-space-md">Dropdown, popovers, menus</td>
+            <td className="py-space-sm px-space-md">Default surface</td>
+          </tr>
+          <tr>
+            <td className="py-space-sm px-space-md font-semibold">bg-primary-hovered</td>
+            <td className="py-space-sm px-space-md">Dropdown option, button hover</td>
+            <td className="py-space-sm px-space-md">Hover</td>
+          </tr>
+          <tr>
+            <td className="py-space-sm px-space-md font-semibold">bg-primary-pressed</td>
+            <td className="py-space-sm px-space-md">Button active, pressed list item</td>
+            <td className="py-space-sm px-space-md">Pressed / Active</td>
+          </tr>
+          <tr>
+            <td className="py-space-sm px-space-md font-semibold">border-default</td>
+            <td className="py-space-sm px-space-md">Cards, modals, form fields</td>
+            <td className="py-space-sm px-space-md">Default border</td>
+          </tr>
+          <tr>
+            <td className="py-space-sm px-space-md font-semibold">border-focused</td>
+            <td className="py-space-sm px-space-md">Input focus ring / outline</td>
+            <td className="py-space-sm px-space-md">Focus</td>
+          </tr>
+          <tr>
+            <td className="py-space-sm px-space-md font-semibold">text-default</td>
+            <td className="py-space-sm px-space-md">Body copy, labels, buttons</td>
+            <td className="py-space-sm px-space-md">Default text</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    ## **Examples**
+    The following examples showcase how our **Foundation Colors** are applied across various UI patterns. Each example highlights real component usage, ensuring the color system remains consistent and accessible in different contexts.
+
+    ### Menu
+    <div className="border border-default rounded-md p-space-lg">
+      <img
+        className="w-full object-cover" 
+        src="/assets/colors-implementation.png" 
+        alt="Foundation Color" 
+      />
+    </div>
+          
+    ### Card Vertical
+    <div className="border border-default rounded-md p-space-lg">
+      <img
+        className="w-full object-cover" 
+        src="/assets/color-use-in-vertical-card.png" 
+        alt="Foundation Color" 
+      />
+    </div>
+
+    ### Card Horizontal
+    <div className="border border-default rounded-md p-space-lg flex items-center">
+      <img
+        className="w-full object-cover" 
+        src="/assets/color-use-in-horizontal-card.png" 
+        alt="Foundation Color" 
+      />
+    </div>
+
+    ---   
+
+    ## Conclusion — How to implement
+
+    - **Reference tokens in CSS/Tailwind:** Map design tokens to CSS variables or Tailwind theme values once, then use semantic classes (e.g., `bg-[var(--color-bg-default)]` or map `bg-default` in Tailwind).
+    - **Define component token contracts:** For each component document which tokens are used for default, hover, pressed and disabled states.
+    - **Enforce accessibility:** Validate color pairs for contrast when choosing text + background tokens.
+    - **Keep tokens semantic:** Use intent-based names so maintainers and consumers pick tokens correctly.
+    - **Centralize updates:** Change the token value centrally to update across the product without editing component code.
+
+    <div className="m-0! inline-block bg-info p-space-sm rounded-md [&>*]:m-0! [&>*]:text-accent-cyan! [&>*]:font-semibold [&>*]:text-sm!">
+      Tip: Add a short “how to use” snippet on each component's Storybook page that shows the exact token names used for its states.
+    </div>
+  </div>
+
+  <div>
+    <TableOfContents
+      items={[
+        {
+          id: "colors",
+          label: "Colors",
+          children: [
+            {
+              id: "text-colors",
+              label: "Text",
+              children: [
+                {
+                  id: "text-color-core",
+                  label: "Core"
+                },
+                {
+                  id: "text-color-semantic",
+                  label: "Semantic"
+                },
+                {
+                  id: "text-color-accents",
+                  label: "Accents"
+                }
+              ]
+            },
+            {
+              id: "border-colors",
+              label: "Border",
+              children: [
+                {
+                  id: "border-color-core",
+                  label: "Core"
+                },
+                {
+                  id: "border-color-semantic",
+                  label: "Semantic"
+                },
+                {
+                  id: "border-color-accents",
+                  label: "Accents"
+                }
+              ]
+            },
+            {
+              id: "background-colors",
+              label: "Background",
+              children: [
+                {
+                  id: "background-color-core",
+                  label: "Core"
+                },
+                {
+                  id: "background-color-semantic",
+                  label: "Semantic"
+                },
+                {
+                  id: "background-color-accents",
+                  label: "Accents"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'usage',
+          label: "Usage & Implementation",
+        },
+        {
+          id: "examples",
+          label: "Examples"
+        },
+        {
+          id: "conclusion--how-to-implement",
+          label: "Conclusion"
+        }
+      ]}
+    />
+  </div>
+</div>

@@ -89,16 +89,13 @@ const ProductBenefits: React.FC = () => {
           }}
         >
           {ctaLinks.map((item, index) => (
-            <div
-              key={index}
-              className="border-b border-gray-300 py-(--space-md)"
-            >
+            <div key={index} className="border-b border-default py-space-md">
               <Link
                 href={item.link}
-                className="flex gap-(--space-sm) text-xl lg:text-3xl font-semibold hover:gap-(--space-md) transition-all duration-300 ease-in"
+                className="flex gap-space-sm text-body-md md:text-body-xl font-semibold hover:gap-space-md transition-all duration-300 ease-in"
               >
                 {item.title}
-                <GoArrowRight className="mt-(--space-xs)" />
+                <GoArrowRight className="mt-space-xs" />
               </Link>
             </div>
           ))}

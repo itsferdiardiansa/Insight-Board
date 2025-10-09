@@ -61,15 +61,15 @@ const CollaboratedWithYourTeam: React.FC = () => {
 
   return (
     <SectionShell
-      className="bg-(--primary) rounded-2xl"
+      className="bg-primary-intense rounded-2xl"
       direction={'col'}
       responsiveDirection={'mdRow'}
-      innerClassName="p-(--space-md) xl:p-(--space-xl)"
+      innerClassName="p-space-md xl:p-space-xl"
     >
       <div className="relative flex-1 rounded-2xl overflow-hidden ">
         <div
           ref={imageRef}
-          className="min-h-[410px] lg:min-h-[610px] opacity-0 z-10"
+          className="min-h-[410px] md:h-full lg:min-h-[610px] opacity-0 z-10"
         >
           <Image
             className="absolute top-0 left-0 w-full h-full object-cover"
@@ -84,7 +84,7 @@ const CollaboratedWithYourTeam: React.FC = () => {
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className={cn({ 'mt-2 xl:mt-4': index > 0 })}
+              className={cn({ 'mt-space-sm': index > 0 })}
             >
               <CollaborationFeatureItem
                 title={feature.title}

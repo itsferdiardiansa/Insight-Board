@@ -51,13 +51,18 @@ const BannerComponent: React.FC<BannerProps> = ({
       className={cn('content-block--py', className)}
       direction="col"
     >
-      <div className="flex flex-col items-center gap-(--space-lg) md:gap-(--space-2xl)">
+      <div className="flex flex-col items-center gap-space-lg md:gap-space-2xl">
         {slots.Content ? slots.Content : <SectionHeader {...headerProps} />}
 
         {Boolean(ctas?.length) && (
-          <div className="flex gap-(--space-md) items-start max-w-full font-semibold">
+          <div className="flex gap-space-md items-start max-w-full font-semibold">
             {ctas?.map((cta, index) => (
-              <Button key={index} {...cta} asChild={Boolean(cta.link)}>
+              <Button
+                key={index}
+                {...cta}
+                asChild={Boolean(cta.link)}
+                variant={cta.variant}
+              >
                 {cta.link ? (
                   <Link href={cta.link}>{cta.label}</Link>
                 ) : (

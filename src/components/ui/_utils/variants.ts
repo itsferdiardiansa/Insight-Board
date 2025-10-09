@@ -1,19 +1,19 @@
 export const variantMap = {
-  primary: 'bg-(--primary) text-neutral-100',
-  outlinePrimary: 'outline outline-(--primary) text-(--primary)',
-  secondary: 'bg-(--secondary) text-neutral-100',
-  outlineSecondary: 'outline outline-(--secondary)',
-  success: 'bg-(--success) text-neutral-100',
-  outlineSuccess: 'outline outline-(--success) text-(--success)',
-  info: 'bg-(--info) text-neutral-100',
-  outlineInfo: 'outline outline-(--info) text-(--info)',
-  warning: 'bg-(--warning) text-neutral-700',
-  outlineWarning: 'outline outline-(--warning) text-(--warning)',
-  destructive: 'bg-(--destructive) text-neutral-100',
-  outlineDestructive: 'outline outline-(--destructive) text-(--destructive)',
-  light: 'bg-white text-(--secondary)',
-  outlineLight: 'outline outline-gray-300',
-  ghost: 'text-(--secondary)',
+  primary: 'bg-primary-intense text-inverse',
+  outlinePrimary: 'outline text-primary',
+  secondary: 'bg-secondary-intense-pressed text-inverse',
+  outlineSecondary: 'outline',
+  success: 'bg-success-intense text-inverse',
+  outlineSuccess: 'outline text-success',
+  info: 'bg-info-intense text-inverse',
+  outlineInfo: 'outline text-info',
+  warning: 'bg-warning-intense text-warning-inverse',
+  outlineWarning: 'outline text-warning',
+  destructive: 'bg-destructive-intense text-inverse',
+  outlineDestructive: 'outline text-destructive',
+  light: 'bg-default text-secondary',
+  outlineLight: 'outline outline-disabled',
+  ghost: 'text-secondary',
 } as const
 
 export const roundedMap = {
@@ -24,7 +24,7 @@ export const roundedMap = {
 } as const
 
 export const sizeMap = {
-  xs: 'p-1 text-xs leading-2',
+  xs: 'p-1.5 text-xs leading-2',
   sm: 'px-2.5 py-1.5 text-sm leading-3',
   md: 'px-3.5 py-2.5 text-base leading-4',
   lg: 'px-4.5 py-3.5 text-lg leading-5',
