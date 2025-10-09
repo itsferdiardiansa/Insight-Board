@@ -21,7 +21,7 @@ type FormData = z.infer<typeof schema>
 const meta: Meta<typeof Form> = {
   title: 'UI/Form',
   component: Form,
-  tags: ['autodocs'],
+  tags: ['dev'],
 }
 
 export default meta
@@ -29,7 +29,7 @@ export default meta
 type Story = StoryObj<typeof Form>
 
 export const FormBasic: Story = {
-  tags: ['prod'],
+  tags: ['dev'],
   render: () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const methods = useForm<FormData>({

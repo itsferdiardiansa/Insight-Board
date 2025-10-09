@@ -10,7 +10,7 @@ const meta: Meta<typeof Alert> = {
   parameters: {
     layout: 'centered',
   },
-  tags: ['dev', 'prod'],
+  tags: ['dev'],
   args: {
     variant: 'primary',
     icon: 'info',

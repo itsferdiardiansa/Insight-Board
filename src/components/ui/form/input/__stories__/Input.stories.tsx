@@ -4,7 +4,7 @@ import { Input } from '../Input'
 const meta: Meta<typeof Input> = {
   title: 'UI/Form/Input',
   component: Input,
-  tags: ['prod'],
+  tags: ['dev'],
   argTypes: {
     fullWidth: {
       control: 'boolean',

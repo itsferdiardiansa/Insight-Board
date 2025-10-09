@@ -21,7 +21,8 @@
     "test:coverage": "jest --coverage",
     "type-check": "tsc --noEmit",
     "ui:dev": "storybook dev -p 6006 --no-open",
-    "ui:build": "storybook build"
+    "ui:build": "storybook build",
+    "ui:deploy": "vercel build --target=production --cwd .vercel-ui && vercel deploy --prebuilt --cwd .vercel-ui --prod --logs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.0",

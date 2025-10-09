@@ -7,7 +7,7 @@ import { Switch } from '@/components/ui/switch'
 const meta: Meta<typeof Drawer> = {
   title: 'UI/Drawer',
   component: Drawer,
-  tags: ['prod'],
+  tags: ['dev'],
   parameters: {
     layout: 'fullscreen',
   },

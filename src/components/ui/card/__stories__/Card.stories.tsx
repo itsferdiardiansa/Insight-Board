@@ -10,7 +10,7 @@ const textSizeKeys = Object.keys(textSizeMap)
 const meta: Meta<typeof Card> = {
   title: 'UI/Card',
   component: Card,
-  tags: ['prod'],
+  tags: ['dev'],
   parameters: {
     actions: { disable: true },
     deepControls: {

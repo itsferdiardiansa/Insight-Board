@@ -7,7 +7,7 @@ import { Switch } from '..'
 const meta: Meta<typeof Switch> = {
   title: 'UI/Switch',
   component: Switch,
-  tags: ['prod'],
+  tags: ['dev'],
   parameters: {
     layout: 'centered',
   },

@@ -5,7 +5,7 @@ import { MaskedInput } from '../MaskedInput'
 const meta: Meta<typeof MaskedInput> = {
   title: 'UI/Form/MaskedInput',
   component: MaskedInput,
-  tags: ['prod'],
+  tags: ['dev'],
   argTypes: {
     maskPreset: {
       control: 'select',

@@ -4,7 +4,7 @@ import { BrandLogo } from '..'
 const meta: Meta<typeof BrandLogo> = {
   title: 'UI/BrandLogo',
   component: BrandLogo,
-  tags: ['prod'],
+  tags: ['dev'],
 }
 
 export default meta
