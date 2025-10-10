@@ -1,14 +1,15 @@
 import { Meta, StoryObj } from '@storybook/nextjs'
-import { Newsletter } from './Newsletter'
+import { Newsletter } from '../Newsletter'
 
 const meta: Meta<typeof Newsletter> = {
   title: 'Features/Newsletter',
   component: Newsletter,
-  tags: ['autodocs'],
+  tags: ['dev'],
   args: {
     variant: 'horizontal',
     formLayout: 'horizontal',
     isAnimate: true,
+    disabled: true,
   },
   argTypes: {
     variant: {
@@ -39,13 +40,22 @@ const meta: Meta<typeof Newsletter> = {
     },
     isAnimate: {
       control: 'boolean',
-      description: 'Use animate or not',
+      description: 'Use GSAP animation or not',
       table: {
         defaultValue: {
           summary: 'true',
         },
       },
     },
+    disabled: {
+      control: 'boolean',
+      description: 'Disable the input and button',
+      table: {
+        defaultValue: {
+          summary: 'false',
+        },
+      },
+    }
   },
 }
 
@@ -53,3 +63,16 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Vertical: Story = {
+  args: {
+    variant: 'vertical',
+    formLayout: 'vertical',
+  },
+}
+
+export const NoAnimate: Story = {
+  args: {
+    isAnimate: false,
+  },
+}

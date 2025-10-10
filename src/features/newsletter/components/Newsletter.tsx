@@ -23,11 +23,13 @@ const newsletterVariants = cva('', {
 export interface NewsletterProps
   extends VariantProps<typeof newsletterVariants> {
   isAnimate?: boolean
+  disabled?: boolean
 }
 
 export const Newsletter: React.FC<NewsletterProps> = ({
   variant = 'horizontal',
   formLayout = 'horizontal',
+  disabled,
   isAnimate,
 }) => {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -100,8 +102,8 @@ export const Newsletter: React.FC<NewsletterProps> = ({
           isAnimate && 'opacity-0'
         )}
       >
-        <Input type="email" label="Enter your email" fullWidth />
-        <Button variant="secondary" type="submit">
+        <Input type="email" label="Enter your email" disabled={disabled} fullWidth />
+        <Button variant="secondary" type="submit" disabled={disabled}>
           Subscribe
         </Button>
       </div>

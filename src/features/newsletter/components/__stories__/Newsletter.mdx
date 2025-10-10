@@ -1,0 +1,84 @@
+import { Meta, Story, ArgTypes, Controls, Source } from "@storybook/addon-docs/blocks"
+import * as NewsletterStories from "./Newsletter.stories"
+import { Canvas } from "@/stories/_components/Canvas"
+import { DocInfo } from "@/stories/_components/DocInfo"
+
+<Meta title="Features/Newsletter" of={NewsletterStories} />
+
+# Newsletter
+To subscribe to our newsletter and stay updated with the latest news and updates.
+<DocInfo 
+  importStatement={`import { Newsletter } from "@/features/newsletter/components/Newsletter"`} 
+  sourcePath={`features/newsletter/components/Newsletter`} 
+/>
+
+<br />
+
+## **Overview**
+This component is designed to capture user email addresses for newsletter subscriptions. 
+It typically includes an input field for the email address and a submit button to send the information. Make sure to handle form validation and submission logic appropriately.
+And it can be customized with different styles and layouts to fit the overall design of your application.
+
+<br />
+
+## **Examples**
+### **Default**
+<Canvas>
+  <Canvas.Story>
+    <Story of={NewsletterStories.Default} />
+  </Canvas.Story>
+
+  <Canvas.Source>
+    <Source className="my-0!" dark code={`
+      import { Newsletter } from "@/features/newsletter/components/Newsletter"
+
+      const NewsletterExample = () => {
+        return <Newsletter />
+      };
+    `} />
+  </Canvas.Source>
+</Canvas>
+
+<br />
+
+### **Vertical**
+<Canvas>
+  <Canvas.Story>
+    <Story of={NewsletterStories.Vertical} />
+  </Canvas.Story>
+
+  <Canvas.Source>
+    <Source className="my-0!" dark code={`
+      import { Newsletter } from "@/features/newsletter/components/Newsletter"
+
+      const NewsletterExample = () => {
+        return <Newsletter layout="vertical" formLayout="vertical />
+      };
+    `} />
+  </Canvas.Source>
+</Canvas>
+
+<br />
+### **No Animate**
+<Canvas>
+  <Canvas.Story>
+    <Story of={NewsletterStories.NoAnimate} />
+  </Canvas.Story>
+
+  <Canvas.Source>
+    <Source className="my-0!" dark code={`
+      import { Newsletter } from "@/features/newsletter/components/Newsletter"
+
+      const NewsletterExample = () => {
+        return <Newsletter isAnimate={false} />
+      };
+    `} />
+  </Canvas.Source>
+</Canvas>
+
+<br />
+
+## **API**
+Below is a comprehensive list of all the props available for the Button component, along with their types, default values, and descriptions.
+<ArgTypes />
+
