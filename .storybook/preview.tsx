@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react-webpack5'
-import { DocsContainer, Unstyled } from "@storybook/addon-docs/blocks"
+import { DocsContainer } from "@storybook/addon-docs/blocks"
 
 import '../src/styles/globals.css'
 import '../src/styles/prose.css'

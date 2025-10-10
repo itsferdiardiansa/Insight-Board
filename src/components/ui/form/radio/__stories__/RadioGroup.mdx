@@ -71,12 +71,61 @@ import { TableOfContents } from "@/stories/_components/TableOfContents"
     ## **FAQ**
     ### **What are the different states of radio buttons?**
     Radio buttons can be in various states such as checked, unchecked, disabled, and focused.
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <RadioGroup value={value} onChange={setValue} name="billingCycle">
+          <Radio 
+            label="Checked"
+            name="state"
+            value="checked"
+            checked
+          />
+          <Radio 
+            label="Unchecked"
+            name="state"
+            value="unchecked"
+          />
+          <Radio 
+            label="Disabled"
+            name="state"
+            value="disabled"
+            disabled
+          />
+        </RadioGroup>
+      `} />
+    </Canvas.Source>
 
     ### **How do I group multiple radio buttons?**
     Use the same `name` attribute for all radio buttons in a group to ensure only one can be selected at a time.
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <RadioGroup value={value} onChange={setValue} name="billingCycle">
+          <Radio 
+            label="Option 1"
+            name="group1"
+            value="option1"
+          />
+          <Radio 
+            label="Option 2"
+            name="group1"
+            value="option2"
+          />
+        <RadioGroup>
+      `} />
+    </Canvas.Source>
 
     ### **How do I make a radio button required?**
     Add the `required` attribute to the radio button input to make it mandatory for form submission
+    <Canvas.Source>
+      <Source className="my-0!" dark code={`
+        <Radio 
+          label="Required Option"
+          name="requiredGroup"
+          value="requiredOption"
+          required
+        />
+      `} />
+    </Canvas.Source>
   </div>
 
   <div className="hidden lg:block sticky top-24 h-max self-start">

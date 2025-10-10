@@ -16,7 +16,7 @@ const flexibleComponents = [
   {
     thumb: '/assets/form-illustration.jpg',
     title: 'Form',
-    link: '/?path=/docs/ui-form--docs',
+    link: '/?path=/docs/ui-form-input--docs',
     description:
       'Forms collect and validate user input. They must be intuitive, efficient, and consistent while ensuring accessibility and usability.',
   },

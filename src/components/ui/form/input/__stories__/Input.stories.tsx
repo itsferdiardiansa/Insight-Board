@@ -18,10 +18,10 @@ const meta: Meta<typeof Input> = {
     },
     type: {
       control: 'select',
-      options: ['text', 'email', 'password', 'number', 'search'],
+      options: ['text', 'password', 'number', 'search'],
       description: 'The type of input',
       table: {
-        type: { summary: 'text | email | password | number | search' },
+        type: { summary: 'text | password | number | search' },
         defaultValue: { summary: 'text' },
       },
     },
@@ -92,14 +92,6 @@ export const Text: Story = {
     type: 'text',
     label: 'Text',
     placeholder: 'Enter text',
-  },
-}
-
-export const Email: Story = {
-  args: {
-    type: 'email',
-    label: 'Email',
-    placeholder: 'Enter email',
   },
 }
 

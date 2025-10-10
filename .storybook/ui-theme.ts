@@ -12,7 +12,7 @@ export default create({
   // === Brand ===
   brandTitle: 'InsightBoard UI',
   brandUrl: 'https://insightboard.com',
-  brandImage: '/icon-192.png',
+  brandImage: '/brand-logo-ui.png',
   brandTarget: '_self',
 
   // === Solid Colors ===
